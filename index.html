@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="唐乐的个人网站 - 软件工程应届生，专注微信小程序与云开发" />
+    <title>唐乐 | 软件工程师</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到顶部">
+        <span class="brand-mark">TL</span>
+        <span>唐乐</span>
+      </a>
+      <nav aria-label="主导航">
+        <a href="#about">关于我</a>
+        <a href="#projects">项目</a>
+        <a href="#skills">技能</a>
+        <a href="#resume">简历</a>
+      </nav>
+    </header>
+
+    <main id="top">
+
+      <!-- ===== HERO ===== -->
+      <section class="hero">
+        <div class="hero-bg">
+          <img src="hero-bg.jpg" alt="主视觉背景" loading="eager" onerror="this.style.display='none'" />
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-deco hero-deco-1"></div>
+        <div class="hero-deco hero-deco-2"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Software Engineering &bull; WeChat Mini Program &bull; Cloud Development</p>
+          <h1>用代码构建<br/>有温度的产品</h1>
+          <p class="lead">
+            我是唐乐，上海应用技术大学软件工程专业应届生。热爱微信小程序开发，擅长云开发、前端技术与 AI 工具应用。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>查看项目</a>
+            <a class="button ghost" href="tang-le-resume.pdf" download>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下载简历 PDF</a>
+          </div>
+        </div>
+        <div class="scroll-hint">
+          <svg width="20" height="30" viewBox="0 0 20 30"><rect x="1" y="1" width="18" height="28" rx="9" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="3" fill="currentColor"><animate attributeName="cy" values="10;18;10" dur="2s" repeatCount="indefinite"/></circle></svg>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section class="section-wrap" id="about">
+        <div class="section-bg about-bg"></div>
+        <div class="section-inner">
+          <p class="section-kicker">About</p>
+          <div class="split">
+            <div>
+              <h2>关于我</h2>
+              <aside class="profile-board" aria-label="个人资料卡片">
+                <div class="board-topline"></div>
+                <div class="terminal-dots"><span></span><span></span><span></span></div>
+                <div class="board-content">
+                  <p class="board-label">Current Focus</p>
+                  <h3>小程序开发</h3>
+                  <div class="metric-grid">
+                    <div><strong>2</strong><span>完整项目</span></div>
+                    <div><strong>CET-6</strong><span>英语六级</span></div>
+                    <div><strong>应届</strong><span>求职中</span></div>
+                  </div>
+                  <div class="code-card">
+                    <span><em>function</em> buildProject() {</span>
+                    <span>&nbsp;&nbsp;design(); develop(); test();</span>
+                    <span>&nbsp;&nbsp;shipToGitHub();</span>
+                    <span>}</span>
+                  </div>
+                </div>
+              </aside>
+            </div>
+            <div class="about-text">
+              <p>
+                21岁，共青团员，上海应用技术大学软件工程专业本科在读。积极进取，已被评为入党积极分子并完成党校培训。
+              </p>
+              <p>
+                具备丰富的团队组建与项目管理经验，工作积极认真，细心负责。善于发现问题、分析问题、解决问题，有较强的分析力与执行力。
+              </p>
+              <div class="contact-info">
+                <div><strong>电话</strong><span>18064871268</span></div>
+                <div><strong>邮箱</strong><span>2061790875@qq.com</span></div>
+                <div><strong>GitHub</strong><a href="https://github.com/tl66666" target="_blank" rel="noreferrer">github.com/tl66666</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROJECTS ===== -->
+      <section class="section-wrap" id="projects">
+        <div class="section-bg projects-bg"></div>
+        <div class="section-inner">
+          <div class="section-head">
+            <p class="section-kicker">Projects</p>
+            <h2>项目作品</h2>
+            <p>独立完成的微信小程序项目，覆盖自律打卡与旅行社交场景</p>
+          </div>
+
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="project-screenshot">
+                <img src="assets/xing-tu.jpg" alt="星途自律舱小程序截图" />
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-index">01</div>
+              <p class="project-type">微信小程序 &bull; 云开发 &bull; 自律打卡</p>
+              <h3>星途自律舱</h3>
+              <p>
+                星球养成式自律打卡微信小程序，围绕运动、饮食、学习、工作、计划、睡眠构建六维打卡体系，通过"目标设定 - 自定义计划 - 打卡反馈 - 星球成长"体验闭环，帮助用户养成良好习惯。
+              </p>
+              <ul class="project-points">
+                <li>独立完成需求拆解、页面设计与核心功能开发</li>
+                <li>实现星光奖励、宝箱、成就墙、生态区入口和数据统计模块</li>
+                <li>接入微信云开发，完成登录、打卡、统计、数据导出等云函数</li>
+                <li>使用 Node.js Test Runner 覆盖核心逻辑单元测试</li>
+              </ul>
+              <div class="tag-row">
+                <span>微信小程序</span><span>JavaScript</span><span>云开发</span><span>WXML/WXSS</span><span>Node.js</span>
+              </div>
+              <a class="text-link" href="https://github.com/tl66666/xtzlc" target="_blank" rel="noreferrer">查看 GitHub →</a>
+            </div>
+          </article>
+
+          <article class="project-card alt">
+            <div class="project-visual">
+              <div class="project-screenshot">
+                <img src="assets/cheng-hui-wan.jpg" alt="城会玩2.0小程序截图" />
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-index">02</div>
+              <p class="project-type">微信小程序 &bull; 云开发 &bull; 旅行社交</p>
+              <h3>城会玩 2.0</h3>
+              <p>
+                融合旅行打卡、角色卡抽卡收集与成就系统的微信小程序，覆盖中国 34 个省份 484 个城市。用户在地图上点亮城市、解锁省份专属角色卡，通过拍照记录旅行见闻。
+              </p>
+              <ul class="project-points">
+                <li>Canvas 地图可视化，支持城市点亮与足迹展示</li>
+                <li>角色卡抽卡系统（R / SR / SSR / UR 四档稀有度）</li>
+                <li>组队共享足迹和成就排行，支持拍照记录旅行见闻</li>
+                <li>小程序分包加载、本地数据持久化、InnerAudioContext 音效引擎</li>
+              </ul>
+              <div class="tag-row">
+                <span>微信小程序</span><span>CloudBase</span><span>Canvas</span><span>分包加载</span>
+              </div>
+              <a class="text-link" href="https://github.com/tl66666/chw2.0" target="_blank" rel="noreferrer">查看 GitHub →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== SKILLS ===== -->
+      <section class="section-wrap" id="skills">
+        <div class="section-bg skills-bg"></div>
+        <div class="section-inner">
+          <div class="section-head">
+            <p class="section-kicker">Skills</p>
+            <h2>技能特长</h2>
+          </div>
+          <div class="skills-container">
+            <div class="skill-category">
+              <h4>编程语言</h4>
+              <div class="skill-grid"><span>Java</span><span>Python</span><span>C/C++</span><span>JavaScript</span><span>HTML / CSS</span><span>SQL</span></div>
+            </div>
+            <div class="skill-category">
+              <h4>技术栈</h4>
+              <div class="skill-grid"><span>微信小程序</span><span>微信云开发</span><span>Vue.js</span><span>MySQL</span><span>GitHub</span><span>Node.js</span></div>
+            </div>
+            <div class="skill-category">
+              <h4>工具 & AI</h4>
+              <div class="skill-grid"><span>Claude Code</span><span>Trae</span><span>GitHub Copilot</span><span>剪映</span><span>Office 套件</span></div>
+            </div>
+            <div class="skill-category">
+              <h4>语言能力</h4>
+              <div class="skill-grid"><span>英语 CET-6</span><span>熟练交流读写</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== EXPERIENCE ===== -->
+      <section class="section-wrap" id="experience">
+        <div class="section-bg exp-bg"></div>
+        <div class="section-inner">
+          <div class="section-head">
+            <p class="section-kicker">Experience</p>
+            <h2>实践经历</h2>
+          </div>
+          <div class="experience-list">
+            <div class="experience-item">
+              <div class="experience-meta">
+                <span class="experience-date">2024.10</span>
+                <span class="experience-tag">志愿服务</span>
+              </div>
+              <h4>校园运动会志愿服务</h4>
+              <p>负责运动员检录、赛道引导、物资分发、成绩登记协助，锻炼执行力、沟通能力与现场应急处理能力。</p>
+            </div>
+            <div class="experience-item">
+              <div class="experience-meta">
+                <span class="experience-date">2025.01 &mdash; 2025.02</span>
+                <span class="experience-tag">公益服务</span>
+              </div>
+              <h4>社区电脑维修公益服务</h4>
+              <p>为社区居民提供电脑系统调试、软件安装、网络故障排查等技术支持，运用专业知识解决实际问题，增强服务意识与动手能力。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== RESUME ===== -->
+      <section class="section-wrap" id="resume">
+        <div class="section-bg resume-section-bg"></div>
+        <div class="section-inner">
+          <div class="resume">
+            <div class="resume-content">
+              <p class="section-kicker">Resume</p>
+              <h2>下载简历</h2>
+              <p>获取我的完整简历，了解详细的教育背景、项目经历与技能特长</p>
+            </div>
+            <div class="resume-actions">
+              <a class="button primary" href="tang-le-resume.pdf" download>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下载 PDF 简历</a>
+              <a class="button ghost" href="tang-le-resume.docx" download>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>下载 Word 简历</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FOOTER ===== -->
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <span class="brand-mark">TL</span>
+            <span>唐乐 &middot; 软件工程师 &middot; 2026</span>
+          </div>
+          <p class="footer-contact">18064871268 &middot; 2061790875@qq.com</p>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
