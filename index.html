@@ -796,6 +796,15 @@
       letter-spacing: -0.08em;
     }
 
+    .project-title-line {
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(14px, 2vw, 24px);
+      margin-bottom: 12px;
+    }
+
+    .project-title-line .project-number { flex: 0 0 auto; }
+
     .project-card h3 {
       margin: 16px 0 14px;
       font-size: clamp(30px, 5vw, 70px);
@@ -848,6 +857,7 @@
     }
 
     .media-grid {
+      position: relative;
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
       grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -889,6 +899,47 @@
       font-size: 12px;
       background: rgba(0, 0, 0, 0.48);
       backdrop-filter: blur(12px);
+    }
+
+    .project-qr {
+      display: grid;
+      grid-template-columns: 78px minmax(0, 1fr);
+      gap: 11px;
+      align-items: center;
+      width: min(230px, 100%);
+      margin-top: 8px;
+      padding: 10px 11px;
+      border: 1px solid color-mix(in srgb, var(--project-accent) 36%, rgba(255,255,255,0.18));
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--project-accent) 20%, transparent), transparent 42%),
+        rgba(8, 8, 7, 0.44);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.32);
+      backdrop-filter: blur(10px) saturate(1.08);
+    }
+
+    .project-qr img {
+      width: 78px;
+      height: 78px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #fff;
+      padding: 4px;
+    }
+
+    .project-qr b {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--cream);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .project-qr span {
+      display: block;
+      color: var(--cream-soft);
+      font-size: 12px;
+      line-height: 1.35;
     }
 
     .timeline {
@@ -1133,6 +1184,8 @@
       .contact h2 { font-size: clamp(42px, 15vw, 70px); }
       .media-grid { grid-template-columns: 1fr; grid-template-rows: none; min-height: auto; }
       .media-tile, .media-tile.tall { height: 260px; grid-row: auto; }
+      .project-title-line { flex-direction: column; gap: 10px; }
+      .project-qr { width: min(260px, 100%); margin-top: 0; }
       .timeline-item, .timeline-item:nth-child(2) { border-right: none; border-bottom: 1px solid var(--line); }
       .timeline-item:last-child { border-bottom: none; }
       .button-row { flex-direction: column; }
@@ -1287,7 +1340,13 @@
 
           <article class="project-card reveal">
             <div>
-              <div class="project-number">02</div>
+              <div class="project-title-line">
+                <div class="project-number">02</div>
+                <div class="project-qr">
+                  <img src="assets/portfolio/xingtu/qrcode.jpg" alt="星途自律舱微信小程序码">
+                  <div><b>扫码体验</b><span>微信打开星途自律舱小程序</span></div>
+                </div>
+              </div>
               <p class="kicker">Planet Habit System</p>
               <h3>星途自律舱</h3>
               <p>星球养成式自律打卡微信小程序，围绕运动、饮食、学习、工作、计划、睡眠构建六维打卡体系，把清单式任务转化成可成长、可反馈的星球生态。</p>
@@ -1309,7 +1368,13 @@
 
           <article class="project-card reveal">
             <div>
-              <div class="project-number">03</div>
+              <div class="project-title-line">
+                <div class="project-number">03</div>
+                <div class="project-qr">
+                  <img src="assets/portfolio/chenghuiwan/qrcode.jpg" alt="城会玩 2.0 微信小程序码">
+                  <div><b>扫码体验</b><span>微信打开城会玩 2.0 小程序</span></div>
+                </div>
+              </div>
               <p class="kicker">City Explore Mini Program</p>
               <h3>城会玩 2.0</h3>
               <p>融合旅行打卡、角色卡抽卡收集、成就系统和群组共享的微信小程序。用户可以点亮城市、解锁省份角色卡、记录旅行照片，并和朋友共享足迹与排行榜。</p>
