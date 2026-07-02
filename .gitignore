@@ -12,3 +12,7 @@ Desktop.ini
 # 临时文件
 *.tmp
 *.log
+
+# 本地预览与截图输出
+output/
+.uploads/
