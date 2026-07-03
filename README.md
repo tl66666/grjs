@@ -22,25 +22,25 @@
 
 ## 项目展示
 
-### 职途 AI
+### [职途 AI](https://tl66666.github.io/ztai/static/showcase.html)
 
 AI Agent 求职辅助 Web 系统，围绕简历解析、JD 分析、岗位匹配、模拟面试和投递进度管理，解决求职准备流程分散的问题。
 
 技术栈：Python、Flask、SQLite、JavaScript、Chart.js、MediaRecorder、REST API、多模型 AI 接口。
 
-### 星途自律舱
+### [星途自律舱](https://tl66666.github.io/xtzlc/)
 
 星球养成式自律打卡微信小程序，将运动、饮食、学习、工作、计划、睡眠等目标转化为成长反馈，解决传统待办工具反馈弱、坚持成本高的问题。
 
 技术栈：微信原生小程序、WXML、WXSS、JavaScript、云开发、Node.js Test Runner。
 
-### 城会玩 2.0
+### [城会玩 2.0](https://tl66666.github.io/chw2.0/)
 
 城市照片手账与旅行回忆归档微信小程序，以“城市”为照片和笔记容器，让用户按城市找回旅行中的美景、美食和记录。
 
 技术栈：微信原生小程序、WXML、WXSS、JavaScript、图片上传、云存储、内容安全。
 
-### 梦弦 DreamChord
+### [梦弦 DreamChord](https://tl66666.github.io/DreamChord/)
 
 Web 端视觉小说创作平台，通过章节、场景、镜头卡三级结构组织剧情，支持流程图可视化、分支检测、素材管理、AI 辅助创作和播放器预览。
 

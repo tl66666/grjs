@@ -856,6 +856,49 @@
       box-shadow: 0 0 18px var(--project-accent);
     }
 
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 15px;
+      border: 1px solid color-mix(in srgb, var(--project-accent) 46%, rgba(231, 226, 204, 0.2));
+      border-radius: 999px;
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 18% 16%, color-mix(in srgb, var(--project-accent) 22%, transparent), transparent 42%),
+        rgba(255, 255, 255, 0.055);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .project-link:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--project-accent) 76%, rgba(231, 226, 204, 0.44));
+      background:
+        radial-gradient(circle at 18% 16%, color-mix(in srgb, var(--project-accent) 30%, transparent), transparent 42%),
+        rgba(255, 255, 255, 0.095);
+    }
+
+    .project-link.secondary {
+      color: var(--cream-soft);
+      background: rgba(255, 255, 255, 0.035);
+      border-color: rgba(231, 226, 204, 0.16);
+      font-weight: 600;
+    }
+
     .media-grid {
       position: relative;
       display: grid;
@@ -1330,6 +1373,10 @@
                 <li>实现 PDF/Word 简历上传解析、简历导出转换、JD 匹配建议、技能图谱、投递看板和求职进度管理。</li>
                 <li>模拟面试模块支持语音录制回放、语速停顿分析和面试记录沉淀，帮助用户复盘表达问题。</li>
               </ul>
+              <div class="project-actions" aria-label="职途 AI 项目链接">
+                <a class="project-link" href="https://tl66666.github.io/ztai/static/showcase.html" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
+                <a class="project-link secondary" href="https://github.com/tl66666/ztai" target="_blank" rel="noopener">源码仓库</a>
+              </div>
             </div>
             <div class="media-grid">
               <div class="media-tile" data-label="Dashboard"><img src="assets/portfolio/jobhunter/overview.png" alt="职途 AI 项目总览界面"></div>
@@ -1358,6 +1405,10 @@
                 <li>实现星光奖励、宝箱、成就墙、生态区入口、数据统计和云函数同步，兼顾本地数据兜底。</li>
                 <li>使用 Node.js Test Runner 覆盖奖励计算、目标进度、成就解锁和统计聚合等核心逻辑。</li>
               </ul>
+              <div class="project-actions" aria-label="星途自律舱项目链接">
+                <a class="project-link" href="https://tl66666.github.io/xtzlc/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
+                <a class="project-link secondary" href="https://github.com/tl66666/xtzlc" target="_blank" rel="noopener">源码仓库</a>
+              </div>
             </div>
             <div class="media-grid">
               <div class="media-tile" data-label="Planet"><img src="assets/portfolio/xingtu/planet.png" alt="星途自律舱星球资产"></div>
@@ -1386,6 +1437,10 @@
                 <li>围绕用户旅游后找照片难的痛点，设计点亮城市、上传照片、添加笔记、按城市检索的完整记录路径。</li>
                 <li>角色卡、成就和群组共享作为增强玩法，用来提升记录动力，并让朋友/家人能看到同一座城市下的共同照片。</li>
               </ul>
+              <div class="project-actions" aria-label="城会玩 2.0 项目链接">
+                <a class="project-link" href="https://tl66666.github.io/chw2.0/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
+                <a class="project-link secondary" href="https://github.com/tl66666/chw2.0" target="_blank" rel="noopener">源码仓库</a>
+              </div>
             </div>
             <div class="media-grid">
               <div class="media-tile" data-label="Brand"><img src="assets/portfolio/chenghuiwan/logo.jpg" alt="城会玩 2.0 标识"></div>
@@ -1410,6 +1465,10 @@
                 <li>构建运行时引擎（DFS 转换 + 状态机），实现打字机效果、角色立绘分层、场景切换动画与 Web Audio 音效的完整播放器。</li>
                 <li>搭建角色立绘素材流水线：AI 生成白底原图 → 自动去背景导出透明 PNG → 立绘交付规范校验，配合素材库面板实现编辑器内直接选用。</li>
               </ul>
+              <div class="project-actions" aria-label="梦弦 DreamChord 项目链接">
+                <a class="project-link" href="https://tl66666.github.io/DreamChord/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
+                <a class="project-link secondary" href="https://github.com/tl66666/DreamChord" target="_blank" rel="noopener">源码仓库</a>
+              </div>
             </div>
             <div class="media-grid">
               <div class="media-tile" data-label="Home"><img src="assets/portfolio/dreamchord/home.png" alt="梦弦 DreamChord 首页"></div>
