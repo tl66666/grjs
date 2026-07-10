@@ -1296,7 +1296,7 @@
             </div>
           </article>
           <div class="skill-matrix">
-            <article class="skill-block reveal"><b>后端与数据</b><span>Python / Flask / Node.js / Express / Prisma / SQLite / MySQL / JWT / REST API / 文件上传 / PDF 与 Word 转换</span></article>
+            <article class="skill-block reveal"><b>后端与数据</b><span>Python / Flask / Node.js / Express / Prisma / SQLite / MySQL / JWT / REST API / 数据库设计</span></article>
             <article class="skill-block reveal"><b>前端工程</b><span>HTML5 / CSS3 / JavaScript / TypeScript / React / Vue / Vite / Tailwind CSS / framer-motion / Chart.js / 响应式布局</span></article>
             <article class="skill-block reveal"><b>小程序工程</b><span>WXML / WXSS / JavaScript / 微信云开发 / 云函数 / 云数据库 / 云存储 / 图片上传 / 分包加载 / 内容安全</span></article>
             <article class="skill-block reveal"><b>AI 协作与 Vibe Coding</b><span>Vibe Coding 全流程交付 / Codex / Claude Code / Trae / GitHub Copilot / Prompt 迭代 / 代码调试 / 测试验证 / 文档沉淀</span></article>
@@ -1362,16 +1362,16 @@
           <article class="project-card reveal">
             <div>
               <div class="project-number">01</div>
-              <p class="kicker">AI Career Assistant</p>
+              <p class="kicker">Agent-based Career OS</p>
               <h3>职途 AI</h3>
-              <p>面向求职准备与投递管理的 AI 辅助 Web 系统，解决简历内容分散、JD 匹配低效、面试练习缺少反馈、投递进度难追踪的问题。封装统一 AI 模型调用层，未配置 Key 时本地规则引擎兜底，保证功能不中断。</p>
+              <p>基于 Agent 的求职辅助 Web 系统，把简历诊断、JD 匹配、模拟面试、投递追踪和 AI 教练整合成一条数据可流通的六步闭环。AI 教练模块基于 ReAct 框架实现，由大模型自主思考、选择工具、多轮推理并判断何时完成。</p>
               <div class="tag-list">
-                <span>Python</span><span>Flask</span><span>SQLite</span><span>AI 模型网关</span><span>Chart.js</span><span>规则引擎</span>
+                <span>Python</span><span>Flask</span><span>SQLite</span><span>ReAct Agent</span><span>Chart.js</span><span>Web Speech API</span>
               </div>
               <ul class="project-points">
-                <li>设计三个核心引擎：简历分析（技能词典匹配 + 正则提取 + 加权评分）、岗位匹配（集合对比 + 经验加分）、面试引擎（按岗位抽题 + 五维评分）。</li>
-                <li>封装多模型 AI 网关，统一接入 GLM / DeepSeek / Kimi 三家供应商，策略模式切换，API 不可用时自动降级到本地规则引擎。</li>
-                <li>实现 4 张数据库表 / RESTful API 全覆盖，前端 SPA 单页应用含技能图谱可视化、投递看板和语音录制回放。</li>
+                <li>ReAct 框架手写实现 AI Agent（不依赖 LangChain），注册 13 个工具，LLM 自主思考 → 选择工具 → 多轮推理 → 判断完成，非代码写死的固定流程。</li>
+                <li>多模型 AI 网关（策略模式接入 GLM / DeepSeek / Kimi，API 不可用时降级到本地规则引擎）；面试引擎状态机（追问追踪 + 五维评分 + 幻觉控制）。</li>
+                <li>简历五维诊断和 JD 关键词匹配；语音表达分析（语速 - 停顿 - 语气词评分 + 录音回放）；6 张数据库表 / 52 个 RESTful API；前端 SPA 双主题切换 + 一键启动脚本。</li>
               </ul>
               <div class="project-actions" aria-label="职途 AI 项目链接">
                 <a class="project-link" href="https://tl66666.github.io/ztai/static/showcase.html" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
