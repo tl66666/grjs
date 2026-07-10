@@ -1362,16 +1362,16 @@
           <article class="project-card reveal">
             <div>
               <div class="project-number">01</div>
-              <p class="kicker">AI Agent Career OS</p>
+              <p class="kicker">AI Career Assistant</p>
               <h3>职途 AI</h3>
-              <p>面向求职准备与投递管理的 AI 辅助 Web 系统，解决简历内容分散、JD 匹配低效、面试练习缺少反馈、投递进度难追踪的问题。系统把“简历准备 - 岗位匹配 - 模拟面试 - 投递复盘”串成完整流程。</p>
+              <p>面向求职准备与投递管理的 AI 辅助 Web 系统，解决简历内容分散、JD 匹配低效、面试练习缺少反馈、投递进度难追踪的问题。封装统一 AI 模型调用层，未配置 Key 时本地规则引擎兜底，保证功能不中断。</p>
               <div class="tag-list">
-                <span>Python</span><span>Flask</span><span>SQLite</span><span>GLM / DeepSeek / Kimi</span><span>MediaRecorder</span><span>Chart.js</span>
+                <span>Python</span><span>Flask</span><span>SQLite</span><span>AI 模型网关</span><span>Chart.js</span><span>规则引擎</span>
               </div>
               <ul class="project-points">
-                <li>封装统一 AI 模型调用层，支持 GLM / DeepSeek / Kimi 等模型切换，并在未配置 Key 时提供本地规则兜底。</li>
-                <li>实现 PDF/Word 简历上传解析、简历导出转换、JD 匹配建议、技能图谱、投递看板和求职进度管理。</li>
-                <li>模拟面试模块支持语音录制回放、语速停顿分析和面试记录沉淀，帮助用户复盘表达问题。</li>
+                <li>设计三个核心引擎：简历分析（技能词典匹配 + 正则提取 + 加权评分）、岗位匹配（集合对比 + 经验加分）、面试引擎（按岗位抽题 + 五维评分）。</li>
+                <li>封装多模型 AI 网关，统一接入 GLM / DeepSeek / Kimi 三家供应商，策略模式切换，API 不可用时自动降级到本地规则引擎。</li>
+                <li>实现 4 张数据库表 / RESTful API 全覆盖，前端 SPA 单页应用含技能图谱可视化、投递看板和语音录制回放。</li>
               </ul>
               <div class="project-actions" aria-label="职途 AI 项目链接">
                 <a class="project-link" href="https://tl66666.github.io/ztai/static/showcase.html" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
@@ -1401,9 +1401,9 @@
                 <span>微信小程序</span><span>WXML</span><span>WXSS</span><span>JavaScript</span><span>云开发</span><span>Node.js Test Runner</span>
               </div>
               <ul class="project-points">
-                <li>设计“目标设定 - 自定义计划 - 每日打卡 - 奖励反馈 - 星球成长 - 数据复盘”的体验闭环。</li>
-                <li>实现星光奖励、宝箱、成就墙、生态区入口、数据统计和云函数同步，兼顾本地数据兜底。</li>
-                <li>使用 Node.js Test Runner 覆盖奖励计算、目标进度、成就解锁和统计聚合等核心逻辑。</li>
+                <li>设计"计划中心 → 行动舱专注计时 → 每日提醒 → 奖励反馈 → 星球成长 → 数据复盘"的完整闭环，支持制定计划、设定提醒时间、专注模式全屏沉浸打卡。</li>
+                <li>星球经历 9 个成长阶段（荒芜 → 星际文明），六类生态区对应运动、饮食、学习、工作、计划、睡眠，打卡后弹出星光奖励、宝箱进度和成就徽章。</li>
+                <li>使用 Node.js Test Runner 覆盖奖励计算、目标进度、成就解锁和统计聚合等核心逻辑，兼顾本地数据兜底与云函数同步。</li>
               </ul>
               <div class="project-actions" aria-label="星途自律舱项目链接">
                 <a class="project-link" href="https://tl66666.github.io/xtzlc/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
@@ -1428,14 +1428,14 @@
               </div>
               <p class="kicker">City Explore Mini Program</p>
               <h3>城会玩 2.0</h3>
-              <p>面向旅行回忆管理的微信小程序。核心不是单纯打卡，而是解决“旅游后照片散落在系统相册里，想找某座城市的美景和美食只能一直翻”的痛点：用户点进城市即可看到上传过的照片、笔记和足迹。</p>
+              <p>面向旅行回忆管理的微信小程序，覆盖 34 个省级行政区 391 座城市。核心不是单纯打卡，而是解决"旅游后照片散落在系统相册里，想找某座城市的美景和美食只能一直翻"的痛点：用户点进城市即可看到上传过的照片、笔记和足迹。</p>
               <div class="tag-list">
-                <span>微信原生</span><span>CloudBase</span><span>云存储</span><span>图片上传</span><span>wx.Storage</span><span>内容安全</span>
+                <span>微信原生</span><span>CloudBase</span><span>云存储</span><span>内容安全</span><span>群组共享</span><span>391 城市</span>
               </div>
               <ul class="project-points">
-                <li>设计“城市即相册容器”的信息架构，旅行/美食照片上传后按城市归档，城市详情、相册筛选和动态流都能回看。</li>
-                <li>围绕用户旅游后找照片难的痛点，设计点亮城市、上传照片、添加笔记、按城市检索的完整记录路径。</li>
-                <li>角色卡、成就和群组共享作为增强玩法，用来提升记录动力，并让朋友/家人能看到同一座城市下的共同照片。</li>
+                <li>设计"城市即相册容器"的信息架构，旅行/美食照片上传后按城市自动归档不会错乱，城市详情、相册筛选和动态流都能按地点快速回看。</li>
+                <li>为每座城市设计专属城市图片，首次点亮省份时弹出地域角色卡，用收集机制提升打卡动力和仪式感。</li>
+                <li>首创群组共享功能，朋友/家人加入群组后可看到同一座城市下的共同照片，形成一张共享旅行地图。</li>
               </ul>
               <div class="project-actions" aria-label="城会玩 2.0 项目链接">
                 <a class="project-link" href="https://tl66666.github.io/chw2.0/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
@@ -1456,14 +1456,13 @@
               <h3>梦弦 DreamChord</h3>
               <p>浏览器端视觉小说创作平台，解决传统 galgame 创作工具节点图难学、分支管理混乱、素材割裂的问题。用“章节 → 场景 → 镜头卡”的方式组织剧情，让用户像写小说一样创作，像玩游戏一样阅读。</p>
               <div class="tag-list">
-                <span>React</span><span>TypeScript</span><span>Vite</span><span>Tailwind CSS</span><span>Express</span><span>Prisma</span><span>framer-motion</span><span>Zustand</span>
+                <span>React</span><span>TypeScript</span><span>Vite</span><span>Tailwind CSS</span><span>Express</span><span>Prisma</span><span>framer-motion</span><span>Zustand</span><span>@xyflow/react</span>
               </div>
               <ul class="project-points">
-                <li>设计“镜头卡”写作界面，把背景、角色、台词、选项抽象为卡片，系统自动转换为节点图，让非技术用户也能创作视觉小说。</li>
-                <li>实现章节 → 场景 → 镜头卡三级结构、剧情流程图可视化、分支去向检测、汇合点高亮和项目体检面板，支持长篇叙事管理。</li>
-                <li>内置 AI 助手支持润色、续写、生成选项与分支回应，适配 GLM / DeepSeek / Kimi 多供应商，未配置 Key 时本地规则兜底。</li>
-                <li>构建运行时引擎（DFS 转换 + 状态机），实现打字机效果、角色立绘分层、场景切换动画与 Web Audio 音效的完整播放器。</li>
-                <li>搭建角色立绘素材流水线：AI 生成白底原图 → 自动去背景导出透明 PNG → 立绘交付规范校验，配合素材库面板实现编辑器内直接选用。</li>
+                <li>设计“镜头卡”写作界面，把背景、角色、台词、选项抽象为卡片，系统自动转换为节点图，让非技术用户也能创作视觉小说；支持长文导入自动拆分镜头卡。</li>
+                <li>实现章节 → 场景 → 镜头卡三级结构、剧情流程图可视化（@xyflow/react）、分支去向检测、汇合点高亮和项目体检面板（12 项检查），支持长篇叙事管理。</li>
+                <li>构建运行时引擎（DFS 转换 + 状态机），实现打字机效果、角色立绘分层渲染、framer-motion 场景切换动画与 Web Audio API 音效的完整播放器。</li>
+                <li>Monorepo 架构（pnpm workspace），TypeScript strict 全开禁止 any，Vite manualChunks 拆分 4 个 vendor 包，Express + Prisma + JWT 后端支持项目持久化与鉴权。</li>
               </ul>
               <div class="project-actions" aria-label="梦弦 DreamChord 项目链接">
                 <a class="project-link" href="https://tl66666.github.io/DreamChord/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
