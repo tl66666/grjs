@@ -46,9 +46,14 @@ AI Agent 求职辅助 Web 系统，围绕简历解析、JD 分析、岗位匹配
 
 ### [梦弦 DreamChord](https://tl66666.github.io/DreamChord/)
 
-Web 端视觉小说创作平台，通过章节、场景、镜头卡三级结构组织剧情，支持流程图可视化、分支检测、素材管理、AI 辅助创作和播放器预览。
+Web 端视觉小说创作平台，通过章节、场景、镜头卡三级结构组织剧情，支持流程图可视化、分支检测、角色与素材处理、播放器预览和项目感知 DreamChord Agent。Agent 采用自研 ReAct 风格执行链路，结合上下文、分层记忆、白名单工具与审批撤销机制；无 API Key 也能进行项目分析和创作知识问答。
 
-技术栈：React、TypeScript、Vite、Tailwind CSS、framer-motion、Zustand、Express、Prisma、REST API、JWT。
+技术栈：React、TypeScript、Vite、Express、Prisma、SQLite、React Flow、Sharp、Zustand、REST API、JWT。
+
+展示卡片截图：
+
+- `assets/portfolio/dreamchord/editor-stage-continuity.png`：故事编辑器与舞台状态连续性。
+- `assets/portfolio/dreamchord/agent-workspace.png`：Agent 多对话工作区与项目上下文。
 
 ## 目录结构
 

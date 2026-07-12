@@ -785,6 +785,14 @@
         linear-gradient(180deg, rgba(24, 18, 8, 0.92), rgba(8, 7, 5, 0.95));
     }
 
+    .project-card:nth-child(4) {
+      --project-accent: #a78bfa;
+      background:
+        radial-gradient(520px circle at var(--spot-x) var(--spot-y), rgba(167, 139, 250, 0.24), transparent 42%),
+        linear-gradient(155deg, rgba(124, 58, 237, 0.16), transparent 34%),
+        linear-gradient(180deg, rgba(18, 14, 30, 0.94), rgba(7, 6, 12, 0.96));
+    }
+
     .project-card:nth-child(2) { top: 110px; }
     .project-card:nth-child(3) { top: 134px; }
 
@@ -1452,17 +1460,18 @@
           <article class="project-card reveal">
             <div>
               <div class="project-number">04</div>
-              <p class="kicker">Visual Novel Studio</p>
-              <h3>梦弦 DreamChord</h3>
-              <p>浏览器端视觉小说创作平台，解决传统 galgame 创作工具节点图难学、分支管理混乱、素材割裂的问题。用“章节 → 场景 → 镜头卡”的方式组织剧情，让用户像写小说一样创作，像玩游戏一样阅读。</p>
+              <p class="kicker">Visual Novel Studio · Agent Core</p>
+              <h3>梦弦 DreamChord Agent</h3>
+              <p>面向视觉小说创作者的浏览器端故事工作台，覆盖章节、场景、镜头卡、角色立绘、CG、素材库、分支流程图和实时播放器。核心特色是项目感知 Agent：它能读取故事上下文和记忆，调用受控工具提出可审批、可撤销的剧情与素材处理建议。</p>
               <div class="tag-list">
-                <span>React</span><span>TypeScript</span><span>Vite</span><span>Tailwind CSS</span><span>Express</span><span>Prisma</span><span>framer-motion</span><span>Zustand</span><span>@xyflow/react</span>
+                <span>React</span><span>TypeScript</span><span>Vite</span><span>Express</span><span>Prisma</span><span>SQLite</span><span>React Flow</span><span>Sharp</span><span>ReAct-style Agent</span>
               </div>
               <ul class="project-points">
                 <li>设计“镜头卡”写作界面，把背景、角色、台词、选项抽象为卡片，系统自动转换为节点图，让非技术用户也能创作视觉小说；支持长文导入自动拆分镜头卡。</li>
                 <li>实现章节 → 场景 → 镜头卡三级结构、剧情流程图可视化（@xyflow/react）、分支去向检测、汇合点高亮和项目体检面板（12 项检查），支持长篇叙事管理。</li>
-                <li>构建运行时引擎（DFS 转换 + 状态机），实现打字机效果、角色立绘分层渲染、framer-motion 场景切换动画与 Web Audio API 音效的完整播放器。</li>
-                <li>Monorepo 架构（pnpm workspace），TypeScript strict 全开禁止 any，Vite manualChunks 拆分 4 个 vendor 包，Express + Prisma 后端支持项目持久化与数据管理。</li>
+                <li>自研 ReAct 风格 Agent 执行链路（Observe → Reason → Act → Validate → Approve），结合本地意图路由、项目上下文、分层记忆、白名单工具、Zod 校验和剧情补丁审批；无 API Key 也能完成项目分析与创作知识问答。</li>
+                <li>构建全局素材库与 Sharp 图片处理管线，支持白底去除、透明裁边、立绘 / CG / 背景衍生图，并保留原图和人工确认流程。</li>
+                <li>Monorepo 架构（pnpm workspace），Express + Prisma + SQLite 持久化，集成自动保存、版本冲突保护、备份恢复、实时播放器和 Windows 一键启动。</li>
               </ul>
               <div class="project-actions" aria-label="梦弦 DreamChord 项目链接">
                 <a class="project-link" href="https://tl66666.github.io/DreamChord/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
@@ -1470,9 +1479,8 @@
               </div>
             </div>
             <div class="media-grid">
-              <div class="media-tile" data-label="Home"><img src="assets/portfolio/dreamchord/home.png" alt="梦弦 DreamChord 首页"></div>
-              <div class="media-tile tall" data-label="BG Remover"><video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
-              <div class="media-tile" data-label="Flowchart"><img src="assets/portfolio/dreamchord/flowchart.png" alt="梦弦 DreamChord 剧情流程图"></div>
+              <div class="media-tile" data-label="Agent Workspace"><img src="assets/portfolio/dreamchord/agent-workspace.png" alt="梦弦 DreamChord Agent 多对话工作区真实桌面截图"></div>
+              <div class="media-tile tall" data-label="Story Editor"><img src="assets/portfolio/dreamchord/editor-stage-continuity.png" alt="梦弦 DreamChord 故事编辑器与舞台状态连续性真实桌面截图"></div>
             </div>
           </article>
         </div>
