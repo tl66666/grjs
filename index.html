@@ -703,6 +703,67 @@
       font-size: 15px;
     }
 
+    .agent-proof {
+      position: relative;
+      z-index: 1;
+      width: min(1280px, 100%);
+      margin: clamp(28px, 5vw, 54px) auto 0;
+      padding: clamp(18px, 3vw, 28px);
+      display: grid;
+      grid-template-columns: minmax(220px, 0.78fr) minmax(0, 1.22fr);
+      gap: clamp(18px, 4vw, 42px);
+      align-items: center;
+      border: 1px solid rgba(231, 226, 204, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(120deg, rgba(10, 16, 22, 0.78), rgba(19, 24, 31, 0.56));
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(12px);
+    }
+
+    .agent-proof-intro h3 {
+      margin: 0 0 10px;
+      color: var(--cream);
+      font-size: clamp(24px, 3vw, 40px);
+      line-height: 0.98;
+    }
+
+    .agent-proof-intro p:last-child {
+      max-width: 420px;
+      color: rgba(231, 226, 204, 0.72);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .agent-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .agent-proof-item {
+      min-height: 112px;
+      padding: 14px;
+      border: 1px solid rgba(231, 226, 204, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .agent-proof-item b {
+      display: block;
+      margin-bottom: 12px;
+      color: #cbb9ff;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .agent-proof-item span {
+      display: block;
+      color: rgba(231, 226, 204, 0.84);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
     .projects {
       display: grid;
       gap: 0;
@@ -1270,6 +1331,7 @@
       .cinema-copy { align-content: end; }
       .cinema-copy-inner { width: min(560px, 100%); }
       .showcase-copy { grid-column: 1; }
+      .agent-proof { grid-template-columns: 1fr; }
       .process-stage-copy { left: 22px; right: 22px; max-width: none; }
       .contact .wrap { margin: 0 auto; }
       .media-grid { min-height: 460px; }
@@ -1288,6 +1350,7 @@
       .showcase-band { padding-top: 84px; align-items: end; }
       .showcase-video { min-height: 100%; }
       .showcase-copy h2 { font-size: clamp(38px, 15vw, 64px); }
+      .agent-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .process-stage { min-height: 100vh; }
       .contact h2 { font-size: clamp(42px, 15vw, 70px); }
       .media-grid { grid-template-columns: 1fr; grid-template-rows: none; min-height: auto; }
@@ -1344,7 +1407,7 @@
           </div>
           <div class="button-row">
             <a class="btn primary" href="#projects">查看项目 <span>↗</span></a>
-            <a class="btn" href="唐乐-简历.pdf" target="_blank" rel="noopener">下载简历</a>
+            <a class="btn" href="唐乐-简历.pdf" download="唐乐-简历.pdf">下载最新版简历</a>
             <a class="btn" href="https://github.com/tl66666" target="_blank" rel="noopener">GitHub 仓库</a>
           </div>
         </aside>
@@ -1375,7 +1438,7 @@
             <article class="skill-block reveal"><b>后端与数据</b><span>Python / Java / C/C++ / Flask / Node.js / Express / Prisma / SQLite / MySQL / REST API / 数据库设计</span></article>
             <article class="skill-block reveal"><b>前端工程</b><span>HTML / CSS / JavaScript / TypeScript / React / Vite / Tailwind CSS / framer-motion / Chart.js / 响应式布局</span></article>
             <article class="skill-block reveal"><b>小程序工程</b><span>WXML / WXSS / JavaScript / 微信云开发 / 云函数 / 云数据库 / 云存储 / 图片上传 / 分包加载 / 内容安全</span></article>
-            <article class="skill-block reveal"><b>AI 协作与 Vibe Coding</b><span>Vibe Coding 全流程交付 / Codex / Claude Code / Trae / GitHub Copilot / Prompt 迭代 / 代码调试 / 测试验证 / 文档沉淀</span></article>
+            <article class="skill-block reveal"><b>AI Agent 与 Vibe Coding</b><span>Agent 上下文设计 / 分层记忆 / Tool Calling / Schema 校验 / Codex / Claude Code / Trae / 测试验证 / 文档沉淀</span></article>
           </div>
         </div>
       </div>
@@ -1401,8 +1464,8 @@
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>Vibe Coding</span><span>Python Java C/C++</span><span>React TypeScript</span><span>Vite</span><span>Express Prisma</span><span>AI Agent</span><span>WeChat Mini Program</span><span>Tailwind CSS</span><span>CloudBase</span>
-        <span>Vibe Coding</span><span>Python Java C/C++</span><span>React TypeScript</span><span>Vite</span><span>Express Prisma</span><span>AI Agent</span><span>WeChat Mini Program</span><span>Tailwind CSS</span><span>CloudBase</span>
+        <span>Vibe Coding</span><span>Python Java C/C++</span><span>React TypeScript</span><span>Vite</span><span>Express Prisma</span><span>AI Agent</span><span>Layered Memory</span><span>SQLite FTS5</span><span>React Flow</span><span>Sharp</span><span>WeChat Mini Program</span><span>Tailwind CSS</span><span>CloudBase</span>
+        <span>Vibe Coding</span><span>Python Java C/C++</span><span>React TypeScript</span><span>Vite</span><span>Express Prisma</span><span>AI Agent</span><span>Layered Memory</span><span>SQLite FTS5</span><span>React Flow</span><span>Sharp</span><span>WeChat Mini Program</span><span>Tailwind CSS</span><span>CloudBase</span>
       </div>
     </div>
 
@@ -1420,6 +1483,19 @@
             <li>不只是生成代码：会自己读代码、调接口、看报错、补规则和测试，把项目推进到可运行、可交付状态。</li>
             <li>能把项目讲清楚：业务目标、技术栈、核心实现、遇到的问题、优化路径和个人完成部分。</li>
           </ul>
+        </div>
+      </div>
+      <div class="agent-proof reveal" aria-label="Agent 核心能力">
+        <div class="agent-proof-intro">
+          <p class="kicker">Agent Operating Model</p>
+          <h3>Agent 不只是聊天框</h3>
+          <p>把上下文、记忆、工具和可控写入串成一条可追踪的执行链，既能回答问题，也能把下一步工作推进到可验证结果。</p>
+        </div>
+        <div class="agent-proof-grid">
+          <div class="agent-proof-item"><b>01 / Context</b><span>读取当前模块、项目数据与创作状态，回答不脱离现场。</span></div>
+          <div class="agent-proof-item"><b>02 / Memory</b><span>工作、摘要、语义、情景、任务与实时记忆分层检索。</span></div>
+          <div class="agent-proof-item"><b>03 / Tools</b><span>通过白名单工具和 Schema 校验，把建议变成结构化动作。</span></div>
+          <div class="agent-proof-item"><b>04 / Approval</b><span>写入先预览、再确认，执行后留下回执并支持撤销。</span></div>
         </div>
       </div>
     </section>
@@ -1443,7 +1519,7 @@
               <p>面向真实求职流程的本地优先 Web 系统，把职业目标、简历、JD、面试、机会和复盘行动串成六步闭环。Agent 不是独立聊天框，而是能读取当前业务上下文、调用 19 个工具、结合分层记忆给出下一步。</p>
               <p class="project-agent-note"><strong>Agent 主线：</strong>有 API Key 时使用供应商原生 tool_calls；无 Key 时由 LocalPolicy 执行确定性多工具规划。写入操作遵循“提议 → 预览 → 用户确认 → 领域服务执行”。</p>
               <div class="tag-list">
-                <span>Python</span><span>Flask</span><span>SQLite</span><span>Tool-Calling Runtime</span><span>19 Tools</span><span>Layered Memory</span><span>Chart.js</span><span>Web Speech API</span>
+                <span>Python</span><span>Flask</span><span>SQLite</span><span>SQLite FTS5</span><span>JSON Schema</span><span>Playwright</span><span>Tool-Calling Runtime</span><span>19 Tools</span><span>Layered Memory</span><span>Chart.js</span><span>Web Speech API</span>
               </div>
               <ul class="project-points">
                 <li>自研有界 Tool-Calling Runtime，由 ContextBuilder、MemoryStore、Orchestrator 和 ToolRegistry 协同控制上下文、记忆、工具预算与结果校验。</li>
@@ -1534,7 +1610,7 @@
               <h3>梦弦 DreamChord Agent</h3>
               <p>面向视觉小说创作者的浏览器端故事工作台，覆盖章节、场景、镜头卡、角色立绘、CG、素材库、分支流程图和实时播放器。核心特色是项目感知 Agent：它能读取故事上下文和记忆，调用受控工具提出可审批、可撤销的剧情与素材处理建议。</p>
               <div class="tag-list">
-                <span>React</span><span>TypeScript</span><span>Vite</span><span>Express</span><span>Prisma</span><span>SQLite</span><span>React Flow</span><span>Sharp</span><span>ReAct-style Agent</span>
+                <span>React</span><span>TypeScript</span><span>Vite</span><span>Express</span><span>Prisma</span><span>SQLite</span><span>Zustand</span><span>REST API</span><span>JWT</span><span>React Flow</span><span>Sharp</span><span>ReAct-style Agent</span>
               </div>
               <ul class="project-points">
                 <li>设计“镜头卡”写作界面，把背景、角色、台词、选项抽象为卡片，系统自动转换为节点图，让非技术用户也能创作视觉小说；支持长文导入自动拆分镜头卡。</li>
