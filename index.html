@@ -787,10 +787,17 @@
 
     .project-card:nth-child(4) {
       --project-accent: #a78bfa;
+      grid-template-columns: minmax(300px, 0.88fr) minmax(0, 1.12fr);
       background:
         radial-gradient(520px circle at var(--spot-x) var(--spot-y), rgba(167, 139, 250, 0.24), transparent 42%),
         linear-gradient(155deg, rgba(124, 58, 237, 0.16), transparent 34%),
         linear-gradient(180deg, rgba(18, 14, 30, 0.94), rgba(7, 6, 12, 0.96));
+    }
+
+    .project-card:nth-child(4) .media-grid {
+      grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.78fr);
+      grid-template-rows: repeat(2, minmax(190px, 1fr));
+      min-height: 480px;
     }
 
     .project-card:nth-child(2) { top: 110px; }
@@ -822,6 +829,19 @@
     }
 
     .project-card p { color: var(--cream-soft); max-width: 560px; }
+
+    .project-agent-note {
+      max-width: 560px;
+      margin: 18px 0 0;
+      padding: 12px 14px;
+      border-left: 3px solid var(--project-accent);
+      color: rgba(231,226,204,0.88) !important;
+      background: color-mix(in srgb, var(--project-accent) 10%, transparent);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .project-agent-note strong { color: #fff; }
 
     .tag-list {
       display: flex;
@@ -916,6 +936,31 @@
       min-height: 500px;
     }
 
+    .project-card:first-child .media-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      align-self: start;
+      height: 460px;
+      min-height: 0;
+    }
+
+    .project-card:first-child .media-tile {
+      min-height: 0;
+      background: #0a0d14;
+    }
+
+    .project-card:first-child .agent-screenshot-tile img,
+    .project-card:first-child .overview-screenshot-tile img {
+      object-fit: cover;
+      object-position: center;
+      background: #0a0d14;
+    }
+
+    .project-card:first-child .hero-video-tile { grid-row: span 2; }
+    .project-card:first-child .agent-screenshot-tile { grid-column: 1; grid-row: 1; }
+    .project-card:first-child .overview-screenshot-tile { grid-column: 1; grid-row: 2; }
+    .project-card:first-child .hero-video-tile { grid-column: 2; grid-row: 1 / span 2; }
+
     .media-tile {
       position: relative;
       overflow: hidden;
@@ -934,9 +979,16 @@
       transition: transform 500ms ease;
     }
 
+    .project-card:nth-child(4) .media-tile.real-project img {
+      object-fit: cover;
+      object-position: center;
+      padding: 0;
+      background: #f7f5ff;
+    }
+
     .media-tile.hero-video-tile video { object-position: center; }
 
-    .media-tile:hover img, .media-tile:hover video { transform: scale(1.04); }
+    .media-tile:hover img, .media-tile:hover video { transform: scale(1.02); }
 
     .media-tile::after {
       content: attr(data-label);
@@ -1234,6 +1286,17 @@
       .process-stage { min-height: 100vh; }
       .contact h2 { font-size: clamp(42px, 15vw, 70px); }
       .media-grid { grid-template-columns: 1fr; grid-template-rows: none; min-height: auto; }
+      .project-card:nth-child(4) .media-grid { grid-template-columns: 1fr; grid-template-rows: none; min-height: auto; }
+      .project-card:first-child .media-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        height: auto;
+      }
+      .project-card:first-child .media-tile { min-height: 0; }
+      .project-card:first-child .hero-video-tile { grid-row: auto; }
+      .project-card:first-child .agent-screenshot-tile,
+      .project-card:first-child .overview-screenshot-tile,
+      .project-card:first-child .hero-video-tile { grid-column: auto; }
       .media-tile, .media-tile.tall { height: 260px; grid-row: auto; }
       .project-title-line { flex-direction: column; gap: 10px; }
       .project-qr { width: min(260px, 100%); margin-top: 0; }
@@ -1368,18 +1431,20 @@
 
         <div class="projects">
           <article class="project-card reveal">
-            <div>
-              <div class="project-number">01</div>
-              <p class="kicker">Agent-based Career OS</p>
-              <h3>职途 AI</h3>
-              <p>基于 Agent 的求职辅助 Web 系统，把简历诊断、JD 匹配、模拟面试、投递追踪和 AI 教练整合成一条数据可流通的六步闭环。AI 教练模块基于 ReAct 框架实现，由大模型自主思考、选择工具、多轮推理并判断何时完成。</p>
+          <div>
+            <div class="project-number">01</div>
+              <p class="kicker">AI Agent Career OS · Self-built Runtime</p>
+              <h3>职途 AI Agent</h3>
+              <p>面向真实求职流程的本地优先 Web 系统，把职业目标、简历、JD、面试、机会和复盘行动串成六步闭环。Agent 不是独立聊天框，而是能读取当前业务上下文、调用 19 个工具、结合分层记忆给出下一步。</p>
+              <p class="project-agent-note"><strong>Agent 主线：</strong>有 API Key 时使用供应商原生 tool_calls；无 Key 时由 LocalPolicy 执行确定性多工具规划。写入操作遵循“提议 → 预览 → 用户确认 → 领域服务执行”。</p>
               <div class="tag-list">
-                <span>Python</span><span>Flask</span><span>SQLite</span><span>ReAct Agent</span><span>Chart.js</span><span>Web Speech API</span>
+                <span>Python</span><span>Flask</span><span>SQLite</span><span>Tool-Calling Runtime</span><span>19 Tools</span><span>Layered Memory</span><span>Chart.js</span><span>Web Speech API</span>
               </div>
               <ul class="project-points">
-                <li>ReAct 框架手写实现 AI Agent（不依赖 LangChain），注册 13 个工具，LLM 自主思考 → 选择工具 → 多轮推理 → 判断完成，非代码写死的固定流程。</li>
-                <li>多模型 AI 网关（策略模式接入 GLM / DeepSeek / Kimi，API 不可用时降级到本地规则引擎）；面试引擎状态机（追问追踪 + 五维评分 + 幻觉控制）。</li>
-                <li>简历五维诊断和 JD 关键词匹配；语音表达分析（语速 - 停顿 - 语气词评分 + 录音回放）；6 张数据库表 / 52 个 RESTful API；前端 SPA 双主题切换 + 一键启动脚本。</li>
+                <li>自研有界 Tool-Calling Runtime，由 ContextBuilder、MemoryStore、Orchestrator 和 ToolRegistry 组成；不依赖 LangChain，不把模型隐藏思维链当作产品能力。</li>
+                <li>四类 Agent 场景：求职诊断与下一步、简历诊断与 JD 匹配、面试准备与训练复盘、机会跟进与行动推进；可综合多个工具结果输出行动优先级。</li>
+                <li>分层记忆覆盖工作、摘要、语义、情景、任务和实时业务记忆；写操作采用提议、脱敏预览、单次确认、领域服务执行和幂等回执。</li>
+                <li>支持 GLM / DeepSeek / Kimi 与无 API Key 本地模式；完成 SQLite 迁移、可恢复面试会话、Edge/Chrome 适配和 Windows 中文/空格路径一键启动。</li>
               </ul>
               <div class="project-actions" aria-label="职途 AI 项目链接">
                 <a class="project-link" href="https://tl66666.github.io/ztai/static/showcase.html" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
@@ -1387,9 +1452,9 @@
               </div>
             </div>
             <div class="media-grid">
-              <div class="media-tile" data-label="Dashboard"><img src="assets/portfolio/jobhunter/overview.png" alt="职途 AI 项目总览界面"></div>
-              <div class="media-tile tall hero-video-tile" data-label="Hero Video"><video src="assets/portfolio/jobhunter/career-hero-loop.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
-              <div class="media-tile" data-label="Resume Lab"><img src="assets/portfolio/jobhunter/resume-lab.png" alt="职途 AI 简历实验室界面"></div>
+              <div class="media-tile agent-screenshot-tile" data-label="Agent Desktop Run"><img src="assets/portfolio/jobhunter/agent-local-desktop.webp" alt="职途 AI Agent 无 API Key 连续调用求职工具并生成行动优先级的真实桌面截图"></div>
+              <div class="media-tile overview-screenshot-tile" data-label="Career Dashboard"><img src="assets/portfolio/jobhunter/overview.webp" alt="职途 AI 求职工作台项目总览真实桌面截图"></div>
+              <div class="media-tile tall hero-video-tile" data-label="Career Hero Motion"><video src="assets/portfolio/jobhunter/career-hero-loop.mp4" autoplay muted loop playsinline preload="metadata" aria-label="职途 AI 求职工作台首页 Hero 动态背景"></video></div>
             </div>
           </article>
 
@@ -1479,8 +1544,9 @@
               </div>
             </div>
             <div class="media-grid">
-              <div class="media-tile" data-label="Agent Workspace"><img src="assets/portfolio/dreamchord/agent-workspace.png" alt="梦弦 DreamChord Agent 多对话工作区真实桌面截图"></div>
-              <div class="media-tile tall" data-label="Story Editor"><img src="assets/portfolio/dreamchord/editor-stage-continuity.png" alt="梦弦 DreamChord 故事编辑器与舞台状态连续性真实桌面截图"></div>
+              <div class="media-tile real-project" data-label="Agent Workspace"><img src="assets/portfolio/dreamchord/agent-workspace.png" alt="梦弦 DreamChord Agent 多对话工作区真实桌面截图"></div>
+              <div class="media-tile tall" data-label="Showcase Hero · Video"><video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4" poster="assets/portfolio/dreamchord/hero.png" autoplay muted loop playsinline preload="metadata" aria-label="梦弦 DreamChord 项目展示页 Hero 区动态背景"></video></div>
+              <div class="media-tile real-project" data-label="Story Editor"><img src="assets/portfolio/dreamchord/editor-stage-continuity.png" alt="梦弦 DreamChord 故事编辑器与舞台状态连续性真实桌面截图"></div>
             </div>
           </article>
         </div>
