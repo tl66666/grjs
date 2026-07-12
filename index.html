@@ -787,7 +787,7 @@
 
     .project-card:nth-child(4) {
       --project-accent: #a78bfa;
-      grid-template-columns: minmax(300px, 0.88fr) minmax(0, 1.12fr);
+      grid-template-columns: minmax(330px, 0.74fr) minmax(0, 1.26fr);
       background:
         radial-gradient(520px circle at var(--spot-x) var(--spot-y), rgba(167, 139, 250, 0.24), transparent 42%),
         linear-gradient(155deg, rgba(124, 58, 237, 0.16), transparent 34%),
@@ -795,9 +795,11 @@
     }
 
     .project-card:nth-child(4) .media-grid {
-      grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.78fr);
-      grid-template-rows: repeat(2, minmax(190px, 1fr));
-      min-height: 480px;
+      grid-template-columns: minmax(0, 1.55fr) minmax(220px, 0.75fr);
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      height: 720px;
+      min-height: 0;
+      align-self: start;
     }
 
     .project-card:nth-child(2) { top: 110px; }
@@ -937,11 +939,10 @@
     }
 
     .project-card:first-child .media-grid {
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
       grid-template-rows: repeat(2, minmax(0, 1fr));
-      align-self: start;
-      height: 460px;
-      min-height: 0;
+      align-self: stretch;
+      min-height: 520px;
     }
 
     .project-card:first-child .media-tile {
@@ -951,8 +952,11 @@
 
     .project-card:first-child .agent-screenshot-tile img,
     .project-card:first-child .overview-screenshot-tile img {
+      position: relative;
+      z-index: 1;
       object-fit: cover;
-      object-position: center;
+      object-position: center center;
+      padding: 0;
       background: #0a0d14;
     }
 
@@ -981,7 +985,7 @@
 
     .project-card:nth-child(4) .media-tile.real-project img {
       object-fit: cover;
-      object-position: center;
+      object-position: center center;
       padding: 0;
       background: #f7f5ff;
     }
@@ -1262,6 +1266,7 @@
       .hero-content { align-content: end; }
       .hero-card { max-width: none; }
       .project-card { position: relative; top: auto !important; min-height: auto; }
+      .project-card:nth-child(4) { grid-template-columns: 1fr; }
       .cinema-copy { align-content: end; }
       .cinema-copy-inner { width: min(560px, 100%); }
       .showcase-copy { grid-column: 1; }
@@ -1286,7 +1291,7 @@
       .process-stage { min-height: 100vh; }
       .contact h2 { font-size: clamp(42px, 15vw, 70px); }
       .media-grid { grid-template-columns: 1fr; grid-template-rows: none; min-height: auto; }
-      .project-card:nth-child(4) .media-grid { grid-template-columns: 1fr; grid-template-rows: none; min-height: auto; }
+      .project-card:nth-child(4) .media-grid { grid-template-columns: 1fr; grid-template-rows: none; width: 100%; height: auto; min-height: auto; }
       .project-card:first-child .media-grid {
         grid-template-columns: 1fr;
         grid-template-rows: none;
@@ -1441,10 +1446,10 @@
                 <span>Python</span><span>Flask</span><span>SQLite</span><span>Tool-Calling Runtime</span><span>19 Tools</span><span>Layered Memory</span><span>Chart.js</span><span>Web Speech API</span>
               </div>
               <ul class="project-points">
-                <li>自研有界 Tool-Calling Runtime，由 ContextBuilder、MemoryStore、Orchestrator 和 ToolRegistry 组成；不依赖 LangChain，不把模型隐藏思维链当作产品能力。</li>
-                <li>四类 Agent 场景：求职诊断与下一步、简历诊断与 JD 匹配、面试准备与训练复盘、机会跟进与行动推进；可综合多个工具结果输出行动优先级。</li>
-                <li>分层记忆覆盖工作、摘要、语义、情景、任务和实时业务记忆；写操作采用提议、脱敏预览、单次确认、领域服务执行和幂等回执。</li>
-                <li>支持 GLM / DeepSeek / Kimi 与无 API Key 本地模式；完成 SQLite 迁移、可恢复面试会话、Edge/Chrome 适配和 Windows 中文/空格路径一键启动。</li>
+                <li>自研有界 Tool-Calling Runtime，由 ContextBuilder、MemoryStore、Orchestrator 和 ToolRegistry 协同控制上下文、记忆、工具预算与结果校验。</li>
+                <li>注册 19 个求职工具，覆盖求职诊断、简历与 JD 匹配、面试训练、机会跟进和行动优先级生成。</li>
+                <li>六层记忆支持跨页面恢复上下文；写操作遵循“提议 → 预览 → 用户确认 → 领域服务执行 → 幂等回执”。</li>
+                <li>兼容 GLM / DeepSeek / Kimi 与无 API Key 本地模式，支持 SQLite 迁移、Edge/Chrome 和 Windows 一键启动。</li>
               </ul>
               <div class="project-actions" aria-label="职途 AI 项目链接">
                 <a class="project-link" href="https://tl66666.github.io/ztai/static/showcase.html" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
