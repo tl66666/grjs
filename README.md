@@ -22,7 +22,7 @@
 
 ## Agent 能力主线
 
-个人网站把 Agent 作为贯穿项目的工程能力来展示，而不是把它当作一个泛化的聊天入口：职途 AI Agent 负责读取求职上下文、检索分层记忆并编排 19 个业务工具；DreamChord Agent 负责理解故事结构、调用素材与剧情工具并生成可审批的创作提案。两套系统都强调无 API Key 可用、结构化工具边界、写入前确认和执行后回执，重点体现 Agent 如何解决真实业务问题。
+个人网站把 Agent 作为贯穿项目的工程能力来展示，而不是把它当作一个泛化的聊天入口：职途 AI Agent 负责读取求职上下文、检索分层记忆并编排 22 个业务工具；DreamChord Agent 负责理解故事结构、调用素材与剧情工具并生成可审批的创作提案。两套系统都强调无 API Key 可用、结构化工具边界、写入前确认和执行后回执，重点体现 Agent 如何解决真实业务问题。
 
 ## 独立完成说明
 
@@ -32,15 +32,16 @@
 
 ### [职途 AI Agent](https://tl66666.github.io/ztai/static/showcase.html)
 
-本地优先的 AI Agent 求职 Web 系统，把职业目标、简历、JD、模拟面试、机会跟进和复盘行动串成六步闭环。Agent 是项目主线：它能读取当前页面上下文、调用 19 个结构化工具、检索分层记忆并综合多个工具结果；有 API Key 时使用供应商原生 `tool_calls`，无 Key 时执行确定性多工具规划。
+本地优先的 AI Agent 求职 Web 系统，把职业目标、简历、JD、模拟面试、机会跟进和复盘行动串成六步闭环。Agent 是项目主线：它能读取当前页面上下文、调用 22 个结构化工具、检索分层记忆并综合多个工具结果；确定性任务始终本地优先，有 API Key 时再增强完整简历改写与开放式表达。
 
 技术栈：Python、Flask、SQLite、SQLite FTS5、原生 JavaScript、JSON Schema、Chart.js、Web Speech、MediaRecorder、Playwright、多模型 AI 接口。
 
-实现重点：自研有界 Tool-Calling Runtime；ContextBuilder 重建权威上下文，MemoryStore 管理分层记忆，Orchestrator 控制工具预算，ToolRegistry 校验 19 个业务工具。写操作遵循“提议 → 预览 → 用户确认 → 领域服务执行 → 幂等回执”，不使用不准确的“ReAct 框架 / 13 个工具”表述。
+实现重点：自研有界 Tool-Calling Runtime；ContextBuilder 重建权威上下文，MemoryStore 管理分层记忆，Orchestrator 控制工具预算，ToolRegistry 校验 22 个业务工具。写操作遵循“提议 → 预览 → 用户确认 → 领域服务执行 → 幂等回执”，不使用不准确的“ReAct 框架 / 13 个工具”表述。
 
 项目卡媒体：
 
 - `assets/portfolio/jobhunter/agent-local-desktop.webp`：无 API Key 的 Agent 桌面运行与行动优先级综合结果。
+- `assets/portfolio/jobhunter/agent-interview-questions-desktop.webp`：选择简历后生成定制面试题的最新桌面运行结果。
 - `assets/portfolio/jobhunter/career-hero-loop.mp4`：求职工作台首页 Hero 动态背景，保留原项目展示页的视觉入口。
 
 ### [星途自律舱](https://tl66666.github.io/xtzlc/)
