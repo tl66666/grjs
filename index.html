@@ -1017,10 +1017,12 @@
     }
 
     .project-card:first-child .media-grid {
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      grid-template-columns: minmax(0, 1.28fr) minmax(220px, 0.72fr);
       grid-template-rows: repeat(2, minmax(0, 1fr));
-      align-self: stretch;
-      min-height: 520px;
+      width: 100%;
+      height: clamp(500px, 40vw, 680px);
+      min-height: 0;
+      align-self: start;
     }
 
     .project-card:first-child .media-tile {
@@ -1028,7 +1030,15 @@
       background: #0a0d14;
     }
 
-    .project-card:first-child .agent-screenshot-tile img,
+    .project-card:first-child .agent-screenshot-tile img {
+      position: relative;
+      z-index: 1;
+      object-fit: contain;
+      object-position: center center;
+      padding: 0;
+      background: #0a0d14;
+    }
+
     .project-card:first-child .overview-screenshot-tile img {
       position: relative;
       z-index: 1;
@@ -1036,6 +1046,7 @@
       object-position: center center;
       padding: 0;
       background: #0a0d14;
+      transform: scale(1.14);
     }
 
     .project-card:first-child .hero-video-tile { grid-row: span 2; }
@@ -1071,6 +1082,7 @@
     .media-tile.hero-video-tile video { object-position: center; }
 
     .media-tile:hover img, .media-tile:hover video { transform: scale(1.02); }
+    .project-card:first-child .overview-screenshot-tile:hover img { transform: scale(1.16); }
 
     .media-tile::after {
       content: attr(data-label);
@@ -1629,6 +1641,7 @@
               <p class="kicker">Visual Novel Studio · Agent Core</p>
               <h3>梦弦 DreamChord Agent</h3>
               <p>面向视觉小说创作者的浏览器端故事工作台，覆盖章节、场景、镜头卡、角色立绘、CG、素材库、分支流程图和实时播放器。核心特色是项目感知 Agent：它能读取故事上下文和记忆，调用受控工具提出可审批、可撤销的剧情与素材处理建议。</p>
+              <p class="project-agent-note"><strong>Agent 主线：</strong>无 API Key 时保留项目检索、剧情体检、确定性续写和正文结构化导入；配置模型后增强自然续写与润色。无论哪种模式，剧情都先生成补丁预览，再由作者确认写入。</p>
               <div class="tag-list">
                 <span>React</span><span>TypeScript</span><span>Vite</span><span>Express</span><span>Prisma</span><span>SQLite</span><span>Zustand</span><span>REST API</span><span>JWT</span><span>React Flow</span><span>Sharp</span><span>结构化剧本解析</span><span>ReAct-style Agent</span>
               </div>
