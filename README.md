@@ -36,7 +36,7 @@
 
 技术栈：Python、Flask、SQLite、SQLite FTS5、原生 JavaScript、JSON Schema、Chart.js、Web Speech、MediaRecorder、Playwright、多模型 AI 接口。
 
-实现重点：自研有界 Tool-Calling Runtime；ContextBuilder 重建权威上下文，MemoryStore 管理分层记忆，Orchestrator 控制工具预算，ToolRegistry 校验 22 个业务工具。写操作遵循“提议 → 预览 → 用户确认 → 领域服务执行 → 幂等回执”，不使用不准确的“ReAct 框架 / 13 个工具”表述。
+实现重点：自研有界 Tool-Calling Runtime；ContextBuilder 重建权威上下文，MemoryStore 管理分层记忆，Orchestrator 控制工具预算，ToolRegistry 校验 22 个业务工具。产品采用“右侧求职 Agent + 求职指挥台”分工：前者对话与执行，后者集中展示待确认操作和机会进展；写操作遵循“提议 → 预览 → 用户确认 → 领域服务执行 → 幂等回执”，不使用不准确的“ReAct 框架 / 13 个工具”表述。
 
 项目卡媒体：
 

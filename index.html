@@ -1543,6 +1543,7 @@
                 <li>自研有界 Tool-Calling Runtime，由 ContextBuilder、MemoryStore、Orchestrator 和 ToolRegistry 协同控制上下文、记忆、工具预算与结果校验。</li>
                 <li>注册 22 个求职工具，覆盖求职诊断、简历与 JD 匹配、定制面试题、训练复盘、机会跟进和行动优先级生成。</li>
                 <li>六层记忆支持跨页面恢复上下文；写操作遵循“提议 → 预览 → 用户确认 → 领域服务执行 → 幂等回执”。</li>
+                <li>产品入口采用“右侧求职 Agent + 求职指挥台”分工：前者负责对话与工具执行，后者汇总待确认操作和机会进展；面试训练中的教练反馈只服务具体练习复盘。</li>
                 <li>将模型增强与本地执行分层：GLM / DeepSeek / Kimi 用于开放表达，离线核心流程保持可用；支持 SQLite 迁移、Edge/Chrome 和 Windows 一键启动。</li>
               </ul>
               <div class="project-actions" aria-label="职途 AI 项目链接">
@@ -1628,10 +1629,10 @@
               <h3>梦弦 DreamChord Agent</h3>
               <p>面向视觉小说创作者的浏览器端故事工作台，覆盖章节、场景、镜头卡、角色立绘、CG、素材库、分支流程图和实时播放器。核心特色是项目感知 Agent：它能读取故事上下文和记忆，调用受控工具提出可审批、可撤销的剧情与素材处理建议。</p>
               <div class="tag-list">
-                <span>React</span><span>TypeScript</span><span>Vite</span><span>Express</span><span>Prisma</span><span>SQLite</span><span>Zustand</span><span>REST API</span><span>JWT</span><span>React Flow</span><span>Sharp</span><span>ReAct-style Agent</span>
+                <span>React</span><span>TypeScript</span><span>Vite</span><span>Express</span><span>Prisma</span><span>SQLite</span><span>Zustand</span><span>REST API</span><span>JWT</span><span>React Flow</span><span>Sharp</span><span>结构化剧本解析</span><span>ReAct-style Agent</span>
               </div>
               <ul class="project-points">
-                <li>设计“镜头卡”写作界面，把背景、角色、台词、选项抽象为卡片，系统自动转换为节点图，让非技术用户也能创作视觉小说；支持长文导入自动拆分镜头卡。</li>
+                <li>设计“镜头卡”写作界面，把背景、角色、台词、选项抽象为卡片；将用户或 Agent 正文解析为场景、旁白、角色对话和选项，过滤草稿说明并按项目素材、角色做精确匹配，先预览再写入工作台。</li>
                 <li>实现章节 → 场景 → 镜头卡三级结构、剧情流程图可视化（@xyflow/react）、分支去向检测、汇合点高亮和项目体检面板（12 项检查），支持长篇叙事管理。</li>
                 <li>自研 ReAct 风格 Agent 执行链路（Observe → Reason → Act → Validate → Approve），结合本地意图路由、项目上下文、分层记忆、白名单工具、Zod 校验和剧情补丁审批；无 API Key 也能完成项目分析与创作知识问答。</li>
                 <li>构建全局素材库与 Sharp 图片处理管线，支持白底去除、透明裁边、立绘 / CG / 背景衍生图，并保留原图和人工确认流程。</li>
@@ -1643,7 +1644,7 @@
               </div>
             </div>
             <div class="media-grid">
-              <div class="media-tile real-project" data-label="Agent Workspace"><img src="assets/portfolio/dreamchord/agent-workspace.png" alt="梦弦 DreamChord Agent 多对话工作区真实桌面截图"></div>
+              <div class="media-tile real-project" data-label="Agent Draft Review"><img src="assets/portfolio/dreamchord/agent-workspace.png" alt="梦弦 DreamChord Agent 将选中草稿转换为可审核工作台补丁的真实桌面截图"></div>
               <div class="media-tile tall" data-label="Showcase Hero · Video"><video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4" poster="assets/portfolio/dreamchord/hero.png" autoplay muted loop playsinline preload="metadata" aria-label="梦弦 DreamChord 项目展示页 Hero 区动态背景"></video></div>
               <div class="media-tile real-project" data-label="Story Editor"><img src="assets/portfolio/dreamchord/editor-stage-continuity.png" alt="梦弦 DreamChord 故事编辑器与舞台状态连续性真实桌面截图"></div>
             </div>
