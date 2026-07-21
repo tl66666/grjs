@@ -841,16 +841,23 @@
     }
 
     .project-card:nth-child(2) {
-      --project-accent: #75d0a6;
-      grid-template-columns: minmax(0, 1.16fr) minmax(300px, 0.84fr);
+      --project-accent: #a78bfa;
+      grid-template-columns: 1fr;
       background:
-        radial-gradient(520px circle at var(--spot-x) var(--spot-y), rgba(117, 208, 166, 0.24), transparent 42%),
-        linear-gradient(155deg, rgba(117, 208, 166, 0.14), transparent 36%),
-        linear-gradient(180deg, rgba(10, 22, 18, 0.92), rgba(5, 9, 8, 0.94));
+        radial-gradient(520px circle at var(--spot-x) var(--spot-y), rgba(167, 139, 250, 0.24), transparent 42%),
+        linear-gradient(155deg, rgba(124, 58, 237, 0.16), transparent 34%),
+        linear-gradient(180deg, rgba(18, 14, 30, 0.94), rgba(7, 6, 12, 0.96));
     }
 
-    .project-card:nth-child(2) > div:first-child { order: 2; }
-    .project-card:nth-child(2) .media-grid { order: 1; }
+    .project-card:nth-child(2) .media-grid {
+      grid-template-columns: minmax(0, 1.55fr) minmax(220px, 0.75fr);
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      width: 100%;
+      height: 660px;
+      min-height: 0;
+      margin-top: clamp(22px, 3vw, 34px);
+      align-self: start;
+    }
 
     .project-card:nth-child(3) {
       --project-accent: #d8a73d;
@@ -862,26 +869,19 @@
     }
 
     .project-card:nth-child(4) {
-      --project-accent: #a78bfa;
-      grid-template-columns: 1fr;
+      --project-accent: #75d0a6;
+      grid-template-columns: minmax(0, 1.16fr) minmax(300px, 0.84fr);
       background:
-        radial-gradient(520px circle at var(--spot-x) var(--spot-y), rgba(167, 139, 250, 0.24), transparent 42%),
-        linear-gradient(155deg, rgba(124, 58, 237, 0.16), transparent 34%),
-        linear-gradient(180deg, rgba(18, 14, 30, 0.94), rgba(7, 6, 12, 0.96));
+        radial-gradient(520px circle at var(--spot-x) var(--spot-y), rgba(117, 208, 166, 0.24), transparent 42%),
+        linear-gradient(155deg, rgba(117, 208, 166, 0.14), transparent 36%),
+        linear-gradient(180deg, rgba(10, 22, 18, 0.92), rgba(5, 9, 8, 0.94));
     }
 
-    .project-card:nth-child(4) .media-grid {
-      grid-template-columns: minmax(0, 1.55fr) minmax(220px, 0.75fr);
-      grid-template-rows: repeat(2, minmax(0, 1fr));
-      width: 100%;
-      height: 660px;
-      min-height: 0;
-      margin-top: clamp(22px, 3vw, 34px);
-      align-self: start;
-    }
+    .project-card:nth-child(4) > div:first-child { order: 2; }
+    .project-card:nth-child(4) .media-grid { order: 1; }
 
-    .project-card:nth-child(2),
-    .project-card:nth-child(3) { top: auto; }
+    .project-card:nth-child(3),
+    .project-card:nth-child(4) { top: auto; }
 
     .project-number {
       color: color-mix(in srgb, var(--project-accent) 34%, rgba(231, 226, 204, 0.14));
@@ -1073,21 +1073,21 @@
       transition: transform 500ms ease;
     }
 
-    .project-card:nth-child(4) .media-tile.real-project img {
+    .project-card:nth-child(2) .media-tile.real-project img {
       object-fit: cover;
       object-position: center center;
       padding: 0;
       background: #f7f5ff;
     }
 
-    /* 竖屏手机截图适配（星途自律舱 & 城会玩） */
-    .project-card:nth-child(2) .media-tile:not(.tall) img,
-    .project-card:nth-child(3) .media-tile:not(.tall) img {
+    /* 竖屏手机截图适配（城会玩 & 星途自律舱） */
+    .project-card:nth-child(3) .media-tile:not(.tall) img,
+    .project-card:nth-child(4) .media-tile:not(.tall) img {
       object-fit: cover;
       object-position: top center;
     }
-    .project-card:nth-child(2) .media-tile:not(.tall),
-    .project-card:nth-child(3) .media-tile:not(.tall) {
+    .project-card:nth-child(3) .media-tile:not(.tall),
+    .project-card:nth-child(4) .media-tile:not(.tall) {
       min-height: 240px;
     }
 
@@ -1112,14 +1112,14 @@
 
     .project-qr {
       display: grid;
-      grid-template-columns: 78px minmax(0, 1fr);
-      gap: 11px;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 14px;
       align-items: center;
-      width: min(230px, 100%);
+      width: min(320px, 100%);
       margin-top: 8px;
-      padding: 10px 11px;
+      padding: 14px 16px;
       border: 1px solid color-mix(in srgb, var(--project-accent) 36%, rgba(255,255,255,0.18));
-      border-radius: 8px;
+      border-radius: 10px;
       background:
         radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--project-accent) 20%, transparent), transparent 42%),
         rgba(8, 8, 7, 0.44);
@@ -1128,27 +1128,27 @@
     }
 
     .project-qr img {
-      width: 78px;
-      height: 78px;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
-      border-radius: 6px;
+      border-radius: 8px;
       background: #fff;
-      padding: 4px;
+      padding: 6px;
     }
 
     .project-qr b {
       display: block;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
       color: var(--cream);
-      font-size: 13px;
+      font-size: 15px;
       letter-spacing: 0.08em;
     }
 
     .project-qr span {
       display: block;
       color: var(--cream-soft);
-      font-size: 12px;
-      line-height: 1.35;
+      font-size: 13px;
+      line-height: 1.4;
     }
 
     .timeline {
@@ -1369,7 +1369,7 @@
       .hero-card { max-width: none; }
       .project-card { position: relative; top: auto !important; min-height: auto; }
       .project-card:first-child .media-grid { height: min(820px, 110vw); }
-      .project-card:nth-child(4) { grid-template-columns: 1fr; }
+      .project-card:nth-child(2) { grid-template-columns: 1fr; }
       .cinema-copy { align-content: end; }
       .cinema-copy-inner { width: min(560px, 100%); }
       .showcase-copy { grid-column: 1; }
@@ -1396,7 +1396,7 @@
       .process-stage { min-height: 100vh; }
       .contact h2 { font-size: clamp(42px, 15vw, 70px); }
       .media-grid { grid-template-columns: 1fr; grid-template-rows: none; min-height: auto; }
-      .project-card:nth-child(4) .media-grid { grid-template-columns: 1fr; grid-template-rows: none; width: 100%; height: auto; min-height: auto; }
+      .project-card:nth-child(2) .media-grid { grid-template-columns: 1fr; grid-template-rows: none; width: 100%; height: auto; min-height: auto; }
       .project-card:first-child .media-grid {
         grid-template-columns: 1fr;
         grid-template-rows: none;
@@ -1409,7 +1409,7 @@
       .project-card:first-child .hero-video-tile { grid-column: auto; }
       .media-tile, .media-tile.tall { height: 260px; grid-row: auto; }
       .project-title-line { flex-direction: column; gap: 10px; }
-      .project-qr { width: min(260px, 100%); margin-top: 0; }
+      .project-qr { width: min(340px, 100%); margin-top: 0; }
       .timeline-item, .timeline-item:nth-child(2) { border-right: none; border-bottom: 1px solid var(--line); }
       .timeline-item:last-child { border-bottom: none; }
       .button-row { flex-direction: column; }
@@ -1586,8 +1586,69 @@
 
           <article class="project-card reveal">
             <div>
+              <div class="project-number">02</div>
+              <p class="kicker">Visual Novel Studio · Agent Core</p>
+              <h3>梦弦 DreamChord Agent</h3>
+              <p>面向视觉小说创作者的浏览器端故事工作台，覆盖章节、场景、镜头卡、角色立绘、CG、素材库、分支流程图和实时播放器。核心特色是项目感知 Agent：它能读取故事上下文和记忆，调用受控工具提出可审批、可撤销的剧情与素材处理建议。</p>
+              <p class="project-agent-note"><strong>Agent 主线：</strong>无 API Key 时保留项目检索、剧情体检、确定性续写和正文结构化导入；配置模型后增强自然续写与润色。无论哪种模式，剧情都先生成补丁预览，再由作者确认写入。</p>
+              <div class="tag-list">
+                <span>React</span><span>TypeScript</span><span>Vite</span><span>Express</span><span>Prisma</span><span>SQLite</span><span>Zustand</span><span>REST API</span><span>JWT</span><span>React Flow</span><span>Sharp</span><span>结构化剧本解析</span><span>ReAct-style Agent</span>
+              </div>
+              <ul class="project-points">
+                <li>设计“镜头卡”写作界面，把背景、角色、台词、选项抽象为卡片；将用户或 Agent 正文解析为场景、旁白、角色对话和选项，过滤草稿说明并按项目素材、角色做精确匹配，先预览再写入工作台。</li>
+                <li>实现章节 → 场景 → 镜头卡三级结构、剧情流程图可视化（@xyflow/react）、分支去向检测、汇合点高亮和项目体检面板（12 项检查），支持长篇叙事管理。</li>
+                <li>自研 ReAct 风格 Agent 执行链路（Observe → Reason → Act → Validate → Approve），结合本地意图路由、项目上下文、分层记忆、白名单工具、Zod 校验和剧情补丁审批；无 API Key 也能完成项目分析与创作知识问答。</li>
+                <li>构建全局素材库与 Sharp 图片处理管线，支持白底去除、透明裁边、立绘 / CG / 背景衍生图，并保留原图和人工确认流程。</li>
+                <li>Monorepo 架构（pnpm workspace），Express + Prisma + SQLite 持久化，集成自动保存、版本冲突保护、备份恢复、实时播放器和 Windows 一键启动。</li>
+              </ul>
+              <div class="project-actions" aria-label="梦弦 DreamChord 项目链接">
+                <a class="project-link" href="https://tl66666.github.io/DreamChord/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
+                <a class="project-link secondary" href="https://github.com/tl66666/DreamChord" target="_blank" rel="noopener">源码仓库</a>
+              </div>
+            </div>
+            <div class="media-grid">
+              <div class="media-tile real-project" data-label="Agent Draft Review"><img src="assets/portfolio/dreamchord/agent-workspace.png" alt="梦弦 DreamChord Agent 将选中草稿转换为可审核工作台补丁的真实桌面截图"></div>
+              <div class="media-tile tall" data-label="Showcase Hero · Video"><video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4" poster="assets/portfolio/dreamchord/hero.png" autoplay muted loop playsinline preload="metadata" aria-label="梦弦 DreamChord 项目展示页 Hero 区动态背景"></video></div>
+              <div class="media-tile real-project" data-label="Story Editor"><img src="assets/portfolio/dreamchord/editor-stage-continuity.png" alt="梦弦 DreamChord 故事编辑器与舞台状态连续性真实桌面截图"></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div>
               <div class="project-title-line">
-                <div class="project-number">02</div>
+                <div class="project-number">03</div>
+                <div class="project-qr">
+                  <img src="assets/portfolio/chenghuiwan/qrcode.jpg" alt="城会玩 2.0 微信小程序码">
+                  <div><b>扫码体验</b><span>微信打开城会玩 2.0 小程序</span></div>
+                </div>
+              </div>
+              <p class="kicker">City Explore Mini Program</p>
+              <h3>城会玩 2.0</h3>
+              <p>面向旅行回忆管理的微信小程序，覆盖 34 个省级行政区 391 座城市。核心不是单纯打卡，而是解决"旅游后照片散落在系统相册里，想找某座城市的美景和美食只能一直翻"的痛点：用户点进城市即可看到上传过的照片、笔记和足迹，把碎片化的旅行记录变成按城市沉淀的视觉记忆。地图首页点亮去过的省份，42 座热门城市内置旅行攻略，首次点亮省份时解锁地域角色卡，朋友家人还能通过邀请码加入群组共享同一张旅行地图。</p>
+              <div class="tag-list">
+                <span>微信原生</span><span>CloudBase</span><span>云存储</span><span>内容安全</span><span>群组共享</span><span>34省391城</span>
+              </div>
+              <ul class="project-points">
+                <li>设计"城市即相册容器"的信息架构，旅行/美食照片上传后按城市自动归档不会错乱，城市详情、相册筛选和动态流都能按地点快速回看，解决系统相册按时间翻找的痛点；42 座热门城市内置旅行攻略和避坑指南，上传时接入内容安全审核。</li>
+                <li>首次点亮省份时解锁地域角色卡（SSR / UR 等级），配合 30+ 成就徽章作为辅助激励层，让"记录旅行"从负担变成期待；角色卡和徽章服务于按城市沉淀记忆的主线，不喧宾夺主。</li>
+                <li>通过 6 位邀请码建立旅行小队，成员点亮的城市自动合并到同一张地图，城市照片同步出现在群组相册和动态中；个人页把足迹、照片和旅程统计收进护照档案，形成完整回忆闭环。</li>
+              </ul>
+              <div class="project-actions" aria-label="城会玩 2.0 项目链接">
+                <a class="project-link" href="https://tl66666.github.io/chw2.0/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
+                <a class="project-link secondary" href="https://github.com/tl66666/chw2.0" target="_blank" rel="noopener">源码仓库</a>
+              </div>
+            </div>
+            <div class="media-grid">
+              <div class="media-tile" data-label="Map Home"><img src="assets/portfolio/chenghuiwan/map-home.png" alt="城会玩 2.0 地图首页"></div>
+              <div class="media-tile tall" data-label="Travel Motion"><video src="assets/portfolio/chenghuiwan/hero-mobile.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+              <div class="media-tile" data-label="Group Share"><img src="assets/portfolio/chenghuiwan/group-empty.png" alt="城会玩 2.0 群组共享界面"></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div>
+              <div class="project-title-line">
+                <div class="project-number">04</div>
                 <div class="project-qr">
                   <img src="assets/portfolio/xingtu/qrcode.jpg" alt="星途自律舱微信小程序码">
                   <div><b>扫码体验</b><span>微信打开星途自律舱小程序</span></div>
@@ -1613,67 +1674,6 @@
               <div class="media-tile" data-label="Planet Home"><img src="assets/portfolio/xingtu/planet-home.jpg" alt="星途自律舱星球首页"></div>
               <div class="media-tile tall" data-label="Growth Motion"><video src="assets/portfolio/xingtu/hero-loop.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
               <div class="media-tile" data-label="Focus Mode"><img src="assets/portfolio/xingtu/focus-mode.jpg" alt="星途自律舱专注模式打卡界面"></div>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div>
-              <div class="project-title-line">
-                <div class="project-number">03</div>
-                <div class="project-qr">
-                  <img src="assets/portfolio/chenghuiwan/qrcode.jpg" alt="城会玩 2.0 微信小程序码">
-                  <div><b>扫码体验</b><span>微信打开城会玩 2.0 小程序</span></div>
-                </div>
-              </div>
-              <p class="kicker">City Explore Mini Program</p>
-              <h3>城会玩 2.0</h3>
-              <p>面向旅行回忆管理的微信小程序，覆盖 34 个省级行政区 391 座城市。核心不是单纯打卡，而是解决"旅游后照片散落在系统相册里，想找某座城市的美景和美食只能一直翻"的痛点：用户点进城市即可看到上传过的照片、笔记和足迹，把碎片化的旅行记录变成按城市沉淀的视觉记忆。地图首页点亮去过的城市，每座城市都有专属图片和角色卡，朋友家人还能加入群组共享同一张旅行地图。</p>
-              <div class="tag-list">
-                <span>微信原生</span><span>CloudBase</span><span>云存储</span><span>内容安全</span><span>群组共享</span><span>391 城市</span>
-              </div>
-              <ul class="project-points">
-                <li>设计"城市即相册容器"的信息架构，旅行/美食照片上传后按城市自动归档不会错乱，城市详情、相册筛选和动态流都能按地点快速回看，解决系统相册按时间翻找的痛点；上传时接入内容安全审核，过滤违规图片。</li>
-                <li>为 34 省 391 城设计专属城市图片，首次点亮省份时弹出地域角色卡，用收集机制提升打卡动力和仪式感，让"记录旅行"从负担变成期待；角色卡、徽章和成就系统作为辅助激励层，服务于按城市沉淀记忆的主线。</li>
-                <li>首创群组共享功能，朋友/家人加入群组后可看到同一座城市下的共同照片，形成一张共享旅行地图，把个人记忆扩展为共同的旅行叙事；群组内还能互相点赞和评论，增强社交互动。</li>
-              </ul>
-              <div class="project-actions" aria-label="城会玩 2.0 项目链接">
-                <a class="project-link" href="https://tl66666.github.io/chw2.0/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
-                <a class="project-link secondary" href="https://github.com/tl66666/chw2.0" target="_blank" rel="noopener">源码仓库</a>
-              </div>
-            </div>
-            <div class="media-grid">
-              <div class="media-tile" data-label="Map Home"><img src="assets/portfolio/chenghuiwan/map-home.png" alt="城会玩 2.0 地图首页"></div>
-              <div class="media-tile tall" data-label="Travel Motion"><video src="assets/portfolio/chenghuiwan/hero-mobile.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
-              <div class="media-tile" data-label="Group Share"><img src="assets/portfolio/chenghuiwan/group-empty.png" alt="城会玩 2.0 群组共享界面"></div>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div>
-              <div class="project-number">04</div>
-              <p class="kicker">Visual Novel Studio · Agent Core</p>
-              <h3>梦弦 DreamChord Agent</h3>
-              <p>面向视觉小说创作者的浏览器端故事工作台，覆盖章节、场景、镜头卡、角色立绘、CG、素材库、分支流程图和实时播放器。核心特色是项目感知 Agent：它能读取故事上下文和记忆，调用受控工具提出可审批、可撤销的剧情与素材处理建议。</p>
-              <p class="project-agent-note"><strong>Agent 主线：</strong>无 API Key 时保留项目检索、剧情体检、确定性续写和正文结构化导入；配置模型后增强自然续写与润色。无论哪种模式，剧情都先生成补丁预览，再由作者确认写入。</p>
-              <div class="tag-list">
-                <span>React</span><span>TypeScript</span><span>Vite</span><span>Express</span><span>Prisma</span><span>SQLite</span><span>Zustand</span><span>REST API</span><span>JWT</span><span>React Flow</span><span>Sharp</span><span>结构化剧本解析</span><span>ReAct-style Agent</span>
-              </div>
-              <ul class="project-points">
-                <li>设计“镜头卡”写作界面，把背景、角色、台词、选项抽象为卡片；将用户或 Agent 正文解析为场景、旁白、角色对话和选项，过滤草稿说明并按项目素材、角色做精确匹配，先预览再写入工作台。</li>
-                <li>实现章节 → 场景 → 镜头卡三级结构、剧情流程图可视化（@xyflow/react）、分支去向检测、汇合点高亮和项目体检面板（12 项检查），支持长篇叙事管理。</li>
-                <li>自研 ReAct 风格 Agent 执行链路（Observe → Reason → Act → Validate → Approve），结合本地意图路由、项目上下文、分层记忆、白名单工具、Zod 校验和剧情补丁审批；无 API Key 也能完成项目分析与创作知识问答。</li>
-                <li>构建全局素材库与 Sharp 图片处理管线，支持白底去除、透明裁边、立绘 / CG / 背景衍生图，并保留原图和人工确认流程。</li>
-                <li>Monorepo 架构（pnpm workspace），Express + Prisma + SQLite 持久化，集成自动保存、版本冲突保护、备份恢复、实时播放器和 Windows 一键启动。</li>
-              </ul>
-              <div class="project-actions" aria-label="梦弦 DreamChord 项目链接">
-                <a class="project-link" href="https://tl66666.github.io/DreamChord/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
-                <a class="project-link secondary" href="https://github.com/tl66666/DreamChord" target="_blank" rel="noopener">源码仓库</a>
-              </div>
-            </div>
-            <div class="media-grid">
-              <div class="media-tile real-project" data-label="Agent Draft Review"><img src="assets/portfolio/dreamchord/agent-workspace.png" alt="梦弦 DreamChord Agent 将选中草稿转换为可审核工作台补丁的真实桌面截图"></div>
-              <div class="media-tile tall" data-label="Showcase Hero · Video"><video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4" poster="assets/portfolio/dreamchord/hero.png" autoplay muted loop playsinline preload="metadata" aria-label="梦弦 DreamChord 项目展示页 Hero 区动态背景"></video></div>
-              <div class="media-tile real-project" data-label="Story Editor"><img src="assets/portfolio/dreamchord/editor-stage-continuity.png" alt="梦弦 DreamChord 故事编辑器与舞台状态连续性真实桌面截图"></div>
             </div>
           </article>
         </div>
