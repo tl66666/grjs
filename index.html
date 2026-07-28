@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="唐乐 - 软件工程本科，聚焦软件开发、前端页面实现、微信小程序、Python Flask 与 AI 协作项目交付。" />
+  <meta name="description" content="唐乐 - 软件工程本科，聚焦软件开发、前端页面实现、微信小程序、Python FastAPI 与 AI 协作项目交付。" />
   <title>唐乐 | Software Engineer Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1472,14 +1472,14 @@
           <article class="profile-card reveal">
             <h3>软件开发工程师方向</h3>
             <div class="bio-lines">
-              <p>掌握 Python、C/C++、Java、JavaScript、HTML/CSS，能独立完成后端接口开发、前端页面交互和数据持久化；熟悉 Flask、React、TypeScript、Vite、Tailwind CSS、微信小程序云开发及 SQLite 数据库设计。</p>
+              <p>掌握 Python、C/C++、Java、JavaScript、HTML/CSS，能独立完成后端接口开发、前端页面交互和数据持久化；熟悉 FastAPI、React、TypeScript、Vite、Tailwind CSS、微信小程序云开发及 SQLAlchemy 数据库设计。</p>
               <p>通过 CET-6，具备英文技术与 API 文档阅读能力和基础英文沟通能力；普通话二级乙等。</p>
               <p>熟练使用 Vibe Coding 组织开发流程：从需求出发拆出页面、接口、数据结构和 Agent 工具，再通过本地运行、测试和交互验证不断收敛，完成从原型到可运行作品的交付。</p>
               <p>项目实践覆盖 AI 求职 Web 系统、星球养成式自律小程序、城市照片手账小程序与浏览器端视觉小说创作平台，体现从需求拆解到工程落地的完整闭环能力。</p>
             </div>
           </article>
           <div class="skill-matrix">
-            <article class="skill-block reveal"><b>后端与数据</b><span>Python / Java / C/C++ / Flask / Node.js / Express / Prisma / SQLite / MySQL / REST API / 数据库设计</span></article>
+            <article class="skill-block reveal"><b>后端与数据</b><span>Python / Java / C/C++ / FastAPI / Node.js / Express / Prisma / SQLAlchemy / Alembic / MySQL / REST API / 数据库设计</span></article>
             <article class="skill-block reveal"><b>前端工程</b><span>HTML / CSS / JavaScript / TypeScript / React / Vite / Tailwind CSS / framer-motion / Chart.js / 响应式布局</span></article>
             <article class="skill-block reveal"><b>小程序工程</b><span>WXML / WXSS / JavaScript / 微信云开发 / 云函数 / 云数据库 / 云存储 / 图片上传 / 分包加载 / 内容安全</span></article>
             <article class="skill-block reveal"><b>AI Agent 与 Vibe Coding</b><span>Agent 上下文设计 / 分层记忆 / Tool Calling / Schema 校验 / Codex / Claude Code / Trae / 测试验证 / 文档沉淀</span></article>
@@ -1563,14 +1563,14 @@
               <p>面向真实求职流程的本地优先 Web 系统，把职业目标、简历、JD、面试、机会和复盘行动串成六步闭环。Agent 不是独立聊天框，而是能读取当前业务上下文、调用 22 个受控工具、结合分层记忆把建议推进到可验证的下一步。</p>
               <p class="project-agent-note"><strong>Agent 主线：</strong>确定性任务始终本地优先；没有 API Key 也能诊断进度、选择简历、生成草稿和定制面试题。配置模型后，再增强完整简历改写与开放表达；所有写入仍遵循“提议 → 预览 → 用户确认 → 领域服务执行”。</p>
               <div class="tag-list">
-                <span>Python</span><span>Flask</span><span>SQLite</span><span>SQLite FTS5</span><span>JSON Schema</span><span>Playwright</span><span>Tool-Calling Runtime</span><span>22 Tools</span><span>Layered Memory</span><span>Chart.js</span><span>Web Speech API</span>
+                <span>Python</span><span>FastAPI</span><span>Uvicorn</span><span>SQLAlchemy</span><span>Alembic</span><span>React 19</span><span>TypeScript</span><span>Vite</span><span>JSON Schema</span><span>Playwright</span><span>Tool-Calling Runtime</span><span>22 Tools</span><span>Layered Memory</span><span>Web Speech API</span>
               </div>
               <ul class="project-points">
-                <li>自研有界 Tool-Calling Runtime，由 ContextBuilder、MemoryStore、Orchestrator 和 ToolRegistry 协同控制上下文、记忆、工具预算与结果校验。</li>
+                <li>后端重构为 FastAPI 模块化单体（API / Application / Adapters / Ports 分层），前端拆分为 React 19 + TypeScript 特性模块；自研有界 Tool-Calling Runtime 由 ContextBuilder、MemoryStore、Orchestrator 和 ToolRegistry 协同控制上下文、记忆与结果校验。</li>
                 <li>注册 22 个求职工具，覆盖求职诊断、简历与 JD 匹配、定制面试题、训练复盘、机会跟进和行动优先级生成。</li>
                 <li>六层记忆支持跨页面恢复上下文；写操作遵循“提议 → 预览 → 用户确认 → 领域服务执行 → 幂等回执”。</li>
                 <li>产品入口采用“右侧求职 Agent + 求职指挥台”分工：前者负责对话与工具执行，后者汇总待确认操作和机会进展；面试训练中的教练反馈只服务具体练习复盘。</li>
-                <li>将模型增强与本地执行分层：GLM / DeepSeek / Kimi 用于开放表达，离线核心流程保持可用；支持 SQLite 迁移、Edge/Chrome 和 Windows 一键启动。</li>
+                <li>将模型增强与本地执行分层：GLM / DeepSeek / Kimi 用于开放表达，离线核心流程保持可用；SQLAlchemy + Alembic 管理数据迁移，支持 SQLite 本地与 PostgreSQL 生产部署，Cloudflare Pages 前端托管。</li>
               </ul>
               <div class="project-actions" aria-label="职途 AI 项目链接">
                 <a class="project-link" href="https://tl66666.github.io/ztai/static/showcase.html" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
