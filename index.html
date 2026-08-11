@@ -1634,7 +1634,21 @@
       display: none;
       max-width: 1200px; margin: 0 auto;
     }
-    .project-slide.active { display: block; }
+    .project-slide.active { display: block; animation: slideEnter 500ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .project-slide.active.enter-left { animation: slideEnterLeft 500ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .project-slide.active.enter-right { animation: slideEnterRight 500ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes slideEnter {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideEnterLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideEnterRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
 
     /* Hero banner */
     .project-slide-hero {
@@ -1850,11 +1864,23 @@
       letter-spacing: 0.1em; text-transform: uppercase;
       cursor: pointer; transition: all 250ms ease;
       max-width: 240px;
+      position: relative; overflow: hidden;
     }
+    .gallery-nav-btn::before {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition: left 400ms ease;
+      pointer-events: none;
+    }
+    .gallery-nav-btn:hover::before { left: 150%; }
     .gallery-nav-btn:hover {
       background: rgba(255,255,255,0.65);
       border-color: rgba(30,30,50,0.35); color: #1a1a2e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
+    .gallery-nav-btn:active { transform: translateY(0) scale(0.98); }
     .gallery-nav-btn span {
       overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
@@ -2264,7 +2290,7 @@
         gallery.style.setProperty('--v-accent', PROJECT_DATA[0].accent);
         renderSlides();
         showSlide(0);
-        gallery.scrollTop = 0;
+        document.getElementById('gallerySlides').scrollTop = 0;
         setTimeout(function() {
           /* phase 3: veil lifts, gallery reveals in focus */
           transition.classList.remove('active');
@@ -2292,18 +2318,24 @@
     function navigateGallery(direction) {
       var total = PROJECT_DATA.length;
       var oldIndex = galleryActiveIndex;
+      var dir = 0;
       if (typeof direction === 'number') {
         galleryActiveIndex = direction;
+        dir = direction > oldIndex ? 1 : -1;
       } else if (direction === 'next') {
         galleryActiveIndex = (galleryActiveIndex + 1) % total;
+        dir = 1;
       } else {
         galleryActiveIndex = (galleryActiveIndex + total - 1) % total;
+        dir = -1;
       }
       if (galleryActiveIndex === oldIndex) return;
       var gallery = document.getElementById('projectGallery');
+      var slidesContainer = document.getElementById('gallerySlides');
       gallery.style.setProperty('--v-accent', PROJECT_DATA[galleryActiveIndex].accent);
-      showSlide(galleryActiveIndex);
-      gallery.scrollTop = 0;
+      // Smooth scroll to top of the slides container
+      slidesContainer.scrollTo({ top: 0, behavior: 'smooth' });
+      showSlide(galleryActiveIndex, dir);
     }
 
     function renderSlides() {
@@ -2373,9 +2405,14 @@
       container.innerHTML = html;
     }
 
-    function showSlide(index) {
+    function showSlide(index, dir) {
       document.querySelectorAll('.project-slide').forEach(function(slide, i) {
-        slide.classList.toggle('active', i === index);
+        slide.classList.remove('active', 'enter-left', 'enter-right');
+        if (i === index) {
+          slide.classList.add('active');
+          if (dir === -1) slide.classList.add('enter-left');
+          if (dir === 1) slide.classList.add('enter-right');
+        }
       });
       updateGalleryUI();
     }
