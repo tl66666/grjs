@@ -1367,22 +1367,29 @@
     }
 
     /* ===== Project List (Compact Rows) ===== */
-    .project-list { display: flex; flex-direction: column; gap: 10px; }
+    .project-list { display: flex; flex-direction: column; gap: 8px; }
     .project-row {
       --row-accent: var(--blue);
       display: grid; grid-template-columns: 56px 1fr auto;
       align-items: center; gap: 16px;
-      padding: 18px 24px;
-      border: 1px solid var(--line); border-radius: 14px;
+      padding: 20px 28px;
+      border: 1px solid var(--line); border-radius: 16px;
       background: rgba(17,17,15,0.5);
-      transition: all 300ms cubic-bezier(0.4,0,0.2,1);
-      cursor: pointer;
+      transition: all 400ms cubic-bezier(0.4,0,0.2,1);
+      cursor: pointer; position: relative; overflow: hidden;
+    }
+    .project-row::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--row-accent) 6%, transparent), transparent);
+      opacity: 0; transition: opacity 400ms ease;
     }
     .project-row:hover {
-      border-color: color-mix(in srgb, var(--row-accent) 40%, var(--line));
-      background: color-mix(in srgb, var(--row-accent) 5%, rgba(17,17,15,0.8));
-      transform: translateX(6px);
+      border-color: color-mix(in srgb, var(--row-accent) 50%, var(--line));
+      background: color-mix(in srgb, var(--row-accent) 4%, rgba(17,17,15,0.85));
+      transform: translateX(8px);
+      box-shadow: 0 8px 30px color-mix(in srgb, var(--row-accent) 12%, transparent);
     }
+    .project-row:hover::after { opacity: 1; }
     .project-row.accent-sky { --row-accent: #60a5fa; }
     .project-row.accent-blue { --row-accent: #86b8ff; }
     .project-row.accent-purple { --row-accent: #a78bfa; }
@@ -1390,11 +1397,12 @@
     .project-row.accent-green { --row-accent: #75d0a6; }
     .project-row.accent-orange { --row-accent: #f0a868; }
     .project-row-number {
-      font-size: clamp(30px,4vw,46px); font-weight: 800; line-height: 0.9;
-      color: color-mix(in srgb, var(--row-accent) 25%, rgba(231,226,204,0.08));
-      letter-spacing: -0.08em;
+      font-size: clamp(28px,3.5vw,42px); font-weight: 800; line-height: 0.9;
+      color: color-mix(in srgb, var(--row-accent) 20%, rgba(231,226,204,0.06));
+      letter-spacing: -0.08em; transition: color 300ms ease;
     }
-    .project-row-body { min-width: 0; }
+    .project-row:hover .project-row-number { color: color-mix(in srgb, var(--row-accent) 40%, rgba(231,226,204,0.1)); }
+    .project-row-body { min-width: 0; position: relative; z-index: 1; }
     .project-row-body .kicker { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--row-accent); margin-bottom: 4px; }
     .project-row-body h3 { font-size: clamp(18px,2.2vw,24px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 4px; color: var(--cream); }
     .project-row-body p { font-size: 12px; color: var(--muted); line-height: 1.4; }
@@ -1405,29 +1413,49 @@
       border-radius: 999px;
       background: color-mix(in srgb, var(--row-accent) 6%, transparent);
       color: var(--cream); font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
-      cursor: pointer; transition: all 200ms ease; white-space: nowrap; flex-shrink: 0;
+      cursor: pointer; transition: all 200ms ease; white-space: nowrap; flex-shrink: 0; position: relative; z-index: 1;
     }
     .project-row-enter:hover { background: color-mix(in srgb, var(--row-accent) 18%, transparent); border-color: var(--row-accent); }
+
+    /* ===== Cloud-Parting Curtain ===== */
+    .viewer-curtain {
+      position: fixed; inset: 0; z-index: 350;
+      display: flex; visibility: hidden; pointer-events: none;
+    }
+    .viewer-curtain.visible { visibility: visible; }
+    .viewer-curtain-panel {
+      flex: 1; background: #0a0a0c; position: relative;
+      transition: transform 700ms cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .viewer-curtain-panel::after {
+      content: ""; position: absolute; top: 0; bottom: 0;
+      width: 3px; background: var(--v-accent, #60a5fa);
+      opacity: 0.3; box-shadow: 0 0 20px var(--v-accent, #60a5fa);
+    }
+    .viewer-curtain-panel.left::after { right: 0; }
+    .viewer-curtain-panel.right::after { left: 0; }
+    .viewer-curtain.open .left { transform: translateX(-100%); }
+    .viewer-curtain.open .right { transform: translateX(100%); }
 
     /* ===== Full-Screen Project Viewer ===== */
     .project-viewer {
       position: fixed; inset: 0; z-index: 200;
       background: #08080a;
       opacity: 0; visibility: hidden;
-      transition: opacity 400ms ease, visibility 0s linear 400ms;
+      transition: opacity 300ms ease, visibility 0s linear 300ms;
       overflow-y: auto; overflow-x: hidden;
       --v-accent: #60a5fa;
     }
-    .project-viewer.active { opacity: 1; visibility: visible; transition: opacity 400ms ease, visibility 0s; }
+    .project-viewer.active { opacity: 1; visibility: visible; transition: opacity 400ms ease 150ms, visibility 0s linear 150ms; }
     .project-viewer-bg {
       position: fixed; inset: 0; z-index: 0;
-      background: radial-gradient(ellipse 80% 50% at 50% 0%, var(--v-accent) 0%, transparent 50%), linear-gradient(180deg, #0c0c0a 0%, #050505 100%);
-      opacity: 0.12; transition: opacity 500ms ease;
+      background: radial-gradient(ellipse 60% 40% at 50% 0%, var(--v-accent) 0%, transparent 60%), linear-gradient(180deg, #0c0c0a 0%, #050505 100%);
+      opacity: 0.1; transition: opacity 500ms ease;
     }
     .project-viewer-exit {
       position: fixed; top: 20px; right: 24px; z-index: 210;
       width: 44px; height: 44px; display: grid; place-items: center;
-      border: 1.5px solid rgba(255,255,255,0.25); border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.2); border-radius: 50%;
       background: rgba(0,0,0,0.5); backdrop-filter: blur(12px);
       color: #fff; cursor: pointer; transition: all 200ms ease;
     }
@@ -1435,48 +1463,113 @@
     .project-viewer-exit svg { width: 20px; height: 20px; }
     .project-viewer-content {
       position: relative; z-index: 1;
-      max-width: 1200px; margin: 0 auto;
-      padding: 80px 32px 120px;
+      max-width: 1280px; margin: 0 auto;
+      padding: 56px 32px 140px;
     }
-    .project-viewer-counter { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 0.15em; margin-bottom: 8px; }
-    .project-viewer-kicker { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--v-accent); margin-bottom: 6px; transition: color 500ms ease; }
-    .project-viewer-title { font-size: clamp(32px,5vw,56px); font-weight: 800; line-height: 1; letter-spacing: -0.04em; color: #fff; margin-bottom: 32px; text-shadow: 0 0 30px rgba(255,255,255,0.08); }
-    .project-viewer-body { display: grid; grid-template-columns: 1fr 360px; gap: 32px; align-items: start; }
-    .project-viewer-media { display: flex; flex-direction: column; gap: 14px; }
-    .project-viewer-media-item { position: relative; border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 16px 50px rgba(0,0,0,0.4); }
+
+    /* Hero media - large banner at top */
+    .project-viewer-hero {
+      position: relative; border-radius: 16px; overflow: hidden;
+      margin-bottom: 40px; background: #111;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      aspect-ratio: 16/9;
+    }
+    .project-viewer-hero img, .project-viewer-hero video {
+      width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
+    }
+    .project-viewer-hero-label {
+      position: absolute; top: 16px; left: 16px;
+      padding: 6px 14px; border-radius: 999px;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+      font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.9); letter-spacing: 0.05em;
+    }
+
+    /* Title section */
+    .project-viewer-header { margin-bottom: 40px; }
+    .project-viewer-counter { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.25); letter-spacing: 0.15em; margin-bottom: 8px; }
+    .project-viewer-kicker { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--v-accent); margin-bottom: 8px; transition: color 500ms ease; }
+    .project-viewer-title { font-size: clamp(36px,5vw,64px); font-weight: 800; line-height: 0.95; letter-spacing: -0.04em; color: #fff; text-shadow: 0 0 40px rgba(255,255,255,0.06); }
+
+    /* Body: gallery + info sidebar */
+    .project-viewer-body { display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: start; }
+
+    /* Media gallery */
+    .project-viewer-media { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .project-viewer-media-item {
+      position: relative; border-radius: 12px; overflow: hidden;
+      background: #111; box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      transition: transform 300ms ease, box-shadow 300ms ease;
+    }
+    .project-viewer-media-item:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
     .project-viewer-media-item img, .project-viewer-media-item video { width: 100%; display: block; }
-    .project-viewer-media-label { position: absolute; top: 10px; left: 10px; padding: 4px 10px; border-radius: 999px; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.9); letter-spacing: 0.05em; }
-    .project-viewer-info { position: sticky; top: 80px; }
-    .project-viewer-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
-    .project-viewer-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
-    .project-viewer-tags span { padding: 4px 9px; border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; font-size: 10px; color: rgba(255,255,255,0.6); }
+    .project-viewer-media-item.portrait { max-width: 300px; margin: 0 auto; border-radius: 20px; }
+    .project-viewer-media-item.full { grid-column: 1 / -1; }
+    .project-viewer-media-label {
+      position: absolute; top: 10px; left: 10px;
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+      font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.9); letter-spacing: 0.05em;
+    }
+
+    /* Info sidebar */
+    .project-viewer-info { position: sticky; top: 56px; }
+    .project-viewer-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .project-viewer-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+    .project-viewer-tags span { padding: 5px 10px; border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; font-size: 10px; color: rgba(255,255,255,0.6); }
     .project-viewer-details { margin-bottom: 24px; }
-    .project-viewer-details h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--v-accent); margin-bottom: 12px; transition: color 500ms ease; }
-    .project-viewer-details ul { list-style: none; display: grid; gap: 10px; }
-    .project-viewer-details li { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.55); padding-left: 14px; position: relative; }
+    .project-viewer-details h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--v-accent); margin-bottom: 14px; transition: color 500ms ease; }
+    .project-viewer-details ul { list-style: none; display: grid; gap: 12px; }
+    .project-viewer-details li { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.55); padding-left: 16px; position: relative; }
     .project-viewer-details li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--v-accent); transition: background 500ms ease; }
-    .project-viewer-note { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.5); padding: 12px 14px; margin-bottom: 16px; border-left: 3px solid var(--v-accent); background: rgba(255,255,255,0.03); border-radius: 0 8px 8px 0; transition: border-color 500ms ease; }
-    .project-viewer-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .project-viewer-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; transition: all 200ms ease; }
+    .project-viewer-note { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.5); padding: 14px 16px; margin-bottom: 20px; border-left: 3px solid var(--v-accent); background: rgba(255,255,255,0.03); border-radius: 0 8px 8px 0; transition: border-color 500ms ease; }
+    .project-viewer-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .project-viewer-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; transition: all 200ms ease; }
     .project-viewer-link.primary { border: 1px solid var(--v-accent); background: color-mix(in srgb, var(--v-accent) 15%, transparent); color: #fff; }
     .project-viewer-link.primary:hover { background: color-mix(in srgb, var(--v-accent) 30%, transparent); }
     .project-viewer-link.secondary { border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.7); }
     .project-viewer-link.secondary:hover { background: rgba(255,255,255,0.1); color: #fff; }
-    .project-viewer-qr { display: flex; align-items: center; gap: 12px; margin-top: 16px; padding: 12px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(255,255,255,0.03); }
-    .project-viewer-qr img { width: 72px; height: 72px; border-radius: 8px; }
-    .project-viewer-qr b { font-size: 12px; color: #fff; }
+    .project-viewer-qr { display: flex; align-items: center; gap: 14px; margin-top: 20px; padding: 14px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(255,255,255,0.03); }
+    .project-viewer-qr img { width: 80px; height: 80px; border-radius: 8px; }
+    .project-viewer-qr b { font-size: 13px; color: #fff; }
     .project-viewer-qr span { font-size: 11px; color: rgba(255,255,255,0.5); }
-    .project-viewer-nav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 210; display: flex; justify-content: space-between; padding: 16px 32px; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.85)); pointer-events: none; }
-    .project-viewer-nav button { pointer-events: auto; display: flex; align-items: center; gap: 8px; padding: 12px 20px; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 999px; background: rgba(0,0,0,0.5); backdrop-filter: blur(12px); color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 200ms ease; }
-    .project-viewer-nav button:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.4); }
+
+    /* Navigation */
+    .project-viewer-nav {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 210;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px; gap: 16px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.9));
+      pointer-events: none;
+    }
+    .project-viewer-nav button {
+      pointer-events: auto; display: flex; align-items: center; gap: 10px;
+      padding: 14px 24px; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 999px;
+      background: rgba(0,0,0,0.5); backdrop-filter: blur(12px);
+      color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 200ms ease;
+      max-width: 45%; overflow: hidden;
+    }
+    .project-viewer-nav button:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .project-viewer-nav button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .project-viewer-nav button svg { flex-shrink: 0; }
+
+    /* Content fade-in animation */
+    .project-viewer.active .project-viewer-hero { animation: pvFadeUp 600ms ease 200ms backwards; }
+    .project-viewer.active .project-viewer-header { animation: pvFadeUp 600ms ease 350ms backwards; }
+    .project-viewer.active .project-viewer-body { animation: pvFadeUp 600ms ease 500ms backwards; }
+    @keyframes pvFadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 768px) {
       .project-viewer-body { grid-template-columns: 1fr; }
       .project-viewer-info { position: static; }
-      .project-viewer-content { padding: 70px 16px 100px; }
+      .project-viewer-content { padding: 56px 16px 120px; }
+      .project-viewer-media { grid-template-columns: 1fr; }
+      .project-viewer-media-item.portrait { max-width: 260px; }
+      .project-viewer-hero { aspect-ratio: 4/3; }
       .project-row { grid-template-columns: 40px 1fr; padding: 14px 16px; gap: 12px; }
       .project-row-enter { grid-column: 2; justify-self: end; padding: 8px 14px; }
       .project-row-number { font-size: 28px; }
+      .project-viewer-nav { padding: 12px 16px; }
+      .project-viewer-nav button { padding: 10px 16px; font-size: 12px; }
     }
   </style>
 </head>
@@ -1719,6 +1812,12 @@
     </section>
   </main>
 
+  <!-- Cloud-Parting Curtain -->
+  <div class="viewer-curtain" id="viewerCurtain">
+    <div class="viewer-curtain-panel left"></div>
+    <div class="viewer-curtain-panel right"></div>
+  </div>
+
   <!-- Full-Screen Project Viewer -->
   <div class="project-viewer" id="projectViewer">
     <div class="project-viewer-bg"></div>
@@ -1726,9 +1825,12 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
     <div class="project-viewer-content" id="projectViewerContent">
-      <div class="project-viewer-counter" id="pvCounter">01 / 06</div>
-      <div class="project-viewer-kicker" id="pvKicker"></div>
-      <h2 class="project-viewer-title" id="pvTitle"></h2>
+      <div class="project-viewer-hero" id="pvHero"></div>
+      <div class="project-viewer-header">
+        <div class="project-viewer-counter" id="pvCounter">01 / 06</div>
+        <div class="project-viewer-kicker" id="pvKicker"></div>
+        <h2 class="project-viewer-title" id="pvTitle"></h2>
+      </div>
       <div class="project-viewer-body">
         <div class="project-viewer-media" id="pvMedia"></div>
         <div class="project-viewer-info">
@@ -1744,8 +1846,8 @@
       </div>
     </div>
     <div class="project-viewer-nav">
-      <button id="pvPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> 上一个</button>
-      <button id="pvNext">下一个 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <button id="pvPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span id="pvPrevName">上一个</span></button>
+      <button id="pvNext"><span id="pvNextName">下一个</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 
@@ -1765,22 +1867,22 @@
     });
 
     /* ===== Project Row Click Handlers ===== */
-    document.querySelectorAll('.project-row').forEach((row) => {
-      row.addEventListener('click', () => {
+    document.querySelectorAll('.project-row').forEach(function(row) {
+      row.addEventListener('click', function() {
         openViewer(parseInt(row.dataset.project));
       });
     });
 
     /* ===== Full-Screen Project Viewer ===== */
-    const PROJECT_DATA = [
+    var PROJECT_DATA = [
       {
         name: '职途 ZhiTu',
         kicker: 'Career OS · Online Multi-User',
         accent: '#60a5fa',
         media: [
+          { type: 'image', src: 'assets/portfolio/zhitu/landing.png', label: '产品落地页', hero: true },
           { type: 'image', src: 'assets/portfolio/zhitu/interview-training.png', label: '面试训练场' },
-          { type: 'image', src: 'assets/portfolio/zhitu/copilot.png', label: '求职 Copilot' },
-          { type: 'image', src: 'assets/portfolio/zhitu/landing.png', label: '产品落地页' }
+          { type: 'image', src: 'assets/portfolio/zhitu/copilot.png', label: '求职 Copilot' }
         ],
         desc: '面向应届生和初级求职者的场景驱动求职全流程工具，围绕「写简历、练面试、追投递」三个核心场景设计。求职 Copilot 结合简历上下文提供 JD 匹配、项目优化、岗位风险预测和自由问答四种 AI 任务。',
         tags: ['Vue 3','TypeScript','Ant Design Vue','Tailwind CSS','Pinia','SSE 流式','ASR/TTS','JWT 双密钥','浏览器工作区隔离'],
@@ -1799,9 +1901,9 @@
         kicker: 'AI Agent Career OS · Self-built Runtime',
         accent: '#86b8ff',
         media: [
+          { type: 'video', src: 'assets/portfolio/jobhunter/career-hero-loop.mp4', label: 'Hero Motion', hero: true },
           { type: 'image', src: 'assets/portfolio/jobhunter/agent-local-desktop.webp', label: 'Agent Desktop' },
-          { type: 'image', src: 'assets/portfolio/jobhunter/interview.png', label: 'Interview Run' },
-          { type: 'video', src: 'assets/portfolio/jobhunter/career-hero-loop.mp4', label: 'Hero Motion' }
+          { type: 'image', src: 'assets/portfolio/jobhunter/interview.png', label: 'Interview Run' }
         ],
         desc: '面向真实求职流程的本地优先 Web 系统，把职业目标、简历、JD、面试、机会和复盘行动串成六步闭环。Agent 能读取业务上下文、调用 22 个受控工具、结合分层记忆把建议推进到可验证的下一步。',
         tags: ['Python','FastAPI','SQLAlchemy','Alembic','React 19','TypeScript','Vite','Tool-Calling Runtime','22 Tools','Layered Memory'],
@@ -1821,9 +1923,9 @@
         kicker: 'Visual Novel Studio · Agent Core',
         accent: '#a78bfa',
         media: [
+          { type: 'video', src: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4', label: 'Showcase Hero', poster: 'assets/portfolio/dreamchord/hero.png', hero: true },
           { type: 'image', src: 'assets/portfolio/dreamchord/agent-workspace.png', label: 'Agent Draft Review' },
-          { type: 'image', src: 'assets/portfolio/dreamchord/editor-stage-continuity.png', label: 'Story Editor' },
-          { type: 'video', src: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4', label: 'Showcase Hero', poster: 'assets/portfolio/dreamchord/hero.png' }
+          { type: 'image', src: 'assets/portfolio/dreamchord/editor-stage-continuity.png', label: 'Story Editor' }
         ],
         desc: '面向视觉小说创作者的浏览器端故事工作台，覆盖章节、场景、镜头卡、角色立绘、CG、素材库、分支流程图和实时播放器。核心特色是项目感知 Agent：读取故事上下文和记忆，调用受控工具提出可审批、可撤销的剧情与素材处理建议。',
         tags: ['React','TypeScript','Vite','Express','Prisma','SQLite','Zustand','React Flow','Sharp','ReAct-style Agent'],
@@ -1843,9 +1945,9 @@
         kicker: 'City Explore Mini Program',
         accent: '#d8a73d',
         media: [
-          { type: 'image', src: 'assets/portfolio/chenghuiwan/map-home.png', label: '地图首页' },
-          { type: 'image', src: 'assets/portfolio/chenghuiwan/group-empty.png', label: '群组共享' },
-          { type: 'video', src: 'assets/portfolio/chenghuiwan/hero-mobile.mp4', label: 'Travel Motion' }
+          { type: 'video', src: 'assets/portfolio/chenghuiwan/hero-mobile.mp4', label: 'Travel Motion', hero: true },
+          { type: 'image', src: 'assets/portfolio/chenghuiwan/map-home.png', label: '地图首页', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/chenghuiwan/group-empty.png', label: '群组共享', orientation: 'portrait' }
         ],
         desc: '面向旅行回忆管理的微信小程序，覆盖 34 个省级行政区 391 座城市。解决"旅游后照片散落在相册里翻不到"的痛点：点进城市即可看到上传过的照片、笔记和足迹，把碎片化旅行记录变成按城市沉淀的视觉记忆。',
         tags: ['微信原生','CloudBase','云存储','内容安全','群组共享','34省391城'],
@@ -1863,9 +1965,9 @@
         kicker: 'Planet Habit System',
         accent: '#75d0a6',
         media: [
-          { type: 'image', src: 'assets/portfolio/xingtu/planet-home.jpg', label: '星球首页' },
-          { type: 'image', src: 'assets/portfolio/xingtu/focus-mode.jpg', label: '专注模式' },
-          { type: 'video', src: 'assets/portfolio/xingtu/hero-loop.mp4', label: 'Growth Motion' }
+          { type: 'video', src: 'assets/portfolio/xingtu/hero-loop.mp4', label: 'Growth Motion', hero: true },
+          { type: 'image', src: 'assets/portfolio/xingtu/planet-home.jpg', label: '星球首页', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/xingtu/focus-mode.jpg', label: '专注模式', orientation: 'portrait' }
         ],
         desc: '星球养成式自律打卡微信小程序，把运动、饮食、学习、工作、计划、睡眠六类目标转成星球成长、奖励反馈和数据复盘，让每一次打卡都成为星球进化的一步。星球经历 9 个阶段从荒芜进化到星际文明。',
         tags: ['微信小程序','WXML','WXSS','JavaScript','云开发','Node.js Test Runner'],
@@ -1883,7 +1985,7 @@
         kicker: 'AI Music Education · K12',
         accent: '#f0a868',
         media: [
-          { type: 'image', src: 'assets/portfolio/lqx/digital-teacher.png', label: 'AI 数字人老师' },
+          { type: 'image', src: 'assets/portfolio/lqx/digital-teacher.png', label: 'AI 数字人老师', hero: true },
           { type: 'image', src: 'assets/portfolio/lqx/practice.png', label: '互动练习' }
         ],
         desc: '面向 K12 阶段的 AI 音乐启蒙教育平台，核心理念是「让 AI 成为每个孩子的音乐启蒙老师」。整合大语言模型、数字人和 Web Audio 技术，AI 老师「晓音」24 小时在线，支持文字对话、语音交互和数字人面对面授课。',
@@ -1899,26 +2001,44 @@
       }
     ];
 
-    let pvActiveIndex = 0, pvOpen = false;
+    var pvActiveIndex = 0, pvOpen = false;
 
     function openViewer(index) {
       pvActiveIndex = index;
       pvOpen = true;
-      const viewer = document.getElementById('projectViewer');
-      viewer.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      updateViewer();
-      viewer.scrollTop = 0;
+      var curtain = document.getElementById('viewerCurtain');
+      var viewer = document.getElementById('projectViewer');
+      viewer.style.setProperty('--v-accent', PROJECT_DATA[index].accent);
+      curtain.style.setProperty('--v-accent', PROJECT_DATA[index].accent);
+      curtain.classList.add('visible');
+      curtain.classList.remove('open');
+      setTimeout(function() { curtain.classList.add('open'); }, 80);
+      setTimeout(function() {
+        viewer.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        updateViewer();
+        viewer.scrollTop = 0;
+      }, 250);
+      setTimeout(function() { curtain.classList.remove('visible'); }, 850);
     }
 
     function closeViewer() {
       pvOpen = false;
-      document.getElementById('projectViewer').classList.remove('active');
+      var viewer = document.getElementById('projectViewer');
+      var curtain = document.getElementById('viewerCurtain');
+      viewer.classList.remove('active');
       document.body.style.overflow = '';
+      setTimeout(function() {
+        curtain.classList.add('visible');
+        curtain.classList.add('open');
+        void curtain.offsetWidth;
+        setTimeout(function() { curtain.classList.remove('open'); }, 50);
+      }, 300);
+      setTimeout(function() { curtain.classList.remove('visible'); }, 1100);
     }
 
     function navigateViewer(direction) {
-      const total = PROJECT_DATA.length;
+      var total = PROJECT_DATA.length;
       pvActiveIndex = direction === 'next'
         ? (pvActiveIndex + 1) % total
         : (pvActiveIndex + total - 1) % total;
@@ -1927,9 +2047,9 @@
     }
 
     function updateViewer() {
-      const project = PROJECT_DATA[pvActiveIndex];
-      const total = PROJECT_DATA.length;
-      const viewer = document.getElementById('projectViewer');
+      var project = PROJECT_DATA[pvActiveIndex];
+      var total = PROJECT_DATA.length;
+      var viewer = document.getElementById('projectViewer');
       viewer.style.setProperty('--v-accent', project.accent);
 
       document.getElementById('pvCounter').textContent =
@@ -1938,11 +2058,22 @@
       document.getElementById('pvTitle').textContent = project.name;
       document.getElementById('pvDesc').textContent = project.desc;
 
-      var mediaHtml = project.media.map(function(m) {
+      var heroItem = project.media.find(function(m) { return m.hero; }) || project.media[0];
+      var galleryItems = project.media.filter(function(m) { return m !== heroItem; });
+
+      var heroHtml = heroItem.type === 'video'
+        ? '<video src="' + heroItem.src + '"' + (heroItem.poster ? ' poster="' + heroItem.poster + '"' : '') + ' autoplay muted loop playsinline preload="metadata"></video>'
+        : '<img src="' + heroItem.src + '" alt="' + project.name + ' ' + heroItem.label + '">';
+      document.getElementById('pvHero').innerHTML = heroHtml + '<span class="project-viewer-hero-label">' + heroItem.label + '</span>';
+
+      var mediaHtml = galleryItems.map(function(m) {
         var mediaEl = m.type === 'video'
           ? '<video src="' + m.src + '"' + (m.poster ? ' poster="' + m.poster + '"' : '') + ' autoplay muted loop playsinline preload="metadata"></video>'
           : '<img src="' + m.src + '" alt="' + project.name + ' ' + m.label + '" loading="lazy">';
-        return '<div class="project-viewer-media-item">' + mediaEl + '<span class="project-viewer-media-label">' + m.label + '</span></div>';
+        var classes = 'project-viewer-media-item';
+        if (m.orientation === 'portrait') classes += ' portrait';
+        if (galleryItems.length === 1) classes += ' full';
+        return '<div class="' + classes + '">' + mediaEl + '<span class="project-viewer-media-label">' + m.label + '</span></div>';
       }).join('');
       document.getElementById('pvMedia').innerHTML = mediaHtml;
 
@@ -1968,6 +2099,11 @@
       } else {
         qrEl.style.display = 'none';
       }
+
+      var prevIdx = (pvActiveIndex + total - 1) % total;
+      var nextIdx = (pvActiveIndex + 1) % total;
+      document.getElementById('pvPrevName').textContent = PROJECT_DATA[prevIdx].name;
+      document.getElementById('pvNextName').textContent = PROJECT_DATA[nextIdx].name;
     }
 
     document.getElementById('projectViewerExit').addEventListener('click', closeViewer);
