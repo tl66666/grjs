@@ -1,0 +1,15 @@
+import fs from "node:fs/promises";
+import { FileBlob, SpreadsheetFile } from "@oai/artifact-tool";
+
+const path = "C:/Users/唐乐/Desktop/个人网站/01 应聘人员信息登记表-已填写-修复版.xlsx";
+const workbook = await SpreadsheetFile.importXlsx(await FileBlob.load(path));
+const sheet = workbook.worksheets.getItemAt(0);
+const errors = await workbook.inspect({
+  kind: "match",
+  searchTerm: "#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A",
+  options: { useRegex: true, maxResults: 100 },
+  summary: "formula error scan",
+});
+console.log(errors.ndjson);
+const preview = await workbook.render({ sheetName: sheet.name, autoCrop: "all", scale: 1.5, format: "png" });
+await fs.writeFile("C:/Users/唐乐/AppData/Local/Temp/form-repaired-preview.png", new Uint8Array(await preview.arrayBuffer()));
