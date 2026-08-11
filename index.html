@@ -1619,7 +1619,7 @@
     .gallery-slides { position: relative; z-index: 1; }
     .gallery-slides-bg {
       position: absolute; top: 0; left: 0; right: 0;
-      z-index: -1;
+      z-index: 0;
       pointer-events: none;
     }
     .gallery-slides-bg img {
@@ -1630,6 +1630,8 @@
       display: block;
     }
     .project-slide {
+      position: relative;
+      z-index: 1;
       min-height: 100vh;
       padding: 80px 40px 100px;
       display: none;
@@ -2016,7 +2018,7 @@
       <div class="cloud-entrance-content reveal">
         <p class="kicker">My Projects</p>
         <h2>拨开云雾<br><em>探索我的作品</em></h2>
-        <p class="cloud-entrance-desc">六个独立项目，从 AI Agent 到视觉小说，从求职全流程到音乐启蒙。每个项目都围绕一个真实使用场景展开，用技术解决真实问题。</p>
+        <p class="cloud-entrance-desc">六个独立项目，覆盖 AI 求职系统、视觉小说创作平台、AI 音乐启蒙、求职全流程产品，以及旅行照片手账和星球自律打卡两个微信小程序。每个项目都围绕真实使用场景展开，用技术解决真实问题。</p>
         <button class="cloud-entrance-btn" id="enterProjectsBtn">
           <span>进入展示</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
