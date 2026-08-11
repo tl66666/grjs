@@ -1547,10 +1547,10 @@
     .project-slide-hero {
       position: relative;
       width: 100%; aspect-ratio: 16/9;
-      border-radius: 16px; overflow: hidden;
+      border-radius: 20px; overflow: hidden;
       margin-bottom: 40px;
       background: #111;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+      box-shadow: 0 32px 100px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
     }
     .project-slide-hero img,
     .project-slide-hero video {
@@ -1672,7 +1672,7 @@
 
     /* Right: screenshot gallery */
     .project-slide-gallery {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      display: flex; flex-direction: column; gap: 20px;
       position: sticky; top: 90px;
     }
     .project-slide-gallery-item {
@@ -1687,10 +1687,11 @@
     }
     .project-slide-gallery-item img,
     .project-slide-gallery-item video {
-      width: 100%; display: block;
+      width: 100%; height: auto; display: block;
     }
     .project-slide-gallery-item.portrait {
-      border-radius: 16px;
+      border-radius: 24px;
+      max-width: 360px; margin: 0 auto;
     }
     .project-slide-gallery-item.portrait img,
     .project-slide-gallery-item.portrait video {
@@ -1744,7 +1745,7 @@
       .project-slide { padding: 80px 16px 100px; }
       .project-slide-body { grid-template-columns: 1fr; gap: 32px; }
       .project-slide-gallery { position: static; }
-      .project-slide-gallery-item.portrait { max-width: 260px; }
+      .project-slide-gallery-item.portrait { max-width: 280px; }
       .project-slide-hero { aspect-ratio: 4/3; }
       .gallery-header { padding: 14px 16px; }
       .gallery-nav { padding: 14px 16px; }
@@ -1889,13 +1890,14 @@
         <h2>拨开云雾<br><em>探索我的作品</em></h2>
         <p class="cloud-entrance-desc">六个独立项目，从 AI Agent 到视觉小说，从求职全流程到音乐启蒙。每个项目都围绕一个真实使用场景展开，用技术解决真实问题。</p>
         <button class="cloud-entrance-btn" id="enterProjectsBtn">
-          <span>Enter Projects</span>
+          <span>进入展示</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
       <div class="cloud-entrance-hint">点击进入 · ESC 退出</div>
     </section>
- class="section compact">
+
+    <section id="process" class="section compact">
       <div class="wrap">
         <div class="process-stage reveal">
           <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_045634_e1c98c76-1265-4f5c-882a-4276f2080894.mp4" autoplay muted loop playsinline preload="metadata"></video>
@@ -1958,10 +1960,10 @@
     <div class="gallery-nav">
       <button class="gallery-nav-btn" id="galleryPrev">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        <span id="galleryPrevName">Previous</span>
+        <span id="galleryPrevName">上一个</span>
       </button>
       <button class="gallery-nav-btn" id="galleryNext">
-        <span id="galleryNextName">Next</span>
+        <span id="galleryNextName">下一个</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
     </div>
