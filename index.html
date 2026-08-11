@@ -1571,7 +1571,11 @@
       transition: opacity 600ms ease, visibility 0s linear 600ms, transform 600ms cubic-bezier(0.16,1,0.3,1), filter 600ms ease;
       overflow-y: auto; overflow-x: hidden;
       --v-accent: #60a5fa;
-      background: #0a0e1a;
+      background-image: url("assets/portfolio/project-cloud-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #0a0e1a;
     }
     .project-gallery.active {
       opacity: 1; visibility: visible;
@@ -1615,21 +1619,9 @@
     .gallery-exit svg { width: 14px; height: 14px; }
 
     /* Project slide - scrollable full page */
-    .gallery-slides { position: relative; z-index: 1; }
-    .gallery-slides-bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    .gallery-slides-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
+    .gallery-slides {
+      position: relative; z-index: 1;
+      background: transparent;
     }
     .project-slide {
       min-height: 100vh;
@@ -1675,7 +1667,7 @@
       font-size: clamp(32px,5vw,56px); font-weight: 800;
       line-height: 0.95; letter-spacing: -0.03em;
       color: #1a1a2e; margin-bottom: 0;
-      text-shadow: 0 1px 2px rgba(255,255,255,0.4);
+      text-shadow: 0 2px 12px rgba(255,255,255,0.9), 0 0 24px rgba(255,255,255,0.5);
     }
 
     /* Body: content + gallery */
@@ -1688,12 +1680,12 @@
     .project-slide-text { position: relative; }
     .project-slide-desc {
       font-size: 13px; line-height: 1.75;
-      color: rgba(30,30,50,0.85); margin-bottom: 16px;
-      text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+      color: rgba(30,30,50,0.92); margin-bottom: 16px;
+      text-shadow: 0 1px 6px rgba(255,255,255,0.85);
     }
     .project-slide-note {
       font-size: 13px; line-height: 1.7;
-      color: rgba(30,30,50,0.7);
+      color: rgba(30,30,50,0.85);
       padding: 16px 20px; margin-bottom: 28px;
       border-left: 3px solid var(--v-accent);
       background: rgba(255,255,255,0.25);
@@ -1864,9 +1856,9 @@
     .gallery-nav-btn svg { flex-shrink: 0; width: 16px; height: 16px; }
 
     /* Content fade-in */
-    .project-slide.active .project-slide-hero { animation: pvFadeUp 600ms ease 100ms backwards; }
-    .project-slide.active .project-slide-header { animation: pvFadeUp 600ms ease 250ms backwards; }
-    .project-slide.active .project-slide-body { animation: pvFadeUp 600ms ease 400ms backwards; }
+    .project-slide.active .project-slide-hero { animation: pvFadeUp 600ms ease 100ms both; }
+    .project-slide.active .project-slide-header { animation: pvFadeUp 600ms ease 250ms both; }
+    .project-slide.active .project-slide-body { animation: pvFadeUp 600ms ease 400ms both; }
     @keyframes pvFadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
     /* Responsive */
@@ -2373,17 +2365,7 @@
           '</div>' +
         '</div>';
       }).join('');
-      var bgLayer = '<div class="gallery-slides-bg" id="gallerySlidesBg"><img src="assets/portfolio/project-cloud-bg.jpg" alt="" aria-hidden="true"></div>';
-      container.innerHTML = bgLayer + html;
-      updateGalleryBgHeight();
-    }
-
-    function updateGalleryBgHeight() {
-      var bg = document.getElementById('gallerySlidesBg');
-      var container = document.getElementById('gallerySlides');
-      if (bg && container) {
-        bg.style.height = container.scrollHeight + 'px';
-      }
+      container.innerHTML = html;
     }
 
     function showSlide(index) {
@@ -2447,10 +2429,6 @@
       onScroll();
     })();
 
-    /* ===== Gallery bg height on resize ===== */
-    window.addEventListener('resize', function() {
-      if (galleryOpen) updateGalleryBgHeight();
-    });
   </script>
 </body>
 </html>
