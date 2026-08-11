@@ -1375,28 +1375,12 @@
       justify-content: center;
       text-align: center;
       overflow: hidden;
-      background: linear-gradient(180deg, #08080c 0%, #0e1525 30%, #14223e 60%, #0d1b35 100%);
+      background: url('assets/portfolio/explore-bg.jpg') center center / cover no-repeat, #0a0e1a;
     }
     .cloud-entrance::before {
       content: "";
       position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 90% 60% at 50% 75%, rgba(96,165,250,0.15) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 40% at 25% 35%, rgba(167,139,250,0.1) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 40% at 75% 30%, rgba(96,165,250,0.08) 0%, transparent 50%);
-    }
-    .cloud-puff {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(70px);
-      opacity: 0.1;
-      animation: cloudDrift 25s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes cloudDrift {
-      0%, 100% { transform: translate(0,0) scale(1); }
-      33% { transform: translate(30px,-20px) scale(1.08); }
-      66% { transform: translate(-20px,15px) scale(0.95); }
+      background: linear-gradient(180deg, rgba(8,8,12,0.55) 0%, rgba(14,21,37,0.45) 30%, rgba(20,34,62,0.35) 60%, rgba(13,27,53,0.5) 100%);
     }
     .cloud-entrance-content {
       position: relative; z-index: 5;
@@ -1405,12 +1389,13 @@
     .cloud-entrance .kicker {
       font-size: 12px; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.3em;
-      color: rgba(255,255,255,0.35); margin-bottom: 28px;
+      color: rgba(255,255,255,0.5); margin-bottom: 28px;
     }
     .cloud-entrance h2 {
       font-size: clamp(40px,7vw,80px); font-weight: 800;
       line-height: 0.95; letter-spacing: -0.03em;
       color: #fff; margin-bottom: 20px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.5);
     }
     .cloud-entrance h2 em {
       font-style: italic; font-weight: 300;
@@ -1420,29 +1405,30 @@
     }
     .cloud-entrance-desc {
       font-size: 15px; line-height: 1.7;
-      color: rgba(255,255,255,0.45); margin-bottom: 44px;
+      color: rgba(255,255,255,0.6); margin-bottom: 44px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
     .cloud-entrance-btn {
       display: inline-flex; align-items: center; gap: 12px;
       padding: 18px 40px;
-      border: 1.5px solid rgba(255,255,255,0.25); border-radius: 999px;
-      background: rgba(255,255,255,0.04); backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255,255,255,0.3); border-radius: 999px;
+      background: rgba(255,255,255,0.08); backdrop-filter: blur(16px);
       color: #fff; font-size: 13px; font-weight: 700;
       letter-spacing: 0.15em; text-transform: uppercase;
       cursor: pointer; transition: all 350ms cubic-bezier(0.4,0,0.2,1);
     }
     .cloud-entrance-btn:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.16);
+      border-color: rgba(255,255,255,0.6);
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(96,165,250,0.2);
+      box-shadow: 0 12px 40px rgba(96,165,250,0.3);
     }
     .cloud-entrance-btn svg { transition: transform 300ms ease; }
     .cloud-entrance-btn:hover svg { transform: translateX(4px); }
     .cloud-entrance-hint {
       position: absolute; bottom: 32px; left: 50%;
       transform: translateX(-50%);
-      font-size: 11px; color: rgba(255,255,255,0.2);
+      font-size: 11px; color: rgba(255,255,255,0.3);
       letter-spacing: 0.2em; text-transform: uppercase;
     }
 
@@ -1460,103 +1446,149 @@
     }
     .cloud-transition.active { opacity: 1; }
 
-    /* ===== Project Gallery (Full-screen) ===== */
+    /* ===== Project Gallery (Full-screen Scrollable) ===== */
     .project-gallery {
       position: fixed; inset: 0; z-index: 300;
       opacity: 0; visibility: hidden;
       transition: opacity 500ms ease, visibility 0s linear 500ms;
-      overflow: hidden;
+      overflow-y: auto; overflow-x: hidden;
       --v-accent: #60a5fa;
-      background: linear-gradient(135deg, #0a0e1a 0%, #101828 40%, #0c1220 70%, #080c16 100%);
+      background: #08080c;
     }
     .project-gallery.active {
       opacity: 1; visibility: visible;
       transition: opacity 500ms ease, visibility 0s;
     }
-    .project-gallery::before {
-      content: ""; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 50% at 70% 50%, var(--v-accent) 0%, transparent 50%);
-      opacity: 0.06; transition: opacity 500ms ease;
+    .project-gallery-bg {
+      position: fixed; inset: 0; z-index: 0;
+      background: url('assets/portfolio/project-cloud-bg.jpg') center center / cover no-repeat;
+      opacity: 0.08; pointer-events: none;
     }
 
     /* Gallery header */
     .gallery-header {
-      position: absolute; top: 0; left: 0; right: 0; z-index: 25;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 25;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 28px 48px;
+      padding: 20px 40px;
+      background: linear-gradient(180deg, rgba(8,8,12,0.9) 0%, transparent 100%);
+      backdrop-filter: blur(8px);
     }
     .gallery-counter { display: flex; align-items: center; gap: 12px; }
     .gallery-counter-label {
       font-size: 11px; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.25em;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.3);
     }
     .gallery-counter-num {
       font-size: 14px; font-weight: 700;
-      color: rgba(255,255,255,0.5); letter-spacing: 0.1em;
+      color: var(--v-accent); letter-spacing: 0.1em;
+      transition: color 500ms ease;
     }
     .gallery-exit {
       display: flex; align-items: center; gap: 8px;
       padding: 10px 20px;
       border: 1.5px solid rgba(255,255,255,0.15); border-radius: 999px;
-      background: rgba(255,255,255,0.03); backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.05); backdrop-filter: blur(12px);
       color: rgba(255,255,255,0.7);
       font-size: 12px; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
       cursor: pointer; transition: all 200ms ease;
     }
     .gallery-exit:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.3); color: #fff;
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.4); color: #fff;
     }
     .gallery-exit svg { width: 14px; height: 14px; }
 
-    /* Project slide */
-    .gallery-slides { position: absolute; inset: 0; }
+    /* Project slide - scrollable full page */
+    .gallery-slides { position: relative; z-index: 1; }
     .project-slide {
-      position: absolute; inset: 0;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-      align-items: center;
-      padding: 100px 60px 100px;
-      opacity: 0; pointer-events: none;
-      transition: opacity 400ms ease;
+      min-height: 100vh;
+      padding: 90px 48px 100px;
+      display: none;
+      max-width: 1280px; margin: 0 auto;
     }
-    .project-slide.active { opacity: 1; pointer-events: auto; }
+    .project-slide.active { display: block; }
 
-    /* Left side: text */
-    .project-slide-text { padding-right: 48px; position: relative; }
-    .project-slide-number {
-      position: absolute; top: -60px; left: -20px;
-      font-size: clamp(140px,20vw,220px); font-weight: 900;
-      line-height: 0.8;
-      color: rgba(255,255,255,0.03);
-      letter-spacing: -0.08em;
-      pointer-events: none; z-index: 0;
+    /* Hero banner */
+    .project-slide-hero {
+      position: relative;
+      width: 100%; aspect-ratio: 16/9;
+      border-radius: 16px; overflow: hidden;
+      margin-bottom: 40px;
+      background: #111;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
     }
-    .project-slide-content { position: relative; z-index: 1; }
+    .project-slide-hero img,
+    .project-slide-hero video {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block;
+    }
+    .project-slide-hero-label {
+      position: absolute; top: 16px; left: 16px;
+      padding: 6px 14px; border-radius: 999px;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+      font-size: 12px; font-weight: 600;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.05em;
+      z-index: 2;
+    }
+
+    /* Title section */
+    .project-slide-header { margin-bottom: 36px; }
     .project-slide-kicker {
       font-size: 11px; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.2em;
-      color: var(--v-accent); margin-bottom: 16px;
+      color: var(--v-accent); margin-bottom: 12px;
       transition: color 500ms ease;
     }
     .project-slide-title {
-      font-size: clamp(32px,4.5vw,56px); font-weight: 800;
+      font-size: clamp(32px,5vw,56px); font-weight: 800;
       line-height: 0.95; letter-spacing: -0.03em;
-      color: #fff; margin-bottom: 24px;
+      color: #fff; margin-bottom: 0;
     }
+
+    /* Body: content + gallery */
+    .project-slide-body {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+      align-items: start;
+    }
+
+    /* Left: text content */
+    .project-slide-text { position: relative; }
     .project-slide-desc {
       font-size: 14px; line-height: 1.8;
-      color: rgba(255,255,255,0.55); margin-bottom: 24px;
+      color: rgba(255,255,255,0.65); margin-bottom: 20px;
     }
     .project-slide-note {
-      font-size: 12px; line-height: 1.7;
-      color: rgba(255,255,255,0.4);
-      padding: 14px 18px; margin-bottom: 24px;
+      font-size: 13px; line-height: 1.7;
+      color: rgba(255,255,255,0.5);
+      padding: 16px 20px; margin-bottom: 28px;
       border-left: 3px solid var(--v-accent);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
       border-radius: 0 8px 8px 0;
       transition: border-color 500ms ease;
+    }
+    .project-slide-details { margin-bottom: 28px; }
+    .project-slide-details h4 {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--v-accent); margin-bottom: 16px;
+      transition: color 500ms ease;
+    }
+    .project-slide-details ul {
+      list-style: none; display: grid; gap: 14px;
+    }
+    .project-slide-details li {
+      font-size: 13px; line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      padding-left: 20px; position: relative;
+    }
+    .project-slide-details li::before {
+      content: ""; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--v-accent);
+      transition: background 500ms ease;
     }
     .project-slide-tech {
       display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px;
@@ -1569,6 +1601,7 @@
     }
     .project-slide-links {
       display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+      margin-bottom: 20px;
     }
     .project-slide-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -1588,134 +1621,105 @@
     }
     .project-slide-link.secondary {
       border: 1.5px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.04);
       color: rgba(255,255,255,0.6);
     }
     .project-slide-link.secondary:hover {
-      background: rgba(255,255,255,0.08); color: #fff;
+      background: rgba(255,255,255,0.1); color: #fff;
     }
     .project-slide-qr {
-      display: flex; align-items: center; gap: 12px;
-      margin-top: 16px; padding: 12px;
-      border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
-      background: rgba(255,255,255,0.02);
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 12px;
+      background: rgba(255,255,255,0.03);
     }
-    .project-slide-qr img { width: 72px; height: 72px; border-radius: 8px; }
-    .project-slide-qr b { font-size: 12px; color: #fff; }
-    .project-slide-qr span { font-size: 11px; color: rgba(255,255,255,0.4); }
+    .project-slide-qr img { width: 80px; height: 80px; border-radius: 8px; }
+    .project-slide-qr b { font-size: 13px; color: #fff; }
+    .project-slide-qr span { font-size: 11px; color: rgba(255,255,255,0.5); }
 
-    /* Right side: visual */
-    .project-slide-visual {
-      position: relative; height: 72vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 16px;
+    /* Right: screenshot gallery */
+    .project-slide-gallery {
+      display: grid; gap: 16px;
+      position: sticky; top: 90px;
     }
-    .project-slide-main-visual {
-      position: relative; flex: 1; width: 100%;
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
-      background: #0d1117;
+    .project-slide-gallery-item {
+      position: relative; border-radius: 12px; overflow: hidden;
+      background: #111;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      transition: transform 300ms ease, box-shadow 300ms ease;
     }
-    .project-slide-visual-item {
-      position: absolute; inset: 0;
-      opacity: 0; transition: opacity 400ms ease;
+    .project-slide-gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
-    .project-slide-visual-item.active { opacity: 1; }
-    .project-slide-visual-item img,
-    .project-slide-visual-item video {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top center;
-      display: block;
+    .project-slide-gallery-item img,
+    .project-slide-gallery-item video {
+      width: 100%; display: block;
     }
-    .project-slide-visual-item.portrait img,
-    .project-slide-visual-item.portrait video {
+    .project-slide-gallery-item.portrait {
+      max-width: 320px; margin: 0 auto;
+      border-radius: 20px;
+    }
+    .project-slide-gallery-item.portrait img,
+    .project-slide-gallery-item.portrait video {
       object-fit: contain; background: #0a0a0c;
     }
-    .project-slide-visual-label {
-      position: absolute; top: 16px; left: 16px;
-      padding: 6px 14px; border-radius: 999px;
+    .project-slide-gallery-label {
+      position: absolute; top: 10px; left: 10px;
+      padding: 4px 10px; border-radius: 999px;
       background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
       font-size: 11px; font-weight: 600;
       color: rgba(255,255,255,0.9); letter-spacing: 0.05em;
       z-index: 2;
     }
 
-    /* Visual thumbnails */
-    .project-slide-thumbs {
-      display: flex; gap: 8px; justify-content: center;
-      flex-shrink: 0;
-    }
-    .project-slide-thumb {
-      width: 56px; height: 36px; border-radius: 6px;
-      overflow: hidden; border: 2px solid transparent;
-      cursor: pointer; transition: border-color 200ms ease;
-      background: #111;
-    }
-    .project-slide-thumb img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .project-slide-thumb.active { border-color: var(--v-accent); }
-    .project-slide-thumb:hover { border-color: rgba(255,255,255,0.3); }
-
-    /* Progress dots */
-    .gallery-progress {
-      position: absolute; bottom: 80px; left: 50%;
-      transform: translateX(-50%);
-      display: flex; gap: 8px; z-index: 20;
-    }
-    .gallery-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(255,255,255,0.15);
-      cursor: pointer; transition: all 250ms ease;
-    }
-    .gallery-dot.active {
-      width: 24px; border-radius: 999px;
-      background: var(--v-accent);
-    }
-    .gallery-dot:hover { background: rgba(255,255,255,0.3); }
-
     /* Navigation */
     .gallery-nav {
-      position: absolute; bottom: 0; left: 0; right: 0; z-index: 20;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 25;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 24px 48px;
+      padding: 20px 40px; gap: 16px;
+      background: linear-gradient(180deg, transparent, rgba(8,8,12,0.95));
+      pointer-events: none;
     }
     .gallery-nav-btn {
-      display: flex; align-items: center; gap: 10px;
+      pointer-events: auto; display: flex; align-items: center; gap: 10px;
       padding: 14px 24px;
-      border: 1.5px solid rgba(255,255,255,0.12); border-radius: 999px;
-      background: rgba(255,255,255,0.03); backdrop-filter: blur(12px);
-      color: rgba(255,255,255,0.6);
-      font-size: 12px; font-weight: 600;
+      border: 1.5px solid rgba(255,255,255,0.15); border-radius: 999px;
+      background: rgba(0,0,0,0.5); backdrop-filter: blur(12px);
+      color: rgba(255,255,255,0.7);
+      font-size: 13px; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
       cursor: pointer; transition: all 250ms ease;
-      max-width: 220px;
+      max-width: 240px;
     }
     .gallery-nav-btn:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.25); color: #fff;
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.35); color: #fff;
     }
     .gallery-nav-btn span {
       overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
     .gallery-nav-btn svg { flex-shrink: 0; width: 16px; height: 16px; }
 
+    /* Content fade-in */
+    .project-slide.active .project-slide-hero { animation: pvFadeUp 600ms ease 100ms backwards; }
+    .project-slide.active .project-slide-header { animation: pvFadeUp 600ms ease 250ms backwards; }
+    .project-slide.active .project-slide-body { animation: pvFadeUp 600ms ease 400ms backwards; }
+    @keyframes pvFadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
     /* Responsive */
     @media (max-width: 768px) {
-      .project-slide {
-        grid-template-columns: 1fr;
-        padding: 70px 20px 90px;
-        overflow-y: auto;
-      }
-      .project-slide-text { padding-right: 0; margin-bottom: 20px; }
-      .project-slide-number { font-size: 100px; top: -40px; }
-      .project-slide-visual { height: 45vh; }
-      .gallery-header { padding: 16px 20px; }
-      .gallery-nav { padding: 16px 20px; }
-      .gallery-nav-btn { padding: 10px 16px; font-size: 11px; max-width: 120px; }
-      .gallery-progress { bottom: 65px; }
+      .project-slide { padding: 80px 16px 100px; }
+      .project-slide-body { grid-template-columns: 1fr; gap: 32px; }
+      .project-slide-gallery { position: static; }
+      .project-slide-gallery-item.portrait { max-width: 260px; }
+      .project-slide-hero { aspect-ratio: 4/3; }
+      .gallery-header { padding: 14px 16px; }
+      .gallery-nav { padding: 14px 16px; }
+      .gallery-nav-btn { padding: 10px 16px; font-size: 11px; max-width: 130px; }
       .cloud-entrance h2 { font-size: clamp(32px,10vw,56px); }
     }
+
   </style>
 </head>
 <body>
@@ -1846,11 +1850,6 @@
     </section>
 
     <section id="projects" class="cloud-entrance">
-      <div class="cloud-puff" style="width:400px;height:300px;top:10%;left:5%;background:rgba(96,165,250,0.5);animation-delay:0s;"></div>
-      <div class="cloud-puff" style="width:350px;height:280px;top:20%;right:10%;background:rgba(167,139,250,0.4);animation-delay:5s;"></div>
-      <div class="cloud-puff" style="width:500px;height:350px;bottom:15%;left:20%;background:rgba(96,165,250,0.3);animation-delay:10s;"></div>
-      <div class="cloud-puff" style="width:300px;height:250px;bottom:25%;right:15%;background:rgba(167,139,250,0.3);animation-delay:15s;"></div>
-
       <div class="cloud-entrance-content reveal">
         <p class="kicker">My Projects</p>
         <h2>拨开云雾<br><em>探索我的作品</em></h2>
@@ -1860,11 +1859,9 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
-
       <div class="cloud-entrance-hint">Click to enter · ESC to exit</div>
     </section>
-
-    <section id="process" class="section compact">
+ class="section compact">
       <div class="wrap">
         <div class="process-stage reveal">
           <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_045634_e1c98c76-1265-4f5c-882a-4276f2080894.mp4" autoplay muted loop playsinline preload="metadata"></video>
@@ -1910,8 +1907,9 @@
   <!-- Cloud Transition Overlay -->
   <div class="cloud-transition" id="cloudTransition"></div>
 
-  <!-- Project Gallery (Full-screen) -->
+  <!-- Project Gallery (Full-screen Scrollable) -->
   <div class="project-gallery" id="projectGallery">
+    <div class="project-gallery-bg"></div>
     <div class="gallery-header">
       <div class="gallery-counter">
         <span class="gallery-counter-label">Projects</span>
@@ -1922,11 +1920,7 @@
         <span>Exit</span>
       </button>
     </div>
-
     <div class="gallery-slides" id="gallerySlides"></div>
-
-    <div class="gallery-progress" id="galleryProgress"></div>
-
     <div class="gallery-nav">
       <button class="gallery-nav-btn" id="galleryPrev">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -1937,6 +1931,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
     </div>
+  </div>
+
   </div>
 
   <script>
@@ -1961,7 +1957,7 @@
         kicker: 'Career OS · Online Multi-User',
         accent: '#60a5fa',
         media: [
-          { type: 'image', src: 'assets/portfolio/zhitu/landing.png', label: '产品落地页' },
+          { type: 'image', src: 'assets/portfolio/zhitu/landing.png', label: '产品落地页', hero: true },
           { type: 'image', src: 'assets/portfolio/zhitu/interview-training.png', label: '面试训练场' },
           { type: 'image', src: 'assets/portfolio/zhitu/copilot.png', label: '求职 Copilot' }
         ],
@@ -1969,14 +1965,20 @@
         tags: ['Vue 3','TypeScript','Ant Design Vue','Tailwind CSS','Pinia','SSE 流式','ASR/TTS','JWT 双密钥','浏览器工作区隔离'],
         note: '与职途 AI Agent 的区别：职途 AI Agent 是个人本地使用的 Agent 工作台，注重自研 Tool-Calling Runtime；职途 ZhiTu 是线上多人使用的全流程产品，注重工程化、多用户隔离和 SSE 流式交互。',
         link: { url: 'https://zhitu.kralai.tech/', label: '查看项目' },
-        github: 'https://github.com/tl66666/zhitu'
+        github: 'https://github.com/tl66666/zhitu',
+        details: [
+          '本人负责前端全部开发：Vue 3 + TypeScript + Ant Design Vue 4 + Tailwind CSS 3，Pinia 持久化状态管理；后端 Go 1.22 + Gin + GORM 由队友完成，纯 Go SQLite 驱动零 CGO 依赖，单二进制部署。',
+          '简历实验室支持所见即所得编辑、模块化管理、版本控制和 AI 生成/润色/评分/JD 匹配，SSE 流式逐字呈现；面试训练场实现 7 状态状态机，支持文字/语音/混合模式，ASR 转写 + TTS 播报 + AI 多维度评分复盘。',
+          '投递看板全流程状态追踪，简历版本关联投递记录；求职 Copilot 通过浏览器工作区隔离（X-Browser-Token SHA-256 映射 workspace_id）实现多窗口互不干扰。',
+          'JWT 用户/管理员双密钥体系独立签名，所有数据操作包含 user_id 条件隔离；支持 OpenAI / Anthropic / MiMo 三模型适配，LLM 未配置时服务仍可启动。'
+        ]
       },
       {
         name: '职途 AI Agent',
         kicker: 'AI Agent Career OS · Self-built Runtime',
         accent: '#86b8ff',
         media: [
-          { type: 'video', src: 'assets/portfolio/jobhunter/career-hero-loop.mp4', label: 'Hero Motion' },
+          { type: 'video', src: 'assets/portfolio/jobhunter/career-hero-loop.mp4', label: 'Hero Motion', hero: true },
           { type: 'image', src: 'assets/portfolio/jobhunter/agent-local-desktop.webp', label: 'Agent Desktop' },
           { type: 'image', src: 'assets/portfolio/jobhunter/interview.png', label: 'Interview Run' }
         ],
@@ -1984,14 +1986,21 @@
         tags: ['Python','FastAPI','SQLAlchemy','Alembic','React 19','TypeScript','Vite','Tool-Calling Runtime','22 Tools','Layered Memory'],
         note: 'Agent 主线：确定性任务始终本地优先；没有 API Key 也能诊断进度、选择简历、生成草稿和定制面试题。配置模型后增强完整简历改写与开放表达；所有写入遵循"提议 → 预览 → 用户确认 → 领域服务执行"。',
         link: { url: 'https://tl66666.github.io/ztai/static/showcase.html', label: '查看项目' },
-        github: 'https://github.com/tl66666/ztai'
+        github: 'https://github.com/tl66666/ztai',
+        details: [
+          '后端重构为 FastAPI 模块化单体（API / Application / Adapters / Ports 分层），前端拆分为 React 19 + TypeScript 特性模块；自研有界 Tool-Calling Runtime 由 ContextBuilder、MemoryStore、Orchestrator 和 ToolRegistry 协同控制上下文、记忆与结果校验。',
+          '注册 22 个求职工具，覆盖求职诊断、简历与 JD 匹配、定制面试题、训练复盘、机会跟进和行动优先级生成。',
+          '六层记忆支持跨页面恢复上下文；写操作遵循"提议 → 预览 → 用户确认 → 领域服务执行 → 幂等回执"。',
+          '产品入口采用"右侧求职 Agent + 求职指挥台"分工：前者负责对话与工具执行，后者汇总待确认操作和机会进展。',
+          '模型增强与本地执行分层：GLM / DeepSeek / Kimi 用于开放表达，离线核心流程保持可用；SQLAlchemy + Alembic 管理数据迁移，支持 SQLite 本地与 PostgreSQL 生产部署。'
+        ]
       },
       {
         name: '梦弦 DreamChord',
         kicker: 'Visual Novel Studio · Agent Core',
         accent: '#a78bfa',
         media: [
-          { type: 'video', src: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4', label: 'Showcase Hero', poster: 'assets/portfolio/dreamchord/hero.png' },
+          { type: 'video', src: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4', label: 'Showcase Hero', poster: 'assets/portfolio/dreamchord/hero.png', hero: true },
           { type: 'image', src: 'assets/portfolio/dreamchord/agent-workspace.png', label: 'Agent Draft Review' },
           { type: 'image', src: 'assets/portfolio/dreamchord/editor-stage-continuity.png', label: 'Story Editor' }
         ],
@@ -1999,14 +2008,21 @@
         tags: ['React','TypeScript','Vite','Express','Prisma','SQLite','Zustand','React Flow','Sharp','ReAct-style Agent'],
         note: 'Agent 主线：无 API Key 时保留项目检索、剧情体检、确定性续写和正文结构化导入；配置模型后增强自然续写与润色。剧情都先生成补丁预览，再由作者确认写入。',
         link: { url: 'https://tl66666.github.io/DreamChord/', label: '查看项目' },
-        github: 'https://github.com/tl66666/DreamChord'
+        github: 'https://github.com/tl66666/DreamChord',
+        details: [
+          '设计"镜头卡"写作界面，把背景、角色、台词、选项抽象为卡片；将用户或 Agent 正文解析为场景、旁白、角色对话和选项，过滤草稿说明并按项目素材、角色做精确匹配，先预览再写入工作台。',
+          '实现章节 → 场景 → 镜头卡三级结构、剧情流程图可视化（@xyflow/react）、分支去向检测、汇合点高亮和项目体检面板（12 项检查），支持长篇叙事管理。',
+          '自研 ReAct 风格 Agent 执行链路（Observe → Reason → Act → Validate → Approve），结合本地意图路由、项目上下文、分层记忆、白名单工具、Zod 校验和剧情补丁审批。',
+          '构建全局素材库与 Sharp 图片处理管线，支持白底去除、透明裁边、立绘 / CG / 背景衍生图，并保留原图和人工确认流程。',
+          'Monorepo 架构（pnpm workspace），Express + Prisma + SQLite 持久化，集成自动保存、版本冲突保护、备份恢复、实时播放器和 Windows 一键启动。'
+        ]
       },
       {
         name: '城会玩 2.0',
         kicker: 'City Explore Mini Program',
         accent: '#d8a73d',
         media: [
-          { type: 'video', src: 'assets/portfolio/chenghuiwan/hero-mobile.mp4', label: 'Travel Motion' },
+          { type: 'video', src: 'assets/portfolio/chenghuiwan/hero-mobile.mp4', label: 'Travel Motion', hero: true },
           { type: 'image', src: 'assets/portfolio/chenghuiwan/map-home.png', label: '地图首页', orientation: 'portrait' },
           { type: 'image', src: 'assets/portfolio/chenghuiwan/group-empty.png', label: '群组共享', orientation: 'portrait' }
         ],
@@ -2014,14 +2030,19 @@
         tags: ['微信原生','CloudBase','云存储','内容安全','群组共享','34省391城'],
         qr: { img: 'assets/portfolio/chenghuiwan/qrcode.jpg', title: '扫码体验', subtitle: '微信打开城会玩 2.0' },
         link: { url: 'https://tl66666.github.io/chw2.0/', label: '查看项目' },
-        github: 'https://github.com/tl66666/chw2.0'
+        github: 'https://github.com/tl66666/chw2.0',
+        details: [
+          '设计"城市即相册容器"的信息架构，旅行/美食照片上传后按城市自动归档不会错乱，城市详情、相册筛选和动态流都能按地点快速回看；42 座热门城市内置旅行攻略和避坑指南，上传时接入内容安全审核。',
+          '首次点亮省份时解锁地域角色卡（SSR / UR 等级），配合 30+ 成就徽章作为辅助激励层，让"记录旅行"从负担变成期待。',
+          '通过 6 位邀请码建立旅行小队，成员点亮的城市自动合并到同一张地图，城市照片同步出现在群组相册和动态中；个人页把足迹、照片和旅程统计收进护照档案，形成完整回忆闭环。'
+        ]
       },
       {
         name: '星途自律舱',
         kicker: 'Planet Habit System',
         accent: '#75d0a6',
         media: [
-          { type: 'video', src: 'assets/portfolio/xingtu/hero-loop.mp4', label: 'Growth Motion' },
+          { type: 'video', src: 'assets/portfolio/xingtu/hero-loop.mp4', label: 'Growth Motion', hero: true },
           { type: 'image', src: 'assets/portfolio/xingtu/planet-home.jpg', label: '星球首页', orientation: 'portrait' },
           { type: 'image', src: 'assets/portfolio/xingtu/focus-mode.jpg', label: '专注模式', orientation: 'portrait' }
         ],
@@ -2029,20 +2050,31 @@
         tags: ['微信小程序','WXML','WXSS','JavaScript','云开发','Node.js Test Runner'],
         qr: { img: 'assets/portfolio/xingtu/qrcode.jpg', title: '扫码体验', subtitle: '微信打开星途自律舱' },
         link: { url: 'https://tl66666.github.io/xtzlc/', label: '查看项目' },
-        github: 'https://github.com/tl66666/xtzlc'
+        github: 'https://github.com/tl66666/xtzlc',
+        details: [
+          '设计"计划中心 → 行动舱专注计时 → 每日提醒 → 奖励反馈 → 星球成长 → 数据复盘"的完整闭环，支持制定每日计划、设定提醒时间、专注模式全屏沉浸打卡。',
+          '星球经历 9 个成长阶段（荒芜 → 星际文明），六类生态区对应运动、饮食、学习、工作、计划、睡眠，每类生态区独立追踪打卡进度；打卡后弹出星光奖励、宝箱进度和成就徽章。',
+          '数据复盘面板展示连续打卡天数、完成率和各生态区成长曲线；使用 Node.js Test Runner 覆盖奖励计算、目标进度、成就解锁和统计聚合等核心逻辑，兼顾本地数据兜底与云函数同步。'
+        ]
       },
       {
         name: '乐启星 LQX',
         kicker: 'AI Music Education · K12',
         accent: '#f0a868',
         media: [
-          { type: 'image', src: 'assets/portfolio/lqx/digital-teacher.png', label: 'AI 数字人老师' },
+          { type: 'image', src: 'assets/portfolio/lqx/digital-teacher.png', label: 'AI 数字人老师', hero: true },
           { type: 'image', src: 'assets/portfolio/lqx/practice.png', label: '互动练习' }
         ],
         desc: '面向 K12 阶段的 AI 音乐启蒙教育平台，核心理念是「让 AI 成为每个孩子的音乐启蒙老师」。整合大语言模型、数字人和 Web Audio 技术，AI 老师「晓音」24 小时在线，支持文字对话、语音交互和数字人面对面授课。',
         tags: ['HTML5','CSS3','JavaScript','Web Audio API','Chart.js','FastAPI','Python','SQLite','JWT','阿里云百炼','NuwaAI 数字人','Cloudflare Pages'],
         link: { url: 'https://lqx-266.pages.dev/', label: '查看项目' },
-        github: 'https://github.com/tl66666/lqx'
+        github: 'https://github.com/tl66666/lqx',
+        details: [
+          '前端原生 HTML5/CSS3/JS 零构建依赖单文件应用，Web Audio API 实现音符播放与频率控制，Chart.js 渲染学习进度统计图表；五线谱、节奏、音阶、听音四大互动练习模块配合即时反馈。',
+          '后端双模部署架构：本地 FastAPI + SQLite 异步存储 + JWT 认证，云端 Cloudflare Pages Functions 无服务器 API 零运维成本；同一前端代码既可配合本地后端运行也可纯云端部署。',
+          'AI 能力基于阿里云百炼 qwen-plus 实现音乐知识对话和教案自动生成（趣味型/规范型/互动型三种风格）；NuwaAI 数字人平台嵌入「晓音老师」形象，支持语音对话和知识库驱动授课。',
+          '结构化课程体系覆盖五线谱入门、节奏训练、音阶练习、小小作曲家和名曲欣赏，任务卡引导式学习路径配合成就系统维持学习动力。'
+        ]
       }
     ];
 
@@ -2061,6 +2093,7 @@
         gallery.style.setProperty('--v-accent', PROJECT_DATA[0].accent);
         renderSlides();
         showSlide(0);
+        gallery.scrollTop = 0;
         setTimeout(function() { transition.classList.remove('active'); }, 200);
       }, 600);
     }
@@ -2088,104 +2121,75 @@
         galleryActiveIndex = (galleryActiveIndex + total - 1) % total;
       }
       if (galleryActiveIndex === oldIndex) return;
-      var transition = document.getElementById('cloudTransition');
-      transition.classList.add('active');
-      setTimeout(function() {
-        document.querySelectorAll('.project-slide').forEach(function(slide, i) {
-          slide.classList.toggle('active', i === galleryActiveIndex);
-        });
-        var gallery = document.getElementById('projectGallery');
-        gallery.style.setProperty('--v-accent', PROJECT_DATA[galleryActiveIndex].accent);
-        updateGalleryUI();
-        setTimeout(function() { transition.classList.remove('active'); }, 100);
-      }, 400);
+      var gallery = document.getElementById('projectGallery');
+      gallery.style.setProperty('--v-accent', PROJECT_DATA[galleryActiveIndex].accent);
+      showSlide(galleryActiveIndex);
+      gallery.scrollTop = 0;
     }
 
     function renderSlides() {
       var container = document.getElementById('gallerySlides');
       var html = PROJECT_DATA.map(function(project, index) {
-        var visualHtml = project.media.map(function(m, vi) {
+        // Hero media
+        var heroItem = project.media.find(function(m) { return m.hero; }) || project.media[0];
+        var galleryItems = project.media.filter(function(m) { return m !== heroItem; });
+
+        var heroHtml = heroItem.type === 'video'
+          ? '<video src="' + heroItem.src + '"' + (heroItem.poster ? ' poster="' + heroItem.poster + '"' : '') + ' autoplay muted loop playsinline preload="metadata"></video>'
+          : '<img src="' + heroItem.src + '" alt="' + project.name + ' ' + heroItem.label + '">';
+
+        // Gallery items (all screenshots except hero)
+        var galleryHtml = galleryItems.map(function(m) {
           var mediaEl = m.type === 'video'
             ? '<video src="' + m.src + '"' + (m.poster ? ' poster="' + m.poster + '"' : '') + ' autoplay muted loop playsinline preload="metadata"></video>'
             : '<img src="' + m.src + '" alt="' + project.name + ' ' + m.label + '" loading="lazy">';
-          var cls = 'project-slide-visual-item' + (vi === 0 ? ' active' : '');
+          var cls = 'project-slide-gallery-item';
           if (m.orientation === 'portrait') cls += ' portrait';
-          return '<div class="' + cls + '" data-visual-index="' + vi + '">' + mediaEl + '</div>';
+          return '<div class="' + cls + '">' + mediaEl + '<span class="project-slide-gallery-label">' + m.label + '</span></div>';
         }).join('');
 
-        var labelsHtml = project.media.map(function(m, vi) {
-          return '<span class="project-slide-visual-label"' + (vi === 0 ? '' : ' style="display:none;"') + ' data-label-index="' + vi + '">' + m.label + '</span>';
-        }).join('');
-
-        var thumbsHtml = '';
-        if (project.media.length > 1) {
-          thumbsHtml = '<div class="project-slide-thumbs">' + project.media.map(function(m, vi) {
-            var thumbSrc = m.type === 'video' ? (m.poster || m.src) : m.src;
-            return '<div class="project-slide-thumb' + (vi === 0 ? ' active' : '') + '" data-visual-index="' + vi + '"><img src="' + thumbSrc + '" alt="' + m.label + '"></div>';
-          }).join('') + '</div>';
+        // Details list
+        var detailsHtml = '';
+        if (project.details && project.details.length > 0) {
+          detailsHtml = '<div class="project-slide-details"><h4>核心实现</h4><ul>' +
+            project.details.map(function(d) { return '<li>' + d + '</li>'; }).join('') +
+            '</ul></div>';
         }
 
+        // Note
+        var noteHtml = project.note ? '<div class="project-slide-note">' + project.note + '</div>' : '';
+
+        // Links
         var linksHtml =
           '<a class="project-slide-link primary" href="' + project.link.url + '" target="_blank" rel="noopener">' + project.link.label + ' ↗</a>' +
           '<a class="project-slide-link secondary" href="' + project.github + '" target="_blank" rel="noopener">源码仓库</a>';
 
+        // QR code
         var qrHtml = '';
         if (project.qr) {
           qrHtml = '<div class="project-slide-qr"><img src="' + project.qr.img + '" alt="小程序码"><div><b>' + project.qr.title + '</b><br><span>' + project.qr.subtitle + '</span></div></div>';
         }
 
-        var noteHtml = project.note ? '<div class="project-slide-note">' + project.note + '</div>' : '';
-
         return '<div class="project-slide" data-index="' + index + '">' +
-          '<div class="project-slide-text">' +
-            '<div class="project-slide-number">' + String(index + 1).padStart(2, '0') + '</div>' +
-            '<div class="project-slide-content">' +
-              '<div class="project-slide-kicker">' + project.kicker + '</div>' +
-              '<h3 class="project-slide-title">' + project.name + '</h3>' +
+          '<div class="project-slide-hero">' + heroHtml + '<span class="project-slide-hero-label">' + heroItem.label + '</span></div>' +
+          '<div class="project-slide-header">' +
+            '<div class="project-slide-kicker">' + project.kicker + '</div>' +
+            '<h3 class="project-slide-title">' + project.name + '</h3>' +
+          '</div>' +
+          '<div class="project-slide-body">' +
+            '<div class="project-slide-text">' +
               '<p class="project-slide-desc">' + project.desc + '</p>' +
               noteHtml +
+              detailsHtml +
               '<div class="project-slide-tech">' + project.tags.map(function(t) { return '<span>' + t + '</span>'; }).join('') + '</div>' +
               '<div class="project-slide-links">' + linksHtml + '</div>' +
               qrHtml +
             '</div>' +
-          '</div>' +
-          '<div class="project-slide-visual">' +
-            '<div class="project-slide-main-visual">' + labelsHtml + visualHtml + '</div>' +
-            thumbsHtml +
+            '<div class="project-slide-gallery">' + galleryHtml + '</div>' +
           '</div>' +
         '</div>';
       }).join('');
       container.innerHTML = html;
-
-      var progress = document.getElementById('galleryProgress');
-      progress.innerHTML = PROJECT_DATA.map(function(_, i) {
-        return '<div class="gallery-dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '"></div>';
-      }).join('');
-
-      document.querySelectorAll('.project-slide-thumb').forEach(function(thumb) {
-        thumb.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var slide = thumb.closest('.project-slide');
-          var vi = parseInt(thumb.dataset.visualIndex);
-          switchVisual(slide, vi);
-        });
-      });
-
-      document.querySelectorAll('.gallery-dot').forEach(function(dot) {
-        dot.addEventListener('click', function() {
-          var idx = parseInt(dot.dataset.index);
-          if (idx !== galleryActiveIndex) navigateGallery(idx);
-        });
-      });
-    }
-
-    function switchVisual(slide, vi) {
-      var items = slide.querySelectorAll('.project-slide-visual-item');
-      var thumbs = slide.querySelectorAll('.project-slide-thumb');
-      var labels = slide.querySelectorAll('.project-slide-visual-label');
-      items.forEach(function(item, i) { item.classList.toggle('active', i === vi); });
-      thumbs.forEach(function(thumb, i) { thumb.classList.toggle('active', i === vi); });
-      labels.forEach(function(label, i) { label.style.display = i === vi ? '' : 'none'; });
     }
 
     function showSlide(index) {
@@ -2197,11 +2201,10 @@
 
     function updateGalleryUI() {
       var total = PROJECT_DATA.length;
+      var gallery = document.getElementById('projectGallery');
+      gallery.style.setProperty('--v-accent', PROJECT_DATA[galleryActiveIndex].accent);
       document.getElementById('galleryCounter').textContent =
         String(galleryActiveIndex + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
-      document.querySelectorAll('.gallery-dot').forEach(function(dot, i) {
-        dot.classList.toggle('active', i === galleryActiveIndex);
-      });
       var prevIdx = (galleryActiveIndex + total - 1) % total;
       var nextIdx = (galleryActiveIndex + 1) % total;
       document.getElementById('galleryPrevName').textContent = PROJECT_DATA[prevIdx].name;
