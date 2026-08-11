@@ -1392,8 +1392,8 @@
       background: #0a0e1a;
     }
     .cloud-entrance-bg {
-      position: absolute; inset: -5%;
-      width: 110%; height: 110%;
+      position: absolute; inset: -10%;
+      width: 120%; height: 120%;
       object-fit: cover; object-position: center;
       z-index: 0; will-change: transform;
     }
@@ -1493,8 +1493,9 @@
     }
     .project-gallery-bg {
       position: fixed; inset: 0; z-index: 0;
-      background: url('assets/portfolio/project-cloud-bg.jpg') center center / cover no-repeat;
-      opacity: 0.08; pointer-events: none;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      opacity: 0.15; pointer-events: none;
     }
 
     /* Gallery header */
@@ -1892,7 +1893,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
-      <div class="cloud-entrance-hint">Click to enter · ESC to exit</div>
+      <div class="cloud-entrance-hint">点击进入 · ESC 退出</div>
     </section>
  class="section compact">
       <div class="wrap">
@@ -1942,7 +1943,7 @@
 
   <!-- Project Gallery (Full-screen Scrollable) -->
   <div class="project-gallery" id="projectGallery">
-    <div class="project-gallery-bg"></div>
+    <img class="project-gallery-bg" src="assets/portfolio/project-cloud-bg.jpg" alt="" aria-hidden="true">
     <div class="gallery-header">
       <div class="gallery-counter">
         <span class="gallery-counter-label">Projects</span>
@@ -1992,8 +1993,8 @@
         var rect = section.getBoundingClientRect();
         if (rect.bottom < 0 || rect.top > window.innerHeight) return;
         var progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
-        var offset = (progress - 0.5) * 60;
-        bg.style.transform = 'translateY(' + offset + 'px) scale(1.05)';
+        var offset = (progress - 0.5) * 40;
+        bg.style.transform = 'translateY(' + offset + 'px) scale(1.1)';
       }, { passive: true });
     })();
 
