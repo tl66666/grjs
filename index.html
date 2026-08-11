@@ -1580,15 +1580,6 @@
       filter: blur(0px);
       transition: opacity 600ms ease, visibility 0s, transform 600ms cubic-bezier(0.16,1,0.3,1), filter 600ms ease;
     }
-    .project-gallery-bg {
-      position: fixed; inset: 0; z-index: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      opacity: 0.75;
-      filter: brightness(1.15) contrast(1.05);
-      pointer-events: none;
-    }
-
     /* Gallery header */
     .gallery-header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 25;
@@ -1626,6 +1617,18 @@
 
     /* Project slide - scrollable full page */
     .gallery-slides { position: relative; z-index: 1; }
+    .gallery-slides-bg {
+      position: absolute; top: 0; left: 0; right: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .gallery-slides-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      opacity: 0.75;
+      filter: brightness(1.15) contrast(1.05);
+      display: block;
+    }
     .project-slide {
       min-height: 100vh;
       padding: 80px 40px 100px;
@@ -2070,7 +2073,6 @@
 
   <!-- Project Gallery (Full-screen Scrollable) -->
   <div class="project-gallery" id="projectGallery">
-    <img class="project-gallery-bg" src="assets/portfolio/project-cloud-bg.jpg" alt="" aria-hidden="true">
     <div class="gallery-header">
       <div class="gallery-counter">
         <span class="gallery-counter-label">项目</span>
@@ -2364,7 +2366,18 @@
           '</div>' +
         '</div>';
       }).join('');
-      container.innerHTML = html;
+      /* prepend background image layer */
+      var bgLayer = '<div class="gallery-slides-bg" id="gallerySlidesBg"><img src="assets/portfolio/project-cloud-bg.jpg" alt="" aria-hidden="true"></div>';
+      container.innerHTML = bgLayer + html;
+      updateGalleryBgHeight();
+    }
+
+    function updateGalleryBgHeight() {
+      var bg = document.getElementById('gallerySlidesBg');
+      var container = document.getElementById('gallerySlides');
+      if (bg && container) {
+        bg.style.height = container.scrollHeight + 'px';
+      }
     }
 
     function showSlide(index) {
@@ -2427,6 +2440,11 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     })();
+
+    /* ===== Gallery bg height on resize ===== */
+    window.addEventListener('resize', function() {
+      if (galleryOpen) updateGalleryBgHeight();
+    });
   </script>
 </body>
 </html>
