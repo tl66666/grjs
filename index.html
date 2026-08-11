@@ -883,6 +883,68 @@
     .project-card:nth-child(3),
     .project-card:nth-child(4) { top: auto; }
 
+    /* zhitu - 第5个卡片：全宽布局，参考第1个卡片 */
+    .project-card:nth-child(5) {
+      --project-accent: #60a5fa;
+      grid-template-columns: 1fr;
+      background:
+        radial-gradient(520px circle at var(--spot-x) var(--spot-y), rgba(96, 165, 250, 0.22), transparent 42%),
+        linear-gradient(155deg, rgba(37, 99, 235, 0.14), transparent 34%),
+        linear-gradient(180deg, rgba(10, 14, 28, 0.92), rgba(5, 7, 14, 0.95));
+    }
+
+    .project-card:nth-child(5) .media-grid {
+      grid-template-columns: minmax(0, 1.28fr) minmax(260px, 0.72fr);
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      width: 100%;
+      height: clamp(680px, 56vw, 880px);
+      min-height: 0;
+      margin-top: clamp(22px, 3vw, 34px);
+      align-self: start;
+    }
+
+    .project-card:nth-child(5) .media-tile {
+      min-height: 0;
+      background: #0a0d14;
+    }
+
+    .project-card:nth-child(5) .media-tile img {
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .project-card:nth-child(5) .zhitu-landing-tile { grid-row: span 2; }
+    .project-card:nth-child(5) .zhitu-interview-tile { grid-column: 1; grid-row: 1; }
+    .project-card:nth-child(5) .zhitu-copilot-tile { grid-column: 1; grid-row: 2; }
+    .project-card:nth-child(5) .zhitu-landing-tile { grid-column: 2; grid-row: 1 / span 2; }
+
+    .project-card:nth-child(5) .zhitu-landing-tile img {
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    /* lqx - 第6个卡片：左右分栏布局 */
+    .project-card:nth-child(6) {
+      --project-accent: #f0a868;
+      grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
+      background:
+        radial-gradient(520px circle at var(--spot-x) var(--spot-y), rgba(240, 168, 104, 0.22), transparent 42%),
+        linear-gradient(155deg, rgba(234, 138, 70, 0.14), transparent 34%),
+        linear-gradient(180deg, rgba(24, 16, 8, 0.92), rgba(8, 6, 4, 0.95));
+    }
+
+    .project-card:nth-child(6) .media-tile img {
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .project-card:nth-child(6) .media-tile:not(.tall) {
+      min-height: 240px;
+    }
+
+    .project-card:nth-child(5),
+    .project-card:nth-child(6) { top: auto; }
+
     .project-number {
       color: color-mix(in srgb, var(--project-accent) 34%, rgba(231, 226, 204, 0.14));
       font-size: clamp(70px, 10vw, 150px);
@@ -1407,6 +1469,11 @@
       .project-card:first-child .agent-screenshot-tile,
       .project-card:first-child .overview-screenshot-tile,
       .project-card:first-child .hero-video-tile { grid-column: auto; }
+      .project-card:nth-child(5) .media-grid { grid-template-columns: 1fr; grid-template-rows: none; width: 100%; height: auto; min-height: auto; }
+      .project-card:nth-child(5) .zhitu-landing-tile,
+      .project-card:nth-child(5) .zhitu-interview-tile,
+      .project-card:nth-child(5) .zhitu-copilot-tile { grid-column: auto; grid-row: auto; }
+      .project-card:nth-child(6) { grid-template-columns: 1fr; }
       .media-tile, .media-tile.tall { height: 260px; grid-row: auto; }
       .project-title-line { flex-direction: column; gap: 10px; }
       .project-qr { width: min(340px, 100%); margin-top: 0; }
@@ -1442,9 +1509,9 @@
           </h1>
         </div>
         <aside class="hero-card">
-          <p>软件工程本科在读，主攻全栈开发与 AI Agent 落地。四个项目覆盖求职、视觉小说创作和小程序场景；我把 Agent 做成能读取上下文、检索记忆、调用工具并经过确认执行的产品能力。</p>
+          <p>软件工程本科在读，主攻全栈开发与 AI Agent 落地。六个项目覆盖求职全流程、AI 音乐启蒙、视觉小说创作和小程序场景；我把 Agent 做成能读取上下文、检索记忆、调用工具并经过确认执行的产品能力。</p>
           <div class="hero-meta">
-            <div><b>4</b><span>独立项目</span></div>
+            <div><b>6</b><span>独立项目</span></div>
             <div><b>AI</b><span>Agent 开发</span></div>
             <div><b>Full Stack</b><span>全栈落地</span></div>
           </div>
@@ -1521,7 +1588,7 @@
         <div class="showcase-copy reveal">
           <p class="kicker">Why Hire Me</p>
           <h2>独立交付能力，<em>用 Vibe Coding 把效率拉满</em></h2>
-          <p class="lead">四个完整项目均由本人独立完成：从真实痛点、功能规划、页面实现到接口联调、数据处理、测试验证和展示页整理。AI 工具用于加速拆解和生成初版，代码阅读、问题定位、功能验收和最终交付由自己负责。</p>
+          <p class="lead">六个完整项目均由本人独立完成：从真实痛点、功能规划、页面实现到接口联调、数据处理、测试验证和展示页整理。AI 工具用于加速拆解和生成初版，代码阅读、问题定位、功能验收和最终交付由自己负责。</p>
           <ul class="showcase-list">
             <li>每个项目都有完整入口：项目展示页、源码仓库或小程序码，方便直接验证效果。</li>
             <li>不只是生成代码：会自己读代码、调接口、看报错、补规则和测试，把项目推进到可运行、可交付状态。</li>
@@ -1549,9 +1616,9 @@
         <div class="section-head reveal">
           <div>
             <p class="kicker">Selected Work</p>
-            <h2>四个项目，<br><em>四种能力证明</em></h2>
+            <h2>六个项目，<br><em>六种能力证明</em></h2>
           </div>
-          <p class="lead">每个项目都围绕一个真实使用场景展开：求职效率、自律打卡、旅行照片归档、视觉小说创作。四个项目均由本人独立完成，卡片保留产品定位、技术栈、核心实现、展示页和源码入口，方便快速理解我做了什么、怎么做的。</p>
+          <p class="lead">每个项目都围绕一个真实使用场景展开：求职全流程、AI 音乐启蒙、自律打卡、旅行照片归档、视觉小说创作。六个项目均由本人独立完成，卡片保留产品定位、技术栈、核心实现、展示页和源码入口，方便快速理解我做了什么、怎么做的。</p>
         </div>
 
         <div class="projects">
@@ -1676,6 +1743,60 @@
               <div class="media-tile" data-label="Focus Mode"><img src="assets/portfolio/xingtu/focus-mode.jpg" alt="星途自律舱专注模式打卡界面"></div>
             </div>
           </article>
+
+          <article class="project-card reveal">
+          <div>
+            <div class="project-number">05</div>
+              <p class="kicker">Career OS · Online Multi-User</p>
+              <h3>职途 ZhiTu</h3>
+              <p>面向应届生和初级求职者的场景驱动求职全流程工具，围绕「写简历、练面试、追投递」三个核心场景设计。以简历版本和投递记录为数据纽带，将简历实验室、面试训练场和投递看板串联成闭环；求职 Copilot 结合简历上下文提供 JD 匹配、项目优化、岗位风险预测和自由问答四种 AI 任务。</p>
+              <p class="project-agent-note"><strong>与职途 AI Agent 的区别：</strong>职途 AI Agent 是个人本地使用的 Agent 工作台，注重自研 Tool-Calling Runtime；职途 ZhiTu 是线上多人使用的全流程产品，注重工程化、多用户隔离和 SSE 流式交互。</p>
+              <div class="tag-list">
+                <span>Vue 3</span><span>TypeScript</span><span>Vite</span><span>Ant Design Vue</span><span>Tailwind CSS</span><span>Pinia</span><span>Go</span><span>Gin</span><span>GORM</span><span>SQLite</span><span>JWT 双密钥</span><span>SSE 流式</span><span>ASR/TTS</span><span>浏览器工作区隔离</span>
+              </div>
+              <ul class="project-points">
+                <li>前端 Vue 3 + TypeScript + Ant Design Vue 4 + Tailwind CSS 3，Pinia 持久化状态管理；后端 Go 1.22 + Gin + GORM，纯 Go SQLite 驱动零 CGO 依赖，单二进制部署。</li>
+                <li>简历实验室支持所见即所得编辑、模块化管理、版本控制和 AI 生成/润色/评分/JD 匹配，SSE 流式逐字呈现；面试训练场实现 7 状态状态机，支持文字/语音/混合模式，ASR 转写 + TTS 播报 + AI 多维度评分复盘。</li>
+                <li>投递看板全流程状态追踪，简历版本关联投递记录；求职 Copilot 通过浏览器工作区隔离（X-Browser-Token SHA-256 映射 workspace_id）实现多窗口互不干扰。</li>
+                <li>JWT 用户/管理员双密钥体系独立签名，所有数据操作包含 user_id 条件隔离；支持 OpenAI / Anthropic / MiMo 三模型适配，LLM 未配置时服务仍可启动。</li>
+              </ul>
+              <div class="project-actions" aria-label="职途 ZhiTu 项目链接">
+                <a class="project-link" href="https://zhitu.kralai.tech/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
+                <a class="project-link secondary" href="https://github.com/tl66666/zhitu" target="_blank" rel="noopener">源码仓库</a>
+              </div>
+            </div>
+            <div class="media-grid">
+              <div class="media-tile zhitu-interview-tile" data-label="Interview Training"><img src="assets/portfolio/zhitu/interview-training.png" alt="职途 ZhiTu 面试训练场 12 个场景选择界面"></div>
+              <div class="media-tile zhitu-copilot-tile" data-label="Copilot Chat"><img src="assets/portfolio/zhitu/copilot.png" alt="职途 ZhiTu 求职 Copilot AI 对话与配置面板界面"></div>
+              <div class="media-tile tall zhitu-landing-tile" data-label="Landing Page"><img src="assets/portfolio/zhitu/landing.png" alt="职途 ZhiTu 产品落地页首页"></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div>
+              <div class="project-number">06</div>
+              <p class="kicker">AI Music Education · K12</p>
+              <h3>乐启星 LQX</h3>
+              <p>面向 K12 阶段的 AI 音乐启蒙教育平台，核心理念是「让 AI 成为每个孩子的音乐启蒙老师」。整合大语言模型、数字人和 Web Audio 技术，提供从乐理认知到音乐欣赏的全流程互动学习体验；AI 老师「晓音」24 小时在线，支持文字对话、语音交互和数字人面对面授课。</p>
+              <div class="tag-list">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Web Audio API</span><span>Chart.js</span><span>FastAPI</span><span>Python</span><span>SQLite</span><span>JWT</span><span>bcrypt</span><span>阿里云百炼</span><span>NuwaAI 数字人</span><span>Cloudflare Pages Functions</span>
+              </div>
+              <ul class="project-points">
+                <li>前端原生 HTML5/CSS3/JS 零构建依赖单文件应用，Web Audio API 实现音符播放与频率控制，Chart.js 渲染学习进度统计图表；五线谱、节奏、音阶、听音四大互动练习模块配合即时反馈。</li>
+                <li>后端双模部署架构：本地 FastAPI + SQLite 异步存储 + JWT 认证，云端 Cloudflare Pages Functions 无服务器 API 零运维成本；同一前端代码既可配合本地后端运行也可纯云端部署。</li>
+                <li>AI 能力基于阿里云百炼 qwen-plus 实现音乐知识对话和教案自动生成（趣味型/规范型/互动型三种风格）；NuwaAI 数字人平台嵌入「晓音老师」形象，支持语音对话和知识库驱动授课。</li>
+                <li>结构化课程体系覆盖五线谱入门、节奏训练、音阶练习、小小作曲家和名曲欣赏，任务卡引导式学习路径配合成就系统维持学习动力。</li>
+              </ul>
+              <div class="project-actions" aria-label="乐启星 LQX 项目链接">
+                <a class="project-link" href="https://lqx-266.pages.dev/" target="_blank" rel="noopener">查看项目 <span>↗</span></a>
+                <a class="project-link secondary" href="https://github.com/tl66666/lqx" target="_blank" rel="noopener">源码仓库</a>
+              </div>
+            </div>
+            <div class="media-grid">
+              <div class="media-tile" data-label="AI Digital Teacher"><img src="assets/portfolio/lqx/digital-teacher.png" alt="乐启星 AI 数字人老师晓音互动界面"></div>
+              <div class="media-tile tall" data-label="Interactive Practice"><img src="assets/portfolio/lqx/practice.png" alt="乐启星互动练习模块与钢琴键盘可视化界面"></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1718,7 +1839,7 @@
       </div>
       <div class="footer">
         <span>唐乐 / Software Engineering / Shanghai Institute of Technology / 2027 届</span>
-        <span>四个独立项目 · Vibe Coding 全流程交付 · 持续迭代中</span>
+        <span>六个独立项目 · Vibe Coding 全流程交付 · 持续迭代中</span>
       </div>
     </section>
   </main>
