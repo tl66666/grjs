@@ -1571,7 +1571,8 @@
       opacity: 0; visibility: hidden;
       transform: scale(1.04);
       transition: opacity 600ms ease, visibility 0s linear 600ms, transform 600ms cubic-bezier(0.16,1,0.3,1);
-      overflow-y: auto; overflow-x: hidden;
+      overflow: hidden;
+      display: flex; flex-direction: column;
       --v-accent: #60a5fa;
       background-image: url("assets/portfolio/project-cloud-bg.jpg");
       background-size: cover;
@@ -1586,11 +1587,11 @@
     }
     /* Gallery header */
     .gallery-header {
-      position: absolute; top: 0; left: 0; right: 0; z-index: 25;
+      flex-shrink: 0;
+      position: relative; z-index: 25;
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 40px;
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(14px) saturate(1.2);
+      background: rgba(255,255,255,0.25);
     }
     .gallery-counter { display: flex; align-items: center; gap: 12px; }
     .gallery-counter-label {
@@ -1607,7 +1608,7 @@
       display: flex; align-items: center; gap: 8px;
       padding: 10px 20px;
       border: 1.5px solid rgba(30,30,50,0.15); border-radius: 999px;
-      background: rgba(255,255,255,0.45); backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.55);
       color: rgba(30,30,50,0.8);
       font-size: 12px; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
@@ -1621,8 +1622,11 @@
 
     /* Project slide - scrollable full page */
     .gallery-slides {
+      flex: 1;
       position: relative; z-index: 1;
       background: transparent;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
     .project-slide {
       min-height: 100vh;
@@ -1829,18 +1833,18 @@
 
     /* Navigation */
     .gallery-nav {
-      position: absolute; bottom: 0; left: 0; right: 0; z-index: 25;
+      flex-shrink: 0;
+      position: relative; z-index: 25;
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 40px; gap: 16px;
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(14px) saturate(1.2);
+      background: rgba(255,255,255,0.25);
       pointer-events: none;
     }
     .gallery-nav-btn {
       pointer-events: auto; display: flex; align-items: center; gap: 10px;
       padding: 14px 24px;
       border: 1.5px solid rgba(30,30,50,0.15); border-radius: 999px;
-      background: rgba(255,255,255,0.45); backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.55);
       color: rgba(30,30,50,0.8);
       font-size: 13px; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
