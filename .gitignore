@@ -17,3 +17,4 @@ Desktop.ini
 # 本地预览与截图输出
 output/
 .uploads/
+tmp/

@@ -18,4 +18,6 @@
 
 ## 发布说明
 
-本项目通过 GitHub Pages 发布。线上页面可能存在缓存，推送后若未立即更新，可以等待 GitHub Pages 自动构建完成后再刷新查看。
+本项目主域名通过 Cloudflare Pages 自动部署（[grjs.tl666.tech](https://grjs.tl666.tech/)），推送 `main` 分支后自动构建刷新。GitHub Pages 作为备用部署（[tl66666.github.io/grjs](https://tl66666.github.io/grjs/)）。
+
+线上页面可能存在缓存，推送后若未立即更新，可以等待几分钟后再刷新查看。
