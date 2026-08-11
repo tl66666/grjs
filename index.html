@@ -1366,210 +1366,355 @@
       .btn { justify-content: center; }
     }
 
-    /* ===== Project List (Compact Rows) ===== */
-    .project-list { display: flex; flex-direction: column; gap: 8px; }
-    .project-row {
-      --row-accent: var(--blue);
-      display: grid; grid-template-columns: 56px 1fr auto;
-      align-items: center; gap: 16px;
-      padding: 20px 28px;
-      border: 1px solid var(--line); border-radius: 16px;
-      background: rgba(17,17,15,0.5);
-      transition: all 400ms cubic-bezier(0.4,0,0.2,1);
-      cursor: pointer; position: relative; overflow: hidden;
+/* ===== Cloud Entrance Section ===== */
+    .cloud-entrance {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, #08080c 0%, #0e1525 30%, #14223e 60%, #0d1b35 100%);
     }
-    .project-row::after {
+    .cloud-entrance::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 75%, rgba(96,165,250,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 25% 35%, rgba(167,139,250,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 75% 30%, rgba(96,165,250,0.08) 0%, transparent 50%);
+    }
+    .cloud-puff {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.1;
+      animation: cloudDrift 25s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes cloudDrift {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      33% { transform: translate(30px,-20px) scale(1.08); }
+      66% { transform: translate(-20px,15px) scale(0.95); }
+    }
+    .cloud-entrance-content {
+      position: relative; z-index: 5;
+      max-width: 640px; padding: 0 24px;
+    }
+    .cloud-entrance .kicker {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.35); margin-bottom: 28px;
+    }
+    .cloud-entrance h2 {
+      font-size: clamp(40px,7vw,80px); font-weight: 800;
+      line-height: 0.95; letter-spacing: -0.03em;
+      color: #fff; margin-bottom: 20px;
+    }
+    .cloud-entrance h2 em {
+      font-style: italic; font-weight: 300;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cloud-entrance-desc {
+      font-size: 15px; line-height: 1.7;
+      color: rgba(255,255,255,0.45); margin-bottom: 44px;
+    }
+    .cloud-entrance-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 18px 40px;
+      border: 1.5px solid rgba(255,255,255,0.25); border-radius: 999px;
+      background: rgba(255,255,255,0.04); backdrop-filter: blur(16px);
+      color: #fff; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      cursor: pointer; transition: all 350ms cubic-bezier(0.4,0,0.2,1);
+    }
+    .cloud-entrance-btn:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(96,165,250,0.2);
+    }
+    .cloud-entrance-btn svg { transition: transform 300ms ease; }
+    .cloud-entrance-btn:hover svg { transform: translateX(4px); }
+    .cloud-entrance-hint {
+      position: absolute; bottom: 32px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px; color: rgba(255,255,255,0.2);
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+
+    /* ===== Cloud Transition Overlay ===== */
+    .cloud-transition {
+      position: fixed; inset: 0; z-index: 400;
+      pointer-events: none; opacity: 0;
+      background: radial-gradient(ellipse 120% 80% at center,
+        rgba(255,255,255,0.98) 0%,
+        rgba(210,225,255,0.92) 25%,
+        rgba(160,190,255,0.6) 50%,
+        rgba(110,150,230,0.2) 75%,
+        transparent 100%);
+      transition: opacity 600ms cubic-bezier(0.4,0,0.2,1);
+    }
+    .cloud-transition.active { opacity: 1; }
+
+    /* ===== Project Gallery (Full-screen) ===== */
+    .project-gallery {
+      position: fixed; inset: 0; z-index: 300;
+      opacity: 0; visibility: hidden;
+      transition: opacity 500ms ease, visibility 0s linear 500ms;
+      overflow: hidden;
+      --v-accent: #60a5fa;
+      background: linear-gradient(135deg, #0a0e1a 0%, #101828 40%, #0c1220 70%, #080c16 100%);
+    }
+    .project-gallery.active {
+      opacity: 1; visibility: visible;
+      transition: opacity 500ms ease, visibility 0s;
+    }
+    .project-gallery::before {
       content: ""; position: absolute; inset: 0;
-      background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--row-accent) 6%, transparent), transparent);
+      background: radial-gradient(ellipse 70% 50% at 70% 50%, var(--v-accent) 0%, transparent 50%);
+      opacity: 0.06; transition: opacity 500ms ease;
+    }
+
+    /* Gallery header */
+    .gallery-header {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 25;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 28px 48px;
+    }
+    .gallery-counter { display: flex; align-items: center; gap: 12px; }
+    .gallery-counter-label {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.25);
+    }
+    .gallery-counter-num {
+      font-size: 14px; font-weight: 700;
+      color: rgba(255,255,255,0.5); letter-spacing: 0.1em;
+    }
+    .gallery-exit {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 20px;
+      border: 1.5px solid rgba(255,255,255,0.15); border-radius: 999px;
+      background: rgba(255,255,255,0.03); backdrop-filter: blur(12px);
+      color: rgba(255,255,255,0.7);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; transition: all 200ms ease;
+    }
+    .gallery-exit:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.3); color: #fff;
+    }
+    .gallery-exit svg { width: 14px; height: 14px; }
+
+    /* Project slide */
+    .gallery-slides { position: absolute; inset: 0; }
+    .project-slide {
+      position: absolute; inset: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      align-items: center;
+      padding: 100px 60px 100px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 400ms ease;
+    }
+    .project-slide.active { opacity: 1; pointer-events: auto; }
+
+    /* Left side: text */
+    .project-slide-text { padding-right: 48px; position: relative; }
+    .project-slide-number {
+      position: absolute; top: -60px; left: -20px;
+      font-size: clamp(140px,20vw,220px); font-weight: 900;
+      line-height: 0.8;
+      color: rgba(255,255,255,0.03);
+      letter-spacing: -0.08em;
+      pointer-events: none; z-index: 0;
+    }
+    .project-slide-content { position: relative; z-index: 1; }
+    .project-slide-kicker {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.2em;
+      color: var(--v-accent); margin-bottom: 16px;
+      transition: color 500ms ease;
+    }
+    .project-slide-title {
+      font-size: clamp(32px,4.5vw,56px); font-weight: 800;
+      line-height: 0.95; letter-spacing: -0.03em;
+      color: #fff; margin-bottom: 24px;
+    }
+    .project-slide-desc {
+      font-size: 14px; line-height: 1.8;
+      color: rgba(255,255,255,0.55); margin-bottom: 24px;
+    }
+    .project-slide-note {
+      font-size: 12px; line-height: 1.7;
+      color: rgba(255,255,255,0.4);
+      padding: 14px 18px; margin-bottom: 24px;
+      border-left: 3px solid var(--v-accent);
+      background: rgba(255,255,255,0.02);
+      border-radius: 0 8px 8px 0;
+      transition: border-color 500ms ease;
+    }
+    .project-slide-tech {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px;
+    }
+    .project-slide-tech span {
+      padding: 5px 12px;
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 999px;
+      font-size: 10px; font-weight: 600;
+      color: rgba(255,255,255,0.5); letter-spacing: 0.05em;
+    }
+    .project-slide-links {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    }
+    .project-slide-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 999px;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 250ms ease; text-decoration: none;
+    }
+    .project-slide-link.primary {
+      border: 1.5px solid var(--v-accent);
+      background: color-mix(in srgb, var(--v-accent) 15%, transparent);
+      color: #fff;
+    }
+    .project-slide-link.primary:hover {
+      background: color-mix(in srgb, var(--v-accent) 30%, transparent);
+      transform: translateY(-1px);
+    }
+    .project-slide-link.secondary {
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.6);
+    }
+    .project-slide-link.secondary:hover {
+      background: rgba(255,255,255,0.08); color: #fff;
+    }
+    .project-slide-qr {
+      display: flex; align-items: center; gap: 12px;
+      margin-top: 16px; padding: 12px;
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+    }
+    .project-slide-qr img { width: 72px; height: 72px; border-radius: 8px; }
+    .project-slide-qr b { font-size: 12px; color: #fff; }
+    .project-slide-qr span { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+    /* Right side: visual */
+    .project-slide-visual {
+      position: relative; height: 72vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 16px;
+    }
+    .project-slide-main-visual {
+      position: relative; flex: 1; width: 100%;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+      background: #0d1117;
+    }
+    .project-slide-visual-item {
+      position: absolute; inset: 0;
       opacity: 0; transition: opacity 400ms ease;
     }
-    .project-row:hover {
-      border-color: color-mix(in srgb, var(--row-accent) 50%, var(--line));
-      background: color-mix(in srgb, var(--row-accent) 4%, rgba(17,17,15,0.85));
-      transform: translateX(8px);
-      box-shadow: 0 8px 30px color-mix(in srgb, var(--row-accent) 12%, transparent);
+    .project-slide-visual-item.active { opacity: 1; }
+    .project-slide-visual-item img,
+    .project-slide-visual-item video {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block;
     }
-    .project-row:hover::after { opacity: 1; }
-    .project-row.accent-sky { --row-accent: #60a5fa; }
-    .project-row.accent-blue { --row-accent: #86b8ff; }
-    .project-row.accent-purple { --row-accent: #a78bfa; }
-    .project-row.accent-gold { --row-accent: #d8a73d; }
-    .project-row.accent-green { --row-accent: #75d0a6; }
-    .project-row.accent-orange { --row-accent: #f0a868; }
-    .project-row-number {
-      font-size: clamp(28px,3.5vw,42px); font-weight: 800; line-height: 0.9;
-      color: color-mix(in srgb, var(--row-accent) 20%, rgba(231,226,204,0.06));
-      letter-spacing: -0.08em; transition: color 300ms ease;
+    .project-slide-visual-item.portrait img,
+    .project-slide-visual-item.portrait video {
+      object-fit: contain; background: #0a0a0c;
     }
-    .project-row:hover .project-row-number { color: color-mix(in srgb, var(--row-accent) 40%, rgba(231,226,204,0.1)); }
-    .project-row-body { min-width: 0; position: relative; z-index: 1; }
-    .project-row-body .kicker { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--row-accent); margin-bottom: 4px; }
-    .project-row-body h3 { font-size: clamp(18px,2.2vw,24px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 4px; color: var(--cream); }
-    .project-row-body p { font-size: 12px; color: var(--muted); line-height: 1.4; }
-    .project-row-enter {
-      display: flex; align-items: center; gap: 6px;
-      padding: 10px 18px;
-      border: 1px solid color-mix(in srgb, var(--row-accent) 35%, var(--line));
-      border-radius: 999px;
-      background: color-mix(in srgb, var(--row-accent) 6%, transparent);
-      color: var(--cream); font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
-      cursor: pointer; transition: all 200ms ease; white-space: nowrap; flex-shrink: 0; position: relative; z-index: 1;
-    }
-    .project-row-enter:hover { background: color-mix(in srgb, var(--row-accent) 18%, transparent); border-color: var(--row-accent); }
-
-    /* ===== Cloud-Parting Curtain ===== */
-    .viewer-curtain {
-      position: fixed; inset: 0; z-index: 350;
-      display: flex; visibility: hidden; pointer-events: none;
-    }
-    .viewer-curtain.visible { visibility: visible; }
-    .viewer-curtain-panel {
-      flex: 1; background: #0a0a0c; position: relative;
-      transition: transform 700ms cubic-bezier(0.65, 0, 0.35, 1);
-    }
-    .viewer-curtain-panel::after {
-      content: ""; position: absolute; top: 0; bottom: 0;
-      width: 3px; background: var(--v-accent, #60a5fa);
-      opacity: 0.3; box-shadow: 0 0 20px var(--v-accent, #60a5fa);
-    }
-    .viewer-curtain-panel.left::after { right: 0; }
-    .viewer-curtain-panel.right::after { left: 0; }
-    .viewer-curtain.open .left { transform: translateX(-100%); }
-    .viewer-curtain.open .right { transform: translateX(100%); }
-
-    /* ===== Full-Screen Project Viewer ===== */
-    .project-viewer {
-      position: fixed; inset: 0; z-index: 200;
-      background: #08080a;
-      opacity: 0; visibility: hidden;
-      transition: opacity 300ms ease, visibility 0s linear 300ms;
-      overflow-y: auto; overflow-x: hidden;
-      --v-accent: #60a5fa;
-    }
-    .project-viewer.active { opacity: 1; visibility: visible; transition: opacity 400ms ease 150ms, visibility 0s linear 150ms; }
-    .project-viewer-bg {
-      position: fixed; inset: 0; z-index: 0;
-      background: radial-gradient(ellipse 60% 40% at 50% 0%, var(--v-accent) 0%, transparent 60%), linear-gradient(180deg, #0c0c0a 0%, #050505 100%);
-      opacity: 0.1; transition: opacity 500ms ease;
-    }
-    .project-viewer-exit {
-      position: fixed; top: 20px; right: 24px; z-index: 210;
-      width: 44px; height: 44px; display: grid; place-items: center;
-      border: 1.5px solid rgba(255,255,255,0.2); border-radius: 50%;
-      background: rgba(0,0,0,0.5); backdrop-filter: blur(12px);
-      color: #fff; cursor: pointer; transition: all 200ms ease;
-    }
-    .project-viewer-exit:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.5); transform: scale(1.06); }
-    .project-viewer-exit svg { width: 20px; height: 20px; }
-    .project-viewer-content {
-      position: relative; z-index: 1;
-      max-width: 1280px; margin: 0 auto;
-      padding: 56px 32px 140px;
-    }
-
-    /* Hero media - large banner at top */
-    .project-viewer-hero {
-      position: relative; border-radius: 16px; overflow: hidden;
-      margin-bottom: 40px; background: #111;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
-      aspect-ratio: 16/9;
-    }
-    .project-viewer-hero img, .project-viewer-hero video {
-      width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
-    }
-    .project-viewer-hero-label {
+    .project-slide-visual-label {
       position: absolute; top: 16px; left: 16px;
       padding: 6px 14px; border-radius: 999px;
       background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
-      font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.9); letter-spacing: 0.05em;
+      font-size: 11px; font-weight: 600;
+      color: rgba(255,255,255,0.9); letter-spacing: 0.05em;
+      z-index: 2;
     }
 
-    /* Title section */
-    .project-viewer-header { margin-bottom: 40px; }
-    .project-viewer-counter { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.25); letter-spacing: 0.15em; margin-bottom: 8px; }
-    .project-viewer-kicker { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--v-accent); margin-bottom: 8px; transition: color 500ms ease; }
-    .project-viewer-title { font-size: clamp(36px,5vw,64px); font-weight: 800; line-height: 0.95; letter-spacing: -0.04em; color: #fff; text-shadow: 0 0 40px rgba(255,255,255,0.06); }
-
-    /* Body: gallery + info sidebar */
-    .project-viewer-body { display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: start; }
-
-    /* Media gallery */
-    .project-viewer-media { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .project-viewer-media-item {
-      position: relative; border-radius: 12px; overflow: hidden;
-      background: #111; box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-      transition: transform 300ms ease, box-shadow 300ms ease;
+    /* Visual thumbnails */
+    .project-slide-thumbs {
+      display: flex; gap: 8px; justify-content: center;
+      flex-shrink: 0;
     }
-    .project-viewer-media-item:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-    .project-viewer-media-item img, .project-viewer-media-item video { width: 100%; display: block; }
-    .project-viewer-media-item.portrait { max-width: 300px; margin: 0 auto; border-radius: 20px; }
-    .project-viewer-media-item.full { grid-column: 1 / -1; }
-    .project-viewer-media-label {
-      position: absolute; top: 10px; left: 10px;
-      padding: 4px 10px; border-radius: 999px;
-      background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
-      font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.9); letter-spacing: 0.05em;
+    .project-slide-thumb {
+      width: 56px; height: 36px; border-radius: 6px;
+      overflow: hidden; border: 2px solid transparent;
+      cursor: pointer; transition: border-color 200ms ease;
+      background: #111;
     }
+    .project-slide-thumb img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .project-slide-thumb.active { border-color: var(--v-accent); }
+    .project-slide-thumb:hover { border-color: rgba(255,255,255,0.3); }
 
-    /* Info sidebar */
-    .project-viewer-info { position: sticky; top: 56px; }
-    .project-viewer-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
-    .project-viewer-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
-    .project-viewer-tags span { padding: 5px 10px; border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; font-size: 10px; color: rgba(255,255,255,0.6); }
-    .project-viewer-details { margin-bottom: 24px; }
-    .project-viewer-details h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--v-accent); margin-bottom: 14px; transition: color 500ms ease; }
-    .project-viewer-details ul { list-style: none; display: grid; gap: 12px; }
-    .project-viewer-details li { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.55); padding-left: 16px; position: relative; }
-    .project-viewer-details li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--v-accent); transition: background 500ms ease; }
-    .project-viewer-note { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.5); padding: 14px 16px; margin-bottom: 20px; border-left: 3px solid var(--v-accent); background: rgba(255,255,255,0.03); border-radius: 0 8px 8px 0; transition: border-color 500ms ease; }
-    .project-viewer-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-    .project-viewer-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; transition: all 200ms ease; }
-    .project-viewer-link.primary { border: 1px solid var(--v-accent); background: color-mix(in srgb, var(--v-accent) 15%, transparent); color: #fff; }
-    .project-viewer-link.primary:hover { background: color-mix(in srgb, var(--v-accent) 30%, transparent); }
-    .project-viewer-link.secondary { border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.7); }
-    .project-viewer-link.secondary:hover { background: rgba(255,255,255,0.1); color: #fff; }
-    .project-viewer-qr { display: flex; align-items: center; gap: 14px; margin-top: 20px; padding: 14px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(255,255,255,0.03); }
-    .project-viewer-qr img { width: 80px; height: 80px; border-radius: 8px; }
-    .project-viewer-qr b { font-size: 13px; color: #fff; }
-    .project-viewer-qr span { font-size: 11px; color: rgba(255,255,255,0.5); }
+    /* Progress dots */
+    .gallery-progress {
+      position: absolute; bottom: 80px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 20;
+    }
+    .gallery-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      cursor: pointer; transition: all 250ms ease;
+    }
+    .gallery-dot.active {
+      width: 24px; border-radius: 999px;
+      background: var(--v-accent);
+    }
+    .gallery-dot:hover { background: rgba(255,255,255,0.3); }
 
     /* Navigation */
-    .project-viewer-nav {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 210;
+    .gallery-nav {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 20;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 40px; gap: 16px;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.9));
-      pointer-events: none;
+      padding: 24px 48px;
     }
-    .project-viewer-nav button {
-      pointer-events: auto; display: flex; align-items: center; gap: 10px;
-      padding: 14px 24px; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 999px;
-      background: rgba(0,0,0,0.5); backdrop-filter: blur(12px);
-      color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 200ms ease;
-      max-width: 45%; overflow: hidden;
+    .gallery-nav-btn {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 24px;
+      border: 1.5px solid rgba(255,255,255,0.12); border-radius: 999px;
+      background: rgba(255,255,255,0.03); backdrop-filter: blur(12px);
+      color: rgba(255,255,255,0.6);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; transition: all 250ms ease;
+      max-width: 220px;
     }
-    .project-viewer-nav button:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
-    .project-viewer-nav button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .project-viewer-nav button svg { flex-shrink: 0; }
+    .gallery-nav-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.25); color: #fff;
+    }
+    .gallery-nav-btn span {
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .gallery-nav-btn svg { flex-shrink: 0; width: 16px; height: 16px; }
 
-    /* Content fade-in animation */
-    .project-viewer.active .project-viewer-hero { animation: pvFadeUp 600ms ease 200ms backwards; }
-    .project-viewer.active .project-viewer-header { animation: pvFadeUp 600ms ease 350ms backwards; }
-    .project-viewer.active .project-viewer-body { animation: pvFadeUp 600ms ease 500ms backwards; }
-    @keyframes pvFadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
+    /* Responsive */
     @media (max-width: 768px) {
-      .project-viewer-body { grid-template-columns: 1fr; }
-      .project-viewer-info { position: static; }
-      .project-viewer-content { padding: 56px 16px 120px; }
-      .project-viewer-media { grid-template-columns: 1fr; }
-      .project-viewer-media-item.portrait { max-width: 260px; }
-      .project-viewer-hero { aspect-ratio: 4/3; }
-      .project-row { grid-template-columns: 40px 1fr; padding: 14px 16px; gap: 12px; }
-      .project-row-enter { grid-column: 2; justify-self: end; padding: 8px 14px; }
-      .project-row-number { font-size: 28px; }
-      .project-viewer-nav { padding: 12px 16px; }
-      .project-viewer-nav button { padding: 10px 16px; font-size: 12px; }
+      .project-slide {
+        grid-template-columns: 1fr;
+        padding: 70px 20px 90px;
+        overflow-y: auto;
+      }
+      .project-slide-text { padding-right: 0; margin-bottom: 20px; }
+      .project-slide-number { font-size: 100px; top: -40px; }
+      .project-slide-visual { height: 45vh; }
+      .gallery-header { padding: 16px 20px; }
+      .gallery-nav { padding: 16px 20px; }
+      .gallery-nav-btn { padding: 10px 16px; font-size: 11px; max-width: 120px; }
+      .gallery-progress { bottom: 65px; }
+      .cloud-entrance h2 { font-size: clamp(32px,10vw,56px); }
     }
   </style>
 </head>
@@ -1700,73 +1845,23 @@
       </div>
     </section>
 
-    <section id="projects" class="section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Selected Work</p>
-            <h2>六个项目，<br><em>六种能力证明</em></h2>
-          </div>
-          <p class="lead">每个项目都围绕一个真实使用场景展开：求职全流程产品、AI Agent 工作台、视觉小说创作、AI 音乐启蒙、自律打卡和旅行照片归档。点击「进入展示」查看全部截图、技术栈和工程亮点。</p>
-        </div>
+    <section id="projects" class="cloud-entrance">
+      <div class="cloud-puff" style="width:400px;height:300px;top:10%;left:5%;background:rgba(96,165,250,0.5);animation-delay:0s;"></div>
+      <div class="cloud-puff" style="width:350px;height:280px;top:20%;right:10%;background:rgba(167,139,250,0.4);animation-delay:5s;"></div>
+      <div class="cloud-puff" style="width:500px;height:350px;bottom:15%;left:20%;background:rgba(96,165,250,0.3);animation-delay:10s;"></div>
+      <div class="cloud-puff" style="width:300px;height:250px;bottom:25%;right:15%;background:rgba(167,139,250,0.3);animation-delay:15s;"></div>
 
-        <div class="project-list">
-          <article class="project-row accent-sky reveal" data-project="0">
-            <div class="project-row-number">01</div>
-            <div class="project-row-body">
-              <p class="kicker">Career OS · Online Multi-User</p>
-              <h3>职途 ZhiTu</h3>
-              <p>Vue 3 · TypeScript · Ant Design Vue · SSE 流式 · JWT 双密钥</p>
-            </div>
-            <button class="project-row-enter">进入展示 →</button>
-          </article>
-          <article class="project-row accent-blue reveal" data-project="1">
-            <div class="project-row-number">02</div>
-            <div class="project-row-body">
-              <p class="kicker">AI Agent Career OS · Self-built Runtime</p>
-              <h3>职途 AI Agent</h3>
-              <p>Python · FastAPI · React 19 · Tool-Calling Runtime · 22 Tools</p>
-            </div>
-            <button class="project-row-enter">进入展示 →</button>
-          </article>
-          <article class="project-row accent-purple reveal" data-project="2">
-            <div class="project-row-number">03</div>
-            <div class="project-row-body">
-              <p class="kicker">Visual Novel Studio · Agent Core</p>
-              <h3>梦弦 DreamChord</h3>
-              <p>React · TypeScript · Express · Prisma · ReAct-style Agent</p>
-            </div>
-            <button class="project-row-enter">进入展示 →</button>
-          </article>
-          <article class="project-row accent-gold reveal" data-project="3">
-            <div class="project-row-number">04</div>
-            <div class="project-row-body">
-              <p class="kicker">City Explore Mini Program</p>
-              <h3>城会玩 2.0</h3>
-              <p>微信原生 · CloudBase · 云存储 · 群组共享 · 34省391城</p>
-            </div>
-            <button class="project-row-enter">进入展示 →</button>
-          </article>
-          <article class="project-row accent-green reveal" data-project="4">
-            <div class="project-row-number">05</div>
-            <div class="project-row-body">
-              <p class="kicker">Planet Habit System</p>
-              <h3>星途自律舱</h3>
-              <p>微信小程序 · WXML · WXSS · 云开发 · Node.js Test Runner</p>
-            </div>
-            <button class="project-row-enter">进入展示 →</button>
-          </article>
-          <article class="project-row accent-orange reveal" data-project="5">
-            <div class="project-row-number">06</div>
-            <div class="project-row-body">
-              <p class="kicker">AI Music Education · K12</p>
-              <h3>乐启星 LQX</h3>
-              <p>HTML5 · Web Audio API · FastAPI · 阿里云百炼 · NuwaAI 数字人</p>
-            </div>
-            <button class="project-row-enter">进入展示 →</button>
-          </article>
-        </div>
+      <div class="cloud-entrance-content reveal">
+        <p class="kicker">My Projects</p>
+        <h2>拨开云雾<br><em>探索我的作品</em></h2>
+        <p class="cloud-entrance-desc">六个独立项目，从 AI Agent 到视觉小说，从求职全流程到音乐启蒙。每个项目都围绕一个真实使用场景展开，用技术解决真实问题。</p>
+        <button class="cloud-entrance-btn" id="enterProjectsBtn">
+          <span>Enter Projects</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
       </div>
+
+      <div class="cloud-entrance-hint">Click to enter · ESC to exit</div>
     </section>
 
     <section id="process" class="section compact">
@@ -1812,42 +1907,35 @@
     </section>
   </main>
 
-  <!-- Cloud-Parting Curtain -->
-  <div class="viewer-curtain" id="viewerCurtain">
-    <div class="viewer-curtain-panel left"></div>
-    <div class="viewer-curtain-panel right"></div>
-  </div>
+  <!-- Cloud Transition Overlay -->
+  <div class="cloud-transition" id="cloudTransition"></div>
 
-  <!-- Full-Screen Project Viewer -->
-  <div class="project-viewer" id="projectViewer">
-    <div class="project-viewer-bg"></div>
-    <button class="project-viewer-exit" id="projectViewerExit" aria-label="退出展示">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="project-viewer-content" id="projectViewerContent">
-      <div class="project-viewer-hero" id="pvHero"></div>
-      <div class="project-viewer-header">
-        <div class="project-viewer-counter" id="pvCounter">01 / 06</div>
-        <div class="project-viewer-kicker" id="pvKicker"></div>
-        <h2 class="project-viewer-title" id="pvTitle"></h2>
+  <!-- Project Gallery (Full-screen) -->
+  <div class="project-gallery" id="projectGallery">
+    <div class="gallery-header">
+      <div class="gallery-counter">
+        <span class="gallery-counter-label">Projects</span>
+        <span class="gallery-counter-num" id="galleryCounter">01 / 06</span>
       </div>
-      <div class="project-viewer-body">
-        <div class="project-viewer-media" id="pvMedia"></div>
-        <div class="project-viewer-info">
-          <p class="project-viewer-desc" id="pvDesc"></p>
-          <div class="project-viewer-tags" id="pvTags"></div>
-          <div class="project-viewer-details" id="pvDetails"></div>
-          <div class="project-viewer-links" id="pvLinks"></div>
-          <div class="project-viewer-qr" id="pvQr" style="display:none;">
-            <img id="pvQrImg" src="" alt="微信小程序码">
-            <div><b>扫码体验</b><br><span id="pvQrText"></span></div>
-          </div>
-        </div>
-      </div>
+      <button class="gallery-exit" id="galleryExit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        <span>Exit</span>
+      </button>
     </div>
-    <div class="project-viewer-nav">
-      <button id="pvPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span id="pvPrevName">上一个</span></button>
-      <button id="pvNext"><span id="pvNextName">下一个</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+
+    <div class="gallery-slides" id="gallerySlides"></div>
+
+    <div class="gallery-progress" id="galleryProgress"></div>
+
+    <div class="gallery-nav">
+      <button class="gallery-nav-btn" id="galleryPrev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span id="galleryPrevName">Previous</span>
+      </button>
+      <button class="gallery-nav-btn" id="galleryNext">
+        <span id="galleryNextName">Next</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
     </div>
   </div>
 
@@ -1866,21 +1954,14 @@
       observer.observe(el);
     });
 
-    /* ===== Project Row Click Handlers ===== */
-    document.querySelectorAll('.project-row').forEach(function(row) {
-      row.addEventListener('click', function() {
-        openViewer(parseInt(row.dataset.project));
-      });
-    });
-
-    /* ===== Full-Screen Project Viewer ===== */
+/* ===== Cloud Entrance + Project Gallery ===== */
     var PROJECT_DATA = [
       {
         name: '职途 ZhiTu',
         kicker: 'Career OS · Online Multi-User',
         accent: '#60a5fa',
         media: [
-          { type: 'image', src: 'assets/portfolio/zhitu/landing.png', label: '产品落地页', hero: true },
+          { type: 'image', src: 'assets/portfolio/zhitu/landing.png', label: '产品落地页' },
           { type: 'image', src: 'assets/portfolio/zhitu/interview-training.png', label: '面试训练场' },
           { type: 'image', src: 'assets/portfolio/zhitu/copilot.png', label: '求职 Copilot' }
         ],
@@ -1888,20 +1969,14 @@
         tags: ['Vue 3','TypeScript','Ant Design Vue','Tailwind CSS','Pinia','SSE 流式','ASR/TTS','JWT 双密钥','浏览器工作区隔离'],
         note: '与职途 AI Agent 的区别：职途 AI Agent 是个人本地使用的 Agent 工作台，注重自研 Tool-Calling Runtime；职途 ZhiTu 是线上多人使用的全流程产品，注重工程化、多用户隔离和 SSE 流式交互。',
         link: { url: 'https://zhitu.kralai.tech/', label: '查看项目' },
-        github: 'https://github.com/tl66666/zhitu',
-        details: [
-          '本人负责前端全部开发：Vue 3 + TypeScript + Ant Design Vue 4 + Tailwind CSS 3，Pinia 持久化状态管理；后端 Go 1.22 + Gin + GORM 由队友完成，纯 Go SQLite 驱动零 CGO 依赖，单二进制部署。',
-          '简历实验室支持所见即所得编辑、模块化管理、版本控制和 AI 生成/润色/评分/JD 匹配，SSE 流式逐字呈现；面试训练场实现 7 状态状态机，支持文字/语音/混合模式，ASR 转写 + TTS 播报 + AI 多维度评分复盘。',
-          '投递看板全流程状态追踪，简历版本关联投递记录；求职 Copilot 通过浏览器工作区隔离（X-Browser-Token SHA-256 映射 workspace_id）实现多窗口互不干扰。',
-          'JWT 用户/管理员双密钥体系独立签名，所有数据操作包含 user_id 条件隔离；支持 OpenAI / Anthropic / MiMo 三模型适配，LLM 未配置时服务仍可启动。'
-        ]
+        github: 'https://github.com/tl66666/zhitu'
       },
       {
         name: '职途 AI Agent',
         kicker: 'AI Agent Career OS · Self-built Runtime',
         accent: '#86b8ff',
         media: [
-          { type: 'video', src: 'assets/portfolio/jobhunter/career-hero-loop.mp4', label: 'Hero Motion', hero: true },
+          { type: 'video', src: 'assets/portfolio/jobhunter/career-hero-loop.mp4', label: 'Hero Motion' },
           { type: 'image', src: 'assets/portfolio/jobhunter/agent-local-desktop.webp', label: 'Agent Desktop' },
           { type: 'image', src: 'assets/portfolio/jobhunter/interview.png', label: 'Interview Run' }
         ],
@@ -1909,21 +1984,14 @@
         tags: ['Python','FastAPI','SQLAlchemy','Alembic','React 19','TypeScript','Vite','Tool-Calling Runtime','22 Tools','Layered Memory'],
         note: 'Agent 主线：确定性任务始终本地优先；没有 API Key 也能诊断进度、选择简历、生成草稿和定制面试题。配置模型后增强完整简历改写与开放表达；所有写入遵循"提议 → 预览 → 用户确认 → 领域服务执行"。',
         link: { url: 'https://tl66666.github.io/ztai/static/showcase.html', label: '查看项目' },
-        github: 'https://github.com/tl66666/ztai',
-        details: [
-          '后端重构为 FastAPI 模块化单体（API / Application / Adapters / Ports 分层），前端拆分为 React 19 + TypeScript 特性模块；自研有界 Tool-Calling Runtime 由 ContextBuilder、MemoryStore、Orchestrator 和 ToolRegistry 协同控制上下文、记忆与结果校验。',
-          '注册 22 个求职工具，覆盖求职诊断、简历与 JD 匹配、定制面试题、训练复盘、机会跟进和行动优先级生成。',
-          '六层记忆支持跨页面恢复上下文；写操作遵循"提议 → 预览 → 用户确认 → 领域服务执行 → 幂等回执"。',
-          '产品入口采用"右侧求职 Agent + 求职指挥台"分工：前者负责对话与工具执行，后者汇总待确认操作和机会进展。',
-          '模型增强与本地执行分层：GLM / DeepSeek / Kimi 用于开放表达，离线核心流程保持可用；SQLAlchemy + Alembic 管理数据迁移，支持 SQLite 本地与 PostgreSQL 生产部署。'
-        ]
+        github: 'https://github.com/tl66666/ztai'
       },
       {
         name: '梦弦 DreamChord',
         kicker: 'Visual Novel Studio · Agent Core',
         accent: '#a78bfa',
         media: [
-          { type: 'video', src: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4', label: 'Showcase Hero', poster: 'assets/portfolio/dreamchord/hero.png', hero: true },
+          { type: 'video', src: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4', label: 'Showcase Hero', poster: 'assets/portfolio/dreamchord/hero.png' },
           { type: 'image', src: 'assets/portfolio/dreamchord/agent-workspace.png', label: 'Agent Draft Review' },
           { type: 'image', src: 'assets/portfolio/dreamchord/editor-stage-continuity.png', label: 'Story Editor' }
         ],
@@ -1931,21 +1999,14 @@
         tags: ['React','TypeScript','Vite','Express','Prisma','SQLite','Zustand','React Flow','Sharp','ReAct-style Agent'],
         note: 'Agent 主线：无 API Key 时保留项目检索、剧情体检、确定性续写和正文结构化导入；配置模型后增强自然续写与润色。剧情都先生成补丁预览，再由作者确认写入。',
         link: { url: 'https://tl66666.github.io/DreamChord/', label: '查看项目' },
-        github: 'https://github.com/tl66666/DreamChord',
-        details: [
-          '设计"镜头卡"写作界面，把背景、角色、台词、选项抽象为卡片；将用户或 Agent 正文解析为场景、旁白、角色对话和选项，过滤草稿说明并按项目素材、角色做精确匹配，先预览再写入工作台。',
-          '实现章节 → 场景 → 镜头卡三级结构、剧情流程图可视化（@xyflow/react）、分支去向检测、汇合点高亮和项目体检面板（12 项检查），支持长篇叙事管理。',
-          '自研 ReAct 风格 Agent 执行链路（Observe → Reason → Act → Validate → Approve），结合本地意图路由、项目上下文、分层记忆、白名单工具、Zod 校验和剧情补丁审批。',
-          '构建全局素材库与 Sharp 图片处理管线，支持白底去除、透明裁边、立绘 / CG / 背景衍生图，并保留原图和人工确认流程。',
-          'Monorepo 架构（pnpm workspace），Express + Prisma + SQLite 持久化，集成自动保存、版本冲突保护、备份恢复、实时播放器和 Windows 一键启动。'
-        ]
+        github: 'https://github.com/tl66666/DreamChord'
       },
       {
         name: '城会玩 2.0',
         kicker: 'City Explore Mini Program',
         accent: '#d8a73d',
         media: [
-          { type: 'video', src: 'assets/portfolio/chenghuiwan/hero-mobile.mp4', label: 'Travel Motion', hero: true },
+          { type: 'video', src: 'assets/portfolio/chenghuiwan/hero-mobile.mp4', label: 'Travel Motion' },
           { type: 'image', src: 'assets/portfolio/chenghuiwan/map-home.png', label: '地图首页', orientation: 'portrait' },
           { type: 'image', src: 'assets/portfolio/chenghuiwan/group-empty.png', label: '群组共享', orientation: 'portrait' }
         ],
@@ -1953,19 +2014,14 @@
         tags: ['微信原生','CloudBase','云存储','内容安全','群组共享','34省391城'],
         qr: { img: 'assets/portfolio/chenghuiwan/qrcode.jpg', title: '扫码体验', subtitle: '微信打开城会玩 2.0' },
         link: { url: 'https://tl66666.github.io/chw2.0/', label: '查看项目' },
-        github: 'https://github.com/tl66666/chw2.0',
-        details: [
-          '设计"城市即相册容器"的信息架构，旅行/美食照片上传后按城市自动归档不会错乱，城市详情、相册筛选和动态流都能按地点快速回看；42 座热门城市内置旅行攻略和避坑指南，上传时接入内容安全审核。',
-          '首次点亮省份时解锁地域角色卡（SSR / UR 等级），配合 30+ 成就徽章作为辅助激励层，让"记录旅行"从负担变成期待。',
-          '通过 6 位邀请码建立旅行小队，成员点亮的城市自动合并到同一张地图，城市照片同步出现在群组相册和动态中；个人页把足迹、照片和旅程统计收进护照档案，形成完整回忆闭环。'
-        ]
+        github: 'https://github.com/tl66666/chw2.0'
       },
       {
         name: '星途自律舱',
         kicker: 'Planet Habit System',
         accent: '#75d0a6',
         media: [
-          { type: 'video', src: 'assets/portfolio/xingtu/hero-loop.mp4', label: 'Growth Motion', hero: true },
+          { type: 'video', src: 'assets/portfolio/xingtu/hero-loop.mp4', label: 'Growth Motion' },
           { type: 'image', src: 'assets/portfolio/xingtu/planet-home.jpg', label: '星球首页', orientation: 'portrait' },
           { type: 'image', src: 'assets/portfolio/xingtu/focus-mode.jpg', label: '专注模式', orientation: 'portrait' }
         ],
@@ -1973,148 +2029,195 @@
         tags: ['微信小程序','WXML','WXSS','JavaScript','云开发','Node.js Test Runner'],
         qr: { img: 'assets/portfolio/xingtu/qrcode.jpg', title: '扫码体验', subtitle: '微信打开星途自律舱' },
         link: { url: 'https://tl66666.github.io/xtzlc/', label: '查看项目' },
-        github: 'https://github.com/tl66666/xtzlc',
-        details: [
-          '设计"计划中心 → 行动舱专注计时 → 每日提醒 → 奖励反馈 → 星球成长 → 数据复盘"的完整闭环，支持制定每日计划、设定提醒时间、专注模式全屏沉浸打卡。',
-          '星球经历 9 个成长阶段（荒芜 → 星际文明），六类生态区对应运动、饮食、学习、工作、计划、睡眠，每类生态区独立追踪打卡进度；打卡后弹出星光奖励、宝箱进度和成就徽章。',
-          '数据复盘面板展示连续打卡天数、完成率和各生态区成长曲线；使用 Node.js Test Runner 覆盖奖励计算、目标进度、成就解锁和统计聚合等核心逻辑，兼顾本地数据兜底与云函数同步。'
-        ]
+        github: 'https://github.com/tl66666/xtzlc'
       },
       {
         name: '乐启星 LQX',
         kicker: 'AI Music Education · K12',
         accent: '#f0a868',
         media: [
-          { type: 'image', src: 'assets/portfolio/lqx/digital-teacher.png', label: 'AI 数字人老师', hero: true },
+          { type: 'image', src: 'assets/portfolio/lqx/digital-teacher.png', label: 'AI 数字人老师' },
           { type: 'image', src: 'assets/portfolio/lqx/practice.png', label: '互动练习' }
         ],
         desc: '面向 K12 阶段的 AI 音乐启蒙教育平台，核心理念是「让 AI 成为每个孩子的音乐启蒙老师」。整合大语言模型、数字人和 Web Audio 技术，AI 老师「晓音」24 小时在线，支持文字对话、语音交互和数字人面对面授课。',
         tags: ['HTML5','CSS3','JavaScript','Web Audio API','Chart.js','FastAPI','Python','SQLite','JWT','阿里云百炼','NuwaAI 数字人','Cloudflare Pages'],
         link: { url: 'https://lqx-266.pages.dev/', label: '查看项目' },
-        github: 'https://github.com/tl66666/lqx',
-        details: [
-          '前端原生 HTML5/CSS3/JS 零构建依赖单文件应用，Web Audio API 实现音符播放与频率控制，Chart.js 渲染学习进度统计图表；五线谱、节奏、音阶、听音四大互动练习模块配合即时反馈。',
-          '后端双模部署架构：本地 FastAPI + SQLite 异步存储 + JWT 认证，云端 Cloudflare Pages Functions 无服务器 API 零运维成本；同一前端代码既可配合本地后端运行也可纯云端部署。',
-          'AI 能力基于阿里云百炼 qwen-plus 实现音乐知识对话和教案自动生成（趣味型/规范型/互动型三种风格）；NuwaAI 数字人平台嵌入「晓音老师」形象，支持语音对话和知识库驱动授课。',
-          '结构化课程体系覆盖五线谱入门、节奏训练、音阶练习、小小作曲家和名曲欣赏，任务卡引导式学习路径配合成就系统维持学习动力。'
-        ]
+        github: 'https://github.com/tl66666/lqx'
       }
     ];
 
-    var pvActiveIndex = 0, pvOpen = false;
+    var galleryActiveIndex = 0;
+    var galleryOpen = false;
 
-    function openViewer(index) {
-      pvActiveIndex = index;
-      pvOpen = true;
-      var curtain = document.getElementById('viewerCurtain');
-      var viewer = document.getElementById('projectViewer');
-      viewer.style.setProperty('--v-accent', PROJECT_DATA[index].accent);
-      curtain.style.setProperty('--v-accent', PROJECT_DATA[index].accent);
-      curtain.classList.add('visible');
-      curtain.classList.remove('open');
-      setTimeout(function() { curtain.classList.add('open'); }, 80);
+    function enterGallery() {
+      galleryOpen = true;
+      galleryActiveIndex = 0;
+      var transition = document.getElementById('cloudTransition');
+      var gallery = document.getElementById('projectGallery');
+      transition.classList.add('active');
       setTimeout(function() {
-        viewer.classList.add('active');
+        gallery.classList.add('active');
         document.body.style.overflow = 'hidden';
-        updateViewer();
-        viewer.scrollTop = 0;
-      }, 250);
-      setTimeout(function() { curtain.classList.remove('visible'); }, 850);
+        gallery.style.setProperty('--v-accent', PROJECT_DATA[0].accent);
+        renderSlides();
+        showSlide(0);
+        setTimeout(function() { transition.classList.remove('active'); }, 200);
+      }, 600);
     }
 
-    function closeViewer() {
-      pvOpen = false;
-      var viewer = document.getElementById('projectViewer');
-      var curtain = document.getElementById('viewerCurtain');
-      viewer.classList.remove('active');
-      document.body.style.overflow = '';
+    function exitGallery() {
+      galleryOpen = false;
+      var transition = document.getElementById('cloudTransition');
+      var gallery = document.getElementById('projectGallery');
+      transition.classList.add('active');
       setTimeout(function() {
-        curtain.classList.add('visible');
-        curtain.classList.add('open');
-        void curtain.offsetWidth;
-        setTimeout(function() { curtain.classList.remove('open'); }, 50);
-      }, 300);
-      setTimeout(function() { curtain.classList.remove('visible'); }, 1100);
+        gallery.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(function() { transition.classList.remove('active'); }, 200);
+      }, 600);
     }
 
-    function navigateViewer(direction) {
+    function navigateGallery(direction) {
       var total = PROJECT_DATA.length;
-      pvActiveIndex = direction === 'next'
-        ? (pvActiveIndex + 1) % total
-        : (pvActiveIndex + total - 1) % total;
-      updateViewer();
-      document.getElementById('projectViewer').scrollTop = 0;
-    }
-
-    function updateViewer() {
-      var project = PROJECT_DATA[pvActiveIndex];
-      var total = PROJECT_DATA.length;
-      var viewer = document.getElementById('projectViewer');
-      viewer.style.setProperty('--v-accent', project.accent);
-
-      document.getElementById('pvCounter').textContent =
-        String(pvActiveIndex + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
-      document.getElementById('pvKicker').textContent = project.kicker;
-      document.getElementById('pvTitle').textContent = project.name;
-      document.getElementById('pvDesc').textContent = project.desc;
-
-      var heroItem = project.media.find(function(m) { return m.hero; }) || project.media[0];
-      var galleryItems = project.media.filter(function(m) { return m !== heroItem; });
-
-      var heroHtml = heroItem.type === 'video'
-        ? '<video src="' + heroItem.src + '"' + (heroItem.poster ? ' poster="' + heroItem.poster + '"' : '') + ' autoplay muted loop playsinline preload="metadata"></video>'
-        : '<img src="' + heroItem.src + '" alt="' + project.name + ' ' + heroItem.label + '">';
-      document.getElementById('pvHero').innerHTML = heroHtml + '<span class="project-viewer-hero-label">' + heroItem.label + '</span>';
-
-      var mediaHtml = galleryItems.map(function(m) {
-        var mediaEl = m.type === 'video'
-          ? '<video src="' + m.src + '"' + (m.poster ? ' poster="' + m.poster + '"' : '') + ' autoplay muted loop playsinline preload="metadata"></video>'
-          : '<img src="' + m.src + '" alt="' + project.name + ' ' + m.label + '" loading="lazy">';
-        var classes = 'project-viewer-media-item';
-        if (m.orientation === 'portrait') classes += ' portrait';
-        if (galleryItems.length === 1) classes += ' full';
-        return '<div class="' + classes + '">' + mediaEl + '<span class="project-viewer-media-label">' + m.label + '</span></div>';
-      }).join('');
-      document.getElementById('pvMedia').innerHTML = mediaHtml;
-
-      document.getElementById('pvTags').innerHTML = project.tags.map(function(t) { return '<span>' + t + '</span>'; }).join('');
-
-      var detailsHtml = '';
-      if (project.note) {
-        detailsHtml += '<p class="project-viewer-note">' + project.note + '</p>';
-      }
-      detailsHtml += '<h4>核心实现</h4><ul>' + project.details.map(function(d) { return '<li>' + d + '</li>'; }).join('') + '</ul>';
-      document.getElementById('pvDetails').innerHTML = detailsHtml;
-
-      document.getElementById('pvLinks').innerHTML =
-        '<a class="project-viewer-link primary" href="' + project.link.url + '" target="_blank" rel="noopener">' + project.link.label + ' ↗</a>' +
-        '<a class="project-viewer-link secondary" href="' + project.github + '" target="_blank" rel="noopener">源码仓库</a>';
-
-      var qrEl = document.getElementById('pvQr');
-      if (project.qr) {
-        qrEl.style.display = 'flex';
-        document.getElementById('pvQrImg').src = project.qr.img;
-        document.getElementById('pvQrText').textContent = project.qr.subtitle;
-        qrEl.querySelector('b').textContent = project.qr.title;
+      var oldIndex = galleryActiveIndex;
+      if (typeof direction === 'number') {
+        galleryActiveIndex = direction;
+      } else if (direction === 'next') {
+        galleryActiveIndex = (galleryActiveIndex + 1) % total;
       } else {
-        qrEl.style.display = 'none';
+        galleryActiveIndex = (galleryActiveIndex + total - 1) % total;
       }
-
-      var prevIdx = (pvActiveIndex + total - 1) % total;
-      var nextIdx = (pvActiveIndex + 1) % total;
-      document.getElementById('pvPrevName').textContent = PROJECT_DATA[prevIdx].name;
-      document.getElementById('pvNextName').textContent = PROJECT_DATA[nextIdx].name;
+      if (galleryActiveIndex === oldIndex) return;
+      var transition = document.getElementById('cloudTransition');
+      transition.classList.add('active');
+      setTimeout(function() {
+        document.querySelectorAll('.project-slide').forEach(function(slide, i) {
+          slide.classList.toggle('active', i === galleryActiveIndex);
+        });
+        var gallery = document.getElementById('projectGallery');
+        gallery.style.setProperty('--v-accent', PROJECT_DATA[galleryActiveIndex].accent);
+        updateGalleryUI();
+        setTimeout(function() { transition.classList.remove('active'); }, 100);
+      }, 400);
     }
 
-    document.getElementById('projectViewerExit').addEventListener('click', closeViewer);
-    document.getElementById('pvPrev').addEventListener('click', function() { navigateViewer('prev'); });
-    document.getElementById('pvNext').addEventListener('click', function() { navigateViewer('next'); });
+    function renderSlides() {
+      var container = document.getElementById('gallerySlides');
+      var html = PROJECT_DATA.map(function(project, index) {
+        var visualHtml = project.media.map(function(m, vi) {
+          var mediaEl = m.type === 'video'
+            ? '<video src="' + m.src + '"' + (m.poster ? ' poster="' + m.poster + '"' : '') + ' autoplay muted loop playsinline preload="metadata"></video>'
+            : '<img src="' + m.src + '" alt="' + project.name + ' ' + m.label + '" loading="lazy">';
+          var cls = 'project-slide-visual-item' + (vi === 0 ? ' active' : '');
+          if (m.orientation === 'portrait') cls += ' portrait';
+          return '<div class="' + cls + '" data-visual-index="' + vi + '">' + mediaEl + '</div>';
+        }).join('');
+
+        var labelsHtml = project.media.map(function(m, vi) {
+          return '<span class="project-slide-visual-label"' + (vi === 0 ? '' : ' style="display:none;"') + ' data-label-index="' + vi + '">' + m.label + '</span>';
+        }).join('');
+
+        var thumbsHtml = '';
+        if (project.media.length > 1) {
+          thumbsHtml = '<div class="project-slide-thumbs">' + project.media.map(function(m, vi) {
+            var thumbSrc = m.type === 'video' ? (m.poster || m.src) : m.src;
+            return '<div class="project-slide-thumb' + (vi === 0 ? ' active' : '') + '" data-visual-index="' + vi + '"><img src="' + thumbSrc + '" alt="' + m.label + '"></div>';
+          }).join('') + '</div>';
+        }
+
+        var linksHtml =
+          '<a class="project-slide-link primary" href="' + project.link.url + '" target="_blank" rel="noopener">' + project.link.label + ' ↗</a>' +
+          '<a class="project-slide-link secondary" href="' + project.github + '" target="_blank" rel="noopener">源码仓库</a>';
+
+        var qrHtml = '';
+        if (project.qr) {
+          qrHtml = '<div class="project-slide-qr"><img src="' + project.qr.img + '" alt="小程序码"><div><b>' + project.qr.title + '</b><br><span>' + project.qr.subtitle + '</span></div></div>';
+        }
+
+        var noteHtml = project.note ? '<div class="project-slide-note">' + project.note + '</div>' : '';
+
+        return '<div class="project-slide" data-index="' + index + '">' +
+          '<div class="project-slide-text">' +
+            '<div class="project-slide-number">' + String(index + 1).padStart(2, '0') + '</div>' +
+            '<div class="project-slide-content">' +
+              '<div class="project-slide-kicker">' + project.kicker + '</div>' +
+              '<h3 class="project-slide-title">' + project.name + '</h3>' +
+              '<p class="project-slide-desc">' + project.desc + '</p>' +
+              noteHtml +
+              '<div class="project-slide-tech">' + project.tags.map(function(t) { return '<span>' + t + '</span>'; }).join('') + '</div>' +
+              '<div class="project-slide-links">' + linksHtml + '</div>' +
+              qrHtml +
+            '</div>' +
+          '</div>' +
+          '<div class="project-slide-visual">' +
+            '<div class="project-slide-main-visual">' + labelsHtml + visualHtml + '</div>' +
+            thumbsHtml +
+          '</div>' +
+        '</div>';
+      }).join('');
+      container.innerHTML = html;
+
+      var progress = document.getElementById('galleryProgress');
+      progress.innerHTML = PROJECT_DATA.map(function(_, i) {
+        return '<div class="gallery-dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '"></div>';
+      }).join('');
+
+      document.querySelectorAll('.project-slide-thumb').forEach(function(thumb) {
+        thumb.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var slide = thumb.closest('.project-slide');
+          var vi = parseInt(thumb.dataset.visualIndex);
+          switchVisual(slide, vi);
+        });
+      });
+
+      document.querySelectorAll('.gallery-dot').forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          var idx = parseInt(dot.dataset.index);
+          if (idx !== galleryActiveIndex) navigateGallery(idx);
+        });
+      });
+    }
+
+    function switchVisual(slide, vi) {
+      var items = slide.querySelectorAll('.project-slide-visual-item');
+      var thumbs = slide.querySelectorAll('.project-slide-thumb');
+      var labels = slide.querySelectorAll('.project-slide-visual-label');
+      items.forEach(function(item, i) { item.classList.toggle('active', i === vi); });
+      thumbs.forEach(function(thumb, i) { thumb.classList.toggle('active', i === vi); });
+      labels.forEach(function(label, i) { label.style.display = i === vi ? '' : 'none'; });
+    }
+
+    function showSlide(index) {
+      document.querySelectorAll('.project-slide').forEach(function(slide, i) {
+        slide.classList.toggle('active', i === index);
+      });
+      updateGalleryUI();
+    }
+
+    function updateGalleryUI() {
+      var total = PROJECT_DATA.length;
+      document.getElementById('galleryCounter').textContent =
+        String(galleryActiveIndex + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+      document.querySelectorAll('.gallery-dot').forEach(function(dot, i) {
+        dot.classList.toggle('active', i === galleryActiveIndex);
+      });
+      var prevIdx = (galleryActiveIndex + total - 1) % total;
+      var nextIdx = (galleryActiveIndex + 1) % total;
+      document.getElementById('galleryPrevName').textContent = PROJECT_DATA[prevIdx].name;
+      document.getElementById('galleryNextName').textContent = PROJECT_DATA[nextIdx].name;
+    }
+
+    document.getElementById('enterProjectsBtn').addEventListener('click', enterGallery);
+    document.getElementById('galleryExit').addEventListener('click', exitGallery);
+    document.getElementById('galleryPrev').addEventListener('click', function() { navigateGallery('prev'); });
+    document.getElementById('galleryNext').addEventListener('click', function() { navigateGallery('next'); });
 
     document.addEventListener('keydown', function(e) {
-      if (!pvOpen) return;
-      if (e.key === 'Escape') closeViewer();
-      else if (e.key === 'ArrowLeft') navigateViewer('prev');
-      else if (e.key === 'ArrowRight') navigateViewer('next');
+      if (!galleryOpen) return;
+      if (e.key === 'Escape') exitGallery();
+      else if (e.key === 'ArrowLeft') navigateGallery('prev');
+      else if (e.key === 'ArrowRight') navigateGallery('next');
     });
 
     PROJECT_DATA.forEach(function(p) { p.media.forEach(function(m) { if (m.type === 'image') new Image().src = m.src; }); });
