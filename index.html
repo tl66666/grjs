@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="唐乐 - 软件工程本科，聚焦软件开发、前端页面实现、微信小程序、Python FastAPI 与 AI 协作项目交付。" />
+  <meta name="description" content="唐乐的 AI 应用与全栈开发作品集：AI Agent、视觉理解、AI 游戏与交互产品、微信小程序、云端部署和产品化交付。" />
   <title>唐乐 | Software Engineer Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -779,6 +779,69 @@
       line-height: 1.55;
     }
 
+    .role-fit {
+      position: relative;
+      z-index: 1;
+      width: min(1280px, 100%);
+      margin: clamp(22px, 4vw, 42px) auto 0;
+      padding: clamp(22px, 3.5vw, 36px);
+      display: grid;
+      grid-template-columns: minmax(240px, 0.62fr) minmax(0, 1.38fr);
+      gap: clamp(22px, 4vw, 48px);
+      align-items: start;
+      border: 1px solid rgba(231, 226, 204, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(120deg, rgba(216, 167, 61, 0.08), rgba(17, 20, 25, 0.72));
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    .role-fit-heading h3 {
+      margin: 0 0 12px;
+      color: var(--cream);
+      font-size: clamp(27px, 3.4vw, 48px);
+      line-height: 0.98;
+    }
+
+    .role-fit-heading h3 em {
+      color: #e7c56e;
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .role-fit-heading > p:last-child {
+      max-width: 330px;
+      color: rgba(231, 226, 204, 0.68);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .role-fit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .role-fit-grid article {
+      min-height: 132px;
+      padding: 15px 16px;
+      border: 1px solid rgba(231, 226, 204, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.045);
+      transition: transform 220ms ease, background 220ms ease, border-color 220ms ease;
+    }
+
+    .role-fit-grid article:hover {
+      transform: translateY(-3px);
+      border-color: rgba(216, 167, 61, 0.42);
+      background: rgba(216, 167, 61, 0.08);
+    }
+
+    .role-fit-grid article:last-child { grid-column: 1 / -1; }
+    .role-fit-grid b { display: block; margin-bottom: 8px; color: var(--cream); font-size: 15px; }
+    .role-fit-grid span { display: block; color: rgba(231, 226, 204, 0.72); font-size: 12px; line-height: 1.6; }
+    .role-fit-grid small { display: block; margin-top: 12px; color: #d8a73d; font-size: 10px; letter-spacing: 0.08em; }
+
     .projects {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1427,6 +1490,7 @@
       .cinema-copy-inner { width: min(560px, 100%); }
       .showcase-copy { grid-column: 1; }
       .agent-proof { grid-template-columns: 1fr; }
+      .role-fit { grid-template-columns: 1fr; }
       .process-stage-copy { left: 22px; right: 22px; max-width: none; }
       .contact .wrap { margin: 0 auto; }
       .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1445,6 +1509,8 @@
       .showcase-video { min-height: 100%; }
       .showcase-copy h2 { font-size: clamp(38px, 15vw, 64px); }
       .agent-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .role-fit-grid { grid-template-columns: 1fr; }
+      .role-fit-grid article:last-child { grid-column: auto; }
       .process-stage { min-height: 100vh; }
       .contact h2 { font-size: clamp(42px, 15vw, 70px); }
       .project-card .media-grid { height: auto; grid-template-columns: 1fr; grid-template-rows: none; }
@@ -1933,9 +1999,9 @@
           </h1>
         </div>
         <aside class="hero-card">
-          <p>软件工程本科在读，主攻全栈开发与 AI Agent 落地。六个项目覆盖求职全流程产品、AI Agent 工作台、视觉小说创作、AI 音乐启蒙、自律打卡和旅行照片归档；我把 Agent 做成能读取上下文、检索记忆、调用工具并经过确认执行的产品能力。</p>
+          <p>软件工程本科在读，主攻 AI 应用开发与全栈产品落地。七个项目覆盖 AI 健康管理、求职 Agent、视觉小说创作、AI 音乐启蒙、微信小程序和数据驱动工具；我关注的不只是接入模型，而是把上下文、工具、数据、体验和部署真正交付成可使用的产品。</p>
           <div class="hero-meta">
-            <div><b>6</b><span>独立项目</span></div>
+            <div><b>7</b><span>独立项目</span></div>
             <div><b>AI</b><span>Agent 开发</span></div>
             <div><b>Full Stack</b><span>全栈落地</span></div>
           </div>
@@ -1957,7 +2023,7 @@
             <p class="kicker">Profile</p>
             <h2>把想法做成<br><em>可运行的系统</em></h2>
           </div>
-          <p class="lead">2023.10 至今就读于上海应用技术大学软件工程专业，通过 CET-6。六个独立项目覆盖 AI 求职系统、视觉小说创作平台、求职全流程产品、AI 音乐启蒙教育、自律打卡小程序和旅行照片手账，其中两个项目以 Agent 为核心，把业务上下文、分层记忆、工具调用和审批回执接入真实工作流。</p>
+          <p class="lead">2023.10 至今就读于上海应用技术大学软件工程专业，通过 CET-6。七个独立项目覆盖 AI 健康管理、AI 求职系统、视觉小说创作平台、求职全流程产品、AI 音乐启蒙教育、自律打卡和旅行照片手账，其中三个项目以 Agent 或视觉模型为核心，把业务上下文、工具调用、审批回执和真实部署接入工作流。</p>
         </div>
         <div class="profile-grid">
           <article class="profile-card reveal">
@@ -2000,8 +2066,8 @@
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>Vibe Coding</span><span>Python Java C/C++</span><span>React TypeScript</span><span>Vue 3 Ant Design Vue</span><span>Vite Pinia</span><span>Express Prisma</span><span>FastAPI SQLAlchemy</span><span>AI Agent</span><span>Layered Memory</span><span>SSE 流式</span><span>React Flow</span><span>Sharp</span><span>WeChat Mini Program</span><span>Tailwind CSS</span><span>Cloudflare Pages</span><span>Web Audio API</span>
-        <span>Vibe Coding</span><span>Python Java C/C++</span><span>React TypeScript</span><span>Vue 3 Ant Design Vue</span><span>Vite Pinia</span><span>Express Prisma</span><span>FastAPI SQLAlchemy</span><span>AI Agent</span><span>Layered Memory</span><span>SSE 流式</span><span>React Flow</span><span>Sharp</span><span>WeChat Mini Program</span><span>Tailwind CSS</span><span>Cloudflare Pages</span><span>Web Audio API</span>
+        <span>Vibe Coding</span><span>AI 应用</span><span>Vision Model</span><span>Python Java C/C++</span><span>React TypeScript</span><span>Vue 3 uni-app</span><span>FastAPI NestJS</span><span>Prisma PostgreSQL</span><span>AI Agent</span><span>Tool Calling</span><span>Layered Memory</span><span>ReAct</span><span>React Flow</span><span>Sharp</span><span>WeChat Mini Program</span><span>Docker Azure</span><span>AI Product</span>
+        <span>Vibe Coding</span><span>AI 应用</span><span>Vision Model</span><span>Python Java C/C++</span><span>React TypeScript</span><span>Vue 3 uni-app</span><span>FastAPI NestJS</span><span>Prisma PostgreSQL</span><span>AI Agent</span><span>Tool Calling</span><span>Layered Memory</span><span>ReAct</span><span>React Flow</span><span>Sharp</span><span>WeChat Mini Program</span><span>Docker Azure</span><span>AI Product</span>
       </div>
     </div>
 
@@ -2013,7 +2079,7 @@
         <div class="showcase-copy reveal">
           <p class="kicker">Why Hire Me</p>
           <h2>独立交付能力，<em>用 Vibe Coding 把效率拉满</em></h2>
-          <p class="lead">六个完整项目从真实痛点出发，覆盖前端页面实现、后端接口开发、数据持久化、AI Agent 设计和部署运维。其中五个项目由本人独立完成，职途 ZhiTu 的前端由本人开发、后端由队友协作完成。AI 工具用于加速拆解和生成初版，代码阅读、问题定位、功能验收和最终交付由自己负责。</p>
+          <p class="lead">七个完整项目从真实痛点出发，覆盖前端页面实现、后端接口开发、数据持久化、视觉识别、AI Agent 设计和云端部署。其中六个项目由本人独立完成，职途 ZhiTu 的前端由本人开发、后端由队友协作完成。AI 工具用于加速拆解和生成初版，代码阅读、问题定位、功能验收和最终交付由自己负责。</p>
           <ul class="showcase-list">
             <li>每个项目都有完整入口：项目展示页、源码仓库或小程序码，方便直接验证效果。</li>
             <li>不只是生成代码：会自己读代码、调接口、看报错、补规则和测试，把项目推进到可运行、可交付状态。</li>
@@ -2034,6 +2100,20 @@
           <div class="agent-proof-item"><b>04 / Approval</b><span>写入先预览、再确认，执行后留下回执并支持撤销。</span></div>
         </div>
       </div>
+      <div class="role-fit reveal" aria-label="目标岗位能力映射">
+        <div class="role-fit-heading">
+          <p class="kicker">Role Fit</p>
+          <h3>我想解决的，<br><em>是 AI 产品里的真实问题</em></h3>
+          <p>把招聘岗位里的关键词落到已经做过的项目证据，而不是只列一串工具名称。</p>
+        </div>
+        <div class="role-fit-grid">
+          <article><b>AI 应用开发</b><span>文本对话、视觉识别、结构化输出、模型失败降级与用户确认。</span><small>和生序 · 乐启星</small></article>
+          <article><b>AI 全栈开发</b><span>React / Vue / uni-app 到 API、数据库、鉴权、容器和云端部署。</span><small>七个项目的共同底座</small></article>
+          <article><b>AI 游戏开发</b><span>把角色、剧情、关卡和素材工具化，理解交互状态与玩家体验。</span><small>DreamChord · 叙事工具</small></article>
+          <article><b>Agent 开发</b><span>上下文、分层记忆、Tool Calling、Schema 校验、审批、回执与撤销。</span><small>职途 Agent · DreamChord</small></article>
+          <article><b>AI 产品经理</b><span>从用户问题、流程和指标出发，定义模型边界、验收标准与迭代优先级。</span><small>需求拆解 · 交互 · 验证</small></article>
+        </div>
+      </div>
     </section>
 
     <section id="projects" class="cloud-entrance">
@@ -2045,8 +2125,8 @@
       </div>
       <div class="cloud-entrance-content reveal">
         <p class="kicker">My Projects</p>
-        <h2>拨开云雾<br><em>探索我的作品</em></h2>
-        <p class="cloud-entrance-desc">六个独立项目，覆盖 AI 求职系统、视觉小说创作平台、AI 音乐启蒙、求职全流程产品，以及旅行照片手账和星球自律打卡两个微信小程序。每个项目都围绕真实使用场景展开，用技术解决真实问题。</p>
+        <h2>从真实问题出发<br><em>把 AI 做成产品</em></h2>
+        <p class="cloud-entrance-desc">七个独立项目，覆盖 AI 健康管理、求职 Agent、视觉小说创作、AI 音乐启蒙、求职全流程产品，以及旅行照片手账和星球自律打卡。每个项目都围绕真实使用场景展开，从产品判断、模型能力到工程交付形成完整证据。</p>
         <button class="cloud-entrance-btn" id="enterProjectsBtn">
           <span>进入展示</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -2084,7 +2164,7 @@
       <div class="wrap reveal">
         <p class="kicker">Contact</p>
         <h2>一起把下一个想法<br><em>做成作品</em></h2>
-        <p class="lead">目前方向：软件开发工程师 / Java / Python / C/C++ / 全栈开发 / 微信小程序 / AI 协作开发。欢迎通过电话、邮箱或 GitHub 联系我。</p>
+        <p class="lead">意向方向：AI 应用开发 / AI 全栈开发 / AI 游戏开发 / Agent 开发 / AI 产品经理。欢迎通过电话、邮箱或 GitHub 联系我。</p>
         <div class="button-row">
           <a class="btn primary" href="mailto:2061790875@qq.com">2061790875@qq.com</a>
           <a class="btn" href="tel:18064871268">18064871268</a>
@@ -2093,7 +2173,7 @@
       </div>
       <div class="footer">
         <span>唐乐 / Software Engineering / Shanghai Institute of Technology / 2027 届</span>
-        <span>六个独立项目 · Vibe Coding 全流程交付 · 持续迭代中</span>
+        <span>七个独立项目 · AI 应用与全栈交付 · 持续迭代中</span>
       </div>
     </section>
   </main>
@@ -2106,7 +2186,7 @@
     <div class="gallery-header">
       <div class="gallery-counter">
         <span class="gallery-counter-label">项目</span>
-        <span class="gallery-counter-num" id="galleryCounter">01 / 06</span>
+        <span class="gallery-counter-num" id="galleryCounter">01 / 07</span>
       </div>
       <button class="gallery-exit" id="galleryExit">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -2147,6 +2227,29 @@
 
 /* ===== Cloud Entrance + Project Gallery ===== */
     var PROJECT_DATA = [
+      {
+        name: '和生序',
+        kicker: 'AI Health OS · Uni-app Dual Platform',
+        accent: '#75d0a6',
+        media: [
+          { type: 'image', src: 'assets/portfolio/heshengxu/hero.jpg', label: '双端品牌首屏', hero: true },
+          { type: 'image', src: 'assets/portfolio/heshengxu/home.jpg', label: '健康首页' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/food-recognition.jpg', label: '序序相机识别' }
+        ],
+        desc: '从产品定义、交互设计到云端部署的 AI 健康管理产品，同时覆盖微信小程序与 App。它把饮食、体重、饮水、运动、睡眠、心情、计划和序序陪伴组织成真实可用的日常闭环。',
+        tags: ['Vue 3','uni-app','TypeScript','NestJS','Prisma','PostgreSQL','Docker','Azure Container Apps','CloudBase','GLM 视觉模型'],
+        note: 'AI 不是装饰：序序相机能识别组合菜品、拆分可见食材、估算份量和营养并由用户确认；序序聊天接入真实模型服务，客户端不保存密钥，失败时有明确降级状态。',
+        link: { url: 'https://tl66666.github.io/heshengxu-health/', label: '查看项目' },
+        github: 'https://github.com/tl66666/heshengxu-health',
+        download: 'https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk',
+        details: [
+          '构建微信小程序与 App 共用的 uni-app 客户端，完成健康档案、体重、饮食、饮水、运动、睡眠、心情、生理期、用药、轻断食和计划等真实记录链路。',
+          'AI 视觉链路由客户端图片读取、服务端安全上传、GLM 视觉理解、组合菜品拆分、份量营养估算和用户确认组成；识别结果可保存到个人食物库，原始照片保存在用户设备。',
+          '服务端使用 NestJS + Prisma + PostgreSQL 处理用户隔离、健康记录、49,479 条食物目录、AI 对话代理和识别结果；Docker 镜像部署到 Azure Container Apps，数据与密钥不放在客户端。',
+          '产品设计强调可解释与可回退：模型不可用时展示具体失败原因，用户可以修改 AI 结果；聊天自动滚动到最新回复，关键记录在首页实时汇总。',
+          '独立完成需求拆解、视觉系统、页面实现、API 接入、数据模型、构建发布、Android 打包和 GitHub Pages 项目展示。'
+        ]
+      },
       {
         name: '职途 ZhiTu',
         kicker: 'Career OS · Online Multi-User',
@@ -2375,7 +2478,8 @@
         // Links
         var linksHtml =
           '<a class="project-slide-link primary" href="' + project.link.url + '" target="_blank" rel="noopener">' + project.link.label + ' ↗</a>' +
-          '<a class="project-slide-link secondary" href="' + project.github + '" target="_blank" rel="noopener">源码仓库</a>';
+          '<a class="project-slide-link secondary" href="' + project.github + '" target="_blank" rel="noopener">源码仓库</a>' +
+          (project.download ? '<a class="project-slide-link secondary" href="' + project.download + '" target="_blank" rel="noopener">下载 App ↓</a>' : '');
 
         // QR code
         var qrHtml = '';
