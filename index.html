@@ -204,7 +204,7 @@
       box-shadow: var(--shadow);
       opacity: 0;
       transform: translateY(28px);
-      animation: fadeRise 850ms cubic-bezier(0.16, 1, 0.3, 1) 420ms forwards, subtleFloat 6s ease-in-out 1.5s infinite;
+      animation: fadeRise 850ms cubic-bezier(0.16, 1, 0.3, 1) 420ms forwards;
     }
 
     .hero-card p {
@@ -491,6 +491,140 @@
     }
 
     .skill-block span { color: var(--cream-soft); font-size: 12px; }
+
+    /* ===== Experience ===== */
+    .experience-section {
+      position: relative;
+      padding: clamp(76px, 9vw, 132px) 0 clamp(90px, 11vw, 150px);
+      background:
+        linear-gradient(180deg, rgba(5, 5, 5, 0.06), rgba(5, 5, 5, 0.72)),
+        radial-gradient(circle at 82% 18%, rgba(117, 208, 166, 0.11), transparent 30%);
+    }
+
+    .experience-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 34px;
+    }
+
+    .experience-head h2 {
+      max-width: 520px;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 0.98;
+    }
+
+    .experience-head .lead { max-width: 480px; margin: 0; }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .experience-card {
+      position: relative;
+      min-height: 360px;
+      padding: clamp(22px, 3.2vw, 34px);
+      border: 1px solid rgba(231, 226, 204, 0.15);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.018));
+      box-shadow: 0 22px 70px rgba(0,0,0,0.22);
+      overflow: hidden;
+      transition: transform 250ms ease, border-color 250ms ease, background 250ms ease;
+    }
+
+    .experience-card::before {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      right: -82px;
+      top: -90px;
+      border: 1px solid rgba(117, 208, 166, 0.18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 22px rgba(117, 208, 166, 0.035), 0 0 0 44px rgba(117, 208, 166, 0.022);
+      pointer-events: none;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(117, 208, 166, 0.38);
+      background: linear-gradient(145deg, rgba(117,208,166,0.12), rgba(255,255,255,0.025));
+    }
+
+    .experience-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .experience-meta strong { color: var(--gold); font-weight: 700; }
+
+    .experience-card h3 {
+      max-width: 440px;
+      margin-bottom: 8px;
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.05;
+    }
+
+    .experience-role {
+      display: block;
+      margin-bottom: 22px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .experience-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--cream-soft);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .experience-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(117, 208, 166, 0.12);
+    }
+
+    .experience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 24px;
+    }
+
+    .experience-tags span {
+      padding: 5px 9px;
+      border: 1px solid rgba(231, 226, 204, 0.15);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+    }
 
     .cinema {
       padding: 0;
@@ -1373,10 +1507,6 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
-    @keyframes subtleFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -1958,6 +2088,30 @@
     .project-slide.active .project-slide-body { animation: pvFadeUp 600ms ease 400ms both; }
     @keyframes pvFadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* 和生序展示采用横幅首图 + 紧凑功能截图，避免首屏图片压过项目信息。 */
+    .project-slide-heshengxu .project-slide-hero {
+      width: min(920px, 100%);
+      aspect-ratio: 2.35 / 1;
+      margin-inline: auto;
+      margin-bottom: 28px;
+    }
+
+    .project-slide-heshengxu .project-slide-hero img {
+      object-position: center center;
+    }
+
+    .project-slide-heshengxu .project-slide-gallery-item:not(.portrait) {
+      min-height: 0;
+      border-radius: 18px;
+    }
+
+    .project-slide-heshengxu .project-slide-gallery-item:not(.portrait) img {
+      min-height: 0;
+      max-height: 500px;
+      object-fit: contain;
+      background: rgba(10, 10, 12, 0.72);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .project-slide { padding: 80px 16px 100px; }
@@ -1967,10 +2121,15 @@
       .project-slide-gallery-item.portrait { max-width: 280px; }
       .project-slide-gallery.portrait-grid .project-slide-gallery-item.portrait { min-height: 320px; }
       .project-slide-hero { aspect-ratio: 4/3; }
+      .project-slide-heshengxu .project-slide-hero { aspect-ratio: 1.65 / 1; }
       .gallery-header { padding: 14px 16px; }
       .gallery-nav { padding: 14px 16px; }
       .gallery-nav-btn { padding: 10px 16px; font-size: 11px; max-width: 130px; }
       .cloud-entrance h2 { font-size: clamp(32px,10vw,56px); }
+      .experience-head { display: block; }
+      .experience-head .lead { margin-top: 18px; }
+      .experience-grid { grid-template-columns: 1fr; }
+      .experience-card { min-height: 0; }
     }
 
   </style>
@@ -1980,6 +2139,7 @@
     <nav class="nav-pill">
       <a class="brand" href="#top" aria-label="唐乐首页">TL</a>
       <a href="#profile">个人介绍</a>
+      <a href="#experience">实习经历</a>
       <a href="#motion">作品理念</a>
       <a href="#projects">项目展示</a>
       <a href="#process">开发流程</a>
@@ -2042,6 +2202,42 @@
             <article class="skill-block reveal"><b>AI Agent 与 Vibe Coding</b><span>Agent 上下文设计 / 分层记忆 / Tool Calling / Schema 校验 / ReAct 执行链 / SSE 流式 / Codex / Claude Code / Trae / 测试验证</span></article>
             <article class="skill-block reveal"><b>部署与工程化</b><span>Cloudflare Pages / Cloudflare Pages Functions / Git / GitHub Actions / Nginx / Monorepo (pnpm) / 自动保存 / 版本冲突保护</span></article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="experience-section">
+      <div class="wrap">
+        <div class="experience-head reveal">
+          <div>
+            <p class="kicker">Experience</p>
+            <h2>在真实业务里，<br><em>把 AI 交付出去</em></h2>
+          </div>
+          <p class="lead">实习经历让我把模型、Agent 和产品设计放进真实企业流程：面对业务角色、客户现场和交付约束，先理解问题，再把方案做成能演示、能沟通、能继续迭代的系统。</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card reveal">
+            <div class="experience-meta"><span>企业 AI / 数字人</span><strong>邦彦技术股份有限公司</strong></div>
+            <h3>NuwaAI 智能体数字人部门</h3>
+            <span class="experience-role">Agent 实习工程师</span>
+            <ul class="experience-list">
+              <li>参与设计和开发企业级 AI Agent 智能助手“邦小彦”，围绕收入链 S1→S14，支持销售、SE 与管理者完成从市场洞察、商机推进到交付回款的日常工作。</li>
+              <li>把企业岗位流程拆成可执行的上下文、任务节点和结构化输出，让 Agent 不止回答问题，还能辅助推进获客到收入的完整链路。</li>
+              <li>使用 NuwaAI 平台设计数字人形象，并对接平台 API 制作应用与互动游戏，理解数字人表现层、业务接口和用户体验之间的衔接。</li>
+            </ul>
+            <div class="experience-tags"><span>AI Agent</span><span>收入链 S1-S14</span><span>NuwaAI 数字人</span><span>API 集成</span></div>
+          </article>
+          <article class="experience-card reveal">
+            <div class="experience-meta"><span>CRM / 客户交付</span><strong>纷享销客生态实践</strong></div>
+            <h3>区域代理商客户项目</h3>
+            <span class="experience-role">需求分析与 Demo 开发实习</span>
+            <ul class="experience-list">
+              <li>在广州、佛山、珠海等片区跟随代理商负责人参与客户现场，直接理解销售管理、客户协同和业务流程中的真实需求。</li>
+              <li>整理会议记录与重点摘要，把客户表达转换为清晰的需求列表、业务流程和产品蓝图，帮助团队对齐范围与优先级。</li>
+              <li>根据客户场景开发可交互 Demo，用可视化流程验证方案，再结合反馈迭代产品结构和演示重点，支撑售前沟通与方案交付。</li>
+            </ul>
+            <div class="experience-tags"><span>客户现场</span><span>需求访谈</span><span>会议摘要</span><span>产品蓝图</span><span>Demo 交付</span></div>
+          </article>
         </div>
       </div>
     </section>
@@ -2242,6 +2438,7 @@
         link: { url: 'https://tl66666.github.io/heshengxu-health/', label: '查看项目' },
         github: 'https://github.com/tl66666/heshengxu-health',
         download: 'https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk',
+        qr: { img: 'assets/portfolio/heshengxu/qrcode.jpg', title: '微信小程序码', subtitle: '微信扫一扫体验和生序' },
         details: [
           '构建微信小程序与 App 共用的 uni-app 客户端，完成健康档案、体重、饮食、饮水、运动、睡眠、心情、生理期、用药、轻断食和计划等真实记录链路。',
           'AI 视觉链路由客户端图片读取、服务端安全上传、GLM 视觉理解、组合菜品拆分、份量营养估算和用户确认组成；识别结果可保存到个人食物库，原始照片保存在用户设备。',
@@ -2487,7 +2684,8 @@
           qrHtml = '<div class="project-slide-qr"><img src="' + project.qr.img + '" alt="小程序码"><div><b>' + project.qr.title + '</b><br><span>' + project.qr.subtitle + '</span></div></div>';
         }
 
-        return '<div class="project-slide" data-index="' + index + '">' +
+        var slideClass = project.name === '和生序' ? ' project-slide-heshengxu' : '';
+        return '<div class="project-slide' + slideClass + '" data-index="' + index + '">' +
           '<div class="project-slide-hero">' + heroHtml + '<span class="project-slide-hero-label">' + heroItem.label + '</span></div>' +
           '<div class="project-slide-header">' +
             '<div class="project-slide-kicker">' + project.kicker + '</div>' +
