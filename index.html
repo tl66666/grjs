@@ -497,8 +497,8 @@
       position: relative;
       padding: clamp(76px, 9vw, 132px) 0 clamp(90px, 11vw, 150px);
       background:
-        linear-gradient(180deg, rgba(5, 5, 5, 0.06), rgba(5, 5, 5, 0.72)),
-        radial-gradient(circle at 82% 18%, rgba(117, 208, 166, 0.11), transparent 30%);
+        radial-gradient(circle at 86% 8%, rgba(117, 208, 166, 0.10), transparent 26%),
+        linear-gradient(180deg, #081012 0%, #0b1518 100%);
     }
 
     .experience-head {
@@ -529,7 +529,7 @@
       padding: clamp(22px, 3.2vw, 34px);
       border: 1px solid rgba(231, 226, 204, 0.15);
       border-radius: 18px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.018));
+      background: linear-gradient(145deg, rgba(22, 36, 39, 0.96), rgba(12, 23, 26, 0.96));
       box-shadow: 0 22px 70px rgba(0,0,0,0.22);
       overflow: hidden;
       transition: transform 250ms ease, border-color 250ms ease, background 250ms ease;
@@ -551,7 +551,7 @@
     .experience-card:hover {
       transform: translateY(-5px);
       border-color: rgba(117, 208, 166, 0.38);
-      background: linear-gradient(145deg, rgba(117,208,166,0.12), rgba(255,255,255,0.025));
+      background: linear-gradient(145deg, rgba(25, 53, 50, 0.98), rgba(12, 28, 30, 0.98));
     }
 
     .experience-meta {
@@ -632,7 +632,7 @@
       padding: clamp(76px, 9vw, 132px) 0;
       background:
         radial-gradient(circle at 15% 12%, rgba(134,184,255,0.12), transparent 30%),
-        linear-gradient(180deg, #080b0e 0%, #0d1216 100%);
+        linear-gradient(180deg, #080b0e 0%, #10161b 100%);
       border-top: 1px solid rgba(231, 226, 204, 0.09);
     }
 
@@ -662,7 +662,7 @@
       min-width: 0;
       border: 1px solid rgba(231, 226, 204, 0.14);
       border-radius: 18px;
-      background: rgba(255,255,255,0.045);
+      background: linear-gradient(145deg, rgba(22, 31, 38, 0.98), rgba(12, 19, 24, 0.98));
       box-shadow: 0 20px 60px rgba(0,0,0,0.22);
     }
 
@@ -700,7 +700,7 @@
       padding: 22px 24px;
       border: 1px solid rgba(231,226,204,0.12);
       border-radius: 16px;
-      background: rgba(255,255,255,0.035);
+      background: rgba(20, 29, 35, 0.94);
     }
 
     .award-list b { display: block; margin-bottom: 9px; color: var(--cream); font-size: 18px; }
@@ -853,14 +853,14 @@
       inset: 0;
       z-index: 0;
       background:
-        linear-gradient(180deg, rgba(3,7,10,0.82), rgba(3,7,10,0.70)),
-        linear-gradient(90deg, rgba(3,7,10,0.78), rgba(3,7,10,0.56) 54%, rgba(3,7,10,0.78));
+        linear-gradient(180deg, rgba(3,7,10,0.94), rgba(3,7,10,0.88)),
+        linear-gradient(90deg, rgba(3,7,10,0.92), rgba(3,7,10,0.82) 54%, rgba(3,7,10,0.92));
       pointer-events: none;
     }
 
     .showcase-layout {
-      position: static;
-      z-index: 1;
+      position: relative;
+      z-index: 2;
       width: min(1280px, 100%);
       margin: 0 auto;
       display: grid;
@@ -885,7 +885,8 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: brightness(1.08) saturate(1.08) contrast(1.02);
+      opacity: 0.52;
+      filter: brightness(0.72) saturate(0.92) contrast(1.04);
     }
 
     .showcase-video::after {
@@ -951,7 +952,7 @@
       align-items: center;
       border: 1px solid rgba(231, 226, 204, 0.18);
       border-radius: 8px;
-      background: linear-gradient(120deg, rgba(10, 16, 22, 0.78), rgba(19, 24, 31, 0.56));
+      background: linear-gradient(120deg, rgba(10, 18, 23, 0.98), rgba(19, 29, 35, 0.96));
       box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
       backdrop-filter: blur(12px);
     }
@@ -1012,7 +1013,7 @@
       align-items: start;
       border: 1px solid rgba(231, 226, 204, 0.16);
       border-radius: 8px;
-      background: linear-gradient(120deg, rgba(216, 167, 61, 0.08), rgba(17, 20, 25, 0.72));
+      background: linear-gradient(120deg, rgba(12, 23, 28, 0.98), rgba(18, 29, 35, 0.98));
       box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
     }
 
@@ -2190,15 +2191,16 @@
     .project-slide-heshengxu .project-slide-gallery-item:not(.portrait) {
       min-height: 0;
       border-radius: 18px;
-      background: #f1f1ec;
-      box-shadow: 0 16px 42px rgba(0,0,0,0.16);
+      border: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .project-slide-heshengxu .project-slide-gallery-item:not(.portrait) img {
       min-height: 0;
       max-height: 500px;
       object-fit: contain;
-      background: #f1f1ec;
+      background: transparent;
     }
 
     /* Responsive */
@@ -2350,7 +2352,7 @@
             <div class="award-card-media"><img src="assets/portfolio/awards/trae-350.jpg" alt="TRAE AI 创造力大赛年度 350 强证书" loading="lazy"></div>
             <div class="award-card-copy">
               <h3>TRAE AI 创造力大赛</h3>
-              <p>在 1.4 万余件参赛作品中获得年度 350 强。通过真实作品展示 AI 创意、产品完成度和可用性，把从想法到交付的完整过程交给公开评审。</p>
+              <p>从 3.7 万余名参赛选手中脱颖而出，获得年度 350 强。通过真实作品展示 AI 创意、产品完成度和可用性，把从想法到交付的完整过程交给公开评审。</p>
               <small>年度 350 强 · 字节跳动 TRAE</small>
             </div>
           </article>
