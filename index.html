@@ -626,6 +626,93 @@
       letter-spacing: 0.04em;
     }
 
+    /* ===== Awards ===== */
+    .awards-section {
+      position: relative;
+      padding: clamp(76px, 9vw, 132px) 0;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(134,184,255,0.12), transparent 30%),
+        linear-gradient(180deg, #080b0e 0%, #0d1216 100%);
+      border-top: 1px solid rgba(231, 226, 204, 0.09);
+    }
+
+    .awards-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .awards-head h2 {
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 0.98;
+    }
+
+    .awards-head .lead { max-width: 480px; margin: 0; }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .award-card {
+      overflow: hidden;
+      min-width: 0;
+      border: 1px solid rgba(231, 226, 204, 0.14);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+    }
+
+    .award-card-media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      padding: 18px;
+      background: #f1f2f6;
+    }
+
+    .award-card-media img {
+      width: 100%;
+      height: 340px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.16);
+    }
+
+    .award-card-copy { padding: 22px 24px 24px; }
+    .award-card-copy h3 { margin-bottom: 8px; font-size: 20px; }
+    .award-card-copy p { color: var(--cream-soft); font-size: 13px; line-height: 1.7; }
+    .award-card-copy small { display: block; margin-top: 14px; color: var(--gold); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    .award-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      grid-column: 1 / -1;
+    }
+
+    .award-list article {
+      min-height: 150px;
+      padding: 22px 24px;
+      border: 1px solid rgba(231,226,204,0.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .award-list b { display: block; margin-bottom: 9px; color: var(--cream); font-size: 18px; }
+    .award-list p { color: var(--cream-soft); font-size: 13px; line-height: 1.7; }
+    .award-list span { display: inline-block; margin-top: 14px; color: var(--blue); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    .agent-proof,
+    .role-fit {
+      background: linear-gradient(135deg, rgba(8,14,18,0.94), rgba(16,24,29,0.88));
+      backdrop-filter: blur(8px);
+    }
+
     .cinema {
       padding: 0;
       background:
@@ -766,8 +853,8 @@
       inset: 0;
       z-index: 0;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.54), rgba(0,0,0,0.12) 48%, rgba(0,0,0,0.28)),
-        linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.04) 46%, rgba(0,0,0,0.50));
+        linear-gradient(180deg, rgba(3,7,10,0.82), rgba(3,7,10,0.70)),
+        linear-gradient(90deg, rgba(3,7,10,0.78), rgba(3,7,10,0.56) 54%, rgba(3,7,10,0.78));
       pointer-events: none;
     }
 
@@ -2103,13 +2190,15 @@
     .project-slide-heshengxu .project-slide-gallery-item:not(.portrait) {
       min-height: 0;
       border-radius: 18px;
+      background: #f1f1ec;
+      box-shadow: 0 16px 42px rgba(0,0,0,0.16);
     }
 
     .project-slide-heshengxu .project-slide-gallery-item:not(.portrait) img {
       min-height: 0;
       max-height: 500px;
       object-fit: contain;
-      background: rgba(10, 10, 12, 0.72);
+      background: #f1f1ec;
     }
 
     /* Responsive */
@@ -2130,6 +2219,10 @@
       .experience-head .lead { margin-top: 18px; }
       .experience-grid { grid-template-columns: 1fr; }
       .experience-card { min-height: 0; }
+      .awards-head { display: block; }
+      .awards-head .lead { margin-top: 18px; }
+      .awards-grid, .award-list { grid-template-columns: 1fr; }
+      .award-card-media img { height: 300px; }
     }
 
   </style>
@@ -2140,6 +2233,7 @@
       <a class="brand" href="#top" aria-label="唐乐首页">TL</a>
       <a href="#profile">个人介绍</a>
       <a href="#experience">实习经历</a>
+      <a href="#awards">竞赛荣誉</a>
       <a href="#motion">作品理念</a>
       <a href="#projects">项目展示</a>
       <a href="#process">开发流程</a>
@@ -2159,7 +2253,7 @@
           </h1>
         </div>
         <aside class="hero-card">
-          <p>软件工程本科在读，主攻 AI 应用开发与全栈产品落地。七个项目覆盖 AI 健康管理、求职 Agent、视觉小说创作、AI 音乐启蒙、微信小程序和数据驱动工具；我关注的不只是接入模型，而是把上下文、工具、数据、体验和部署真正交付成可使用的产品。</p>
+          <p>软件工程本科在读，主攻 AI 应用开发与全栈产品落地。七个项目覆盖 AI 健康管理、求职 Agent、视觉小说创作、AI 音乐启蒙、微信小程序和数据驱动工具；我会用 AI 协作完成产品拆解、视觉设计、代码实现、调试和文档交付，再通过自己的验证把模型能力收敛成可使用的产品。</p>
           <div class="hero-meta">
             <div><b>7</b><span>独立项目</span></div>
             <div><b>AI</b><span>Agent 开发</span></div>
@@ -2200,7 +2294,7 @@
             <article class="skill-block reveal"><b>前端工程</b><span>HTML / CSS / JavaScript / TypeScript / React 19 / Vue 3 / Vite / Tailwind CSS / Ant Design Vue / Pinia / framer-motion / Chart.js / 响应式布局</span></article>
             <article class="skill-block reveal"><b>小程序工程</b><span>WXML / WXSS / JavaScript / 微信云开发 / 云函数 / 云数据库 / 云存储 / 图片上传 / 分包加载 / 内容安全</span></article>
             <article class="skill-block reveal"><b>AI Agent 与 Vibe Coding</b><span>Agent 上下文设计 / 分层记忆 / Tool Calling / Schema 校验 / ReAct 执行链 / SSE 流式 / Codex / Claude Code / Trae / 测试验证</span></article>
-            <article class="skill-block reveal"><b>部署与工程化</b><span>Cloudflare Pages / Cloudflare Pages Functions / Git / GitHub Actions / Nginx / Monorepo (pnpm) / 自动保存 / 版本冲突保护</span></article>
+            <article class="skill-block reveal"><b>部署与工程化</b><span>Docker / Azure Container Apps / CloudBase / Cloudflare Pages / Git / GitHub Actions / Nginx / Monorepo (pnpm) / 自动保存 / 版本冲突保护</span></article>
           </div>
         </div>
       </div>
@@ -2242,6 +2336,40 @@
       </div>
     </section>
 
+    <section id="awards" class="awards-section">
+      <div class="wrap">
+        <div class="awards-head reveal">
+          <div>
+            <p class="kicker">Awards &amp; Challenges</p>
+            <h2>把作品带到<br><em>真实的评审现场</em></h2>
+          </div>
+          <p class="lead">除了独立做产品，我也把 AI 应用和小程序作品带到公开赛事中，用真实的评审标准检验产品表达、技术实现和社会价值。</p>
+        </div>
+        <div class="awards-grid">
+          <article class="award-card reveal">
+            <div class="award-card-media"><img src="assets/portfolio/awards/trae-350.jpg" alt="TRAE AI 创造力大赛年度 350 强证书" loading="lazy"></div>
+            <div class="award-card-copy">
+              <h3>TRAE AI 创造力大赛</h3>
+              <p>在 1.4 万余件参赛作品中获得年度 350 强。通过真实作品展示 AI 创意、产品完成度和可用性，把从想法到交付的完整过程交给公开评审。</p>
+              <small>年度 350 强 · 字节跳动 TRAE</small>
+            </div>
+          </article>
+          <article class="award-card reveal">
+            <div class="award-card-media"><img src="assets/portfolio/awards/ai-good.jpg" alt="小有可为 AI 向善创新挑战赛参赛证明" loading="lazy"></div>
+            <div class="award-card-copy">
+              <h3>小有可为 AI 向善创新挑战赛</h3>
+              <p>参加阿里云百炼举办的 AI 向善创新挑战赛，围绕技术如何解决真实问题、产生积极影响和形成可落地方案进行实践。</p>
+              <small>AI for Good · 阿里云百炼</small>
+            </div>
+          </article>
+          <div class="award-list reveal">
+            <article><b>世界人工智能开源大赛（GOAI）</b><p>参与人工智能开源方向赛事，关注模型应用、工程实现与开放协作，持续积累从技术验证到作品表达的经验。</p><span>Open Source AI</span></article>
+            <article><b>微信小程序开发大赛</b><p>参与微信小程序开发类赛事，把小程序云开发、交互设计和真实业务流程结合起来，验证端到端的产品落地能力。</p><span>Mini Program Product</span></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="motion" class="cinema section">
       <div class="cinema-panel">
         <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_133058_0504132a-0cf3-4450-a370-8ea3b05c95d4.mp4" autoplay muted loop playsinline preload="metadata"></video>
@@ -2278,7 +2406,8 @@
           <p class="lead">七个完整项目从真实痛点出发，覆盖前端页面实现、后端接口开发、数据持久化、视觉识别、AI Agent 设计和云端部署。其中六个项目由本人独立完成，职途 ZhiTu 的前端由本人开发、后端由队友协作完成。AI 工具用于加速拆解和生成初版，代码阅读、问题定位、功能验收和最终交付由自己负责。</p>
           <ul class="showcase-list">
             <li>每个项目都有完整入口：项目展示页、源码仓库或小程序码，方便直接验证效果。</li>
-            <li>不只是生成代码：会自己读代码、调接口、看报错、补规则和测试，把项目推进到可运行、可交付状态。</li>
+            <li>AI 参与产品拆解、视觉设计、代码实现和文档交付；我会自己读代码、调接口、看报错、补规则和测试，把项目推进到可运行、可交付状态。</li>
+            <li>有 Docker 镜像、Azure Container Apps、CloudBase 和 Cloudflare Pages 的部署实践，能把本地 Demo 推到可访问的线上环境。</li>
             <li>能把项目讲清楚：业务目标、技术栈、核心实现、遇到的问题、优化路径和个人完成部分。</li>
           </ul>
         </div>
