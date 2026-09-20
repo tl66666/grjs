@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="唐乐的 AI 应用与全栈开发作品集：AI Agent、视觉理解、AI 游戏与交互产品、微信小程序、云端部署和产品化交付。" />
+  <meta name="description" content="唐乐的 AI 应用与全栈开发作品集：AI Agent、视觉理解、交互产品、视觉设计、微信小程序、云端部署和产品化交付。" />
   <title>唐乐 | Software Engineer Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -667,11 +667,13 @@
 
     .awards-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
 
     .award-card {
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
       min-width: 0;
       border: 1px solid rgba(77, 99, 136, 0.16);
@@ -697,10 +699,15 @@
       box-shadow: 0 14px 34px rgba(0,0,0,0.16);
     }
 
-    .award-card-copy { padding: 22px 24px 24px; }
+    .award-card-copy {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 22px 24px 24px;
+    }
     .award-card-copy h3 { margin-bottom: 8px; color: #233653; font-size: 20px; }
     .award-card-copy p { color: #53657d; font-size: 13px; line-height: 1.7; }
-    .award-card-copy small { display: block; margin-top: 14px; color: #7c5e2a; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .award-card-copy small { display: block; margin-top: auto; padding-top: 14px; color: #7c5e2a; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
 
     .award-list {
       display: grid;
@@ -2215,10 +2222,6 @@
       background: transparent;
     }
 
-    @media (max-width: 1100px) {
-      .awards-grid { grid-template-columns: 1fr; }
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       .experience-section .wrap,
@@ -2290,7 +2293,7 @@
           </div>
           <div class="button-row">
             <a class="btn primary" href="#projects">查看项目 <span>↗</span></a>
-            <a class="btn" href="唐乐-简历.pdf?v=20260919" download="唐乐-简历.pdf">下载简历</a>
+            <a class="btn" href="唐乐-简历.pdf?v=20260920" download="唐乐-简历.pdf">下载简历</a>
             <a class="btn" href="https://github.com/tl66666" target="_blank" rel="noopener">GitHub 仓库</a>
           </div>
         </aside>
@@ -2377,6 +2380,14 @@
           <p class="lead">除了独立做产品，我也把 AI 应用和小程序作品带到公开赛事中，用真实的评审标准检验创意表达、技术实现和完成度。</p>
         </div>
         <div class="awards-grid">
+          <article class="award-card reveal">
+            <div class="award-card-media"><img src="assets/portfolio/awards/wechat-dev-workshop-no2.jpg" alt="2026 微信开发者创新工坊广州游园会友日 受期待的开发者 NO.2" loading="lazy"></div>
+            <div class="award-card-copy">
+              <h3>微信开发者创新工坊</h3>
+              <p>在 2026「广州·游园会友日」活动中获评“受期待的开发者”NO.2，展示微信小程序产品设计、开发与真实场景落地能力。</p>
+              <small>受期待的开发者 NO.2 · 2026.09.20</small>
+            </div>
+          </article>
           <article class="award-card reveal">
             <div class="award-card-media"><img src="assets/portfolio/awards/trae-350.jpg" alt="TRAE AI 创造力大赛年度 350 强证书" loading="lazy"></div>
             <div class="award-card-copy">
@@ -2473,7 +2484,7 @@
         <div class="role-fit-grid">
           <article><b>AI 应用开发</b><span>文本对话、视觉识别、结构化输出、模型失败降级与用户确认。</span><small>和生序 · 乐启星</small></article>
           <article><b>AI 全栈开发</b><span>React / Vue / uni-app 到 API、数据库、鉴权、容器和云端部署。</span><small>七个项目的共同底座</small></article>
-          <article><b>AI 游戏开发</b><span>把角色、剧情、关卡和素材工具化，理解交互状态与玩家体验。</span><small>DreamChord · 叙事工具</small></article>
+          <article><b>交互产品与创作工具</b><span>把复杂内容流程拆成章节、场景、镜头卡和可视化工作流，兼顾编辑体验与素材复用。</span><small>DreamChord · 创作平台</small></article>
           <article><b>Agent 开发</b><span>上下文、分层记忆、Tool Calling、Schema 校验、审批、回执与撤销。</span><small>职途 Agent · DreamChord</small></article>
           <article><b>AI 产品经理</b><span>从用户问题、流程和指标出发，定义模型边界、验收标准与迭代优先级。</span><small>需求拆解 · 交互 · 验证</small></article>
           <article><b>视觉设计与 AIGC</b><span>独立完成绘图、视频与提示词，用大模型快速搭应用、小程序和工作流。</span><small>素材创作 · 工作流 · 原型</small></article>
@@ -2529,7 +2540,7 @@
       <div class="wrap reveal">
         <p class="kicker">Contact</p>
         <h2>一起把下一个想法<br><em>做成作品</em></h2>
-        <p class="lead">意向方向：AI 应用开发 / AI 全栈开发 / AI 游戏开发 / Agent 开发 / AI 产品经理。欢迎通过电话、邮箱或 GitHub 联系我。</p>
+        <p class="lead">意向方向：AI 应用开发 / AI 全栈开发 / Agent 开发 / AI 产品经理 / 视觉设计与 AIGC。欢迎通过电话、邮箱或 GitHub 联系我。</p>
         <div class="button-row">
           <a class="btn primary" href="mailto:2061790875@qq.com">2061790875@qq.com</a>
           <a class="btn" href="tel:18064871268">18064871268</a>
