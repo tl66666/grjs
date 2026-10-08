@@ -709,6 +709,13 @@
     .award-card-copy p { color: #53657d; font-size: 13px; line-height: 1.7; }
     .award-card-copy small { display: block; margin-top: auto; padding-top: 14px; color: #7c5e2a; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
 
+    .award-card-featured { position: relative; transition: transform 220ms ease, box-shadow 220ms ease; }
+    .award-card-featured:hover { transform: translateY(-5px); box-shadow: 0 28px 70px rgba(50, 70, 104, 0.22); }
+    .award-card-detail { display: inline-flex; order: 3; align-self: flex-start; align-items: center; min-height: 44px; margin: 0 24px 24px; padding: 8px 16px; border: 1px solid rgba(82, 107, 153, 0.24); border-radius: 999px; color: #435c88; background: #f0f3fa; font-size: 12px; font-weight: 700; }
+    .award-card-detail::after { content: ""; position: absolute; inset: 0; border-radius: 18px; }
+    .award-card-detail:hover { color: #233653; background: #e6edf9; }
+    .award-card-featured:focus-within { outline: 3px solid #536da1; outline-offset: 4px; }
+
     .award-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2293,7 +2300,7 @@
           </div>
           <div class="button-row">
             <a class="btn primary" href="#projects">查看项目 <span>↗</span></a>
-            <a class="btn" href="唐乐-简历.pdf?v=20260920" download="唐乐-简历.pdf">下载简历</a>
+            <a class="btn" href="唐乐-简历.pdf?v=20261008" download="唐乐-简历.pdf">下载最新简历</a>
             <a class="btn" href="https://github.com/tl66666" target="_blank" rel="noopener">GitHub 仓库</a>
           </div>
         </aside>
@@ -2349,9 +2356,8 @@
             <h3>NuwaAI 智能体数字人部门</h3>
             <span class="experience-role">Agent 实习工程师</span>
             <ul class="experience-list">
-              <li>参与设计和开发企业级 AI Agent 智能助手“邦小彦”，围绕收入链 S1→S14，支持销售、SE 与管理者完成从市场洞察、商机推进到交付回款的日常工作。</li>
-              <li>把企业岗位流程拆成可执行的上下文、任务节点和结构化输出，让 Agent 不止回答问题，还能辅助推进获客到收入的完整链路。</li>
-              <li>使用 NuwaAI 平台设计数字人形象，用 AIGC 完成绘图与视频素材，并对接平台 API 制作应用与互动游戏。</li>
+              <li>参与企业级 AI Agent “邦小彦”设计与开发，面向销售、SE 和管理人员，辅助处理市场洞察、商机跟进、项目交付及回款等收入链 S1-S14 工作。</li>
+              <li>使用 NuwaAI 平台设计数字人，AIGC 绘图、视频完成素材创作，接入平台 API 开发数字人应用和互动游戏，参与功能验证与交互调整。</li>
             </ul>
             <div class="experience-tags"><span>AI Agent</span><span>收入链 S1-S14</span><span>NuwaAI 数字人</span><span>API 集成</span></div>
           </article>
@@ -2360,9 +2366,8 @@
             <h3>区域代理商客户项目</h3>
             <span class="experience-role">交付顾问实习生</span>
             <ul class="experience-list">
-              <li>在广州、佛山、珠海等片区跟随代理商负责人参与客户现场，直接理解销售管理、客户协同和业务流程中的真实需求。</li>
-              <li>整理会议记录与重点摘要，把客户表达转换为清晰的需求列表、业务流程和产品蓝图，帮助团队对齐范围与优先级。</li>
-              <li>根据客户场景开发可交互 Demo，用可视化流程验证方案，再结合反馈迭代产品结构和演示重点，支撑售前沟通与方案交付。</li>
+              <li>跟随广州、佛山、珠海片区负责人参与客户现场沟通，了解销售管理、客户协同和业务流程需求，整理会议记录与重点摘要，将客户表达转化为需求清单、业务流程和产品蓝图。</li>
+              <li>根据客户场景开发交互 Demo，并结合现场反馈调整产品结构和演示重点，支持售前沟通和方案交付。</li>
             </ul>
             <div class="experience-tags"><span>客户现场</span><span>需求访谈</span><span>会议摘要</span><span>产品蓝图</span><span>Demo 交付</span></div>
           </article>
@@ -2377,10 +2382,11 @@
             <p class="kicker">Awards &amp; Challenges</p>
             <h2>把作品带到<br><em>真实的评审现场</em></h2>
           </div>
-          <p class="lead">除了独立做产品，我也把 AI 应用和小程序作品带到公开赛事中，用真实的评审标准检验创意表达、技术实现和完成度。</p>
+          <p class="lead">除了独立做产品，我也把 AI 应用和小程序作品带到公开赛事中，用真实的评审标准检验创意表达、技术实现和完成度。点击前两张卡片，查看活动现场、成果记录和获奖细节。</p>
         </div>
         <div class="awards-grid">
-          <article class="award-card reveal">
+          <article class="award-card award-card-featured reveal">
+            <a class="award-card-detail" href="award-wechat.html" aria-label="查看微信开发者创新工坊活动详情">查看活动记录 ↗</a>
             <div class="award-card-media"><img src="assets/portfolio/awards/wechat-dev-workshop-no2.jpg" alt="2026 微信开发者创新工坊广州游园会友日 受期待的开发者 NO.2" loading="lazy"></div>
             <div class="award-card-copy">
               <h3>微信开发者创新工坊</h3>
@@ -2388,7 +2394,8 @@
               <small>受期待的开发者 NO.2 · 2026.09.20</small>
             </div>
           </article>
-          <article class="award-card reveal">
+          <article class="award-card award-card-featured reveal">
+            <a class="award-card-detail" href="award-trae.html" aria-label="查看 TRAE AI 创造力大赛活动详情">查看活动记录 ↗</a>
             <div class="award-card-media"><img src="assets/portfolio/awards/trae-350.jpg" alt="TRAE AI 创造力大赛年度 350 强证书" loading="lazy"></div>
             <div class="award-card-copy">
               <h3>TRAE AI 创造力大赛</h3>

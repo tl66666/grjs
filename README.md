@@ -166,6 +166,11 @@ python -m http.server 8080
 
 - 首页下载按钮固定指向 `唐乐-简历.pdf`（单页），更新简历时只需要替换这个文件。
 - 竞赛证书放在 `assets/portfolio/awards/`，页面竞赛区与仓库说明保持同步。
+- 微信和 TRAE 活动分别使用 `award-wechat.html` 与 `award-trae.html`，主页两张荣誉卡片可直接进入独立详情。
+- 两页共用 `assets/award-story.css` 和 `assets/award-story.js`。照片、每张对应的标题和介绍位于各详情页的 `gallery-data` JSON 中；初始展示和 `<noscript>` 图集也应保持同步。
+- 图文相册支持主题标签、左右按钮、键盘方向键、鼠标拖动 / 手机滑动与完整大图查看；`#photo-1` 至 `#photo-5` 可直接定位照片，不自动轮播。
+- 微信与 TRAE 的活动实拍素材分别位于 `assets/portfolio/wechat/` 和 `assets/portfolio/trae/`。图片采用 `object-fit: contain` 保留完整画面，尊重系统减少动态效果设置。
+- 原 `awards.html#wechat` / `awards.html#trae` 地址保留兼容跳转。运行 `node tests/award-story.test.cjs` 可检查独立入口、图片资源与基础可访问性约定。
 - 主域名通过 Cloudflare Pages 自动部署，推送 `main` 分支后自动构建并刷新 [grjs.tl666.tech](https://grjs.tl666.tech/)。
 - GitHub Pages 作为备用部署，地址为 [tl66666.github.io/grjs](https://tl66666.github.io/grjs/)。
 - `output/` 和 `.uploads/` 为本地截图、调试或临时输出目录，不作为正式网站内容上传。
