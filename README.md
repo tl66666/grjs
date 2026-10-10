@@ -1,6 +1,6 @@
 # 唐乐个人介绍网站
 
-这是唐乐的个人介绍与项目作品集网站，用于展示 AI 应用开发、AI 全栈开发、Agent 开发、AI 产品经理和视觉设计与 AIGC 能力。网站内七个独立项目均由本人主导完成需求拆解、页面设计、功能开发、调试优化与展示页整理。
+这是唐乐的个人介绍与项目作品集网站，用于展示 AI 应用开发、AI 全栈开发、Agent 开发、AI 产品经理和视觉设计与 AIGC 能力。网站内七个项目作品均由本人主导完成需求拆解、页面设计、功能开发、调试优化与展示页整理。
 
 ## 在线访问
 
@@ -70,7 +70,7 @@
 
 ## 独立完成说明
 
-七个独立项目均由本人主导完成，包括需求分析、产品流程设计、页面实现、接口与数据处理、调试修复、展示页整理和项目说明文档。其中职途 ZhiTu 后端由队友完成（Go + Gin + GORM），本人负责前端全部开发；其余六个项目从前端到后端均由本人独立完成。Vibe Coding 是我的高效开发方式：借助 Codex、Claude Code、Trae、GitHub Copilot 等工具快速形成初版，再通过自主代码阅读、调试排错、测试验证和文档沉淀保证项目质量。
+七个项目作品均由本人主导完成，包括需求分析、产品流程设计、页面实现、接口与数据处理、调试修复、展示页整理和项目说明文档。其中职途 ZhiTu 后端由队友完成（Go + Gin + GORM），本人负责前端全部开发；其余六个项目从前端到后端均由本人独立完成。Vibe Coding 是我的高效开发方式：借助 Codex、Claude Code、Trae、GitHub Copilot 等工具快速形成初版，再通过自主代码阅读、调试排错、测试验证和文档沉淀保证项目质量。
 
 ## 项目展示
 
@@ -130,7 +130,7 @@ Web 端视觉小说创作平台，通过章节、场景、镜头卡三级结构�
 
 ### [乐启星 LQX](https://lqx-266.pages.dev/)
 
-面向 K12 阶段的 AI 音乐启蒙教育平台，核心理念是「让 AI 成为每个孩子的音乐启蒙老师」。整合大语言模型、数字人和 Web Audio 技术，AI 老师「晓音」24 小时在线，支持文字对话、语音交互和数字人面对面授课。
+面向 K12 阶段的 AI 音乐启蒙教育平台，核心理念是「让 AI 成为每个孩子的音乐启蒙老师」。整合大语言模型、数字人和 Web Audio 技术，AI 老师「晓音」提供在线音乐学习交互，支持文字对话、语音交互和数字人面对面授课。
 
 技术栈：HTML5、CSS3、JavaScript、Web Audio API、Chart.js、FastAPI、Python、SQLite、JWT、阿里云百炼、NuwaAI 数字人、Cloudflare Pages。
 
@@ -174,3 +174,9 @@ python -m http.server 8080
 - 主域名通过 Cloudflare Pages 自动部署，推送 `main` 分支后自动构建并刷新 [grjs.tl666.tech](https://grjs.tl666.tech/)。
 - GitHub Pages 作为备用部署，地址为 [tl66666.github.io/grjs](https://tl66666.github.io/grjs/)。
 - `output/` 和 `.uploads/` 为本地截图、调试或临时输出目录，不作为正式网站内容上传。
+
+## 招聘阅读与维护
+
+首页包含可直接浏览的七个作品、方向筛选、本人职责与运行边界；沉浸展示支持快速项目切换及完整截图查看。视频按视口加载并支持减少动效，首屏保留本地封面及轨道视觉。简历沿用作者原文件，本次网站优化不修改 PDF。
+
+本地预览可运行 Python HTTP 服务，再执行 node tests/recruiter-portfolio.test.cjs 与 node tests/award-story.test.cjs。浏览器检查需要 Playwright 与 Edge；PLAYWRIGHT_MODULE 和 PORTFOLIO_URL 可覆盖模块路径与预览地址。
