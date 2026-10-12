@@ -14,7 +14,7 @@
 
 ## 隐私说明
 
-灯影古镇展示区的游戏首屏、灯河场景和梦鹿设定卡来自作者的 [lantern-shadow-town 仓库](https://github.com/tl66666/lantern-shadow-town/tree/main/assets/screenshots)，用于说明该互动游戏作品。个人网站只提供截图与独立试玩入口，不在首页加载摄像头识别模块。游戏源码与素材说明以原游戏仓库为准。
+灯影古镇展示区与详情页的首屏、四关地图和四张角色卡来自作者的 [lantern-shadow-town 仓库](https://github.com/tl66666/lantern-shadow-town/tree/main/assets/screenshots)。和生序详情页的运行截图来自作者的 [heshengxu-health 仓库](https://github.com/tl66666/heshengxu-health/tree/main/assets/showcase/runtime)。个人网站只提供截图与独立体验入口，不在首页加载摄像头识别模块。游戏源码与素材说明以原游戏仓库为准。
 
 仓库中不应提交个人账号密钥、云服务密钥、后台管理口令、私有环境变量或未脱敏的用户数据。简历中的联系方式为作者主动公开的求职联系信息。
 

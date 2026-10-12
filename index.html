@@ -2322,11 +2322,11 @@
         <div class="work-heading"><div><p class="kicker">Selected Work / 作品与实现</p><h2 id="work-title">先看做过什么，<br><em>再看如何实现。</em></h2></div><p>八个项目作品，覆盖个人开发、前端协作与互动游戏。前三项分别展示模型接入、Agent 工程和前端协作能力；每个项目都标明本人职责与运行方式，可直接查看展示或源码。</p></div>
         <div class="work-toolbar" role="group" aria-label="按项目方向筛选"><button class="work-filter" type="button" data-filter="all" aria-pressed="true">全部作品</button><button class="work-filter" type="button" data-filter="ai" aria-pressed="false">AI / Agent</button><button class="work-filter" type="button" data-filter="frontend" aria-pressed="false">前端协作</button><button class="work-filter" type="button" data-filter="mini" aria-pressed="false">微信小程序</button><button class="work-filter" type="button" data-filter="creative" aria-pressed="false">创作与学习</button><button class="work-filter" type="button" data-filter="game" aria-pressed="false">互动游戏</button><span class="work-count" id="workCount" role="status" aria-live="polite">8 / 8 个作品</span></div>
         <div class="work-grid">
-          <article class="work-card" id="work-health" data-category="ai">
+          <article class="work-card" id="work-health" data-category="ai mini">
             <div class="work-cover"><img src="assets/portfolio/heshengxu/food-recognition.jpg" alt="和生序项目界面" loading="lazy" width="640" height="400"><span class="work-number">01</span></div>
-            <div class="work-copy"><p class="work-label">01 / AI APPLICATION · 双端应用</p><h3>和生序</h3><p class="work-problem">饮食记录需要在识别结果与实际摄入之间保留用户确认。</p>
-              <dl class="work-facts"><div><dt>本人职责</dt><dd>独立开发：产品流程、uni-app 双端、API、数据模型、模型接入与部署。</dd></div><div><dt>实现重点</dt><dd>照片 → 服务端模型代理 → 食材及营养估算 → 用户校正 → 保存；密钥保留在服务端。</dd></div><div><dt>运行方式与边界</dt><dd>微信小程序 / Android App；营养数据是模型估算，供用户核对。</dd></div></dl>
-              <p class="work-tags">Vue · uni-app · NestJS · Prisma · PostgreSQL</p><div class="work-links"><a href="https://tl66666.github.io/heshengxu-health/" target="_blank" rel="noopener">项目展示 ↗</a><a class="work-source" href="https://github.com/tl66666/heshengxu-health" target="_blank" rel="noopener">源码 ↗</a><button class="work-open" type="button" data-open-project="0" aria-label="查看和生序截图与实现细节">截图与细节 →</button></div>
+            <div class="work-copy"><p class="work-label">01 / AI APPLICATION · 微信小程序 × APP</p><h3>和生序</h3><p class="work-problem">饮食记录需要在识别结果与实际摄入之间保留用户确认。</p>
+              <dl class="work-facts"><div><dt>本人职责</dt><dd>独立开发：产品流程、uni-app 双端、API、数据模型、模型接入与部署。</dd></div><div><dt>实现重点</dt><dd>照片 → 服务端模型代理 → 食材及营养估算 → 用户校正 → 保存；密钥保留在服务端。</dd></div><div><dt>运行方式与边界</dt><dd>微信小程序 / Android App；共用客户端与 API，按平台适配登录；营养估算供用户核对。</dd></div></dl>
+              <p class="work-tags">Vue · uni-app · NestJS · Prisma · PostgreSQL</p><div class="work-links"><a href="project-heshengxu.html">双端详情 ↗</a><a class="work-source" href="https://github.com/tl66666/heshengxu-health" target="_blank" rel="noopener">源码 ↗</a><button class="work-open" type="button" data-open-project="0" aria-label="查看和生序截图与实现细节">截图与细节 →</button></div>
             </div>
           </article>
           <article class="work-card" id="work-agent" data-category="ai">
@@ -2375,7 +2375,7 @@
             <div class="work-cover"><img src="assets/portfolio/lantern/title-screen.jpg" alt="灯影古镇游戏首屏与四灵角色" loading="lazy" width="1705" height="925"><span class="work-number">08</span></div>
             <div class="work-copy"><p class="work-label">08 / INTERACTIVE GAME · 体感寻宝</p><h3>灯影古镇</h3><p class="work-problem">以手灯光晕探索古镇街景，在梦、福、诗、画四幕中寻得灵杰、集齐四印。</p>
               <dl class="work-facts"><div><dt>个人作品</dt><dd>将手势输入、场景视频、寻宝判定与角色反馈组织成浏览器互动游戏。</dd></div><div><dt>交互设计</dt><dd>手势 / 鼠标双模式；约 1.5 秒停留充能、容差防抖、角色卡解锁与幸运转盘。</dd></div><div><dt>体验方式</dt><dd>Chrome / Edge 在线游玩；鼠标模式无需摄像头，手势模式需授权摄像头，画面在本地推理。</dd></div></dl>
-              <p class="work-tags">JavaScript · Canvas 2D · MediaPipe · Web Audio</p><div class="work-links"><a href="https://tl66666.github.io/lantern-shadow-town/" target="_blank" rel="noopener">在线试玩 ↗</a><a class="work-source" href="https://github.com/tl66666/lantern-shadow-town" target="_blank" rel="noopener">源码 ↗</a><button class="work-open" type="button" data-open-project="7" aria-label="查看灯影古镇场景与交互细节">截图与细节 →</button></div>
+              <p class="work-tags">JavaScript · Canvas 2D · MediaPipe · Web Audio</p><div class="work-links"><a href="https://tl66666.github.io/lantern-shadow-town/" target="_blank" rel="noopener">在线试玩 ↗</a><a class="work-source" href="https://github.com/tl66666/lantern-shadow-town" target="_blank" rel="noopener">源码 ↗</a><button class="work-open" type="button" data-open-project="7" aria-label="查看灯影古镇场景与交互细节">截图与细节 →</button><a href="project-lantern.html">完整图集 ↗</a></div>
             </div>
           </article>
         </div>
@@ -2388,7 +2388,7 @@
         <a class="lantern-screen" href="https://tl66666.github.io/lantern-shadow-town/" target="_blank" rel="noopener" aria-label="打开灯影古镇在线试玩"><img src="assets/portfolio/lantern/title-screen.jpg" alt="灯影古镇首屏：梦鹿、神马、李白与萌莎四位灵杰" width="1705" height="925" loading="lazy"><span>进入古镇 · 在线试玩 ↗</span></a>
         <div><p class="kicker">Interactive Experience / 互动作品</p><h2 id="lantern-title">灯影古镇</h2><p class="lantern-subtitle">Lantern Shadow Town</p><p class="lantern-intro">伸手点亮灯河，在古镇街景里寻找四位灵杰。把体感输入、场景叙事和角色收集放进一次浏览器体验，让交互从点击按钮变成探索与发现。</p>
           <div class="lantern-facts"><div><b>手势 / 鼠标</b><small>双模式输入</small></div><div><b>四幕场景</b><small>梦 · 福 · 诗 · 画</small></div><div><b>本地推理</b><small>摄像头画面不上传</small></div></div>
-          <div class="lantern-links"><a class="btn primary" href="https://tl66666.github.io/lantern-shadow-town/" target="_blank" rel="noopener">在线试玩 ↗</a><button class="btn" type="button" data-open-project="7">查看游戏细节</button><a class="btn" href="https://github.com/tl66666/lantern-shadow-town" target="_blank" rel="noopener">GitHub ↗</a></div><p class="lantern-hint">建议使用 Chrome / Edge。可直接选择鼠标模式；手势模式需摄像头授权。场景媒体首次打开需要加载。</p>
+          <div class="lantern-links"><a class="btn primary" href="https://tl66666.github.io/lantern-shadow-town/" target="_blank" rel="noopener">在线试玩 ↗</a><a class="btn" href="project-lantern.html">四关地图与角色卡</a><a class="btn" href="https://github.com/tl66666/lantern-shadow-town" target="_blank" rel="noopener">GitHub ↗</a></div><p class="lantern-hint">建议使用 Chrome / Edge。可直接选择鼠标模式；手势模式需摄像头授权。场景媒体首次打开需要加载。</p>
         </div>
       </div>
     </section>
@@ -2694,18 +2694,23 @@
     var PROJECT_DATA = [
       {
         name: '和生序',
-        kicker: 'AI Health OS · Uni-app Dual Platform',
+        kicker: '微信小程序 × Android App · AI 健康管理',
         accent: '#75d0a6',
         media: [
           { type: 'image', src: 'assets/portfolio/heshengxu/hero.jpg', label: '双端品牌首屏', hero: true },
-          { type: 'image', src: 'assets/portfolio/heshengxu/home.jpg', label: '健康首页' },
-          { type: 'image', src: 'assets/portfolio/heshengxu/food-recognition.jpg', label: '序序相机识别' }
+          { type: 'image', src: 'assets/portfolio/heshengxu/home.jpg', label: '健康首页', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/food-recognition.jpg', label: '序序相机识别', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/health-records.jpg', label: '健康记录矩阵', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/weight-management.jpg', label: '体重趋势与历史', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/food-catalog.jpg', label: '食物目录', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/xuxu-chat.jpg', label: '序序 AI 对话', orientation: 'portrait' }
         ],
         desc: '从产品定义、交互设计到云端部署的 AI 健康管理产品，同时覆盖微信小程序与 App。它把饮食、体重、饮水、运动、睡眠、心情、计划和序序陪伴组织成真实可用的日常闭环。',
         tags: ['Vue 3','uni-app','TypeScript','NestJS','Prisma','PostgreSQL','Docker','Azure Container Apps','CloudBase','GLM 视觉模型'],
         note: 'AI 不是装饰：序序相机能识别组合菜品、拆分可见食材、估算份量和营养并由用户确认；序序聊天接入真实模型服务，客户端不保存密钥，失败时有明确降级状态。',
         link: { url: 'https://tl66666.github.io/heshengxu-health/', label: '查看项目' },
         github: 'https://github.com/tl66666/heshengxu-health',
+        detailPage: 'project-heshengxu.html',
         download: 'https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk',
         qr: { img: 'assets/portfolio/heshengxu/qrcode.jpg', title: '微信小程序码', subtitle: '微信扫一扫体验和生序' },
         details: [
@@ -2843,12 +2848,19 @@
       {
         name: '灯影古镇',
         kicker: 'Lantern Shadow Town · Interactive Game',
+        detailPage: 'project-lantern.html',
         accent: '#c78b35',
         ownership: '个人互动游戏作品：将输入驱动、Canvas 渲染、关卡判定、角色卡与音视频反馈组织成可在线体验的游戏。',
         media: [
           { type: 'image', src: 'assets/portfolio/lantern/title-screen.jpg', label: '四灵入镇 · 游戏首屏', hero: true },
-          { type: 'image', src: 'assets/portfolio/lantern/map-lantern.jpg', label: '第一幕 · 灯河街景' },
-          { type: 'image', src: 'assets/portfolio/lantern/card-menglu.jpg', label: '梦鹿 · 角色设定卡', orientation: 'portrait' }
+          { type: 'image', src: 'assets/portfolio/lantern/map-lantern.jpg', label: '第一关 · 灯河梦鹿' },
+          { type: 'image', src: 'assets/portfolio/lantern/map-2-temple-fair.jpg', label: '第二关 · 庙会神马' },
+          { type: 'image', src: 'assets/portfolio/lantern/map-3-blossom-creek.jpg', label: '第三关 · 溪畔李白' },
+          { type: 'image', src: 'assets/portfolio/lantern/map-4-gallery-street.jpg', label: '第四关 · 街市萌莎' },
+          { type: 'image', src: 'assets/portfolio/lantern/card-menglu.jpg', label: '梦鹿 · 角色详情卡', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/lantern/card-2-shenma.jpg', label: '神马 · 角色详情卡', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/lantern/card-3-libai.jpg', label: '李白 · 角色详情卡', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/lantern/card-4-mengsha.jpg', label: '萌莎 · 角色详情卡', orientation: 'portrait' }
         ],
         desc: '手势体感寻宝网页游戏，以灯河、庙会、桃花溪与字画街四幕场景组织探索。手灯光晕停留约 1.5 秒点亮目标，逐关解锁梦鹿、神马、李白与萌莎角色卡，集齐四印后进入转盘与结局。',
         tags: ['JavaScript','Canvas 2D','MediaPipe','WASM','Web Audio','HTML5 Video','localStorage','Node.js'],
@@ -2965,7 +2977,8 @@
         var linksHtml =
           '<a class="project-slide-link primary" href="' + project.link.url + '" target="_blank" rel="noopener">' + project.link.label + ' ↗</a>' +
           '<a class="project-slide-link secondary" href="' + project.github + '" target="_blank" rel="noopener">源码仓库</a>' +
-          (project.download ? '<a class="project-slide-link secondary" href="' + project.download + '" target="_blank" rel="noopener">下载 App ↓</a>' : '');
+          (project.detailPage ? '<a class="project-slide-link secondary" href="' + project.detailPage + '">完整作品详情 ↗</a>' : '') +
+          (project.download ? '<a class="project-slide-link secondary" href="' + project.download + '" target="_blank" rel="noopener">下载 Android 测试包 ↓</a>' : '');
 
         // QR code
         var qrHtml = '';
@@ -2973,7 +2986,7 @@
           qrHtml = '<div class="project-slide-qr"><img src="' + project.qr.img + '" alt="小程序码"><div><b>' + project.qr.title + '</b><br><span>' + project.qr.subtitle + '</span></div></div>';
         }
 
-        var slideClass = project.name === '和生序' ? ' project-slide-heshengxu' : '';
+        var slideClass = project.name === '和生序' ? ' project-slide-heshengxu' : project.name === '灯影古镇' ? ' project-slide-lantern' : '';
         return '<div class="project-slide' + slideClass + '" data-index="' + index + '">' +
           '<div class="project-slide-hero">' + heroHtml + '<span class="project-slide-hero-label">' + heroItem.label + '</span></div>' +
           '<div class="project-slide-header">' +

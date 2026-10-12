@@ -79,6 +79,10 @@ section[id] { scroll-margin-top: 82px; }
 .gallery-projects button[aria-pressed='true'] { background: #233d31; color: #f4f0e3; border-color: #233d31; }
 .screenshot-preview { border: 0; padding: 0; width: 100%; text-align: left; font: inherit; color: inherit; cursor: zoom-in; }
 .screenshot-preview:focus-visible { outline-offset: -4px; }
+.project-slide-lantern .project-slide-body { grid-template-columns: 1fr; }
+.project-slide-lantern .project-slide-gallery { position: static; }
+.project-slide-lantern .project-slide-gallery-item { min-height: 0; }
+.project-slide-lantern .project-slide-gallery-item img { min-height: 0; height: auto; object-fit: contain; }
 .media-preview { position: fixed; inset: 0; width: min(1320px, 94vw); max-width: none; height: min(94vh, 1100px); max-height: none; margin: auto; border: 1px solid #c8cabd55; border-radius: 16px; padding: 0; background: #111815; color: #eeeadd; box-shadow: 0 40px 120px #0009; overflow: hidden; }
 .media-preview::backdrop { background: #07100de6; backdrop-filter: blur(14px); }
 .media-preview-bar { display: flex; align-items: center; justify-content: space-between; gap: 18px; height: 60px; padding: 12px 22px; border-bottom: 1px solid #eeeadd25; font-size: 13px; }

@@ -6,7 +6,7 @@
 
 从一个具体问题，到一个可以体验的作品。
 
-[个人网站](https://grjs.tl666.tech/) · [项目目录](https://grjs.tl666.tech/#selected-work) · [灯影古镇试玩](https://tl66666.github.io/lantern-shadow-town/) · [GitHub](https://github.com/tl66666)
+[个人网站](https://grjs.tl666.tech/) · [项目目录](https://grjs.tl666.tech/#selected-work) · [GitHub](https://github.com/tl66666)
 
 ![Static website](https://img.shields.io/badge/Website-HTML%20%2F%20CSS%20%2F%20JavaScript-284c3a?style=flat-square)
 ![Projects](https://img.shields.io/badge/Portfolio-8%20Projects-c78b35?style=flat-square)
@@ -21,40 +21,23 @@
 | 想了解什么 | 入口 |
 | --- | --- |
 | 看作品、职责与实现重点 | [个人网站 · 项目速览](https://grjs.tl666.tech/#selected-work) |
-| 体验一个互动游戏 | [灯影古镇 · 在线试玩](https://tl66666.github.io/lantern-shadow-town/) |
+| 看项目功能与架构 | [和生序双端详情](https://grjs.tl666.tech/project-heshengxu.html) / [项目目录](https://grjs.tl666.tech/#selected-work) |
 | 查看活动现场与荣誉记录 | [微信开发者创新工坊](https://grjs.tl666.tech/award-wechat.html) / [TRAE AI 创造力大赛](https://grjs.tl666.tech/award-trae.html) |
 | 查看原版简历 | [唐乐-简历.pdf](./唐乐-简历.pdf) |
 | 主站暂不可用时 | [GitHub Pages 备用站](https://tl66666.github.io/grjs/) |
-
-## 互动作品：灯影古镇
-
-**Lantern Shadow Town** 是一款手势体感寻宝网页游戏。以手灯光晕探索古镇街景，在梦、福、诗、画四幕中寻找灵杰，解锁角色卡、集齐四印，再进入幸运转盘与结局。
-
-[![灯影古镇 · 游戏首屏](assets/portfolio/lantern/title-screen.jpg)](https://tl66666.github.io/lantern-shadow-town/)
-
-| 交互 | 实现 |
-| --- | --- |
-| 手势 / 鼠标双模式 | MediaPipe 手部追踪与鼠标驱动接入统一输入层，支持 I 键切换 |
-| 停留充能 | 约 1.5 秒命中进度，结合防抖容差、移开衰减与目标轨迹 |
-| 场景与角色 | 四幕关卡视频、灵杰角色卡、显影、配音与收集反馈 |
-| 运行 | 原生 JavaScript、Canvas 2D、Web Audio、localStorage；提供 Node 静态服务与 GitHub Pages 入口 |
-
-**[在线试玩 ↗](https://tl66666.github.io/lantern-shadow-town/)** · **[源码与完整说明 ↗](https://github.com/tl66666/lantern-shadow-town)**
-
-建议使用 Chrome / Edge。鼠标模式无需摄像头；手势模式需摄像头授权及 HTTPS / localhost 环境，画面在浏览器本地推理。首次打开需要加载场景媒体。个人网站只展示截图和入口，进入试玩后再选择操作方式。
 
 ## 八个项目，各自解决什么问题
 
 | 作品 | 场景与实现重点 | 本人贡献 | 体验 / 源码 |
 | --- | --- | --- | --- |
-| **和生序** | AI 健康记录；视觉识别、营养估算、用户校正与双端数据流程 | 独立开发：uni-app 双端、NestJS API、数据模型、模型接入、部署与 Android 打包 | [展示](https://tl66666.github.io/heshengxu-health/) / [源码](https://github.com/tl66666/heshengxu-health) |
+| **和生序** | 微信小程序与 Android App 双端；健康记录、视觉识别、用户校正与共用 API | 独立开发：uni-app 双端、NestJS API、数据模型、模型接入、部署与 Android 打包 | [双端详情](https://grjs.tl666.tech/project-heshengxu.html) / [原展示](https://tl66666.github.io/heshengxu-health/) / [源码](https://github.com/tl66666/heshengxu-health) |
 | **职途 AI Agent** | 本地求职工作台；上下文、分层记忆、22 个结构化工具、写入前确认与回执 | 独立开发：React、FastAPI 及有界 Tool-Calling Runtime | [展示](https://tl66666.github.io/ztai/static/showcase.html) / [源码](https://github.com/tl66666/ztai) |
 | **职途 ZhiTu** | 写简历、练面试、追投递；版本管理、SSE 流式、语音交互与 7 状态面试流程 | 本人负责全部前端与接口联调；Go / Gin / GORM 后端由队友完成 | [在线产品](https://zhitu.kralai.tech/) / [源码](https://github.com/tl66666/zhitu) |
 | **梦弦 DreamChord** | 视觉小说创作；章节 / 场景 / 镜头卡、剧情流程图、素材处理与可审核 Agent 补丁 | 独立开发：React 编辑器、Express 服务、素材与播放器、Agent 工作流 | [展示](https://tl66666.github.io/DreamChord/) / [源码](https://github.com/tl66666/DreamChord) |
 | **城会玩 2.0** | 按城市归档旅行照片、笔记与足迹，支持小队共享 | 独立开发：微信小程序、地图、云存储、归档和共享流程 | [展示 / 小程序码](https://tl66666.github.io/chw2.0/) / [源码](https://github.com/tl66666/chw2.0) |
 | **星途自律舱** | 六类目标、自律打卡、星球成长、奖励与数据复盘 | 独立开发：计划、专注、成长规则、成就与统计模块 | [展示 / 小程序码](https://tl66666.github.io/xtzlc/) / [源码](https://github.com/tl66666/xtzlc) |
 | **乐启星 LQX** | 音乐启蒙；音符与节奏练习、模型对话、数字人平台接入 | 独立开发：Web Audio 练习、学习进度、API 与数字人交互 | [在线体验](https://lqx-266.pages.dev/) / [源码](https://github.com/tl66666/lqx) |
-| **灯影古镇** | 古镇体感寻宝；双模式输入、停留充能、四幕探索与角色收集 | 个人互动游戏作品：输入、关卡、渲染与音视频反馈的组合实现 | [在线试玩](https://tl66666.github.io/lantern-shadow-town/) / [源码](https://github.com/tl66666/lantern-shadow-town) |
+| **灯影古镇** | 古镇体感寻宝；双模式输入、停留充能、四幕探索与角色收集 | 个人互动游戏作品：输入、关卡、渲染与音视频反馈的组合实现 | [地图与角色图集](https://grjs.tl666.tech/project-lantern.html) / [试玩](https://tl66666.github.io/lantern-shadow-town/) / [源码](https://github.com/tl66666/lantern-shadow-town) |
 
 两个“职途”是不同项目：**职途 AI Agent** 是本地优先的个人工作台，**职途 ZhiTu** 是团队协作的线上求职产品。六个原有独立项目、一个前端协作项目及一个互动游戏作品分别说明贡献，不将队友的后端工作归为本人完成。
 
@@ -103,7 +86,10 @@ index.html                    主页、作品目录与项目画廊数据
 assets/recruiter.css           作品目录、联系卡片、游戏展示和视觉增强
 assets/recruiter.js            筛选、视频管理、画廊导航与截图原图
 assets/portfolio/              项目截图、视频与二维码
-assets/portfolio/lantern/      灯影古镇真实截图
+assets/portfolio/lantern/      四关地图、四张角色卡与首屏
+project-lantern.html           游戏完整图集与交互说明
+project-heshengxu.html         和生序双端入口与运行截图
+assets/project-detail.css/.js  两个详情页的布局与原图查看
 award-wechat.html              微信开发者活动记录
 award-trae.html                TRAE 活动记录
 assets/award-story.css / .js   活动相册共用样式与交互
@@ -124,9 +110,10 @@ python -m http.server 8765 --bind 127.0.0.1
 ```bash
 node tests/award-story.test.cjs
 node tests/recruiter-portfolio.test.cjs
+node tests/project-details.test.cjs
 ```
 
-活动相册检查使用 Node 内置模块。作品集浏览器检查需要 Playwright 与 Microsoft Edge；`PLAYWRIGHT_MODULE` 可指定 Playwright 模块路径，`PORTFOLIO_URL` 可覆盖预览地址。检查包括八个作品、游戏筛选、联系标签、原图查看、键盘焦点、系统减少动效、手机宽度及无脚本访问。
+活动相册检查使用 Node 内置模块。作品集和详情页浏览器检查需要 Playwright 与 Microsoft Edge；`PLAYWRIGHT_MODULE` 可指定 Playwright 模块路径，`PORTFOLIO_URL` 可覆盖预览地址。检查包括八个作品、四关地图、四张角色卡、六张和生序截图、双端入口、原图查看、键盘焦点、系统减少动效、手机宽度及无脚本访问。
 
 ## 维护与发布
 
