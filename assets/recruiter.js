@@ -2,12 +2,9 @@
   const root = document.documentElement;
   const mediaQuery = matchMedia('(prefers-reduced-motion: reduce)');
   const connection = navigator.connection;
-  const control = document.getElementById('motionControl');
-  let manualPause = false;
-  try { manualPause = localStorage.getItem('portfolio-motion') === 'paused'; } catch (_) {}
   const visibleVideos = new Set();
   const managedVideos = new WeakSet();
-  const paused = () => manualPause || mediaQuery.matches || !!connection?.saveData;
+  const paused = () => mediaQuery.matches || !!connection?.saveData;
   function syncVideo(video) {
     if (paused() || document.hidden || !visibleVideos.has(video)) { video.pause(); return; }
     if (video.dataset.src && !video.getAttribute('src')) { video.src = video.dataset.src; video.load(); }
@@ -31,17 +28,8 @@
   };
   function syncMotion() {
     root.classList.toggle('motion-paused', paused());
-    control.textContent = paused() ? '动效已暂停' : '暂停动效';
-    control.setAttribute('aria-pressed', String(paused()));
-    control.disabled = mediaQuery.matches || !!connection?.saveData;
-    control.title = control.disabled ? '遵循系统减少动效或节省流量设置' : '控制背景视频和页面动画';
     document.querySelectorAll('video').forEach(syncVideo);
   }
-  control.addEventListener('click', () => {
-    manualPause = !manualPause;
-    try { localStorage.setItem('portfolio-motion', manualPause ? 'paused' : 'running'); } catch (_) {}
-    syncMotion();
-  });
   mediaQuery.addEventListener('change', syncMotion);
   document.addEventListener('visibilitychange', syncMotion);
   window.managePortfolioVideos();
@@ -53,7 +41,7 @@
       const filter = button.dataset.filter;
       document.querySelectorAll('[data-filter]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
       cards.forEach(card => { card.hidden = filter !== 'all' && !card.dataset.category.split(' ').includes(filter); });
-      document.getElementById('workCount').textContent = `${cards.filter(card => !card.hidden).length} / 7 个作品`;
+      document.getElementById('workCount').textContent = `${cards.filter(card => !card.hidden).length} / ${cards.length} 个作品`;
     });
   });
   document.querySelectorAll('[data-open-project]').forEach(button => {

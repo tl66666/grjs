@@ -1,182 +1,145 @@
-# 唐乐个人介绍网站
+<div align="center">
 
-这是唐乐的个人介绍与项目作品集网站，用于展示 AI 应用开发、AI 全栈开发、Agent 开发、AI 产品经理和视觉设计与 AIGC 能力。网站内七个项目作品均由本人主导完成需求拆解、页面设计、功能开发、调试优化与展示页整理。
+# 唐乐 · WORKS
 
-## 在线访问
+**AI 应用 · Agent · 互动游戏 · 创作工具**
 
-- 个人介绍网站（主域名）：[https://grjs.tl666.tech/](https://grjs.tl666.tech/)
-- 个人介绍网站（GitHub Pages 备用）：[https://tl66666.github.io/grjs/](https://tl66666.github.io/grjs/)
-- 在线简历下载：[唐乐-简历.pdf](./唐乐-简历.pdf)
-- GitHub 主页：[@tl66666](https://github.com/tl66666)
+从一个具体问题，到一个可以体验的作品。
 
-## 网站定位
+[个人网站](https://grjs.tl666.tech/) · [项目目录](https://grjs.tl666.tech/#selected-work) · [灯影古镇试玩](https://tl66666.github.io/lantern-shadow-town/) · [GitHub](https://github.com/tl66666)
 
-这个网站不是单纯的静态名片，而是一个面向求职展示的作品集页面。首页通过全屏视频、项目卡片、技术栈和开发流程说明，集中展示我能把需求拆解为页面、接口、数据结构和可运行作品的能力。AI 工具主要用于提升开发效率，最终代码理解、问题排查、功能验证和交付收口均由本人完成。
+![Static website](https://img.shields.io/badge/Website-HTML%20%2F%20CSS%20%2F%20JavaScript-284c3a?style=flat-square)
+![Projects](https://img.shields.io/badge/Portfolio-8%20Projects-c78b35?style=flat-square)
+![Education](https://img.shields.io/badge/软件工程-2027届-485b70?style=flat-square)
 
-我目前关注的方向包括：
+</div>
 
-- AI 应用开发：模型接入、视觉理解、结构化输出、失败降级与可解释交互
-- AI 全栈开发：React / Vue / uni-app、API、数据库、鉴权、Docker 与云端部署
-- 交互产品与创作工具：内容结构化、可视化流程、素材工作流和可审批 Agent
-- Agent 开发：上下文、分层记忆、Tool Calling、Schema 校验、审批与回执
-- AI 产品经理：用户问题、流程设计、模型边界、验收标准和迭代优先级
-- 视觉设计与 AIGC：绘图、视频、提示词工程、素材创作，以及用大模型快速搭应用和工作流
+上海应用技术大学软件工程本科在读，通过 CET-6。项目实践涵盖模型接入、Agent 工具执行、Web 与小程序开发、互动体验和素材创作。使用 AI 工具辅助方案与编码，同时负责代码阅读、调试、功能验证和展示整理。
 
-## 岗位能力映射
+## 从这里开始
 
-| 目标方向 | 项目证据 | 能力关键词 |
-| --- | --- | --- |
-| AI 应用开发 | 和生序、乐启星 | GLM 视觉识别、AI 对话、结构化营养结果、模型失败降级、Web Audio |
-| AI 全栈开发 | 和生序、职途 ZhiTu、DreamChord | Vue / React / uni-app、FastAPI / NestJS / Express、Prisma / SQLAlchemy、PostgreSQL / SQLite、Docker |
-| 交互产品与创作工具 | DreamChord | 章节-场景-镜头卡、流程可视化、素材处理、实时播放器、项目感知 Agent |
-| Agent 开发 | 职途 AI Agent、DreamChord、和生序 | ContextBuilder、分层记忆、22 个工具、ReAct 链路、Schema 校验、写入前确认 |
-| AI 产品经理 | 全部项目 | 场景拆解、用户流程、模型边界、降级策略、测试验收、展示与复盘 |
-| 视觉设计与 AIGC | 和生序、DreamChord、乐启星 | AIGC 绘图/视频、提示词工程、素材剪辑、产品审美、AI 工作流 |
+| 想了解什么 | 入口 |
+| --- | --- |
+| 看作品、职责与实现重点 | [个人网站 · 项目速览](https://grjs.tl666.tech/#selected-work) |
+| 体验一个互动游戏 | [灯影古镇 · 在线试玩](https://tl66666.github.io/lantern-shadow-town/) |
+| 查看活动现场与荣誉记录 | [微信开发者创新工坊](https://grjs.tl666.tech/award-wechat.html) / [TRAE AI 创造力大赛](https://grjs.tl666.tech/award-trae.html) |
+| 查看原版简历 | [唐乐-简历.pdf](./唐乐-简历.pdf) |
+| 主站暂不可用时 | [GitHub Pages 备用站](https://tl66666.github.io/grjs/) |
 
-## Agent 能力主线
+## 互动作品：灯影古镇
 
-个人网站把 Agent 作为贯穿项目的工程能力来展示，而不是把它当作一个泛化的聊天入口。职途 AI Agent 负责读取求职上下文、检索分层记忆并编排 22 个业务工具；DreamChord Agent 负责理解故事结构、调用素材与剧情工具并生成可审批的创作提案；和生序则把视觉识别与健康对话放进真实双端产品。三条主线都强调结构化边界、写入前确认、失败降级和执行后回执，重点体现 Agent 与模型如何解决真实业务问题。
+**Lantern Shadow Town** 是一款手势体感寻宝网页游戏。以手灯光晕探索古镇街景，在梦、福、诗、画四幕中寻找灵杰，解锁角色卡、集齐四印，再进入幸运转盘与结局。
 
-除了 Agent 主线项目，作品集还包含线上求职全流程产品（职途 ZhiTu）、两个微信小程序（城会玩 2.0、星途自律舱）和 AI 音乐启蒙教育平台（乐启星 LQX），覆盖从 Web 全栈、小程序云开发到模型产品化的完整技术链路。
+[![灯影古镇 · 游戏首屏](assets/portfolio/lantern/title-screen.jpg)](https://tl66666.github.io/lantern-shadow-town/)
 
-## 实习经历
+| 交互 | 实现 |
+| --- | --- |
+| 手势 / 鼠标双模式 | MediaPipe 手部追踪与鼠标驱动接入统一输入层，支持 I 键切换 |
+| 停留充能 | 约 1.5 秒命中进度，结合防抖容差、移开衰减与目标轨迹 |
+| 场景与角色 | 四幕关卡视频、灵杰角色卡、显影、配音与收集反馈 |
+| 运行 | 原生 JavaScript、Canvas 2D、Web Audio、localStorage；提供 Node 静态服务与 GitHub Pages 入口 |
 
-### 邦彦技术股份有限公司 · NuwaAI 智能体数字人部门
+**[在线试玩 ↗](https://tl66666.github.io/lantern-shadow-town/)** · **[源码与完整说明 ↗](https://github.com/tl66666/lantern-shadow-town)**
 
-职位：Agent 实习工程师。
+建议使用 Chrome / Edge。鼠标模式无需摄像头；手势模式需摄像头授权及 HTTPS / localhost 环境，画面在浏览器本地推理。首次打开需要加载场景媒体。个人网站只展示截图和入口，进入试玩后再选择操作方式。
 
-- 参与设计和开发企业级 AI Agent 智能助手“邦小彦”，围绕收入链 S1→S14，支持销售、SE 与管理者完成从市场洞察、商机推进到交付回款的日常工作。
-- 将企业岗位流程拆解为上下文、任务节点和结构化输出，让 Agent 能辅助推进获客到收入的完整链路，而不是只提供泛化问答。
-- 使用 NuwaAI 平台设计数字人形象，并对接平台 API 制作应用与互动游戏，实践数字人表现层、业务接口与产品体验的组合交付。
+## 八个项目，各自解决什么问题
 
-### 纷享销客生态实践 · 区域代理商客户项目
+| 作品 | 场景与实现重点 | 本人贡献 | 体验 / 源码 |
+| --- | --- | --- | --- |
+| **和生序** | AI 健康记录；视觉识别、营养估算、用户校正与双端数据流程 | 独立开发：uni-app 双端、NestJS API、数据模型、模型接入、部署与 Android 打包 | [展示](https://tl66666.github.io/heshengxu-health/) / [源码](https://github.com/tl66666/heshengxu-health) |
+| **职途 AI Agent** | 本地求职工作台；上下文、分层记忆、22 个结构化工具、写入前确认与回执 | 独立开发：React、FastAPI 及有界 Tool-Calling Runtime | [展示](https://tl66666.github.io/ztai/static/showcase.html) / [源码](https://github.com/tl66666/ztai) |
+| **职途 ZhiTu** | 写简历、练面试、追投递；版本管理、SSE 流式、语音交互与 7 状态面试流程 | 本人负责全部前端与接口联调；Go / Gin / GORM 后端由队友完成 | [在线产品](https://zhitu.kralai.tech/) / [源码](https://github.com/tl66666/zhitu) |
+| **梦弦 DreamChord** | 视觉小说创作；章节 / 场景 / 镜头卡、剧情流程图、素材处理与可审核 Agent 补丁 | 独立开发：React 编辑器、Express 服务、素材与播放器、Agent 工作流 | [展示](https://tl66666.github.io/DreamChord/) / [源码](https://github.com/tl66666/DreamChord) |
+| **城会玩 2.0** | 按城市归档旅行照片、笔记与足迹，支持小队共享 | 独立开发：微信小程序、地图、云存储、归档和共享流程 | [展示 / 小程序码](https://tl66666.github.io/chw2.0/) / [源码](https://github.com/tl66666/chw2.0) |
+| **星途自律舱** | 六类目标、自律打卡、星球成长、奖励与数据复盘 | 独立开发：计划、专注、成长规则、成就与统计模块 | [展示 / 小程序码](https://tl66666.github.io/xtzlc/) / [源码](https://github.com/tl66666/xtzlc) |
+| **乐启星 LQX** | 音乐启蒙；音符与节奏练习、模型对话、数字人平台接入 | 独立开发：Web Audio 练习、学习进度、API 与数字人交互 | [在线体验](https://lqx-266.pages.dev/) / [源码](https://github.com/tl66666/lqx) |
+| **灯影古镇** | 古镇体感寻宝；双模式输入、停留充能、四幕探索与角色收集 | 个人互动游戏作品：输入、关卡、渲染与音视频反馈的组合实现 | [在线试玩](https://tl66666.github.io/lantern-shadow-town/) / [源码](https://github.com/tl66666/lantern-shadow-town) |
 
-在广州、佛山、珠海等片区跟随代理商负责人参与客户项目，承担需求理解、会议整理和方案 Demo 支持：
+两个“职途”是不同项目：**职途 AI Agent** 是本地优先的个人工作台，**职途 ZhiTu** 是团队协作的线上求职产品。六个原有独立项目、一个前端协作项目及一个互动游戏作品分别说明贡献，不将队友的后端工作归为本人完成。
 
-- 参与客户现场沟通，理解销售管理、客户协同和业务流程中的真实问题。
-- 整理会议记录与重点摘要，将客户表达转换为需求列表、业务流程和产品蓝图。
-- 根据客户场景开发可交互 Demo，用演示验证方案，再根据反馈迭代产品结构和沟通重点。
+## 工程实践
 
-## 竞赛与荣誉
+- **模型进入业务流程**：以服务端代理保护密钥，处理结构化输出、超时、失败降级与用户校正。和生序的 49,479 条食物目录描述数据范围，营养结果仍需用户核对。
+- **Agent 可控执行**：职途 Agent 用上下文装配、工具预算与 Schema 校验管理执行；写入遵循提议、预览、用户确认、领域服务执行和幂等回执。DreamChord 将创作建议变成可审核、可撤销的补丁。
+- **前端状态与协作**：React / Vue 管理编辑、流式响应和语音流程；职途 ZhiTu 中明确前后端分工与联调边界。
+- **互动反馈**：小程序用成长与成就表达进度；灯影古镇用停留充能、角色显影和音视频反馈组织探索体验。
+- **运行与交付**：项目中使用 FastAPI、NestJS、Express、Prisma、SQLAlchemy、PostgreSQL、SQLite、Docker、Azure 与 CloudBase；不同项目按实际架构选用，不要求同一个项目包含全部技术。
 
-- **微信开发者创新工坊「广州·游园会友日」**：获评“受期待的开发者”NO.2（2026.09.20）。
-- **TRAE AI 创造力大赛**：从 3.7 万余名参赛选手中脱颖而出，获得年度 350 强。
-- **小有可为 AI 向善创新挑战赛**：参加阿里云百炼举办的 AI 向善创新挑战赛，围绕技术的真实价值和可落地性完成作品实践。
-- **世界人工智能开源大赛（GOAI）**：参与人工智能开源方向赛事，积累模型应用、工程实现与开放协作经验。
-- **全国高校 AI 应用创作大赛**：获妙悟 × 学习通荣誉证书，用完整作品呈现从创意构思到可交付应用的能力。
-- **微信小程序开发大赛**：参与微信小程序开发类赛事，实践小程序云开发、交互设计与业务流程落地。
+项目规模与业务效果分开说明：工具数、目录条目、关卡数量属于实现范围，不作为准确率、用户规模或业务提升指标。AI 辅助编码之后仍需代码阅读、调试与验证。
 
-这些经历与项目开发使用同一套工作方式：用 AI 工具加速资料整理、方案拆解、视觉探索和代码初版，再由本人完成代码阅读、接口调试、测试验证、Docker 构建和最终交付。
+## 企业实践与活动
 
-## 独立完成说明
+**邦彦技术股份有限公司 · NuwaAI 智能体数字人部门 · Agent 实习工程师**
 
-七个项目作品均由本人主导完成，包括需求分析、产品流程设计、页面实现、接口与数据处理、调试修复、展示页整理和项目说明文档。其中职途 ZhiTu 后端由队友完成（Go + Gin + GORM），本人负责前端全部开发；其余六个项目从前端到后端均由本人独立完成。Vibe Coding 是我的高效开发方式：借助 Codex、Claude Code、Trae、GitHub Copilot 等工具快速形成初版，再通过自主代码阅读、调试排错、测试验证和文档沉淀保证项目质量。
+参与“邦小彦”企业 Agent 的设计与开发，围绕销售、SE 与管理者的收入链 S1-S14 场景开展实践；接入 NuwaAI 平台 API 制作数字人应用与互动游戏，参与素材、功能与交互验证。
 
-## 项目展示
+**纷享销客生态 · 区域代理商客户项目**
 
-### [和生序 · AI 健康管理](https://tl66666.github.io/heshengxu-health/)
+在广州、佛山、珠海片区参与客户现场沟通，整理会议记录、需求清单与产品蓝图，并制作交互 Demo 支持方案演示与反馈迭代。
 
-从产品定义到生产部署的 AI 健康管理产品，同时覆盖微信小程序与 App。产品包含 49,479 条食物目录、序序相机视觉识别、序序真实大模型对话，以及体重、饮食、饮水、运动、睡眠、心情、计划等健康记录。
+| 记录 | 结果与范围 |
+| --- | --- |
+| TRAE AI 创造力大赛 | 从 3.7 万余名参赛选手中入选年度 350 强；[活动记录](https://grjs.tl666.tech/award-trae.html) |
+| 微信开发者创新工坊“广州·游园会友日” | 受期待的开发者 NO.2，2026.09.20；[活动记录](https://grjs.tl666.tech/award-wechat.html) |
+| 妙悟 × 学习通全国高校 AI 应用创作大赛 | 完成创作任务，获荣誉证书 |
+| 2026 小有可为 AI 向善创新挑战赛 | 初赛参赛证明 |
+| 世界人工智能开源大赛（GOAI）、微信小程序开发大赛 | 参赛实践 |
 
-技术栈：Vue 3、uni-app、TypeScript、NestJS、Prisma、PostgreSQL、Docker、Azure Container Apps、CloudBase、GLM 视觉模型、GitHub Pages。
+## 这个网站如何组织
 
-实现重点：序序相机不要求菜品预先存在于公共食物库，服务端会识别组合菜、拆分可见食材、估算份量和营养，用户确认后写入当餐和个人食物库；序序聊天通过服务端代理模型，密钥不进入客户端，错误、超时和模型不可用都有可理解的降级状态。项目同时完成双端登录、用户数据隔离、Android 打包、构建体积控制和线上展示页。
+网站采用静态 HTML / CSS / JavaScript，没有构建步骤。黑金首屏与浅色作品目录形成阅读层次；八个作品可按 AI、前端协作、小程序、创作和互动游戏筛选。
 
-### [职途 ZhiTu](https://zhitu.kralai.tech/)
-
-面向应届生和初级求职者的场景驱动求职全流程线上产品，围绕「写简历、练面试、追投递」三个核心场景设计。求职 Copilot 结合简历上下文提供 JD 匹配、项目优化、岗位风险预测和自由问答四种 AI 任务。
-
-技术栈：Vue 3、TypeScript、Ant Design Vue、Tailwind CSS、Pinia、SSE 流式、ASR/TTS、JWT 双密钥、浏览器工作区隔离（前端）；Go、Gin、GORM、SQLite（后端，队友完成）。
-
-实现重点：简历实验室支持所见即所得编辑、模块化管理、版本控制和 AI 生成/润色/评分/JD 匹配；面试训练场实现 7 状态状态机，支持文字/语音/混合模式；投递看板全流程状态追踪。JWT 用户/管理员双密钥体系独立签名，浏览器工作区隔离实现多窗口互不干扰。
-
-### [职途 AI Agent](https://tl66666.github.io/ztai/static/showcase.html)
-
-本地优先的 AI Agent 求职 Web 系统，把职业目标、简历、JD、模拟面试、机会跟进和复盘行动串成六步闭环。Agent 是项目主线：它能读取当前页面上下文、调用 22 个结构化工具、检索分层记忆并综合多个工具结果；确定性任务始终本地优先，有 API Key 时再增强完整简历改写与开放式表达。
-
-技术栈：Python、FastAPI、SQLAlchemy、Alembic、React 19、TypeScript、Vite、Tool-Calling Runtime、22 Tools、Layered Memory。
-
-实现重点：自研有界 Tool-Calling Runtime；ContextBuilder 重建权威上下文，MemoryStore 管理分层记忆，Orchestrator 控制工具预算，ToolRegistry 校验 22 个业务工具。产品采用"右侧求职 Agent + 求职指挥台"分工：前者对话与执行，后者集中展示待确认操作和机会进展；写操作遵循"提议 → 预览 → 用户确认 → 领域服务执行 → 幂等回执"。
-
-项目卡媒体：
-
-- `assets/portfolio/jobhunter/agent-local-desktop.webp`：无 API Key 的 Agent 桌面运行与行动优先级综合结果。
-- `assets/portfolio/jobhunter/interview.png`：面试运行状态与训练结果。
-- `assets/portfolio/jobhunter/career-hero-loop.mp4`：求职工作台首页 Hero 动态背景。
-
-### [星途自律舱](https://tl66666.github.io/xtzlc/)
-
-星球养成式自律打卡微信小程序，将运动、饮食、学习、工作、计划、睡眠等目标转化为成长反馈，解决传统待办工具反馈弱、坚持成本高的问题。
-
-技术栈：微信原生小程序、WXML、WXSS、JavaScript、云开发、Node.js Test Runner。
-
-### [城会玩 2.0](https://tl66666.github.io/chw2.0/)
-
-城市照片手账与旅行回忆归档微信小程序，以“城市”为照片和笔记容器，让用户按城市找回旅行中的美景、美食和记录。
-
-技术栈：微信原生小程序、WXML、WXSS、JavaScript、图片上传、云存储、内容安全。
-
-### [梦弦 DreamChord](https://tl66666.github.io/DreamChord/)
-
-Web 端视觉小说创作平台，通过章节、场景、镜头卡三级结构组织剧情，支持流程图可视化、分支检测、角色与素材处理、播放器预览和项目感知 DreamChord Agent。Agent 采用自研 ReAct 风格执行链路，结合上下文、分层记忆、白名单工具与审批撤销机制；无 API Key 也能进行项目分析和创作知识问答。
-
-技术栈：React、TypeScript、Vite、Express、Prisma、SQLite、React Flow、Sharp、Zustand、REST API、JWT。
-
-展示卡片截图：
-
-- `assets/portfolio/dreamchord/editor-stage-continuity.png`：故事编辑器与舞台状态连续性。
-- `assets/portfolio/dreamchord/agent-workspace.png`：Agent 多对话工作区与项目上下文。
-- `assets/portfolio/dreamchord/hero.png`：项目展示页首页 Hero 区背景图。
-
-### [乐启星 LQX](https://lqx-266.pages.dev/)
-
-面向 K12 阶段的 AI 音乐启蒙教育平台，核心理念是「让 AI 成为每个孩子的音乐启蒙老师」。整合大语言模型、数字人和 Web Audio 技术，AI 老师「晓音」提供在线音乐学习交互，支持文字对话、语音交互和数字人面对面授课。
-
-技术栈：HTML5、CSS3、JavaScript、Web Audio API、Chart.js、FastAPI、Python、SQLite、JWT、阿里云百炼、NuwaAI 数字人、Cloudflare Pages。
-
-实现重点：前端原生 HTML5/CSS3/JS 零构建依赖单文件应用，Web Audio API 实现音符播放与频率控制；后端双模部署架构支持本地 FastAPI + SQLite 和云端 Cloudflare Pages Functions 无服务器 API；AI 能力基于阿里云百炼实现音乐知识对话和教案自动生成；NuwaAI 数字人平台嵌入「晓音老师」形象。
-
-## 目录结构
+- **首屏**：个人介绍、项目入口、简历下载以及明确标注的邮箱和电话。
+- **作品目录**：问题、本人贡献、实现重点、运行方式与源码入口。
+- **沉浸画廊**：八个项目直接切换，截图可打开原图，支持键盘操作及焦点恢复。
+- **互动游戏**：独立的灯火主题展示区，跳转在线试玩，避免首页直接加载游戏资源或请求摄像头。
+- **活动记录**：微信与 TRAE 各自拥有图文相册与原图入口。
+- **动态效果**：背景视频按视口加载、离开后暂停；遵循系统减少动效与节省流量设置，页面不显示暂停动效按钮。
+- **联系信息**：邮箱可发送邮件，电话可拨号，GitHub 可查看源码；没有 JavaScript 时项目链接仍可访问。
 
 ```text
-.
-├── index.html                 # 个人介绍网站主页面
-├── 唐乐-简历.pdf               # 网站下载使用的最新简历
-├── assets/                    # 项目截图、视频、二维码和展示素材
-│   └── portfolio/
-│       ├── awards/            # 竞赛证书与参赛证明
-│       └── ...                # 七个项目的截图、视频与二维码
-├── README.md                  # 仓库首页说明
-├── AUTHOR.md                  # 作者与项目定位
-├── NOTICE.md                  # 素材与使用说明
-└── .nojekyll                  # GitHub Pages 静态资源配置
+index.html                    主页、作品目录与项目画廊数据
+assets/recruiter.css           作品目录、联系卡片、游戏展示和视觉增强
+assets/recruiter.js            筛选、视频管理、画廊导航与截图原图
+assets/portfolio/              项目截图、视频与二维码
+assets/portfolio/lantern/      灯影古镇真实截图
+award-wechat.html              微信开发者活动记录
+award-trae.html                TRAE 活动记录
+assets/award-story.css / .js   活动相册共用样式与交互
+唐乐-简历.pdf                  作者原版简历
+tests/                        作品阅读和活动相册检查
 ```
 
-## 本地预览
+## 本地预览与检查
 
-这是一个纯静态网站，可以直接打开 `index.html` 预览；也可以使用任意静态服务器启动，例如：
+在仓库根目录运行任意静态服务器，例如：
 
 ```bash
-python -m http.server 8080
+python -m http.server 8765 --bind 127.0.0.1
 ```
 
-然后访问 `http://localhost:8080`。
+打开 [http://127.0.0.1:8765/](http://127.0.0.1:8765/)。这只是作品集的预览服务；灯影古镇使用其独立在线入口和仓库。
 
-## 更新说明
+```bash
+node tests/award-story.test.cjs
+node tests/recruiter-portfolio.test.cjs
+```
 
-- 首页下载按钮固定指向 `唐乐-简历.pdf`（单页），更新简历时只需要替换这个文件。
-- 竞赛证书放在 `assets/portfolio/awards/`，页面竞赛区与仓库说明保持同步。
-- 微信和 TRAE 活动分别使用 `award-wechat.html` 与 `award-trae.html`，主页两张荣誉卡片可直接进入独立详情。
-- 两页共用 `assets/award-story.css` 和 `assets/award-story.js`。照片、每张对应的标题和介绍位于各详情页的 `gallery-data` JSON 中；初始展示和 `<noscript>` 图集也应保持同步。
-- 图文相册支持主题标签、左右按钮、键盘方向键、鼠标拖动 / 手机滑动与完整大图查看；`#photo-1` 至 `#photo-5` 可直接定位照片，不自动轮播。
-- 微信与 TRAE 的活动实拍素材分别位于 `assets/portfolio/wechat/` 和 `assets/portfolio/trae/`。图片采用 `object-fit: contain` 保留完整画面，尊重系统减少动态效果设置。
-- 原 `awards.html#wechat` / `awards.html#trae` 地址保留兼容跳转。运行 `node tests/award-story.test.cjs` 可检查独立入口、图片资源与基础可访问性约定。
-- 主域名通过 Cloudflare Pages 自动部署，推送 `main` 分支后自动构建并刷新 [grjs.tl666.tech](https://grjs.tl666.tech/)。
-- GitHub Pages 作为备用部署，地址为 [tl66666.github.io/grjs](https://tl66666.github.io/grjs/)。
-- `output/` 和 `.uploads/` 为本地截图、调试或临时输出目录，不作为正式网站内容上传。
+活动相册检查使用 Node 内置模块。作品集浏览器检查需要 Playwright 与 Microsoft Edge；`PLAYWRIGHT_MODULE` 可指定 Playwright 模块路径，`PORTFOLIO_URL` 可覆盖预览地址。检查包括八个作品、游戏筛选、联系标签、原图查看、键盘焦点、系统减少动效、手机宽度及无脚本访问。
 
-## 招聘阅读与维护
+## 维护与发布
 
-首页包含可直接浏览的七个作品、方向筛选、本人职责与运行边界；沉浸展示支持快速项目切换及完整截图查看。视频按视口加载并支持减少动效，首屏保留本地封面及轨道视觉。简历沿用作者原文件，本次网站优化不修改 PDF。
+1. 项目截图与说明保持一致；新增作品需同步目录、`PROJECT_DATA`、计数与 README。游戏截图来源为[灯影古镇仓库](https://github.com/tl66666/lantern-shadow-town/tree/main/assets/screenshots)。
+2. 活动详情的 `gallery-data`、初始图文与 `noscript` 图集同步更新。旧 `awards.html` 地址保留兼容跳转。
+3. 简历沿用作者原文件；网站的简历链接稳定指向 `唐乐-简历.pdf`，本次视觉与作品更新不编辑 PDF。
+4. 主域名使用 Cloudflare Pages 自动部署，GitHub Pages 为备用入口。推送 `main` 后等待部署与缓存刷新。
+5. `output/`、`tmp/`、`.uploads/` 用于本地预览和临时材料，不作为正式网站上传。素材与使用说明见 [NOTICE.md](NOTICE.md)，作者信息见 [AUTHOR.md](AUTHOR.md)。
 
-本地预览可运行 Python HTTP 服务，再执行 node tests/recruiter-portfolio.test.cjs 与 node tests/award-story.test.cjs。浏览器检查需要 Playwright 与 Edge；PLAYWRIGHT_MODULE 和 PORTFOLIO_URL 可覆盖模块路径与预览地址。
+## 联系
+
+**邮箱**：[2061790875@qq.com](mailto:2061790875@qq.com)
+
+**电话**：18064871268
+
+**GitHub**：[@tl66666](https://github.com/tl66666)

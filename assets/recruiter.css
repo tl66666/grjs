@@ -23,8 +23,11 @@ section[id] { scroll-margin-top: 82px; }
 .hero-card .hero-role { color: var(--gold); font-size: 13px; margin-bottom: 12px; }
 .hero-card .hero-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .hero-meta b { font-size: clamp(21px, 2.2vw, 30px); }
-.hero-contact { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 5px 18px; font-size: 12px; color: var(--cream-soft); }
-.hero-contact a:hover { color: var(--gold); }
+.hero-contact { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1.35fr 1fr; gap: 12px; color: var(--cream-soft); }
+.hero-contact a { display: flex; flex-direction: column; gap: 5px; }
+.hero-contact small { color: var(--gold); font-size: 10px; letter-spacing: .12em; }
+.hero-contact strong { font-size: 12px; font-weight: 400; overflow-wrap: anywhere; }
+.hero-contact a:hover strong { color: var(--cream); }
 .hero-shortcuts { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
 .hero-shortcuts a { border-bottom: 1px solid var(--line); padding: 6px 0; color: var(--cream-soft); font-size: 12px; }
 .hero-shortcuts a:hover { color: var(--gold); border-color: var(--gold); }
@@ -65,8 +68,6 @@ section[id] { scroll-margin-top: 82px; }
 .skill-block small { display: block; color: var(--gold); font-size: 11px; margin: 12px 0 6px; }
 .project-ownership { margin: 18px 0; padding: 16px 18px; border-left: 3px solid var(--v-accent, #75d0a6); background: #f2f4ee; color: #38473a; font-size: 13px; line-height: 1.8; }
 .project-ownership b { display: block; color: #17241b; margin-bottom: 3px; }
-.motion-control { position: fixed; right: 18px; bottom: 18px; z-index: 55; display: none; min-height: 42px; padding: 10px 15px; border: 1px solid #667264; border-radius: 6px; background: #14231eeb; color: #f2f0e7; backdrop-filter: blur(12px); font-size: 12px; cursor: pointer; }
-.js .motion-control { display: block; }
 .back-top { position: fixed; left: 18px; bottom: 18px; z-index: 55; padding: 10px 15px; color: #f2f0e7; background: #14231eeb; border: 1px solid #667264; border-radius: 6px; font-size: 12px; }
 .back-top { opacity: 0; visibility: hidden; transition: opacity .2s; }
 .back-top.is-visible { opacity: 1; visibility: visible; }
@@ -86,10 +87,36 @@ section[id] { scroll-margin-top: 82px; }
 .media-preview-stage img { width: auto; height: auto; max-width: 100%; max-height: none; margin: 0 auto; }
 .media-preview p { padding: 11px 22px; font-size: 11px; color: #eeeadd99; }
 .nav-pill a[aria-current] { color: var(--gold); }
+.lantern-feature { position: relative; isolation: isolate; overflow: hidden; padding: 96px clamp(22px, 5vw, 74px); background: #11161b; color: #f4e7ce; }
+.lantern-feature::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .12; background: linear-gradient(90deg, #11161b, transparent), url('portfolio/lantern/map-lantern.jpg') center / cover; }
+.lantern-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.lantern-screen { position: relative; display: block; overflow: hidden; border: 1px solid #ddb96b55; border-radius: 14px; box-shadow: 0 28px 80px #0008; }
+.lantern-screen img { width: 100%; height: auto; aspect-ratio: 1705 / 925; object-fit: contain; transition: transform .7s; }
+.lantern-screen:hover img { transform: scale(1.025); }
+.lantern-screen span { position: absolute; bottom: 18px; right: 18px; padding: 9px 16px; border: 1px solid #e8c78680; border-radius: 6px; background: #13212be8; color: #f4e7ce; font-size: 12px; }
+.lantern-feature .kicker { color: #e9ba65; font-size: 10px; letter-spacing: .14em; }
+.lantern-feature h2 { color: #f4e7ce; font-size: clamp(36px, 4vw, 58px); line-height: 1.2; margin-bottom: 8px; }
+.lantern-subtitle { color: #e9ba65; font-family: 'Instrument Serif', serif; font-size: 25px; margin-bottom: 22px; }
+.lantern-intro { font-size: 14px; line-height: 1.9; color: #ded9c8; }
+.lantern-facts { display: flex; flex-wrap: wrap; gap: 18px 26px; padding: 20px 0; margin: 22px 0; border-block: 1px solid #e9ba652c; }
+.lantern-facts b { display: block; color: #f4e7ce; font-size: 17px; font-weight: 400; }
+.lantern-facts small { color: #d0c4ad; font-size: 10px; }
+.lantern-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.lantern-links button[data-open-project] { display: none; }
+.js .lantern-links button[data-open-project] { display: inline-flex; }
+.lantern-feature .btn.primary { color: #172027; background: #e9ba65; }
+.lantern-hint { margin-top: 20px; font-size: 11px; line-height: 1.8; color: #c8bfae; }
+.contact-methods { margin-top: 30px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.contact-method { padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: #0b1415a3; display: flex; flex-direction: column; gap: 8px; transition: border-color .2s, background .2s; }
+.contact-method small { color: var(--gold); font-size: 11px; letter-spacing: .1em; }
+.contact-method strong { color: var(--cream); font-size: 16px; font-weight: 400; overflow-wrap: anywhere; }
+.contact-method span { color: var(--cream-soft); font-size: 11px; }
+.contact-method:hover { background: #192322e3; border-color: #d8a73d80; }
 html.motion-paused { scroll-behavior: auto; }
 html.motion-paused *, html.motion-paused *::before, html.motion-paused *::after { animation: none !important; transition: none !important; }
 html.motion-paused .reveal, html.motion-paused .hero-card { opacity: 1; transform: none; }
 @media (max-width: 1000px) { .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .work-heading { gap: 24px; } }
+@media (max-width: 900px) { .lantern-layout { grid-template-columns: 1fr; } .contact-methods { grid-template-columns: 1fr; } }
 @media (max-width: 640px) {
   .hero-orbit { width: 190px; right: -70px; top: 100px; opacity: .28; }
   .media-preview { width: 96vw; height: 94dvh; border-radius: 10px; }
@@ -110,7 +137,9 @@ html.motion-paused .reveal, html.motion-paused .hero-card { opacity: 1; transfor
   .hero-contact { font-size: 12px; overflow-wrap: anywhere; }
   .hero-title-note { font-size: 13px; }
   .scroll-cue { display: none; }
-  .motion-control, .back-top { bottom: 10px; font-size: 11px; padding: 8px 10px; }
+  .back-top { bottom: 10px; font-size: 11px; padding: 8px 10px; }
+  .lantern-feature { padding-block: 56px; }
+  .lantern-screen span { bottom: 10px; right: 10px; font-size: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
