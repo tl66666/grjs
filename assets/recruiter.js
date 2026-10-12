@@ -6,7 +6,9 @@
   const managedVideos = new WeakSet();
   const paused = () => mediaQuery.matches || !!connection?.saveData;
   function syncVideo(video) {
-    if (paused() || document.hidden || !visibleVideos.has(video)) { video.pause(); return; }
+    const galleryVisible=document.getElementById('projectGallery').classList.contains('active');
+    const imageVisible=document.getElementById('mediaPreview').open;
+    if (paused() || document.hidden || imageVisible || (galleryVisible && !video.closest('#projectGallery')) || !visibleVideos.has(video)) { video.pause(); return; }
     if (video.dataset.src && !video.getAttribute('src')) { video.src = video.dataset.src; video.load(); }
     if (video.getAttribute('src')) video.play().catch(() => {});
   }
@@ -34,6 +36,7 @@
   document.addEventListener('visibilitychange', syncMotion);
   window.managePortfolioVideos();
   syncMotion();
+  window.syncPortfolioMotion=syncMotion;
 
   const cards = [...document.querySelectorAll('.work-card')];
   document.querySelectorAll('[data-filter]').forEach(button => {
@@ -65,6 +68,17 @@
   galleryScan.hidden=true;
   galleryScan.textContent='小程序码 ↗';
   document.querySelector('.gallery-header').append(galleryScan);
+  const detailScroll=document.getElementById('gallerySlides');
+  let detailFrame=false;
+  detailScroll.addEventListener('scroll',()=>{
+    if(detailFrame)return;
+    detailFrame=true;
+    requestAnimationFrame(()=>{
+      detailFrame=false;
+      const distance=detailScroll.scrollHeight-detailScroll.clientHeight;
+      document.getElementById('projectGallery').style.setProperty('--detail-progress', `${distance>0?Math.min(100,detailScroll.scrollTop/distance*100):0}%`);
+    });
+  },{passive:true});
   let previewTrigger;
   document.addEventListener('click', event => {
     const button = event.target.closest('[data-preview-src]');
@@ -84,10 +98,11 @@
     img.src = button.dataset.previewSrc;
     img.alt = button.dataset.previewTitle;
     preview.showModal();
+    syncMotion();
     document.getElementById('mediaPreviewClose').focus();
   });
   document.getElementById('mediaPreviewClose').addEventListener('click', () => preview.close());
-  preview.addEventListener('close', () => { if (previewTrigger?.isConnected) previewTrigger.focus({ preventScroll: true }); });
+  preview.addEventListener('close', () => { if (previewTrigger?.isConnected) previewTrigger.focus({ preventScroll: true }); syncMotion(); });
   preview.addEventListener('click', event => { if (event.target === preview) preview.close(); });
   if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
     cards.forEach(card => card.addEventListener('pointermove', event => {

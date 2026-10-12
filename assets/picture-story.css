@@ -91,3 +91,14 @@
 .project-platforms article { background:#fffcf1aa; border-color:#bba66d44; }
 .project-platforms b { color:#9c7128; }
 .project-platforms p,.project-platform-note { color:#535b6b; }
+
+/* Small, intentional feedback keeps navigation and picture interaction distinct. */
+.project-slide.active { animation:detailArrival 260ms cubic-bezier(.2,.65,.3,1) both; }
+@keyframes detailArrival { from {opacity:0;transform:translateY(8px);} to {opacity:1;transform:none;} }
+@media (hover:hover) {
+  .picture-layer-1:hover,.picture-layer-2:hover { opacity:1; border-color:#c7a25e; }
+  .gallery-projects button:hover,.picture-tabs button:hover { border-color:#c7a25e; box-shadow:0 3px 12px #79643912; }
+}
+.picture-controls>button:active,.gallery-scan:active { transform:scale(.96); }
+.gallery-header::after { content:''; position:absolute; left:0; bottom:0; width:var(--detail-progress,0%); height:2px; background:linear-gradient(90deg,#b68b3d,#ead4a1); pointer-events:none; }
+@media (prefers-reduced-motion:reduce) { .project-slide.active {animation:none;} }

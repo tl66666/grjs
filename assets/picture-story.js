@@ -20,7 +20,7 @@
       let downX = null;
       let suppressClick = false;
       const stage = root.querySelector('.picture-stage');
-      function show(index, restoreFocus = false) {
+      function show(index, restoreFocus = false, align = true) {
         current = (index + items.length) % items.length;
         root.classList.toggle('picture-portrait', items[current].orientation === 'portrait');
         stage.innerHTML = Array.from({length:Math.min(3,items.length)},(_,offset) => {
@@ -35,7 +35,7 @@
         root.querySelector('[data-picture-counter]').textContent=String(current+1).padStart(2,'0')+' / '+String(items.length).padStart(2,'0');
         root.querySelectorAll('[data-picture-index]').forEach(button=>button.setAttribute('aria-pressed', String(Number(button.dataset.pictureIndex)===current)));
         if(restoreFocus) root.querySelector('[data-picture-index="'+current+'"]').focus({preventScroll:true});
-        fitRoot(root, true);
+        fitRoot(root, align);
       }
       root.addEventListener('click',event=>{
         if(suppressClick) {event.preventDefault();event.stopPropagation();suppressClick=false;return;}
@@ -53,7 +53,7 @@
         if(downX!==null && Math.abs(event.clientX-downX)>45) {show(current+(event.clientX<downX?1:-1));suppressClick=true;setTimeout(()=>{suppressClick=false;},0);}
         downX=null;
       });
-      show(0);
+      show(0, false, false);
       const viewport=document.getElementById('gallerySlides');
       if(viewport) {
         const observer=new ResizeObserver(()=>fitRoot(root,false));

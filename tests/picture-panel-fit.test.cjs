@@ -9,6 +9,7 @@ const origin=process.env.PORTFOLIO_URL||'http://127.0.0.1:8765';
    await page.goto(origin+'/index.html?project=health#projects',{waitUntil:'domcontentloaded'});
    const story=page.locator('.project-slide.active .picture-story');
    await page.waitForFunction(()=>document.querySelector('.project-slide.active .picture-story')?.dataset.pictureReady);
+   assert.equal(await page.locator('#gallerySlides').evaluate(el=>el.scrollTop),0,'Project title and introduction appear first');
    let priorScroll;
    for(const index of [0,3,7,1]) {
     await story.locator('[data-picture-index]').nth(index).click();
@@ -27,6 +28,8 @@ const origin=process.env.PORTFOLIO_URL||'http://127.0.0.1:8765';
    if(width===1366||width===390) await page.screenshot({path:`output/review/fitted-panel-${width}.png`});
    for(const project of [1,2,3,4,5,6,7]) {
     await page.locator(`[data-gallery-project="${project}"]`).click();
+    assert.equal(await page.locator('#gallerySlides').evaluate(el=>el.scrollTop),0,'Changing projects resets to the title');
+    await story.locator('[data-picture-step="1"]').click();
     const fit=await story.evaluate(root=>{
      const viewport=document.getElementById('gallerySlides').getBoundingClientRect();
      const frame=root.querySelector('.picture-layer-0').getBoundingClientRect();

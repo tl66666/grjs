@@ -71,6 +71,8 @@
 
 ## 这个网站如何组织
 
+打开或切换项目从详情最顶部开始；切换图片则保持图片框与按钮可见。手机端项目标签自动呈现当前选项，详情提供轻量阅读进度。卡片入场和悬停反馈遵循系统减少动效设置；详情或图片弹窗打开时，首页背景视频暂停，避免背后持续播放。
+
 网站采用静态 HTML / CSS / JavaScript，没有构建步骤。黑金首屏与浅色作品目录形成阅读层次；八个作品可按 AI、前端协作、小程序、创作和互动游戏筛选。
 
 - **首屏**：个人介绍、项目入口、简历下载以及明确标注的邮箱和电话。
@@ -115,6 +117,7 @@ node tests/recruiter-portfolio.test.cjs
 node tests/picture-story.test.cjs
 node tests/picture-panel-fit.test.cjs
 node tests/mini-program-preview.test.cjs
+node tests/project-navigation.test.cjs
 ```
 
 活动相册检查使用 Node 内置模块。作品集浏览器检查需要 Playwright 与 Microsoft Edge；`PLAYWRIGHT_MODULE` 可指定 Playwright 模块路径，`PORTFOLIO_URL` 可覆盖预览地址。检查包括八个作品、四关地图与四张角色卡的图片切换、和生序双端入口、同步说明、键盘焦点、系统减少动效、手机宽度及无脚本访问。图片面板按画廊实际可用高度适配，检查五种窗口尺寸下图片框与切换按钮的完整显示及切换位置稳定性。
