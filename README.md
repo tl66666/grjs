@@ -99,6 +99,8 @@ tests/                        作品阅读和活动相册检查
 
 ## 本地预览与检查
 
+和生序、城会玩与星途的小程序码可从作品卡片、详情顶部或小程序码卡片放大查看。弹窗保留完整原图和白边，支持保存带项目名称的图片后在微信中识别，关闭后返回原入口。
+
 在仓库根目录运行任意静态服务器，例如：
 
 ```bash
@@ -112,6 +114,7 @@ node tests/award-story.test.cjs
 node tests/recruiter-portfolio.test.cjs
 node tests/picture-story.test.cjs
 node tests/picture-panel-fit.test.cjs
+node tests/mini-program-preview.test.cjs
 ```
 
 活动相册检查使用 Node 内置模块。作品集浏览器检查需要 Playwright 与 Microsoft Edge；`PLAYWRIGHT_MODULE` 可指定 Playwright 模块路径，`PORTFOLIO_URL` 可覆盖预览地址。检查包括八个作品、四关地图与四张角色卡的图片切换、和生序双端入口、同步说明、键盘焦点、系统减少动效、手机宽度及无脚本访问。图片面板按画廊实际可用高度适配，检查五种窗口尺寸下图片框与切换按钮的完整显示及切换位置稳定性。

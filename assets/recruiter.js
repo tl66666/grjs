@@ -58,12 +58,28 @@
     galleryNav.append(button);
   });
   const preview = document.getElementById('mediaPreview');
+  const galleryScan=document.createElement('button');
+  galleryScan.id='galleryScan';
+  galleryScan.className='gallery-scan';
+  galleryScan.type='button';
+  galleryScan.hidden=true;
+  galleryScan.textContent='小程序码 ↗';
+  document.querySelector('.gallery-header').append(galleryScan);
   let previewTrigger;
-  document.getElementById('projectGallery').addEventListener('click', event => {
+  document.addEventListener('click', event => {
     const button = event.target.closest('[data-preview-src]');
     if (!button) return;
+    if(event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)return;
+    if(button.tagName==='A')event.preventDefault();
     previewTrigger = button;
+    const isQR=button.dataset.previewKind==='qr';
+    preview.classList.toggle('is-qr',isQR);
+    preview.setAttribute('aria-label',isQR ? '微信小程序码放大展示' : '项目截图原图');
     document.getElementById('mediaPreviewTitle').textContent = button.dataset.previewTitle;
+    document.getElementById('mediaPreviewHint').textContent = isQR ? '微信扫一扫打开小程序；也可保存图片后在微信扫一扫中从相册识别。' : '完整截图 · 可滚动查看 · ESC 关闭';
+    const save=document.getElementById('mediaPreviewSave');
+    save.href=button.dataset.previewSrc;
+    save.download=isQR ? button.dataset.previewTitle.replace(/[\\/:*?"<>|]/g,'-')+'.jpg' : button.dataset.previewSrc.split('/').pop();
     const img = document.getElementById('mediaPreviewImage');
     img.src = button.dataset.previewSrc;
     img.alt = button.dataset.previewTitle;
