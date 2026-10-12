@@ -2266,7 +2266,7 @@
 
   </style>
   <link rel="stylesheet" href="assets/recruiter.css?v=20261012-story">
-  <link rel="stylesheet" href="assets/picture-story.css?v=reading-2">
+  <link rel="stylesheet" href="assets/picture-story.css?v=reading-fit-3">
 </head>
 <body>
   <a class="skip-link" href="#selected-work">跳到项目速览</a>
@@ -2674,7 +2674,7 @@
   <dialog class="media-preview" id="mediaPreview" aria-label="项目截图原图"><div class="media-preview-bar"><span id="mediaPreviewTitle">项目截图</span><button type="button" id="mediaPreviewClose" aria-label="关闭截图原图">关闭 ×</button></div><div class="media-preview-stage"><img id="mediaPreviewImage" alt=""></div><p>完整截图 · 可滚动查看 · ESC 关闭</p></dialog>
   <a class="back-top" href="#top" aria-label="返回首页">↑ 返回顶部</a>
 
-  <script src="assets/picture-story.js?v=reading-2"></script>
+  <script src="assets/picture-story.js?v=reading-fit-3"></script>
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -2929,6 +2929,7 @@
       document.querySelector('.site-header').inert = true;
       showSlide(galleryActiveIndex);
       document.getElementById('gallerySlides').scrollTop = 0;
+      PictureStory.fit(document.querySelector('.project-slide.active'), true);
       document.getElementById('galleryExit').focus();
       if (window.managePortfolioVideos) window.managePortfolioVideos(gallery);
     }
@@ -2966,7 +2967,7 @@
       var slidesContainer = document.getElementById('gallerySlides');
       gallery.style.setProperty('--v-accent', PROJECT_DATA[galleryActiveIndex].accent);
       // Smooth scroll to top of the slides container
-      slidesContainer.scrollTo({ top: 0, behavior: document.documentElement.classList.contains('motion-paused') ? 'instant' : 'smooth' });
+      slidesContainer.scrollTo({ top: 0, behavior: 'instant' });
       showSlide(galleryActiveIndex, dir);
     }
 
@@ -3049,6 +3050,7 @@
       });
       updateGalleryUI();
       PictureStory.init(document.querySelector('.project-slide.active'));
+      PictureStory.fit(document.querySelector('.project-slide.active'), true);
     }
 
     function updateGalleryUI() {

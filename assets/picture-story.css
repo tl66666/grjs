@@ -28,8 +28,8 @@
 .project-platforms article { padding:16px; border:1px solid #42664735; border-radius:8px; background:#f9fcf2bb; }
 .project-platforms b { color:#2f6247; font-size:13px; }
 .project-platforms p,.project-platform-note { margin:8px 0 0; color:#536452; font-size:11px; line-height:1.8; }
-.project-gallery { background-image:none; background-color:#edf1e8; }
-.gallery-header,.gallery-projects,.gallery-nav { background:#edf1e8ed; border-color:#324a3520; }
+.project-gallery { background-image:url('portfolio/project-cloud-bg.jpg'); background-color:#0a0e1a; }
+.gallery-header,.gallery-projects,.gallery-nav { background:rgba(238,242,248,.28); backdrop-filter:blur(20px); border-color:#ffffff55; }
 .project-slide { max-width:1440px; padding:38px 40px 70px; min-height:0; }
 .project-slide-hero { display:none; }
 .project-slide-header { margin-bottom:18px; }
@@ -45,3 +45,49 @@
 @media (max-width:1000px) { .picture-story {grid-template-columns:1fr; gap:22px;} .picture-stage {height:540px;} .picture-portrait .picture-stage {height:740px;} .project-slide-details ul {columns:1;} }
 @media (max-width:640px) { .project-slide {padding:28px 16px 48px;} .picture-story {padding:14px; border-radius:12px;} .picture-stage {height:300px;min-height:0;} .picture-portrait .picture-stage {height:600px;min-height:0;} .picture-layer,.picture-portrait .picture-layer {padding:5px;border-radius:14px;width:88%;max-width:none;left:0;} .picture-portrait .picture-layer-1 {left:15%;} .picture-portrait .picture-layer-2 {left:27%;} .picture-layer span {font-size:9px;right:10px;bottom:10px;} .picture-heading h4 {font-size:23px;} .picture-description {font-size:14px;margin-block:16px 22px;} .picture-notes dd {font-size:13px;} .picture-tabs button {font-size:11px;padding:10px;} .project-slide-text {padding:20px;} .project-platforms {grid-template-columns:1fr;} }
 @media (prefers-reduced-motion:reduce) { .picture-layer,.picture-tabs button {transition:none;} }
+
+/* Budget the picture panel against the actual modal viewport, including both nav bars. */
+.gallery-header { min-height:48px; padding:10px 30px; }
+.gallery-projects { padding:8px 30px; }
+.gallery-nav { padding:10px 30px; }
+.picture-tabs { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; padding-bottom:3px; }
+.picture-tabs button { flex-shrink:0; }
+.picture-controls { padding-top:12px; }
+@media (min-width:1001px) {
+  .picture-story { height:var(--picture-panel-height); grid-template-rows:minmax(0,1fr) auto; padding:18px; gap:12px 30px; }
+  .picture-stage,.picture-portrait .picture-stage { height:100%; min-height:0; grid-column:1; grid-row:1/3; }
+  .picture-caption { grid-column:2; grid-row:1; align-self:center; min-height:0; }
+  .picture-controls { grid-column:2; grid-row:2; }
+  .picture-heading h4 { font-size:24px; }
+  .picture-description { font-size:14px; line-height:1.8; margin:14px 0 18px; }
+  .picture-notes { gap:14px; }
+  .picture-notes dd { font-size:13px; line-height:1.8; }
+  .picture-hint { margin-top:16px; }
+  .picture-layer { top:8px; height:calc(100% - 22px); }
+  .picture-layer-1 { top:16px; }
+  .picture-layer-2 { top:22px; }
+}
+@media (max-width:1000px) {
+  .picture-story { height:auto; gap:14px; }
+  .picture-stage,.picture-portrait .picture-stage { height:var(--picture-stage-height,480px); min-height:0; grid-row:1; }
+  .picture-controls { grid-row:2; }
+  .picture-caption { grid-row:3; padding-top:12px; }
+}
+
+/* Retain the atmospheric cloud scene and original ink, cream and gold palette. */
+.picture-story { background:rgba(255,253,246,.78); border-color:rgba(255,255,255,.65); backdrop-filter:blur(14px); color:#20283a; box-shadow:0 16px 55px #14203a12; }
+.picture-heading h4 { color:#20283a; }
+.picture-description,.picture-notes dd { color:#535b6b; }
+.picture-notes dt { color:#9c7128; }
+.picture-heading>span,.picture-hint { color:#6d7181; }
+.picture-tabs button,.picture-controls>button { color:#30384b; border-color:#78839835; background:#fffdfaaf; }
+.picture-tabs button[aria-pressed='true'] { background:#d7ad5a; border-color:#c59a49; color:#202738; }
+.picture-controls { border-color:#8b92a530; }
+.picture-layer { border-color:#bcb9ac55; background:#fffaf0; box-shadow:0 20px 42px #14203a25; }
+.picture-layer span { color:#525065; }
+.project-slide-text { background:rgba(255,253,246,.72); border-color:#ffffff80; backdrop-filter:blur(14px); color:#252c3b; }
+.project-slide-header + .project-slide-desc { color:#414a60; }
+.gallery-projects button[aria-pressed='true'] { background:#28334ae6; color:#f3e4bf; border-color:#d4ac6266; }
+.project-platforms article { background:#fffcf1aa; border-color:#bba66d44; }
+.project-platforms b { color:#9c7128; }
+.project-platforms p,.project-platform-note { color:#535b6b; }
