@@ -13,8 +13,16 @@ const origin=process.env.PORTFOLIO_URL||'http://127.0.0.1:8765';
   assert.equal(await story.locator('.picture-layer').count(),3,'Current image with two partial previews');
   assert.ok(await story.locator('[data-picture-index]').count()>=8);
   const before=await story.locator('[data-picture-title]').innerText();
-  const rear=await story.locator('.picture-layer-1').boundingBox();
-  await story.locator('.picture-layer-1').click({position:{x:rear.width-30,y:rear.height/2}});
+  await story.locator('.picture-stage').scrollIntoViewIfNeeded();
+  const rearPoint=await story.locator('.picture-stage').evaluate(stage=>{
+   const rect=stage.getBoundingClientRect(), target=stage.querySelector('.picture-layer-1');
+   for(let x=Math.min(rect.right,innerWidth)-8;x>rect.left;x-=8) for(let y=Math.max(rect.top,150)+20;y<Math.min(rect.bottom,innerHeight-100);y+=14) {
+    if(document.elementFromPoint(x,y)?.closest('button')===target)return {x,y};
+   }
+   return null;
+  });
+  assert.ok(rearPoint,'Rear screenshot has a clickable exposed preview');
+  await page.mouse.click(rearPoint.x,rearPoint.y);
   assert.notEqual(await story.locator('[data-picture-title]').innerText(),before);
   assert.ok((await story.locator('[data-picture-description]').innerText()).length>15);
   await story.locator('[data-picture-index]').nth(2).focus();
@@ -42,9 +50,17 @@ const origin=process.env.PORTFOLIO_URL||'http://127.0.0.1:8765';
   assert.match(await page.locator('.project-slide.active .project-slide-title').innerText(),/和生序/);
   assert.equal(await page.locator('.project-slide.active .project-platforms article').count(),2);
   await page.setViewportSize({width:1440,height:1000});
+  assert.equal(await story.evaluate(root=>getComputedStyle(root).position),'static','Pictures and project text use the same scroll flow');
+  assert.ok((await story.locator('.picture-description').innerText()).length+(await story.locator('.picture-notes').innerText()).length>150);
+  assert.equal(await page.locator('.project-slide.active .project-slide-body').evaluate(body=>body.firstElementChild.matches('.picture-story')),true,'Pictures precede long implementation details');
   await story.scrollIntoViewIfNeeded();
   await story.locator('.picture-layer-0 img').evaluate(img=>img.decode());
   await page.screenshot({path:'output/review/stacked-health-desktop.png'});
+  await page.locator('[data-gallery-project="1"]').click();
+  await story.scrollIntoViewIfNeeded();
+  const rendered=await story.locator('.picture-layer-0 img').evaluate(async img=>{await img.decode();const r=img.getBoundingClientRect();return Math.min(r.width,r.height*img.naturalWidth/img.naturalHeight);});
+  assert.ok(rendered>600,`Landscape screenshots are readable at ${rendered}px wide`);
+  await page.screenshot({path:'output/review/large-zhitu-desktop.png'});
   console.log('Stacked picture stories passed: complete primary image, partial previews, all maps/cards, descriptions, keyboard, mobile and integrated entry.');
  } finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

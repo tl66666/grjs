@@ -4,8 +4,9 @@
     const data = encodeURIComponent(JSON.stringify(items));
     return '<section class="picture-story" data-picture-story="'+escape(id)+'" data-picture-items="'+data+'" aria-label="项目界面与说明">' +
       '<div class="picture-stage" aria-label="当前图片与后续预览"></div>' +
-      '<div class="picture-heading"><h4 data-picture-title></h4><span data-picture-counter></span></div>' +
+      '<div class="picture-caption"><div class="picture-heading"><h4 data-picture-title></h4><span data-picture-counter></span></div>' +
       '<p class="picture-description" data-picture-description aria-live="polite"></p>' +
+      '<dl class="picture-notes"><div><dt>功能流程</dt><dd data-picture-flow></dd></div><div><dt>实现关注点</dt><dd data-picture-engineering></dd></div></dl><p class="picture-hint">点击后面的预览图切换 · 点击当前图放大</p></div>' +
       '<div class="picture-controls"><button type="button" data-picture-step="-1" aria-label="上一张图片">←</button><div class="picture-tabs" role="group" aria-label="选择项目图片">' +
       items.map((item,index) => '<button type="button" data-picture-index="'+index+'" aria-pressed="false">'+escape(item.label)+'</button>').join('') +
       '</div><button type="button" data-picture-step="1" aria-label="下一张图片">→</button></div></section>';
@@ -29,6 +30,8 @@
         }).reverse().join('');
         root.querySelector('[data-picture-title]').textContent=items[current].label;
         root.querySelector('[data-picture-description]').textContent=items[current].description;
+        root.querySelector('[data-picture-flow]').textContent=items[current].flow;
+        root.querySelector('[data-picture-engineering]').textContent=items[current].engineering;
         root.querySelector('[data-picture-counter]').textContent=String(current+1).padStart(2,'0')+' / '+String(items.length).padStart(2,'0');
         root.querySelectorAll('[data-picture-index]').forEach(button=>button.setAttribute('aria-pressed', String(Number(button.dataset.pictureIndex)===current)));
         if(restoreFocus) root.querySelector('[data-picture-index="'+current+'"]').focus({preventScroll:true});

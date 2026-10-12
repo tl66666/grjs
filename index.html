@@ -2266,7 +2266,7 @@
 
   </style>
   <link rel="stylesheet" href="assets/recruiter.css?v=20261012-story">
-  <link rel="stylesheet" href="assets/picture-story.css">
+  <link rel="stylesheet" href="assets/picture-story.css?v=reading-2">
 </head>
 <body>
   <a class="skip-link" href="#selected-work">跳到项目速览</a>
@@ -2674,7 +2674,7 @@
   <dialog class="media-preview" id="mediaPreview" aria-label="项目截图原图"><div class="media-preview-bar"><span id="mediaPreviewTitle">项目截图</span><button type="button" id="mediaPreviewClose" aria-label="关闭截图原图">关闭 ×</button></div><div class="media-preview-stage"><img id="mediaPreviewImage" alt=""></div><p>完整截图 · 可滚动查看 · ESC 关闭</p></dialog>
   <a class="back-top" href="#top" aria-label="返回首页">↑ 返回顶部</a>
 
-  <script src="assets/picture-story.js"></script>
+  <script src="assets/picture-story.js?v=reading-2"></script>
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -2694,6 +2694,16 @@
 
 /* ===== Cloud Entrance + Project Gallery ===== */
     var SCREEN_DESCRIPTIONS = {"onboarding.jpg": "引导页介绍产品与使用边界，首次建档为体重目标和后续健康记录提供上下文。", "home.jpg": "今日首页集中呈现健康目标、餐次、记录与序序相机入口，减少跨模块查找。", "health-records.jpg": "记录矩阵将体重、饮水、运动、睡眠、心情与照顾提醒组织为可进入的业务模块。", "weight-management.jpg": "体重管理展示目标差距、趋势与历史记录，支持回看每次录入的变化。", "food-catalog.jpg": "公共食物目录与个人食物库分层，支持食材搜索、营养查询和份量编辑。", "food-recognition.jpg": "序序相机识别菜品与可见食材，营养结果为估算，用户校正后再确认保存。", "xuxu-chat.jpg": "序序对话连接真实模型服务，用于健康记录解释和生活方式整理，服务端处理密钥和失败状态。", "plans.jpg": "计划中心把健康目标拆成可完成的日常事项，以记录支撑计划回顾。", "agent-local-desktop.webp": "无 API Key 的本地运行场景：求职 Agent 结合上下文调用业务工具并汇总行动优先级。", "agent-interview-questions.webp": "选择简历后生成定制面试题，展示 Agent 如何把简历上下文带入具体训练任务。", "overview.webp": "求职工作台汇总当前目标和各模块入口，把简历、面试与机会进展放在同一业务上下文中。", "resume-lab.png": "简历实验室提供编辑与求职内容整理入口，支持围绕目标岗位持续调整材料。", "pipeline.webp": "投递看板按阶段管理求职机会，连接投递进度、后续行动与复盘。", "opportunity-workspace.webp": "机会详情工作区集中组织岗位信息、机会状态与相关行动，便于连续跟进。", "interview.png": "面试训练界面呈现当前练习和训练结果，让出题、回答与复盘形成连续流程。", "landing.png": "职途 ZhiTu 的产品入口介绍简历、面试与投递三个主要场景，进入后体验业务模块。", "interview-training.png": "面试训练场将录音、识别、回答生成与语音播放分为可控状态，处理文字与语音交互。", "copilot.png": "求职 Copilot 结合简历上下文提供 JD 匹配、项目表达与问答任务。", "agent-workspace.png": "DreamChord Agent 工作区结合当前项目与创作上下文管理对话及待审核建议。", "editor-stage-continuity.png": "故事编辑器用章节、场景与镜头卡组织背景、角色和台词，连接编辑与舞台预览。", "agent-structured-import-1440.png": "Agent 将选中的正文草稿转换为结构化工作台补丁，经审核后再写入项目。", "flowchart-1440.png": "剧情流程图呈现场景间的分支关系，帮助作者检查去向与故事结构。", "asset-processing-1440.png": "素材工作室处理立绘、背景与衍生资源，让素材管理衔接剧情创作。", "audio-direction-editor-1440.png": "镜头卡音频演出将音乐与声音安排接入编辑流程，便于预览故事表现。", "agent-conversation-routing.png": "多对话路由管理不同创作会话，结合项目上下文组织 Agent 交互。", "map-home.png": "足迹地图以城市组织旅行记录，用户从地点进入照片、笔记与回忆。", "cards-catalog.png": "角色卡图鉴展示点亮地域后的收集反馈，作为记录旅行的辅助激励。", "album-empty.png": "城市相册空状态说明当前尚无照片，并引导用户开始上传和归档。", "group-active.png": "旅行小队空间呈现共享地图与团队记录，帮助成员在同一城市维度回看旅程。", "profile-passport.png": "个人护照档案汇总足迹、照片与旅程信息，用统一入口回看记录。", "group-empty.png": "群组空状态为尚未建立小队的用户提供下一步指引，不用假数据替代真实状态。", "planet-home.jpg": "自律星首页把每日目标与星球成长连接，直观呈现打卡进度和养成反馈。", "plan-center.jpg": "计划中心组织当天要完成的任务，为后续专注、提醒和打卡提供入口。", "growth.jpg": "星球成长将任务完成情况转成可见的养成反馈，让每日行动与长期目标建立联系。", "focus-mode.jpg": "专注模式提供沉浸计时与行动入口，减少完成任务过程中的界面干扰。", "digital-teacher.png": "音乐启蒙界面接入数字人老师与对话能力，连接知识讲解和互动学习。", "practice.png": "互动练习通过音符、节奏和即时反馈支持音乐基础学习。", "map-lantern.jpg": "第一关灯河梦鹿：水乡元宵灯会，梦鹿守护司梦之印，场景对应灯河锦囊。", "map-2-temple-fair.jpg": "第二关庙会神马：山门庙会大街，神马守护司福之印，场景对应金绸额福。", "map-3-blossom-creek.jpg": "第三关溪畔李白：桃花溪月夜，李白守护司诗之印，以醉步邀月展开探索。", "map-4-gallery-street.jpg": "第四关街市萌莎：字画古玩街，萌莎守护司画之印，场景结合画作与街市。", "card-menglu.jpg": "梦鹿角色详情卡包含红贝雷帽、金丝圆镜、旗袍斗篷，以及表情和多视角设定。", "card-2-shenma.jpg": "神马角色详情卡展示红唐装、金绸、额印与飘带，并整理表情和服饰细节。", "card-3-libai.jpg": "李白角色详情卡以白袍、墨镜和竹扇演绎醉步邀月，附表情与配饰细节。", "card-4-mengsha.jpg": "萌莎角色详情卡保留油画质感、深裙金边、头纱和鸢尾纹章，并呈现表情设定。"};
+    var PICTURE_CONTEXT = [
+      { flow: '从引导与建档进入今日首页，再选择饮食、体重、计划或对话；记录与查询围绕日常健康管理展开。', engineering: '微信小程序与 Android App 共用 uni-app 业务代码及 NestJS API，按平台适配身份与图片读取。模型结果保留用户确认和失败状态。' },
+      { flow: '从简历版本出发，进入 JD 匹配、面试训练与投递记录；文字或语音交互围绕当前求职材料展开。', engineering: '本人负责 Vue 3 前端与接口联调，SSE 呈现生成进度，面试状态机组织录音、识别、生成和播放；Go 后端由队友完成。' },
+      { flow: '围绕职业目标选择简历、分析岗位、生成面试练习，再把机会跟进与复盘转为待执行行动。', engineering: 'FastAPI 与 React 工作台连接上下文、分层记忆和结构化工具；工具预算、参数校验和写入确认限制执行范围，缺少模型 Key 时保留本地规则流程。' },
+      { flow: '从章节与场景组织剧情，用镜头卡安排背景、角色和台词；流程图、素材工作室与 Agent 提案辅助编辑，再通过播放器预览。', engineering: 'React 编辑器与 Express / Prisma 持久化协作，剧情分支、素材处理和可审核补丁各有独立边界；Agent 的建议经预览与确认后写入。' },
+      { flow: '在地图选择城市，按地点归档照片和笔记；个人护照回看足迹，小队空间汇总共同的旅行记录。', engineering: '微信小程序将城市、相册与群组关系连接到云存储和数据操作。空状态提供下一步入口，图片上传结合内容安全审核。' },
+      { flow: '建立每日计划，进入专注计时并完成打卡；奖励、成就与星球成长提供行动反馈，再通过统计回顾完成情况。', engineering: '六类目标对应生态区成长，奖励与进度规则使用 Node.js Test Runner 检查；本地兜底与云函数同步配合数据复盘。' },
+      { flow: '通过老师对话了解音乐知识，进入音符、节奏或听音练习，用即时声音反馈巩固学习，再回看进度。', engineering: 'Web Audio 承载音符与节奏反馈，模型 API 与 NuwaAI 数字人提供交互入口；练习逻辑和平台能力分别组织。' },
+      { flow: '选择一幕古镇场景，以手势或鼠标控制光晕寻找灵杰；停留充能后解锁角色卡，逐关集印，进入幸运转盘与结局。', engineering: '统一输入层连接 MediaPipe 和鼠标驱动，目标轨迹、容差与进度衰减管理命中；Canvas、视频、配音和 Web Audio 共同呈现探索反馈。' }
+    ];
     var PROJECT_DATA = [
       {
         name: '和生序',
@@ -2974,7 +2984,7 @@
         var storyItems = project.media.filter(function(m) {
           return m.type === 'image' && (m !== heroItem || (project.name !== '和生序' && project.name !== '灯影古镇'));
         }).map(function(m) {
-          return { src: m.src, label: m.label, previewTitle: project.name + " · " + m.label, orientation: m.orientation, description: m.description || SCREEN_DESCRIPTIONS[m.src.split('/').pop()] || (project.name + '的' + m.label + '界面：结合当前项目功能与操作入口展示实际使用流程，可切换其他图片比较不同模块。') };
+          return { src: m.src, label: m.label, previewTitle: project.name + " · " + m.label, orientation: m.orientation, flow: PICTURE_CONTEXT[index].flow, engineering: PICTURE_CONTEXT[index].engineering, description: m.description || SCREEN_DESCRIPTIONS[m.src.split('/').pop()] || (project.name + '的' + m.label + '界面：结合当前项目功能与操作入口展示实际使用流程，可切换其他图片比较不同模块。') };
         });
         var galleryHtml = PictureStory.render(storyItems, 'project-' + index);
 
@@ -3010,9 +3020,10 @@
             '<div class="project-slide-kicker">' + project.kicker + '</div>' +
             '<h3 class="project-slide-title">' + project.name + '</h3>' +
           '</div>' +
+          '<p class="project-slide-desc">' + project.desc + '</p>' +
           '<div class="project-slide-body">' +
+            galleryHtml +
             '<div class="project-slide-text">' +
-              '<p class="project-slide-desc">' + project.desc + '</p>' +
               '<div class="project-ownership"><b>本人职责</b>' + ownership + '</div>' +
               noteHtml +
               detailsHtml +
@@ -3020,7 +3031,6 @@
               '<div class="project-slide-links">' + linksHtml + '</div>' +
               qrHtml +
             '</div>' +
-            galleryHtml +
           '</div>' +
         '</div>';
       }).join('');
