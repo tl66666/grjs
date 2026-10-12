@@ -101,4 +101,7 @@
   addEventListener('scroll', () => { if (!pendingFrame) { pendingFrame = true; requestAnimationFrame(updateReading); } }, { passive: true });
   addEventListener('resize', updateReading);
   updateReading();
+  const requestedProject = new URLSearchParams(location.search).get('project');
+  const projectIndex = { health:0, zhitu:1, agent:2, dream:3, city:4, planet:5, music:6, lantern:7 }[requestedProject];
+  if (projectIndex !== undefined) window.enterGallery(projectIndex);
 })();
