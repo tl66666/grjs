@@ -2229,6 +2229,20 @@
       background: transparent;
     }
 
+    .project-slide-heshengxu .project-slide-kicker { color: #345b4a; }
+    @media (max-width:1000px) {
+      .project-slide-heshengxu .picture-story { grid-template-columns: minmax(0,1fr); }
+      .project-slide-heshengxu .picture-stage, .project-slide-heshengxu .picture-caption, .project-slide-heshengxu .picture-controls { min-width: 0; }
+    }
+
+    #work-health .heshengxu-edition { margin: 0 0 18px; color: #456448; font-size: 12px; line-height: 1.7; }
+    #work-health .work-apk { padding: 9px 12px; border: 1px solid #45644844; border-radius: 6px; background: #e9eddf; color: #2e5236; }
+    #work-health .work-apk:hover { background: #dae5cf; }
+    #work-health .heshengxu-apk-meta { margin: 12px 0 0; color: #62695d; font-size: 11px; line-height: 1.7; }
+    .project-slide-heshengxu .heshengxu-focus b { display: block; color: #456448; font-size: 14px; }
+    .project-slide-heshengxu .heshengxu-focus p { margin: 8px 0 18px; }
+    .project-slide-heshengxu .heshengxu-focus p:last-child { margin-bottom: 0; }
+
     /* Responsive */
     @media (max-width: 768px) {
       .experience-section .wrap,
@@ -2324,10 +2338,12 @@
         <div class="work-toolbar" role="group" aria-label="按项目方向筛选"><button class="work-filter" type="button" data-filter="all" aria-pressed="true">全部作品</button><button class="work-filter" type="button" data-filter="ai" aria-pressed="false">AI / Agent</button><button class="work-filter" type="button" data-filter="frontend" aria-pressed="false">前端协作</button><button class="work-filter" type="button" data-filter="mini" aria-pressed="false">微信小程序</button><button class="work-filter" type="button" data-filter="creative" aria-pressed="false">创作与学习</button><button class="work-filter" type="button" data-filter="game" aria-pressed="false">互动游戏</button><span class="work-count" id="workCount" role="status" aria-live="polite">8 / 8 个作品</span></div>
         <div class="work-grid">
           <article class="work-card reveal" id="work-health" data-category="ai mini">
-            <div class="work-cover"><img src="assets/portfolio/heshengxu/food-recognition.jpg" alt="和生序项目界面" loading="lazy" width="640" height="400"><span class="work-number">01</span></div>
-            <div class="work-copy"><p class="work-label">01 / AI APPLICATION · 微信小程序 × APP</p><h3>和生序</h3><p class="work-problem">饮食记录需要在识别结果与实际摄入之间保留用户确认。</p>
-              <dl class="work-facts"><div><dt>本人职责</dt><dd>独立开发：产品流程、uni-app 双端、API、数据模型、模型接入与部署。</dd></div><div><dt>实现重点</dt><dd>照片 → 服务端模型代理 → 食材及营养估算 → 用户校正 → 保存；密钥保留在服务端。</dd></div><div><dt>运行方式与边界</dt><dd>微信小程序 / Android App；共用客户端与 API，按平台适配登录；营养估算供用户核对。</dd></div></dl>
-              <p class="work-tags">Vue · uni-app · NestJS · Prisma · PostgreSQL</p><div class="work-links"><a href="https://tl66666.github.io/heshengxu-health/" target="_blank" rel="noopener">项目展示 ↗</a><a class="work-source" href="https://github.com/tl66666/heshengxu-health" target="_blank" rel="noopener">源码 ↗</a><button class="work-open" type="button" data-open-project="0" aria-label="查看和生序截图与实现细节">项目详情 →</button><a class="work-qr" href="assets/portfolio/heshengxu/qrcode.jpg" data-preview-src="assets/portfolio/heshengxu/qrcode.jpg" data-preview-kind="qr" data-preview-title="和生序 · 微信小程序码" aria-label="放大和生序小程序码">小程序码 ↗</a></div>
+            <div class="work-cover"><img src="assets/portfolio/heshengxu/library-20261013.jpg" alt="和生序五主题生活书柜 · 新版产品界面" loading="lazy" width="390" height="844"><span class="work-number">01</span></div>
+            <div class="work-copy"><p class="work-label">01 / AI APPLICATION · 微信小程序 × APP</p><h3>和生序</h3><p class="work-problem">从生活书柜，到身体养成：把阅读、日常记录与下一步行动连起来。</p>
+              <p class="heshengxu-edition">五主题书柜 · 40 篇实践指南 + 8 章薄肌圣经</p>
+              <dl class="work-facts"><div><dt>本人职责</dt><dd>独立开发：产品流程、uni-app 双端、API、数据模型、模型接入与部署。</dd></div><div><dt>实现重点</dt><dd>阅读进度与收藏、三步行动及复盘；薄肌今日 / 训练 / 评分 / 圣经；AI 识别经用户校正后保存。</dd></div><div><dt>运行方式与边界</dt><dd>微信小程序 / Android App；49,479 条食物目录；评分只与自己比较，缺记录保留区间。</dd></div></dl>
+              <p class="work-tags">Vue · uni-app · NestJS · Prisma · PostgreSQL</p><div class="work-links"><a class="work-apk" href="https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk?v=20261013" target="_blank" rel="noopener" aria-label="下载和生序 2026 年 10 月 13 日更新的 Android 测试包，15.02 MiB">10·13 最新 APK ↓</a><button class="work-open" type="button" data-open-project="0" aria-label="查看和生序截图与实现细节">项目详情 →</button><a href="https://tl66666.github.io/heshengxu-health/" target="_blank" rel="noopener">项目展示 ↗</a><a class="work-source" href="https://github.com/tl66666/heshengxu-health" target="_blank" rel="noopener">源码 ↗</a><a class="work-qr" href="assets/portfolio/heshengxu/qrcode.jpg" data-preview-src="assets/portfolio/heshengxu/qrcode.jpg" data-preview-kind="qr" data-preview-title="和生序 · 微信小程序码" aria-label="放大和生序小程序码">小程序码 ↗</a></div>
+              <p class="heshengxu-apk-meta">Android 测试包 · 2026.10.13 更新 · 0.1.0 · 15.02 MiB</p>
             </div>
           </article>
           <article class="work-card reveal" id="work-agent" data-category="ai">
@@ -2695,7 +2711,7 @@
 /* ===== Cloud Entrance + Project Gallery ===== */
     var SCREEN_DESCRIPTIONS = {"onboarding.jpg": "引导页介绍产品与使用边界，首次建档为体重目标和后续健康记录提供上下文。", "home.jpg": "今日首页集中呈现健康目标、餐次、记录与序序相机入口，减少跨模块查找。", "health-records.jpg": "记录矩阵将体重、饮水、运动、睡眠、心情与照顾提醒组织为可进入的业务模块。", "weight-management.jpg": "体重管理展示目标差距、趋势与历史记录，支持回看每次录入的变化。", "food-catalog.jpg": "公共食物目录与个人食物库分层，支持食材搜索、营养查询和份量编辑。", "food-recognition.jpg": "序序相机识别菜品与可见食材，营养结果为估算，用户校正后再确认保存。", "xuxu-chat.jpg": "序序对话连接真实模型服务，用于健康记录解释和生活方式整理，服务端处理密钥和失败状态。", "plans.jpg": "计划中心把健康目标拆成可完成的日常事项，以记录支撑计划回顾。", "agent-local-desktop.webp": "无 API Key 的本地运行场景：求职 Agent 结合上下文调用业务工具并汇总行动优先级。", "agent-interview-questions.webp": "选择简历后生成定制面试题，展示 Agent 如何把简历上下文带入具体训练任务。", "overview.webp": "求职工作台汇总当前目标和各模块入口，把简历、面试与机会进展放在同一业务上下文中。", "resume-lab.png": "简历实验室提供编辑与求职内容整理入口，支持围绕目标岗位持续调整材料。", "pipeline.webp": "投递看板按阶段管理求职机会，连接投递进度、后续行动与复盘。", "opportunity-workspace.webp": "机会详情工作区集中组织岗位信息、机会状态与相关行动，便于连续跟进。", "interview.png": "面试训练界面呈现当前练习和训练结果，让出题、回答与复盘形成连续流程。", "landing.png": "职途 ZhiTu 的产品入口介绍简历、面试与投递三个主要场景，进入后体验业务模块。", "interview-training.png": "面试训练场将录音、识别、回答生成与语音播放分为可控状态，处理文字与语音交互。", "copilot.png": "求职 Copilot 结合简历上下文提供 JD 匹配、项目表达与问答任务。", "agent-workspace.png": "DreamChord Agent 工作区结合当前项目与创作上下文管理对话及待审核建议。", "editor-stage-continuity.png": "故事编辑器用章节、场景与镜头卡组织背景、角色和台词，连接编辑与舞台预览。", "agent-structured-import-1440.png": "Agent 将选中的正文草稿转换为结构化工作台补丁，经审核后再写入项目。", "flowchart-1440.png": "剧情流程图呈现场景间的分支关系，帮助作者检查去向与故事结构。", "asset-processing-1440.png": "素材工作室处理立绘、背景与衍生资源，让素材管理衔接剧情创作。", "audio-direction-editor-1440.png": "镜头卡音频演出将音乐与声音安排接入编辑流程，便于预览故事表现。", "agent-conversation-routing.png": "多对话路由管理不同创作会话，结合项目上下文组织 Agent 交互。", "map-home.png": "足迹地图以城市组织旅行记录，用户从地点进入照片、笔记与回忆。", "cards-catalog.png": "角色卡图鉴展示点亮地域后的收集反馈，作为记录旅行的辅助激励。", "album-empty.png": "城市相册空状态说明当前尚无照片，并引导用户开始上传和归档。", "group-active.png": "旅行小队空间呈现共享地图与团队记录，帮助成员在同一城市维度回看旅程。", "profile-passport.png": "个人护照档案汇总足迹、照片与旅程信息，用统一入口回看记录。", "group-empty.png": "群组空状态为尚未建立小队的用户提供下一步指引，不用假数据替代真实状态。", "planet-home.jpg": "自律星首页把每日目标与星球成长连接，直观呈现打卡进度和养成反馈。", "plan-center.jpg": "计划中心组织当天要完成的任务，为后续专注、提醒和打卡提供入口。", "growth.jpg": "星球成长将任务完成情况转成可见的养成反馈，让每日行动与长期目标建立联系。", "focus-mode.jpg": "专注模式提供沉浸计时与行动入口，减少完成任务过程中的界面干扰。", "digital-teacher.png": "音乐启蒙界面接入数字人老师与对话能力，连接知识讲解和互动学习。", "practice.png": "互动练习通过音符、节奏和即时反馈支持音乐基础学习。", "map-lantern.jpg": "第一关灯河梦鹿：水乡元宵灯会，梦鹿守护司梦之印，场景对应灯河锦囊。", "map-2-temple-fair.jpg": "第二关庙会神马：山门庙会大街，神马守护司福之印，场景对应金绸额福。", "map-3-blossom-creek.jpg": "第三关溪畔李白：桃花溪月夜，李白守护司诗之印，以醉步邀月展开探索。", "map-4-gallery-street.jpg": "第四关街市萌莎：字画古玩街，萌莎守护司画之印，场景结合画作与街市。", "card-menglu.jpg": "梦鹿角色详情卡包含红贝雷帽、金丝圆镜、旗袍斗篷，以及表情和多视角设定。", "card-2-shenma.jpg": "神马角色详情卡展示红唐装、金绸、额印与飘带，并整理表情和服饰细节。", "card-3-libai.jpg": "李白角色详情卡以白袍、墨镜和竹扇演绎醉步邀月，附表情与配饰细节。", "card-4-mengsha.jpg": "萌莎角色详情卡保留油画质感、深裙金边、头纱和鸢尾纹章，并呈现表情设定。"};
     var PICTURE_CONTEXT = [
-      { flow: '从引导与建档进入今日首页，再选择饮食、体重、计划或对话；记录与查询围绕日常健康管理展开。', engineering: '微信小程序与 Android App 共用 uni-app 业务代码及 NestJS API，按平台适配身份与图片读取。模型结果保留用户确认和失败状态。' },
+      { flow: '从今日首页进入生活书柜或薄肌中心；阅读后选行动日期、完成三步清单并复盘，训练与饮食等记录支撑自己的阶段回看。', engineering: '微信小程序与 Android App 共用 uni-app 业务代码及 NestJS API，分别适配登录与图片读取；阅读和行动采用本地状态，评分不混入阅读数据，模型估算经用户校正后保存。' },
       { flow: '从简历版本出发，进入 JD 匹配、面试训练与投递记录；文字或语音交互围绕当前求职材料展开。', engineering: '本人负责 Vue 3 前端与接口联调，SSE 呈现生成进度，面试状态机组织录音、识别、生成和播放；Go 后端由队友完成。' },
       { flow: '围绕职业目标选择简历、分析岗位、生成面试练习，再把机会跟进与复盘转为待执行行动。', engineering: 'FastAPI 与 React 工作台连接上下文、分层记忆和结构化工具；工具预算、参数校验和写入确认限制执行范围，缺少模型 Key 时保留本地规则流程。' },
       { flow: '从章节与场景组织剧情，用镜头卡安排背景、角色和台词；流程图、素材工作室与 Agent 提案辅助编辑，再通过播放器预览。', engineering: 'React 编辑器与 Express / Prisma 持久化协作，剧情分支、素材处理和可审核补丁各有独立边界；Agent 的建议经预览与确认后写入。' },
@@ -2707,37 +2723,41 @@
     var PROJECT_DATA = [
       {
         name: '和生序',
-        kicker: '微信小程序 × Android App · AI 健康管理',
+        kicker: '从生活书柜，到身体养成 · 微信小程序 × Android App',
         platforms: [
           { title: '微信小程序', description: '微信扫码进入，wx.login 获取身份；微信文件系统读取图片，客户端编译为 mp-weixin。' },
-          { title: 'Android App', description: '账号 / 密码登录，原生文件 API 读取图片；HBuilderX 云打包，提供 Android 测试安装包。' }
+          { title: 'Android App · 10 月 13 日更新', description: '账号 / 密码登录，原生文件 API 读取图片。测试 APK：0.1.0（code 100），15.02 MiB，2026.10.13 18:20 生成。点击下方下载入口，在 Android 浏览器中保存并打开；按系统提示允许该来源安装。此轮更新沿用 0.1.0 版本号。' }
         ],
         accent: '#75d0a6',
         media: [
           { type: 'image', src: 'assets/portfolio/heshengxu/hero.jpg', label: '双端品牌首屏', hero: true },
-          { type: 'image', src: 'assets/portfolio/heshengxu/onboarding.jpg', label: '初次见面 · 引导建档', orientation: 'portrait' },
-          { type: 'image', src: 'assets/portfolio/heshengxu/home.jpg', label: '健康首页', orientation: 'portrait' },
-          { type: 'image', src: 'assets/portfolio/heshengxu/food-recognition.jpg', label: '序序相机识别', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/library-20261013.jpg', label: '五主题生活书柜', orientation: 'portrait', description: '薄肌圣经、孙学视角、大水理论、Codex 实践、高性价比人生，按主题整理成书柜。40 篇实践指南另加 8 章薄肌圣经，支持继续阅读和收藏。2026 年 10 月新版产品界面。' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/lean-hub-20261013.jpg', label: '薄肌今日 · 概览与入口', orientation: 'portrait', description: '薄肌今日呈现当天概览，并连接训练、评分与圣经；当前页面的评分显示待开启，用户可以先记录自己的训练与日常。2026 年 10 月新版产品界面。' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/bible-directory-20261013.jpg', label: '薄肌圣经 · 书封与目录', orientation: 'portrait', description: '薄肌圣经以书封与章节目录组织 8 章内容，从目录选择当前想读的部分，逐章了解训练与生活方式。2026 年 10 月新版产品界面。' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/bible-reader-20261013.jpg', label: '认识薄肌 · 纸张阅读', orientation: 'portrait', description: '“认识薄肌”章节使用纸张式阅读界面，支持阅读进度、收藏、字号调整和前后章节切换，让内容可以接着读。2026 年 10 月新版产品界面。' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/home-20261013.jpg', label: '首页 · 日常追踪与版本答案', orientation: 'portrait', description: '首页下方集中组织日常追踪和版本答案入口，连接已有健康记录与生活方式内容，便于从自己的日常出发选择下一步。2026 年 10 月新版产品界面。' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/food-recognition.jpg', label: '序序相机 · 识别与校正', orientation: 'portrait' },
+          { type: 'image', src: 'assets/portfolio/heshengxu/food-catalog.jpg', label: '49,479 条食物目录', orientation: 'portrait' },
           { type: 'image', src: 'assets/portfolio/heshengxu/health-records.jpg', label: '健康记录矩阵', orientation: 'portrait' },
           { type: 'image', src: 'assets/portfolio/heshengxu/weight-management.jpg', label: '体重趋势与历史', orientation: 'portrait' },
-          { type: 'image', src: 'assets/portfolio/heshengxu/food-catalog.jpg', label: '食物目录', orientation: 'portrait' },
-          { type: 'image', src: 'assets/portfolio/heshengxu/xuxu-chat.jpg', label: '序序 AI 对话', orientation: 'portrait' }
-,
+          { type: 'image', src: 'assets/portfolio/heshengxu/xuxu-chat.jpg', label: '序序 AI 对话', orientation: 'portrait' },
           { type: 'image', src: 'assets/portfolio/heshengxu/plans.jpg', label: '我的健康计划', orientation: 'portrait' }
         ],
-        desc: '从产品定义、交互设计到云端部署的 AI 健康管理产品，同时覆盖微信小程序与 App。它把饮食、体重、饮水、运动、睡眠、心情、计划和序序陪伴组织成真实可用的日常闭环。',
+        desc: '和生序把生活方式阅读、身体训练与健康记录放在同一个产品里。五主题书柜帮助用户读懂方法，薄肌中心把方法接到今日安排、训练和复盘；序序相机与食物目录继续支撑饮食记录。独立完成产品设计、uni-app 双端、API 接入、数据模型与部署。',
         tags: ['Vue 3','uni-app','TypeScript','NestJS','Prisma','PostgreSQL','Docker','Azure Container Apps','CloudBase','GLM 视觉模型'],
-        note: 'AI 不是装饰：序序相机能识别组合菜品、拆分可见食材、估算份量和营养并由用户确认；序序聊天接入真实模型服务，客户端不保存密钥，失败时有明确降级状态。',
+        note: '<div class="heshengxu-focus"><b>阅读 → 行动 → 回看</b><p>五主题书柜有 40 篇实践指南，另有 8 章薄肌圣经。阅读进度、收藏和字号让内容更容易接着读；行动日期、三步清单与复盘让方法有处落地。</p><b>评分只与自己比较</b><p>训练 35 / 饮食 25 / 恢复 25 / 进步 15。缺少记录时保留分数区间，不把未知补成低分；阅读不计入评分，也不对外形或医疗状况打分。</p></div>',
         link: { url: 'https://tl66666.github.io/heshengxu-health/', label: '查看项目' },
         github: 'https://github.com/tl66666/heshengxu-health',
-        download: 'https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk',
+        download: 'https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk?v=20261013',
         qr: { img: 'assets/portfolio/heshengxu/qrcode.jpg', title: '微信小程序码', subtitle: '微信扫一扫体验和生序' },
         details: [
-          '构建微信小程序与 App 共用的 uni-app 客户端，完成健康档案、体重、饮食、饮水、运动、睡眠、心情、生理期、用药、轻断食和计划等真实记录链路。',
-          'AI 视觉链路由客户端图片读取、服务端安全上传、GLM 视觉理解、组合菜品拆分、份量营养估算和用户确认组成；识别结果可保存到个人食物库，原始照片保存在用户设备。',
-          '服务端使用 NestJS + Prisma + PostgreSQL 处理用户隔离、健康记录、49,479 条食物目录、AI 对话代理和识别结果；Docker 镜像部署到 Azure Container Apps，数据与密钥不放在客户端。',
-          '产品设计强调可解释与可回退：模型不可用时展示具体失败原因，用户可以修改 AI 结果；聊天自动滚动到最新回复，关键记录在首页实时汇总。',
-          '独立完成需求拆解、视觉系统、页面实现、API 接入、数据模型、构建发布、Android 打包和 GitHub Pages 项目展示。'
+          '五主题书柜：薄肌圣经、孙学视角、大水理论、Codex 实践、高性价比人生。40 篇实践指南与 8 章薄肌圣经分开组织，支持阅读进度、收藏、字号和前后章节；文章连接行动日期、三步清单与执行复盘。',
+          '薄肌中心分为今日、训练、评分、圣经四区。评分由训练 35、饮食 25、恢复 25、进步 15 组成；展示记录覆盖率，缺记录保留区间，只比较自己的变化。阅读独立于评分，结果不是外形或医疗评分。',
+          'AI 视觉链路包含客户端图片读取、服务端安全上传、GLM 视觉理解、组合菜品拆分、份量及营养估算与用户校正；确认后保存记录或个人食物，原始照片保存在用户设备。模型不可用时展示失败状态。',
+          'NestJS + Prisma + PostgreSQL 处理用户隔离、健康记录、49,479 条食物目录与 AI 对话代理。公共目录与个人食物分层，目录条数描述数据范围，营养估算仍需用户核对。',
+          '微信小程序通过 wx.login 获取身份，Android App 使用账号 / 密码登录；同一套 uni-app 业务代码与 API 按平台适配图片读取。健康档案、体重、饮食、饮水、运动、睡眠、心情和计划各有记录入口。',
+          'Docker 镜像部署到 Azure Container Apps，模型密钥由服务端管理；CloudBase 承载项目图片资源。阅读、收藏和行动等本地状态按设备保存，部分记录尚不支持跨设备同步。',
+          '2026 年 10 月 13 日更新 Android 测试 APK：0.1.0（code 100），15.02 MiB。本次更新展示五张新版产品界面；双端入口、图片与源码均可从本页查看。'
         ]
       },
       {
