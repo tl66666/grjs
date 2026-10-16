@@ -30,7 +30,7 @@
 
 | 作品 | 场景与实现重点 | 本人贡献 | 体验 / 源码 |
 | --- | --- | --- | --- |
-| **和生序** | 五主题生活书柜、薄肌今日 / 训练 / 评分 / 圣经；AI 饮食识别与用户校正，微信小程序和 Android App 共用 API | 独立开发：产品流程、uni-app 双端、NestJS API、数据模型、模型接入、部署与 Android 打包 | [双端详情](https://grjs.tl666.tech/index.html?project=health#projects) / [10·13 最新 APK](https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk?v=20261013) / [源码](https://github.com/tl66666/heshengxu-health) |
+| **和生序** | AI 饮食识别与用户校正、体重与日常健康记录、计划和序序陪伴；新增五主题书柜、薄肌训练与评分，微信小程序和 Android App 共用 API | 独立开发：产品流程、uni-app 双端、NestJS API、数据模型、模型接入、部署与 Android 打包 | [双端详情](https://grjs.tl666.tech/index.html?project=health#projects) / [10·16 最新 APK](https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk?v=20261016-92cca36e) / [源码](https://github.com/tl66666/heshengxu-health) |
 | **职途 AI Agent** | 本地求职工作台；上下文、分层记忆、22 个结构化工具、写入前确认与回执 | 独立开发：React、FastAPI 及有界 Tool-Calling Runtime | [展示](https://tl66666.github.io/ztai/static/showcase.html) / [源码](https://github.com/tl66666/ztai) |
 | **职途 ZhiTu** | 写简历、练面试、追投递；版本管理、SSE 流式、语音交互与 7 状态面试流程 | 本人负责全部前端与接口联调；Go / Gin / GORM 后端由队友完成 | [在线产品](https://zhitu.kralai.tech/) / [源码](https://github.com/tl66666/zhitu) |
 | **梦弦 DreamChord** | 视觉小说创作；章节 / 场景 / 镜头卡、剧情流程图、素材处理与可审核 Agent 补丁 | 独立开发：React 编辑器、Express 服务、素材与播放器、Agent 工作流 | [展示](https://tl66666.github.io/DreamChord/) / [源码](https://github.com/tl66666/DreamChord) |
@@ -49,7 +49,7 @@
 
 双端分别适配微信身份与账号 / 密码登录，NestJS API 部署在 Azure Container Apps，CloudBase 承载图片资源；阅读、收藏和行动等本地状态按设备保存，部分记录尚不支持跨设备同步。详情采用用户提供的五张新版产品界面，按生活书柜、薄肌今日、圣经目录、纸张阅读、首页追踪与版本答案入口的顺序展示；评分与行动功能另以文字说明。
 
-[下载 10 月 13 日更新的 Android 测试包](https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk?v=20261013)：0.1.0（code 100），15.02 MiB，2026.10.13 18:20 生成，此轮沿用原版本号。用 Android 浏览器保存并打开 APK，按系统提示允许该来源安装。
+[下载 10 月 16 日更新的 Android 测试包](https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk?v=20261016-92cca36e)：0.1.0（code 100），15.02 MiB，2026.10.16 17:04 生成，此轮沿用原版本号。用 Android 浏览器保存并打开 APK，按系统提示允许该来源安装。
 
 ## 工程实践
 
