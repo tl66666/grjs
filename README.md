@@ -33,7 +33,7 @@
 | **和生序** | AI 饮食识别与用户校正、体重与日常健康记录、计划和序序陪伴；新增五主题书柜、薄肌训练与评分，微信小程序和 Android App 共用 API | 独立开发：产品流程、uni-app 双端、NestJS API、数据模型、模型接入、部署与 Android 打包 | [双端详情](https://grjs.tl666.tech/index.html?project=health#projects) / [10·16 最新 APK](https://github.com/tl66666/heshengxu-health/raw/refs/heads/main/assets/showcase/heshengxu-android.apk?v=20261016-92cca36e) / [源码](https://github.com/tl66666/heshengxu-health) |
 | **职途 AI Agent** | 本地求职工作台；上下文、分层记忆、22 个结构化工具、写入前确认与回执 | 独立开发：React、FastAPI 及有界 Tool-Calling Runtime | [展示](https://tl66666.github.io/ztai/static/showcase.html) / [源码](https://github.com/tl66666/ztai) |
 | **职途 ZhiTu** | 写简历、练面试、追投递；版本管理、SSE 流式、语音交互与 7 状态面试流程 | 本人负责全部前端与接口联调；Go / Gin / GORM 后端由队友完成 | [在线产品](https://zhitu.kralai.tech/) / [源码](https://github.com/tl66666/zhitu) |
-| **梦弦 DreamChord** | 视觉小说创作；章节 / 场景 / 镜头卡、剧情流程图、素材处理与可审核 Agent 补丁 | 独立开发：React 编辑器、Express 服务、素材与播放器、Agent 工作流 | [展示](https://tl66666.github.io/DreamChord/) / [源码](https://github.com/tl66666/DreamChord) |
+| **梦弦 DreamChord** | 视觉小说创作；角色声音库、自动中日配音、镜头卡、分支试玩与可审核 Agent | 独立开发：编辑器、声音与素材库、本机模型接入、持久化、播放器和验证 | [声音与项目详解](https://grjs.tl666.tech/project-dreamchord.html) / [项目图集](https://grjs.tl666.tech/index.html?project=dream#projects) / [源码](https://github.com/tl66666/DreamChord) |
 | **城会玩 2.0** | 按城市归档旅行照片、笔记与足迹，支持小队共享 | 独立开发：微信小程序、地图、云存储、归档和共享流程 | [展示 / 小程序码](https://tl66666.github.io/chw2.0/) / [源码](https://github.com/tl66666/chw2.0) |
 | **星途自律舱** | 六类目标、自律打卡、星球成长、奖励与数据复盘 | 独立开发：计划、专注、成长规则、成就与统计模块 | [展示 / 小程序码](https://tl66666.github.io/xtzlc/) / [源码](https://github.com/tl66666/xtzlc) |
 | **乐启星 LQX** | 音乐启蒙；音符与节奏练习、模型对话、数字人平台接入 | 独立开发：Web Audio 练习、学习进度、API 与数字人交互 | [在线体验](https://lqx-266.pages.dev/) / [源码](https://github.com/tl66666/lqx) |
