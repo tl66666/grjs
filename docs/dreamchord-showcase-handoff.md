@@ -7,6 +7,6 @@
 - 页面没有登录信息、API Key、数据库或模型权重；声音需用户点击才播放，同时只播放一条。
 - 项目代码与界面应在 DreamChord 仓库维护，本仓库只同步展示与经过验证的当前能力。不要把公开播放器描述成实时 TTS；当前自动合成发生在本机编辑器打开期间。
 - 当前仓库已有与本任务无关的删除和未跟踪文件。提交展示时只暂存明确的 DreamChord 页面、README、对应新媒体和本交接文件，不包含其他改动。
-- 简历使用作者 2026-10-29 提供的原始 `唐乐-简历.pdf`，不重排或修改内容。根目录下载入口与 `assets/tangle-resume.pdf` 兼容副本字节一致，SHA256 为 `0d0e0d9f860fbe95579f04b6d61fc189f3598dbc83910892eee628ce57abd382`，首页链接按新哈希刷新缓存。
+- 简历使用作者 2026-10-29 提供的原始 `唐乐-简历.pdf`（当日第二次更新：纷享销客改为新 CRM 交付写法、邦彦改为设计开发口径），不重排或修改内容。根目录下载入口与 `assets/tangle-resume.pdf` 兼容副本字节一致，SHA256 为 `002bd3aadd5302de61757c65158d7fe08fe7ae221e1378e5b4efad939bfbb4e4`，首页链接按新哈希刷新缓存。
 
 验证：`node tests/project-navigation.test.cjs`、`node tests/recruiter-portfolio.test.cjs`，以及桌面 / 手机的独立详解页和声音播放、截图放大。测试需要本地 8765 静态预览及已有 Playwright 运行环境。
