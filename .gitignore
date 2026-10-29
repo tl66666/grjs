@@ -18,3 +18,11 @@ Desktop.ini
 output/
 .uploads/
 tmp/
+
+# 本地工具产物
+.trae-html-share-packages/
+
+# 个人求职材料（仅本地留存，不上传网站仓库）
+唐乐-求职综合展示.pptx
+唐乐-辅助证明材料.pdf
+参赛证书_唐乐.png
